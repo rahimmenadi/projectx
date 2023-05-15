@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./sing-up copy.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+    />
+  </head>
+  <body>
+    <div class="sing-up2">
+      <div class="get-started1">
+        <div class="anime">
+          <img
+            class="icon"
+            alt=""
+            src="./public/1.svg"
+            data-animate-on-scroll
+          />
+
+        </div>
+        <div class="frame-parent2">
+          <div class="copyright-group">
+            <img class="copyright-icon1" alt="" src="./public/copyright1.svg" />
+
+            <div class="buy-it2">Buy-it</div>
+          </div>
+          <div class="buy-it2">Terms</div>
+          <div class="buy-it2">Privacy</div>
+          <div class="buy-it2">Security</div>
+        </div>
+        <div class="shopping-bag-1-parent">
+          <img
+            class="shopping-bag-1-icon1"
+            alt=""
+            src="./public/shoppingbag-11@2x.png"
+          />
+
+          <div class="buy-it2">Buy-it</div>
+        </div>
+        <div class="shop-with-ease">Shop with ease</div>
+        <div class="our-user-friendly-interface" data-animate-on-scroll>
+          Our user-friendly interface makes it easy to find and choose the
+          products you want. With just a few clicks, you can quickly browse our
+          selection and add items to your cart.
+        </div>
+      </div>
+      <form class="inormations1">
+        <div class="create-your-account-parent">
+          <div class="create-your-account1">Create your account</div>
+          <div class="info-parent1">
+            <div class="info11">
+              <div class="full-name">Full Name</div>
+            </div>
+            <div class="info12">
+              <div class="full-name">Email</div>
+              <input
+                class="edit-text11"
+                type="email"
+                placeholder="sigma@ex.dz"
+                required
+                id="user-mail"
+                data-animate-on-scroll
+              />
+            </div>
+            <div class="info12">
+              <div class="full-name">Password</div>
+              <input
+                class="edit-text12"
+                type="password"
+                placeholder="password"
+                required
+                id="password"
+                data-animate-on-scroll
+              />
+            </div>
+            <div class="info14">
+              <div class="confirm-password1">Confirm Password</div>
+              <input
+                class="edit-text12"
+                type="text"
+                placeholder="password"
+                data-animate-on-scroll
+              />
+            </div>
+          </div>
+          <div class="i-agree-to-the-buy-it-terms-of-wrapper">
+            <a class="i-agree-to-container1" target="_blank">
+              <span class="i-agree-to1"> I agree to the Buy-it </span>
+              <span class="terms-of-service2">Terms of service</span>
+              <span class="i-agree-to1"> and </span>
+              <span class="terms-of-service2">Privacy Policy.</span>
+            </a>
+          </div>
+          <a
+            class="already-have-an-container"
+            target="_blank"
+            id="alreadyHaveAn"
+          >
+            <span class="already-have-an">Already have an account? </span>
+            <span class="login2">Login. </span>
+          </a>
+          <button class="create-your-account-wrapper" data-animate-on-scroll>
+            <div class="create-your-account2">Create your account</div>
+          </button>
+            <input
+              class="checkboxdefault-checkbox-and"
+              type="checkbox"
+              required
+            />
+        </div>
+        <img class="lock-icon3" alt="" src="./public/lock3.svg" />
+
+        <img class="lock-icon4" alt="" src="./public/lock3.svg" />
+
+        <img class="email-icon3" alt="" src="./public/email3.svg" />
+
+        <div class="edit-text-parent">
+          <input
+            class="edit-text14"
+            type="text"
+            placeholder=" Name"
+            required
+            id="user-name"
+            data-animate-on-scroll
+          />
+
+          <img class="person-icon1" alt="" src="./public/person1.svg" />
+        </div>
+        <div class="our-sponsors-parent">
+          <div class="our-sponsors">OUR SPONSORS</div>
+          <div class="n-1-parent">
+            <img
+              class="n-1-icon"
+              alt=""
+              src="./public/322060973-860710098538191-8665136793338266079-n-1@2x.png"
+            />
+
+            <img
+              class="algerieposte-1-icon"
+              alt=""
+              src="./public/algerieposte-1.svg"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      var alreadyHaveAn = document.getElementById("alreadyHaveAn");
+      if (alreadyHaveAn) {
+        alreadyHaveAn.addEventListener("click", function (e) {
+          window.open("/login.html");
+        });
+      }
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      </script>
+  </body>
+</html>

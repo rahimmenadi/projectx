@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="/sallerinfos.28b70fd5.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  
+  <div class="logo">
+    <img src="/shoppingbag-1@2x.a49a13c7.png" alt="">Buy-it
+  </div>
+    <div class="select-offer">saller details
+        <p>Enter Your Informations</p>
+    </div>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required="">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required="">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required="">
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required="">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" required="">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" required="">
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <button id="btn">
+          <p id="btnText">Submit</p>
+          <div class="check-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 50 50">
+                  <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              </svg>
+          </div>
+      </button>
+  </form></div>
+  <script type="text/javascript">const btn = document.querySelector("#btn");
+const btnText = document.querySelector("#btnText");
+btn.onclick = ()=>{
+    btnText.innerHTML = "Thanks";
+    btn.classList.add("active");
+};
+
+</script>
+      
+    </div>
+  
+
+<script src="/sallerinfos.a2e46b4c.js"></script></body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn&SignUp</title>
+    <link rel="stylesheet" type="text/css" href="/sing-up-client.abc62a21.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  
+  </head>
+  <body>
+    <div class="container">
+      
+      
+      
+      <div class="forms-container">
+        <div class="signin-signup">
+          
+          
+          <form action="" class="sign-in-form">
+            <h2 class="title">Sign Up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Username" required="">
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email" required="">
+            </div>
+            <div class="input-field">
+
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Password" required="">
+            </div>
+            <input type="submit" id="btn-creat" value="Creat acount" class="btn solid">
+            
+           
+         
+              <a class="i-agree-to-container1" target="_blank">
+                <div class="i-agree-to-the-buy-it-terms-of-wrapper">
+                  <input class="checkboxdefault-checkbox-and" type="checkbox" required="">
+                <span class="i-agree-to1"> I agree to the Buy-it </span>
+                <span class="terms-of-service2">Terms of service</span>
+                <span class="i-agree-to1"> and </span>
+                <span class="terms-of-service2">Privacy Policy.</span>
+              </div></a>
+         
+            </form></div>
+
+           
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              
+            </div>
+          
+
+
+          
+            
+              
+            </div>
+          
+        </div>
+      
+      <div class="panels-container">
+
+        <div class="panel left-panel">
+            <div class="content">
+              
+            <button class="buy-it2">
+              <img src="/shoppingbag-1@2x.a49a13c7.png" alt="">Buy-it
+              
+            </button>
+            
+                <h3>New here?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
+                
+                <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+            
+            </div>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_5ngs2ksb.json" background="transparent" speed="1" style="width: 500px; height: 500px" loop="" autoplay=""></lottie-player>
+
+        </div>
+
+        
+    </div>
+
+    
+   
+      
+
+    <script>var button = document.getElementById("btn-creat");
+var myName = document.getElementById("username");
+var myEmail = document.getElementById("email");
+var mypassword = document.getElementById("password");
+button.addEventListener("click", async ()=>{
+    console.log("hiiii");
+    var obj = {
+        name: myName.value,
+        email: myEmail.value,
+        city: mypassword.value
+    };
+    const res = await fetch("https://tiny-jade-reindeer-cape.cyclic.app/api/v1/auth/signup", {
+        method: "POST",
+        body: JSON.stringify(obj)
+    });
+    console.log(res);
+});
+
+</script>
+
+  <script src="/sing-up-client.bfe371bf.js"></script></body>
+</html>

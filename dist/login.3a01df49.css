@@ -1,0 +1,244 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap";
+:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  display: revert;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+a, button {
+  cursor: revert;
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #ff6701, #ff2600);
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  display: flex;
+}
+
+.login-card {
+  width: 450px;
+  background: #ffffff80;
+  border-radius: 10px;
+  padding: 4rem;
+  position: relative;
+}
+
+.login-card:before {
+  content: "";
+  z-index: -1;
+  background: #ffffff26;
+  border-radius: 10px;
+  position: absolute;
+  inset: 0;
+  transform: rotate(-6deg);
+}
+
+.login-card-logo {
+  margin-bottom: 2rem;
+}
+
+.login-card-logo img {
+  width: 75px;
+}
+
+.login-card-logo, .login-card-header, .login-card-footer {
+  text-align: center;
+}
+
+.login-card a {
+  color: #35339a;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+.login-card-header {
+  margin-bottom: 2rem;
+}
+
+.login-card-header h1 {
+  margin-bottom: .5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.login-card-header h1 + div {
+  opacity: .8;
+  font-size: .8rem;
+}
+
+.login-card-form {
+  flex-direction: column;
+  gap: 1.5rem;
+  display: flex;
+}
+
+.login-card-form .form-item {
+  position: relative;
+}
+
+.login-card-form .form-item .form-item-icon {
+  opacity: .4;
+  font-size: 1.3rem;
+  position: absolute;
+  top: .82rem;
+  left: 1.4rem;
+}
+
+.login-card-form .checkbox {
+  align-items: center;
+  gap: 7px;
+  display: flex;
+}
+
+.login-card-form .form-item-other {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+  font-size: .8rem;
+  display: flex;
+}
+
+.login-card-footer {
+  margin-top: 1.5rem;
+  font-size: .8rem;
+}
+
+.login-card input[type="text"], .login-card input[type="password"], .login-card input[type="email"] {
+  width: 100%;
+  background: #ffffff4d;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  padding: 1rem 1.5rem 1rem 3.5rem;
+  transition: background .5s;
+}
+
+.login-card input:focus {
+  background: #fff;
+}
+
+.login-card input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #000;
+}
+
+.login-card button {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #000567;
+  border-radius: 100px;
+  padding: 1rem;
+  transition: background .5s;
+}
+
+.login-card button:hover {
+  cursor: pointer;
+  background-color: #000567;
+}
+
+.login-card-social {
+  text-align: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  display: flex;
+}
+
+.login-card-social > div {
+  opacity: .8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .8rem;
+}
+
+.login-card-social-btns {
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.login-card-social-btns a {
+  color: #000;
+  width: 50px;
+  height: 50px;
+  background-color: #fff9;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+  display: flex;
+}
+
+.login-card-social-btns a:hover {
+  background-color: #fff;
+  transform: scale(1.1);
+}
+
+@media (width <= 768px) {
+  body {
+    padding: 2rem 0;
+  }
+
+  .login-card {
+    width: 280px;
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=login.3a01df49.css.map */

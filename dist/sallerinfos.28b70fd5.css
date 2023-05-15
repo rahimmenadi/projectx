@@ -1,0 +1,272 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+button {
+  width: 650px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: #0f4675;
+  border: none;
+  border-radius: 40px;
+  outline: none;
+  font-size: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px -5px #0006;
+}
+
+.check-box {
+  width: 70px;
+  height: 70px;
+  opacity: 0;
+  border-radius: 40px;
+  position: absolute;
+  top: 0;
+  right: -40px;
+  box-shadow: 0 0 12px -2px #00000080;
+}
+
+.check-box svg {
+  width: 30px;
+  margin: 15px;
+}
+
+svg path {
+  stroke-width: 3px;
+  stroke: #fff;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34px;
+  stroke-linecap: round;
+}
+
+.active {
+  background: #2d99ff;
+  transition: all 1s;
+}
+
+.active .check-box {
+  opacity: 1;
+  transition: all 1s;
+  right: 0;
+}
+
+.active p {
+  margin-right: 125px;
+  transition: all 1s;
+}
+
+.active svg path {
+  stroke-dashoffset: 0;
+  transition: all 1s 1s;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(#0f4675, #0f4675 50%, #fff 50% 100%);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.logo {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0000;
+  border: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 800;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+.logo img {
+  width: 60px;
+  padding: 7px;
+}
+
+.select-offer {
+  z-index: 2;
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 600;
+  transition: all .5s;
+  position: absolute;
+  top: 40px;
+}
+
+.select-offer p {
+  color: #fff;
+  text-align: center;
+  margin: 45px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: all .5s;
+  display: flex;
+  position: absolute;
+  top: 80px;
+  left: 100px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 25px 30px;
+  box-shadow: 0 5px 10px #00000026;
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container .title:before {
+  content: "";
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #71b7e6, #0f4675);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.content form .user-details {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px;
+  display: flex;
+}
+
+form .user-details .input-box {
+  width: calc(50% - 20px);
+  margin-bottom: 15px;
+}
+
+form .input-box span.details {
+  margin-bottom: 5px;
+  font-weight: 500;
+  display: block;
+}
+
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 16px;
+  transition: all .3s;
+}
+
+.user-details .input-box input:focus, .user-details .input-box input:valid {
+  border-color: #0f4675;
+}
+
+form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category {
+  width: 80%;
+  justify-content: space-between;
+  margin: 14px 0;
+  display: flex;
+}
+
+form .category label {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
+
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border: 5px solid #0000;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all .3s;
+}
+
+#dot-1:checked ~ .category label .one, #dot-2:checked ~ .category label .two, #dot-3:checked ~ .category label .three {
+  background: #0f4675;
+  border-color: #d9d9d9;
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+form .button {
+  height: 45px;
+  margin: 35px 0;
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #71b7e6, #0f4675);
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all .3s;
+}
+
+form .button input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #0f4675);
+}
+
+@media (width <= 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user-details .input-box {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  form .category {
+    width: 100%;
+  }
+
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media (width <= 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=sallerinfos.28b70fd5.css.map */
