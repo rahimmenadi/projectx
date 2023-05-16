@@ -1,0 +1,318 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+ /* small  */
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Mediem  */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* small  */
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* @media (min-width:1700px) {
+    .container {
+        width: 1630px;
+    }
+} */
+body {
+   width: 100%;
+   margin: auto;
+   background-color: #feddcd;
+}
+/* start header section */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:60px;
+    width:100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background:rgb(0, 0, 116);
+   
+}
+/* end header section */
+/* Start Sidebar */
+
+.sidebar {
+    overflow: auto;
+    
+    list-style: none;
+    height: 100vh;
+    background-color: white;
+    
+    position: fixed;
+    width: 300px;
+    top: 60PX;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    font-weight: bold;
+    box-shadow: 0 0 10px #ddd;
+  }
+  
+  .card-details {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+background-color: #feddcd;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 90%;
+    padding-bottom: 10px;
+    box-shadow: 0 0 1px 0px black;
+  }
+
+  .card-details h2 {
+    margin: 20px;
+    margin-left: 15px;
+    font-size: 15px;
+  }
+  .card-details .form-coupoun {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .card-details .form-coupoun input{
+    padding: 10px;
+    border: none;
+    height: 32px;
+    display: flex;
+    font-size: 11px;
+    width: 100%;
+    align-items: center;
+
+  }
+  .card-details .form-coupoun input:focus {
+    border: none;
+    outline: none;
+  }
+  .card-details .form-coupoun button {
+    padding: 9px;
+    font-size: 11px;
+    margin-right: 0;
+    outline: none;
+    border: none;
+    height: 32px;
+    background-color: #FB5607;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .card-details .subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-left: 0;
+    margin-top: 5px;
+    font-size: 10px;
+    width: 90%;
+  }
+
+  .card-details .Shipping {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-left: 0;
+    margin-top: 5px;
+    font-size: 10px;
+    width: 90%;
+  }
+  .card-details .Shipping .price {
+    color: #FB5607;
+  }
+  .card-details .other {
+    background-color: aqua;
+    width: 90%;
+    height: 0px;
+    margin: 10px 0 0 0;
+  }
+  .card-details .line {
+    width: 90%;
+    height: 0.4px;
+    background-color: rgb(182, 182, 182);
+    margin: 7px 0;
+  }
+  .card-details .total {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-left: 0;
+    margin-top: 5px;
+    font-size: 10px;
+    width: 90%;
+  }
+  .card-details .checkout {
+    padding: 10px;
+    height: 32px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    background-color: #FB5607;
+    color: white;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  /* End Sidebar */
+  .main-section{
+    display: flex;
+    flex-flow: column;
+    background-color: #feddcd;
+    width: 100%;
+    margin-right: 300px;
+    overflow: auto;
+} 
+.page {
+    display: flex;
+    min-height: 100vh;
+    background-color: white;
+  
+}
+
+/*start main seciton  */
+.main-section .all-product {
+  display: flex;
+  margin-top: 60px;
+  flex-direction: column;
+  padding: 0 60px 10px 60px;
+
+}
+.main-section .all-product .product {
+  display: flex;
+  align-items: center;
+  min-width: 500px;
+  margin: 10px 10px 0 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 0 15px;
+  border-radius: 8px;
+  
+}
+.main-section .all-product .product .product-image {
+  background-color: #FB5607;
+  border-radius: 7px;
+}
+.main-section .all-product .product .product-image img{
+  width: 150px;
+  height: 160px;
+}
+.main-section .all-product .product .product-info {
+  margin-left: 10px;
+  background-color: white;
+  width: 100%;
+  border-radius: 7px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 10px 20px;
+  position: relative;
+}
+.main-section .all-product .product .product-info .prix {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+}
+
+.all-product .product .product-info .product-name{
+  font-size: 20px;
+  font-weight: 500;
+  color: #FB5607;
+  margin: 5px 0;
+}
+.all-product .product .product-info .desc{
+  margin: 0 0 0 0;
+}
+.all-product .product .product-info .seller{
+  font-weight: bold;
+  margin: 15px 0;
+}
+.all-product .product .product-info .seller::before{
+  content: "Sold by ";
+  font-weight: 300;
+}
+.all-product .product .product-info .rule{
+  display: flex;
+  align-items: center;
+  background-color: #feddcd;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+.all-product .product .product-info .rule .icon{
+  padding: 5px;
+  padding-left: 0;
+}
+.all-product .product .product-info .rule .content{
+
+}
+.all-product .product .product-info .buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.all-product .product .product-info .buttons #wishlist{
+  border: none;
+  background-color: #fb540700;
+  border: none;
+  
+}
+.all-product .product .product-info .buttons .wishlist {
+  font-size: 13px;
+  color: #282828;
+  font-weight: 100;
+  padding: 5px;
+  margin-right: 20px;
+}
+.all-product .product .product-info .buttons #wishlist img {
+  width: 15px;
+}
+.all-product .product .product-info .buttons #remove{
+  background-color: #fb540700;
+  border: none;
+  cursor: crosshair;
+
+}.all-product .product .product-info .buttons .remove {
+  font-size: 13px;
+  color: #282828;
+  font-weight: 100;
+  padding: 5px;
+} 
+
+.all-product .product .product-info .buttons #remove img {
+  width: 15px;
+}
+/* end main section */
