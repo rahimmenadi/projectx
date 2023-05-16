@@ -15,21 +15,20 @@ class Product {
       this.oldPrice = oldPrice;
     }
   }
-let firstProduct = new Product(
-    "SHOES",
-    "shoes",
-    4.8,
-    "https://example.com/product3",
-    "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "Description of Product SHOES",
-    2,
-    29.99,
-    34.99
-  );
-for (let index = 0; index < 50; index++) {
 
-    productList.push(firstProduct);
-}
+  axios.get('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/products')
+  .then(response => {
+    productList = response.data.data;
+    
+    console.log(productList)
+
+    displayProduct();
+  })
+  .catch(error => {
+    console.log(error)
+  });
+
+
 console.log(productList)
 
 {/* <div class="items">
@@ -62,19 +61,19 @@ function displayProduct(){
         <div class="items">
             <div class="img img1">
                 <img
-                    src="${productList[i].img}"
+                    src="${productList[i].imageCover}"
                     alt=""
                 />
             </div>
-            <div class="name">${productList[i].name}</div>
+            <div class="name">${productList[i].title} kdjsklf</div>
             <div class="info">
             ${productList[i].description}
             </div>
-            <div class="price">${productList[i].price} USD</div>
-            <div class="old-price">${productList[i].oldPrice} USD</div>
+            <div class="price">${productList[i].priceAfterDiscount} USD</div>
+            <div class="old-price">${productList[i].price} USD</div>
             <div class="review">
-                <div class="review-is">${productList[i].review}</div>
-                <img class="start-img" src="star.png" alt="">
+                <div class="review-is">${productList[i].ratingAverage} lkj</div>
+                <img class="start-img" src="../star.png" alt="">
                 
             </div>
             

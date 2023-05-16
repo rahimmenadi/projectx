@@ -309,7 +309,7 @@ function displayProduct(){
             
         </div>
         `
-        
+    
     document.getElementById('items-container').innerHTML = table;
    
     }
