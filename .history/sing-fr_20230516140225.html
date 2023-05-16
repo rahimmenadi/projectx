@@ -132,7 +132,7 @@
             if(response.data.data.role=="user"){
               return;
             }
-            window.location.replace('./src/html/dash-1.html');
+            window.location.replace('./');
 
           sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
           )})
