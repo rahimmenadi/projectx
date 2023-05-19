@@ -70,9 +70,14 @@ let chekbox = document.querySelectorAll('input[type="checkbox"]');
 let tabimage = [];
 let tabchek = [chekbox];
 let livraison = tabchek;
+
+//linkag
+
 //récupurer données 
 
+
 let datatab = [];
+
 
 submit.onclick = function () {
 

@@ -10,6 +10,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/prodect.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -73,47 +74,118 @@
         <div class="options-disponible">
           <p class="options-disponible1">Options disponible</p>
         </div>
-        <button class="eu-37">
+        <table id="optionsTable">
+
+          <tr id="optionsRow">
+            <!-- Les cellules d'options seront ajoutées ici -->
+          </tr>
+        </table>
+        <!-- <button class="eu-37">
           <div class="opt-1">opt 1</div>
-        </button>
         <button class="eu-38">
           <div class="opt-2">opt 2</div>
         </button>
         <button class="eu-40">
           <div class="opt-3">opt 3</div>
-        </button>
+        </button> -->
       </div>
       <button class="frame-edit">
-        <img class="edit-2-icon" alt="" src="../../public/edit-2@2x.png" />
+        <a href="#">
+          <img class="edit-2-icon" alt="" src="../../public/edit-2@2x.png" />
+        </a>
       </button>
-      <button class="frame-delet">
+      <div id="confirmationPopup">
+        <div class="popupContent">
+          <p>Are you sure you want to delete this product?</p>
+          <button id="confirmYes">Yes</button>
+          <button id="confirmNo">No</button>
+        </div>
+      </div>
+      <button class="frame-delet" id="delet">
         <img class="edit-2-icon" alt="" src="../../public/bin1@3x.png" />
       </button>
       <button class="frame-promotion">
-        <img class="edit-3-icon" alt="" src="../../public/promotion1@3x.png" />
+        <a href="#">
+          <img class="edit-3-icon" alt="" src="../../public/promotion1@3x.png" />
+        </a>
       </button>
-      <div class="nb-avis">(nb-avis)</div>
+      <div class="nb-avis" id="nbavis">(nb-avis)</div>
+      <div class="cont-img">
+        <div class="carousel">
+          <div class="main-image">
+            <img id="mainImage" src="" alt="Main Image">
+          </div>
+          <div class="thumbnail-container">
+            <div class="thumbnails" id="thumbnailContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <img class="frame-image-principale" alt="" src="../../public/frame-image-principale@2x.png" />
+
       <img class="frame-img3-icon" alt="" src="../../public/mask-group@2x.png" />
 
       <img class="frame-img4-icon" alt="" src="../../public/frame-img4@2x.png" />
 
       <img class="frame-img2-icon" alt="" src="../../public/mask-group1@2x.png" />
 
-      <img class="frame-img1-icon" alt="" src="../../public/mask-group2@2x.png" />
+      <img class="frame-img1-icon" alt="" src="../../public/mask-group2@2x.png" /> -->
 
-      <div class="product-name">Product-name</div>
-      <b class="price-da">Price DA</b>
+      <div class="product-name" id="titre">Product-name</div>
+      <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div>
+      <b class="price-da" id="price">Price DA</b>
       <div class="share-this-product">Share this product</div>
-      <div class="color-disponible">Color disponible</div>
-      <div class="mark-mark-name">Mark : mark-name</div>
-      <div class="color1">color1</div>
-      <div class="color2">color2</div>
-      <div class="color21">
-        <p class="options-disponible1">color2</p>
+      <div class="color-disponible">Color disponible
+        <table id="couleursTable1" class="color1">
+          <tr>
+            <th class="c">Couleur 1</th>
+          </tr>
+          <tr id="couleursRow1">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable2" class="color2">
+          <tr>
+            <th class="c">Couleur 2</th>
+          </tr>
+          <tr id="couleursRow2">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable3" class="color3">
+          <tr>
+            <th class="c">Couleur 3</th>
+          </tr>
+          <tr id="couleursRow3">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+
+          <table id="couleursTable4" class="color4">
+            <tr>
+              <th class="c">Couleur 4</th>
+            </tr>
+            <tr id="couleursRow4">
+              <!-- Les cellules de couleur seront ajoutées ici -->
+            </tr>
+
+            <table id="couleursTable5" class="color5">
+              <tr>
+                <th class="c">Couleur 5</th>
+              </tr>
+              <tr id="couleursRow5">
+                <!-- Les cellules de couleur seront ajoutées ici -->
+              </tr>
+            </table>
       </div>
-      <div class="nb-articles-dispo">nb-articles-dispo</div>
-      <div class="ancien-da">ancien DA</div>
-      <img class="stars-icon" alt="" src="../../public/stars.svg" />
+
+      <!-- <div class="color1">color1</div>
+      <div class="color2">color2</div>
+      <div class="color3">color3</div> -->
+      <div class="nb-articles-dispo"> <span id="prod-dispo">x</span> pièces disponibles</div>
+      <div class="ancien-da"><span id="ancien">ancien</span> DA</div>
+      <!-- <img class="stars-icon" alt="" src="../../public/stars.svg" /> -->
 
       <div class="frame-item"></div>
       <div class="frame-inner"></div>
@@ -121,42 +193,47 @@
       <div class="frame-child1"></div>
       <div class="frame-twitter">
         <button class="twitter-1">
-          <img src="../../public/twitter1@3x.png" class="twitter-1">
+          <a href="https://twitter.com/intent/tweet">
+            <img src="../../public/twitter1@3x.png" class="twitter-1">
+          </a>
         </button>
       </div>
       <div class="frame-fcb">
         <button class="facebook-1">
-          <img src="../../public/facebook1@3x.png" class="facebook-1">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com">
+            <img src="../../public/facebook1@3x.png" class="facebook-1">
+          </a>
         </button>
       </div>
       <div class="frame-insta">
         <button class="instagram-1">
-          <img src="../../public/instagram1@3x.png" class="instagram-1">
+          <a href="https://www.instagram.com/share?url=https://your-website.com&caption=Check%20out%20my%20website">
+            <img src="../../public/instagram1@3x.png" class="instagram-1">
+          </a>
         </button>
       </div>
       <div class="frame-copy-link">
         <div class="group-copy-link">
-          <input class="group-copy-link-child"></input>
-          <button class="group-copy-link-item"></button>
+          <input class="group-copy-link-child" id="linkInput" readonly></input>
+          <button class="group-copy-link-item" id="copyButton"></button>
           <div class="copy-link">Copy link</div>
         </div>
       </div>
       <div class="frame-worning">
         <img class="exclamation-mark-1-icon" alt="" src="../../public/exclamationmark-1@2x.png" />
       </div>
-      <button class="rectangle-button"></button>
+      <!-- <button class="rectangle-button"></button>
       <button class="frame-child2"></button>
       <button class="frame-child3"></button>
       <button class="frame-child4"></button>
       <button class="frame-child5"></button>
       <button class="frame-child6"></button>
-      <button class="frame-child7"></button>
+      <button class="frame-child7"></button> -->
       <div class="frame-discount">
         <img class="frame-discount-child" alt="" src="../../public/rectangle-57@2x.png" />
 
-        <div class="div">-6%</div>
+        <div class="div">-<span id="reduction">x</span>%</div>
       </div>
-      <img class="frame-image-principale" alt="" src="../../public/frame-image-principale@2x.png" />
 
 
     </div>
@@ -166,13 +243,13 @@
       <div class="frame-child10"></div>
       <div class="quantity">Quantity</div>
       <div class="livraison">Livraison</div>
-      <div class="in-stock">In stock : nb-stock</div>
-      <div class="agence-a-name">-Agence : A-name</div>
-      <div class="type-type">-Type : Type x</div>
-      <div class="retour-nb-retour">Retour : nb-retour</div>
-      <div class="classement">#classement</div>
-      <div class="in-process">In process : nb-in-process</div>
-      <div class="sales-nb-sales">Sales : nb-sales</div>
+      <div class="in-stock">In stock : <span id="nb-stock">nb-stock</span></div>
+      <div class="agence-a-name">-Agence : <span id="agence"> A-name</span></div>
+      <div class="type-type">-Type : <span id="typeliv">Type x</span> </div>
+      <div class="retour-nb-retour">Retour : <span id="nb-retour">nb-retour</span></div>
+      <div class="classement"># <span id="classement">classement</span> </div>
+      <div class="in-process">In process : <span id="nb-in-process">nb-in-process</span></div>
+      <div class="sales-nb-sales">Sales : <span id="nb-sales">nb-sales</span></div>
       <img class="ellipse-icon" alt="" src="../../public/ellipse-105.svg" />
 
       <img class="frame-child11" alt="" src="../../public/ellipse-105.svg" />
@@ -214,7 +291,9 @@
     </div>
     <div class="container" id="container">
       <div class="div2">
-        <div class="inner"></div>
+        <div class="inner" id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod odio
+          ipsam nostrum, labore eaque nam blanditiis earum amet eum inventore animi quibusdam cumque assumenda quaerat
+          placeat nemo tempora molestias.</div>
         <div class="description1">Description</div>
       </div>
     </div>
@@ -224,164 +303,59 @@
       <table class="tableau">
         <tr>
           <td>type de produit</td>
-          <td>Montre</td>
+          <td id="typepr">Montre</td>
         </tr>
         <tr>
           <td>Genre</td>
-          <td>Femme</td>
+          <td id="typegr">Femme</td>
         </tr>
         <tr>
           <td>code barrre</td>
-          <td>838301381</td>
+          <td id="barre">838301381</td>
         </tr>
         <tr>
           <td>Poids</td>
-          <td>5kg</td>
+          <td id="poids">5kg</td>
         </tr>
       </table>
     </div>
     <div class="frame-reviews1" - id="frame-reviews1">
-      <img class="stars-icon1" alt="" src="../../public/stars1.svg" />
 
-      <div class="comment-3">comment 3</div>
-      <div class="xx-x-xxxx-by-user3">xx-x-xxxx By user3</div>
       <div class="frame-reviews-child"></div>
-      <!-- <img class="frame-reviews-item" alt="" src="../../public/line-34.svg" /> -->
-
       <div class="reviews1">Reviews</div>
-      <div class="checked-reviews-12">Checked reviews (12)</div>
-      <div class="comments-nb-comments">Comments (nb-comments)</div>
-      <div class="comment-1">comment 1</div>
-      <div class="xx-x-xxxx-by-user1">xx-x-xxxx By user1</div>
-      <img class="stars-icon2" alt="" src="../../public/stars2.svg" />
-
-      <!-- <img class="frame-reviews-inner" alt="" src="../../public/line-35.svg" /> -->
-
-      <div class="comment-2">comment 2</div>
-      <div class="xx-x-xxxx-by-user2">xx-x-xxxx By user2</div>
-      <div class="div3">5</div>
-      <div class="div4">(2)</div>
-      <div class="div5">(3)</div>
-      <div class="div6">(0)</div>
-      <div class="div7">(5)</div>
-      <div class="div8">(2)</div>
-      <div class="div9">1</div>
-      <div class="div10">2</div>
-      <div class="div11">3</div>
-      <div class="div12">4</div>
-      <!-- <select class="pourc"></select>
-        <input class="pourc1" type="text" />
-
-        <select class="pourc2"></select>
-        <select class="pourc3"></select>
-        <select class="pourc4"></select> -->
-      <img class="stars-icon3" alt="" src="../../public/stars1.svg" />
-
-      <img class="star-icon" alt="" src="../../public/star-12.svg" />
-
-      <img class="frame-reviews-child1" alt="" src="../../public/star-12.svg" />
-
-      <img class="frame-reviews-child2" alt="" src="../../public/star-12.svg" />
-
-      <img class="frame-reviews-child3" alt="" src="../../public/star-12.svg" />
-
-      <img class="frame-reviews-child4" alt="" src="../../public/star-12.svg" />
-
+      <div class="checked-reviews-12">Checked reviews </div>
+      <div class="comments-nb-comments">Comments <span id="nb-comment">(nb-comments)</span>
+        <div class="frame-comment">
+          <div id="commentsContainer"></div>
+        </div>
+      </div>
       <div class="total">
         <div class="div13">
-          <b>3.6</b>
+          <b id="moyrev">3.6</b>
           <span class="span">/5</span>
         </div>
         <img class="stars-icon4" alt="" src="../../public/stars3.svg" />
 
-        <div class="reviews2">12 Reviews</div>
+        <div class="reviews2"><span id="nb-reviews">12</span> Reviews</div>
       </div>
       <div class="frame-show-more">
         <div class="show-more">
-          <button class="show-more1">show-more</button>
+          <a href="../html/guest.html" id="show-more">
+            <button class="show-more1">show-more
+            </button>
+          </a>
           <img class="show-more-child" alt="" src="../../public/line-36.svg" />
-
           <img class="show-more-item" alt="" src="../../public/line-37.svg" />
         </div>
       </div>
     </div>
   </div>
 
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
-  <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum animi perferendis perspiciatis
-    quibusdam autem molestias sint, maiores facere non? Eveniet non quia quisquam ex vitae magnam necessitatibus
-    provident. Inventore?</b>
+  <br><br><br>
+  <br><br>
+
+
+  <script src="../js/productw.js"></script>
 </body>
 
 </html>
