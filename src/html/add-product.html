@@ -90,14 +90,13 @@
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">Title</label>
-                                    <input class="input--style-4" type="text" id="title" name="Title" required>
+                                    <input class="input--style-4" type="text" id="title" name="Title">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Price</label>
-                                    <input class="input--style-4" type="number" min="0" id="price" name="price"
-                                        required>
+                                    <input class="input--style-4" type="number" min="0" id="price" name="price">
                                 </div>
                             </div>
                         </div>
@@ -111,22 +110,51 @@
                             </div>
                         </div>
                         <div class="row row-space">
+                            <div id="colors-container">
+                                <div class="color-container">
+                                    <label for="color-name">Nom du couleur:</label>
+                                    <input type="text" name="color-name" class="color-name">
+                                    <div class="color-input">
+                                        <label for="couleur" class="labelC">Couleurs:</label>
+                                        <div class="color-container">
+                                            <!-- <input type="color" name="couleur" class="color input--style-2"> -->
+                                        </div>
+                                    </div>
+                                    <button class="add-color">+</button>
+                                    <br>
+
+
+                                    <div class="size-quantity-container">
+                                        <div class="size-quantity-input">
+                                            <label for="size">Taille:</label>
+                                            <input type="text" name="size" class="size-input">
+                                            <label for="quantity">Quantité:</label>
+                                            <input type="number" min="0" name="quantity" class="quantity-input">
+                                        </div>
+                                    </div>
+                                    <button class="add-size-quantity">+</button>
+                                </div>
+                            </div>
+                            <button id="add-color">Ajouter un couleur</button>
+
+                        </div>
+                        <!-- <div class="row row-space">
                             <div class="col-4">
                                 <div class="input-group">
-                                    <label class="label">Color</label>
+                                    <label class="label">Color1</label>
                                     <input class="input--style-2" type="color" id="color" name="color" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row row-space">
+                        </div> -->
+                        <!-- <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Quantité</label>
                                     <input class="input--style-4" type="number" min="0" id="quantité" name="quantité">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row row-space">
+                        </div> -->
+                        <!-- <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">Taille</label>
@@ -141,22 +169,22 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">Type Livraison</label>
                                     <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Cash
-                                            <input type="checkbox" name="livraison" id="cash" value="Cash">
+                                        <label class="radio-container m-r-45">A
+                                            <input type="checkbox" name="livraison" id="cash" value="A">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container m-r-45">A main
-                                            <input type="checkbox" name="livraison" id="amain" value="A main">
+                                        <label class="radio-container m-r-45">B
+                                            <input type="checkbox" name="livraison" id="amain" value="B">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container">Baridi mob
-                                            <input type="checkbox" name="livraison" id="baridi" value="Baridi mob">
+                                        <label class="radio-container">C
+                                            <input type="checkbox" name="livraison" id="baridi" value="C">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>

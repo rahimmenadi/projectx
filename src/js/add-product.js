@@ -125,6 +125,181 @@ submit.onclick = function () {
 
 
 
+//bendida t3 ch3ar w les idées t3 khra tw3eh
+
+const addcolorButton = document.getElementById('add-color');
+const colorsContainer = document.getElementById('colors-container');
+let colorsData = [];
+
+addcolorButton.addEventListener('click', function () {
+    const colorContainers = document.querySelectorAll('.color-container');
+    if (colorContainers.length < 9) {
+        const newcolorContainer = document.createElement('div');
+        newcolorContainer.classList.add('color-container');
+
+        const colorNumber = colorContainers.length / 2 + 1;
+        const colorNumberLabel = document.createElement('h3');
+        colorNumberLabel.textContent = 'color ' + colorNumber;
+        newcolorContainer.appendChild(colorNumberLabel);
+        const colorNameLabel = document.createElement('label');
+        colorNameLabel.textContent = "Nom du couleur:" + colorNumber;
+        const colorNameInput = document.createElement('input');
+        colorNameInput.type = 'text';
+        colorNameInput.name = 'color-name';
+        colorNameInput.classList.add('color-name');
+        colorNameInput.required = true;
+
+        const colorLabel = document.createElement('label');
+        colorLabel.textContent = "Couleurs:";
+        const colorContainer = document.createElement('div');
+        colorContainer.classList.add('color-container');
+        const newColorInput = document.createElement('div');
+        newColorInput.classList.add('color-input');
+        const newColorField = document.createElement('input');
+        newColorField.type = 'color';
+        newColorField.name = 'couleur';
+        newColorField.classList.add('color');
+        newColorField.required = true;
+        newColorInput.appendChild(newColorField);
+        colorContainer.appendChild(newColorInput);
+        const addColorButton = document.createElement('button');
+        addColorButton.classList.add('add-color');
+        addColorButton.textContent = '+';
+
+        const sizeLabel = document.createElement('label');
+        sizeLabel.textContent = "Taille:";
+        const quantityLabel = document.createElement('label');
+        quantityLabel.textContent = "Quantité:";
+        const sizeQuantityContainer = document.createElement('div');
+        sizeQuantityContainer.classList.add('size-quantity-container');
+        const newSizeQuantityInput = document.createElement('div');
+        newSizeQuantityInput.classList.add('size-quantity-input');
+        const newSizeInput = document.createElement('input');
+        newSizeInput.type = 'text';
+        newSizeInput.name = 'size';
+        newSizeInput.classList.add('size-input');
+        newSizeInput.required = true;
+        const newQuantityInput = document.createElement('input');
+        newQuantityInput.type = 'number';
+        newQuantityInput.name = 'quantity';
+        newQuantityInput.classList.add('quantity-input');
+        newQuantityInput.required = true;
+        newSizeQuantityInput.appendChild(newSizeInput);
+        newSizeQuantityInput.appendChild(newQuantityInput);
+        sizeQuantityContainer.appendChild(newSizeQuantityInput);
+        const addSizeQuantityButton = document.createElement('button');
+        addSizeQuantityButton.classList.add('add-size-quantity');
+        addSizeQuantityButton.textContent = '+';
+
+        newcolorContainer.appendChild(colorNameLabel);
+        newcolorContainer.appendChild(colorNameInput);
+        newcolorContainer.appendChild(colorLabel);
+        newcolorContainer.appendChild(colorContainer);
+        newcolorContainer.appendChild(addColorButton);
+        newcolorContainer.appendChild(sizeLabel);
+        newcolorContainer.appendChild(quantityLabel);
+        newcolorContainer.appendChild(sizeQuantityContainer);
+        newcolorContainer.appendChild(addSizeQuantityButton);
+
+        colorsContainer.appendChild(newcolorContainer);
+
+        if (colorContainers.length === 7) {
+            addcolorButton.style.display = 'none';
+        }
+    }
+});
+
+colorsContainer.addEventListener('click', function (event) {
+    if (event.target.classList.contains('add-color')) {
+        const colorContainer = event.target.parentNode.querySelector('.color-container');
+        const colorInputs = colorContainer.querySelectorAll('.color-input');
+        if (colorInputs.length < 7) {
+            const newColorInput = document.createElement('div');
+            newColorInput.classList.add('color-input');
+
+            const newColorField = document.createElement('input');
+            newColorField.type = 'color';
+            newColorField.name = 'couleur';
+            newColorField.classList.add('color');
+            newColorField.required = true;
+            newColorInput.appendChild(newColorField);
+            colorContainer.appendChild(newColorInput);
+
+            if (colorInputs.length === 4) {
+                event.target.style.display = 'none';
+            }
+        }
+    }
+
+    if (event.target.classList.contains('add-size-quantity')) {
+        const sizeQuantityContainer = event.target.parentNode.querySelector('.size-quantity-container');
+        const sizeQuantityInputs = sizeQuantityContainer.querySelectorAll('.size-quantity-input');
+        if (sizeQuantityInputs.length < 8) {
+            const newSizeQuantityInput = document.createElement('div');
+            newSizeQuantityInput.classList.add('size-quantity-input');
+            const newSizeInput = document.createElement('input');
+            newSizeInput.type = 'text';
+            newSizeInput.name = 'size';
+            newSizeInput.classList.add('size-input');
+            newSizeInput.required = true;
+            const newQuantityInput = document.createElement('input');
+            newQuantityInput.type = 'number';
+            newQuantityInput.name = 'quantity';
+            newQuantityInput.classList.add('quantity-input');
+            newQuantityInput.required = true;
+            newSizeQuantityInput.appendChild(newSizeInput);
+            newSizeQuantityInput.appendChild(newQuantityInput);
+            sizeQuantityContainer.appendChild(newSizeQuantityInput);
+
+            if (sizeQuantityInputs.length === 7) {
+                event.target.style.display = 'none';
+            }
+        }
+    }
+});
+
+submitButton.addEventListener('click', function () {
+    const colorContainers = document.querySelectorAll('.color-container');
+    colorsData = [];
+
+    colorContainers.forEach(function (container) {
+        const colorName = container.querySelector('.color-name').value;
+        const colorInputs = container.querySelectorAll('.color-input .color');
+        const sizeQuantityInputs = container.querySelectorAll('.size-quantity-input');
+
+        const colors = Array.from(colorInputs).map(function (colorInput) {
+            return colorInput.value;
+        });
+
+        const sizeQuantityData = Array.from(sizeQuantityInputs).map(function (sizeQuantityInput) {
+            const sizeInput = sizeQuantityInput.querySelector('.size-input');
+            const quantityInput = sizeQuantityInput.querySelector('.quantity-input');
+            return {
+                size: sizeInput.value,
+                quantity: quantityInput.value
+            };
+        });
+
+        const colorData = {
+            name: colorName,
+            colors: colors,
+            sizeQuantity: sizeQuantityData
+        };
+
+        colorsData.push(colorData);
+    });
+
+    // Effectuer la requête POST avec Axios
+    axios.post('URL_DE_VOTRE_ENDPOINT', colorsData)
+        .then(function (response) {
+            console.log('Données envoyées avec succès');
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.error('Erreur lors de l\'envoi des données');
+            console.error(error);
+        });
+});
 
 
 

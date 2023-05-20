@@ -23,6 +23,101 @@
   flex-wrap: wrap;
 }
 
+/* color */
+#walid {
+  background-color: #3868cd;
+}
+
+#add-color {
+  font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 12rem;
+  line-height: 25px;
+  background: white;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+  border: 1px solid #025bee;
+  color: #025bee;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  margin-bottom: 20px;
+}
+
+.qua {
+  margin-left: 200px;
+}
+
+.color-name,
+.size-input,
+.quantity-input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 12rem;
+  line-height: 30px;
+  background: #fafafa;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.color-container {
+  margin-bottom: 10px;
+  width: 35%;
+}
+
+.add-color,
+.add-size-quantity {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  background-color: #e5e5e5;
+  border-radius: 15%;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.color-input {
+  margin-bottom: 2px;
+  /* width: 10%; */
+}
+
+.size-quantity-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.size-input {
+  margin-right: 10px;
+}
+
+/* color */
+
+
 .row-space {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -468,7 +563,8 @@ input {
   color: #666;
 }
 
-.label {
+.label,
+.labelC {
   font-size: 16px;
   color: #555;
   text-transform: capitalize;
