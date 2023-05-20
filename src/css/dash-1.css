@@ -306,7 +306,7 @@
   border-radius: var(--br-3xs);
   background-color: var(--color-white);
   height: 386px;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .welcome-back-user-parent {
@@ -392,7 +392,9 @@
   flex-shrink: 0;
   overflow: hidden;
 }
-
+#dash{
+  background-color: var(--color-orangered-100);
+}
 .nav {
   cursor: pointer;
   border: 0;
@@ -539,7 +541,7 @@
 .line-parent {
   position: absolute;
   height: 85.8%;
-  width: 94.54%;    
+  width: 94.54%;
   top: 7.92%;
   right: 5.46%;
   bottom: 6.28%;
@@ -576,4 +578,41 @@
   font-size: var(--font-size-base);
   color: var(--color-white);
   font-family: var(--font-inter);
+}
+
+/* commandes */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.delivered {
+  color: green;
+}
+
+.pending {
+  color: red;
+}
+
+.product-photo {
+  width: 200Px;
+}
+
+.product-photo img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80px;
+  height: auto;
 }
