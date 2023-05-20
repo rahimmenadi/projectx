@@ -166,8 +166,8 @@
                                                 <p><strong>$1,622.95</strong></p>
                                             </div>
                                             <div class="actions">
-                                                <a href="./shiping-details.html" class="primary-button">Checkout</a>
-                                                <a href="./" class="secondary-button">View Cart</a>
+                                                <a href="/cart.html" class="primary-button">Checkout</a>
+                                                <a href="/checkout.html" class="secondary-button">View Cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -452,7 +452,7 @@
                                     </p>
                                 </div>
                                 <div class="primary-checkout">
-                                    <button class="primary-button" id="primary-button">Payment</button>
+                                    <button class="primary-button">Payment</button>
                                 </div>
                             </div>
                             <div class="item right">
@@ -739,13 +739,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
     <script src="./product-details.js"></script>
     <script>
-        var payment=document.getElementById("primary-button")
-         payment.addEventListener('click',()=>{
-            window.location.replace("./payment-details.html")
-            ValidityState()
-         }
-
-         )
         const FtoShow = '.filter';
         const Fpopup = document.querySelector(FtoShow);
         const Ftrigger = document.querySelector('.filter-trigger');
@@ -765,10 +758,7 @@
                 Fpopup.classList.remove('show')
             }
         })
-         
-
     </script>
-
 </body>
 
 </html>
