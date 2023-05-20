@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/all.min.css">
+    <link
+            href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+            rel="stylesheet"
+        />
     <link rel="stylesheet" href="../css/dash_style.css">
 </head>
 <body>
@@ -17,55 +21,56 @@
                 <ul>
                     <li>
                       <a class="" href="index.html">
-                        <img src="../../images/dashboard-icon.svg" alt="">
+                        <img class="dash-i" src="../../images/dashboard-icon.svg" alt="">
                         <span>Dashboard</span>
                       </a>
                     </li>
                     <li>
                       <a class="" href="settings.html">
-                        <img src="../../images/shopping-cart-icon.svg" alt="">
+                        <img class="sales-i" src="../../images/shopping-cart-icon.svg" alt="">
                         <span>Sales</span>
                       </a>
                     </li>
                     <li>
                       <a class="active" href="profile.html">
-                        <img src="../../images/product_icon.svg" alt="">
+                        <img class="products-i" src="../../images/product_icon.svg" alt="">
                         <span>Products</span>
                       </a>
                     </li>
                     <li>
                       <a class="" href="projects.html">
-                        <img src="../../images/chat-icon.svg" alt="">
+                        <img class="chat-i" src="../../images/chat-icon.svg" alt="">
                         <span>Chat</span>
                       </a>
                     </li>
                     <li>
                       <a class=" " href="courses.html">
-                        <img src="../../images/delivery_icon.svg" alt="">
+                        <img class="delivery-i" src="../../images/delivery_icon.svg" alt="">
                         <span>Delivery</span>
                       </a>
                     </li>
                     <li>
                       <a class="" href="friends.html">
-                        <img src="../../images/shop-icon.svg" alt="">
+                        <img class="store-i" src="../../images/shop-icon.svg" alt="">
                         <span>Your store</span>
                       </a>
                     </li>
+                    <div class="line"></div>
                     <li>
                       <a class="" href="files.html">
-                        <img src="../../images/contract-icon.svg" alt="">
+                        <img class="plan-i" src="../../images/contract-icon.svg" alt="">
                         <span>Your plan</span>
                       </a>
                     </li>
                     <li>
                       <a class="" href="plans.html">
-                        <img src="../../images/megaphone-icon.svg" alt="">
+                        <img class="ads-i" src="../../images/megaphone-icon.svg" alt="">
                         <span>Your ads</span>
                       </a>
                     </li>
                     <li>
                       <a class="" href="plans.html">
-                        <img src="../../images/setting-icon.svg" alt="">
+                        <img class="settings-i" src="../../images/setting-icon.svg" alt="">
                         <span>Settings</span>
                       </a>
                     </li>
@@ -79,11 +84,100 @@
               </div>
         </div>
         <div class="main-section">
-            <header>
-                <div class="logo"><a href="#">BUY-IT</a></div>
-            </header>
-            <div class="product-vertical">
+          <header>
+            <div class="container head-flex">
+                <div class="category-header">
+                    <a href="#">CATEGORIES</a>
+                    <!-- <img src="../../images/caret-down.svg" alt=""> -->
+                    <div class="all-categories">
+                        <div class="categories-nav">
+                            <ul class="categories-list">
+                                <li>Electronics & mobile</li>
+                                <li>Electronics</li>
+                                <li>mens & clothes</li>
+                                <li>wemens</li>
+                                <li>Make Up</li>
+                                <li>Electronics</li>
+                                <li>chairs and sofa</li>
+                                <li>drinks & meals</li>
+                                <li>Electronics</li>
+                                <li>Electronics</li>
+                                <li>bendida and kadida</li>
+                                <li>Electronics</li>
+                                <li>Electronics</li>
+                                <li>ilias lbasbas</li>
+                                <li>Electronics</li>
+                                
+                                
+                            </ul>
+                        </div>
+                        <div class="sub-categories">
+                            <h2>Electronics & mobile</h2>
+                            <ul class="sub-categories-list">
+                                <li>mobile</li>
+                                <li>desktop</li>
+                                <li>laptop & tablet</li>
+                                <li>uniform</li>
+                                <li>gaming ecsisories</li>
+                                <li>power bank</li>
+                                <li>hello</li>
+                                <li>capera & vedio</li>
+                                <li>hello</li>
+                                <li>hello</li>
+                                <li>hello</li>
+                                <li>hello</li>
+                                <li>hello</li>
+                                <li>hello</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+           
+                </div>
+                <div class="search">
+                        <input
+                        type="text"
+                        placeholder="search products"
+                        id="input">
+                        <a href="#"><ion-icon class="s" name="search"></ion-icon></a>
+                    
+                    
                 
+                </div>
+              
+           
+        </div>
+        <!-- <div class="section-head">dd</div> -->
+        </header>
+            <div class="product-vertical">
+              <div class="container">
+                <div class="text-topper">Your product
+                  <div>Add Product
+                    <span class="iconify" data-icon="basil:add-outline" ></span>
+                  </div>
+                </div>
+
+              <div class="topper-products">
+                <div class="filters">
+                  <div id="price-filter" class="filter">price</div>
+                  <div id="quantity-filter" class="filter">Quantity</div>
+                  <div class="order-container">
+                    <label for="order">Order :</label>
+  
+                    <select name="order" id="order">
+                      <option value="asc">ascending</option>
+                      <option value="des">descending</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="select-mode">
+                  <div id="display-table-btn" class="table">Table</div>
+                  <div class="line"></div>
+                  <div id="display-list-btn" class="list">List</div>
+                </div>
+              </div>
+            </div>
                 <div class="container" id="select-choice">
                     <div id="choice-1">
                         
@@ -98,135 +192,21 @@
                                     <th>Reduction</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                                <tr>
-                                    <td>Shoes</td>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>4</td>
-                                    <td>26.99 USD</td>
-                                    <td>45%</td>
-                                </tr>
-                            
+                            <tbody id="table-content-js">
+                                
+
                                 
                             </tbody>
                         </table>
                 </div>
                 <div id="choice-2">
                     <div class="section2">
-                        <div style="text-align: center;margin-bottom: 20px; font-weight: 550px; font-size: 25px; ">Your product</div>
+                        
                         <div class="container" id="product-container-dash">
                             
                             
+                            ro7 tkhra jib lien
                             
-                            <div class="items">
-                                <div class="img img1">
-                                    <img
-                                        src="https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="name">SHOES</div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur.sdfsdfasd sadf adsf ads fa dsf asd dasfk;k; ;ok;lk;jljlhkjh kjhk hk hk jh kjh kjhk jh
-                                </div>
-                                <div class="price">48 USD</div>
-                                <div class="old-price">55 USD</div>
-                                <div class="review">
-                                    <div class="review-is">4.8</div>
-                                    <img class="start-img" src="star.png" alt="">
-                                    
-                                </div>
-                                
-                            </div>
                                                 </div>
                     </div>
                 </div>
@@ -235,8 +215,13 @@
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- iconify -->
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
-    <script src="../script.js"></script>
-    <script src="../js/dashboard.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="../js/dashboard_product.js"></script>
 </body>
 </html>
