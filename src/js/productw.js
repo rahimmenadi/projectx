@@ -70,7 +70,7 @@ var comments = [
     { author: "Mike", content: "Excellent quality!", rating: 3, date: "2023-05-10" },
     { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
     { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
-    { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
+    { author: "rahil", content: "mliha!", rating: 4.5, date: "2023-05-12" },
     // Ajoutez plus de commentaires au besoin
 ];
 
@@ -169,7 +169,7 @@ for (var i = 1; i < images.length && i <= 5; i++) {
 
 //essaie
 
-var newTitle = "Nouveau ";
+var newTitle = "";
 titre.textContent = newTitle;
 
 
@@ -216,7 +216,7 @@ ajouterCouleurs(couleursHTML5, couleursRow5);
 
 //options 
 // Tableau des options
-var options = ["Opt1", "Opt2", "Opt3", "Opt4", "Opt5"];
+var options = ["Opt1", "Opt2", "Opt3", "Opt4", "Opt5" ];
 
 // Récupérer la ligne des options
 var optionsRow = document.getElementById("optionsRow");
