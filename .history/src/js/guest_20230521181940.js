@@ -60,8 +60,8 @@ for (let index = 0; index < 10; index++) {
     </div>
     `
 }
-var a=sessionStorage.getItem('token')
-console.log(a)
+sessionStorage.getItem('token')
+console.log('token')
 swiper_categories.innerHTML+=swiper_items;
 sellers.innerHTML=three_sellers;
 
