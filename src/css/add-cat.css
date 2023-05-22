@@ -234,7 +234,7 @@ button {
     transform: translate(250%);
 }
 
-#walid {
+#walid,#walid2,#walid3 {
     padding: 0 10px;
     cursor: pointer;
     font-size: 14px;

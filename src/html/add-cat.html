@@ -46,7 +46,9 @@
             background-color: #45a049;
         }
 
-        #previewImage {
+        #previewImage, 
+        #previewImage2, 
+        #previewImage3 {
             max-width: 100%;
             height: auto;
         }
@@ -65,12 +67,25 @@
                             <input type="text" id="categoryName" placeholder="Enter category name" />
                         </div>
                         <div class="form-group">
-                            <label for="categoryImage" id="walid">chosoe Image:</label>
+                            <label for="categoryImage" id="walid">Choose Image 1:</label>
 
                             <input type="file" id="categoryImage" style="visibility: hidden;" accept="image/*" />
 
                             <img id="previewImage" src="#" alt="" />
                         </div>
+                        <div class="form-group">
+                            <label for="categoryImage2" id="walid2">Choose Image 2:</label>
+                            <input type="file" id="categoryImage2" style="visibility: hidden;" accept="image/*" />
+                            <img id="previewImage2" src="#" alt="" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoryImage3" id="walid3">Choose Image 3:</label>
+                            <input type="file" id="categoryImage3" style="visibility: hidden;" accept="image/*" />
+                            <img id="previewImage3" src="#" alt="" />
+                        </div>
+                        
+                      
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -91,34 +106,98 @@
             reader.readAsDataURL(file);
         });
 
-        document.getElementById("categoryForm").addEventListener("submit", function (e) {
+        document.getElementById("categoryImage2").addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById("previewImage2").setAttribute("src", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+document.getElementById("categoryImage3").addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById("previewImage3").setAttribute("src", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+
+          document.getElementById("categoryForm").addEventListener("submit", function (e) {
             e.preventDefault(); // Prevent the default form submission
 
             var categoryName = document.getElementById("categoryName").value;
-            var categoryImage = document.getElementById("categoryImage").files[0];
+            var categoryImages = [];
 
-            var formData = new FormData();
-            formData.append("name", categoryName);
-            formData.append("image", categoryImage);
+              // Retrieve all file input elements
+             var fileInputs = document.querySelectorAll('input[type="file"]');
+    
+              // Iterate over each file input
+                 fileInputs.forEach(function(input) {
+                  if (input.files.length > 0) {
+                      categoryImages.push(input.files[0]);
+                     }
+    });
 
-            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories?fbclid=IwAR3Eszxr3RJPqY5AoqlMA9mAevZbtyeQYXl6EA9YCrnkinlJorT3Lk20JU4", formData)
-                .then(function (response) {
+            // var formData = new FormData();
+            formData = {
+                name: categoryName,
+                image: categoryImages,
+            }
+            console.log(formData)
+            // formData.append("name", categoryName);
+            // formData.append("image", categoryImages);
+            //  console.log(formData)
+            
+            var a = sessionStorage.getItem('token');
+            console.log(a) ;
+            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories",formData, {headers :{
+                Authorization : `Bearer ${a}`
+            }})
+            .then(function (response) {
+                    console.log(response)
                     displayPopup("Category added");
                     document.getElementById("categoryForm").reset();
                     document.getElementById("previewImage").setAttribute("src", "#");
-                    console.log(response)
                 })
                 .catch(function (error) {
                     displayPopup("An error occurred");
                     console.error(error);
                 });
-        });
-
+                
+            });
+            
         function displayPopup(message) {
             alert(message);
         }
+
+
+        // second methode
+        // const postData = async () => {
+        //         try {
+        //             const response = await axios.post('https://buy-it-sigma.herokuapp.com/api/v1/categories', {
+        //                 name: formData.name,
+        //                 image: formData.image,
+        //             });
+                    
+        //             console.log(response.data); // Réponse de l'API
+        //         } catch (error) {
+        //             console.error(error);
+        //         }
+        //     };
+
+        //     postData();
     </script>
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
