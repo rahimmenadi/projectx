@@ -64,7 +64,7 @@ let cash = document.getElementById('cash');
 let amain = document.getElementById('amain');
 let baridi = document.getElementById('baridi');
 let description = document.getElementById('description');
-let submit = document.getElementById('submit');
+let save = document.getElementById('save');
 let cancel = document.getElementById('cancel');
 let chekbox = document.querySelectorAll('input[type="checkbox"]');
 let tabimage = [];
@@ -73,13 +73,21 @@ let livraison = tabchek;
 
 //linkag
 
+axios.get('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/products')
+  .then(response => {
+    let catégories = response.data 
+    catégorie.innerHTML = `<option>Subject 1</option>`
+  })
+  .catch(error => {
+    console.log(error)
+  });
 //récupurer données 
 
 
 let datatab = [];
 
 
-submit.onclick = function () {
+save.onclick = function () {
 
 
     if (cash.checked) {
@@ -107,21 +115,53 @@ submit.onclick = function () {
         tabchek = ["pas de livraison"];
     }
 
-    let prod = {
-        title: title.value,
-        tabimage,
-        catégorie: catégorie.value,
-        subcatégorie: subcatégorie.value,
-        price: price.value,
-        livraison: tabchek,
-        pricered: pricered.value,
-        color: color.value,
-        quantité: quantité.value,
-        taille: taille.value,
-        description: description.value
+    class prod {
+        constructor(title, tabimage, catégorie, subcatégorie, price, livraison, pricered, description) {
+            this.title = title;
+            this.tabimage = tabimage;
+            this.catégorie = catégorie;
+            this.subcatégorie = subcatégorie;
+            this.price = price;
+            this.livraison = livraison;
+            this.pricered = pricered;
+            this.description = description;
+        }
     }
-    console.log(prod);
+
+    let product = new prod(
+        title.value,
+        tabimage,
+        catégorie.value,
+        subcatégorie.value,
+        price.value,
+        livraison,
+        pricered.value,
+        description.value,
+    );
+
+    postData();
+
 }
+const postData = async () => {
+    try {
+        const response = await axios.post('https://buy-it-sigma.herokuapp.com/api/v1/products?fbclid=IwAR1hiIG-uhOXV96PfW4IKIdaZxrO3y8w24awdYEyLWF082wiZ1gLZDzheFY', {
+            title: product.title,
+            description:product.description,
+            quantity:25,
+            tabimage: product.tabimage,
+            catégorie: product.image,
+            subcatégorie: product.subcatégorie,
+            price: product.price,
+            livraison: ['option1', 'option2', 'option3'],
+            pricered: 15.99,
+        });
+
+        console.log(response.data); // Réponse de l'API
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 
 
 
