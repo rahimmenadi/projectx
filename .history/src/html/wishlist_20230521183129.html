@@ -14,7 +14,7 @@
             margin-top: 20px;
             margin-bottom: 30px;
         }
-        
+
         #wishlist {
             display: flex;
             margin: 10px;
@@ -527,7 +527,8 @@
         <div class="overlay"></div>
     </div>
     <script>
-        let a=sessionStorage.getItem('token')
+       
+        sessionStorage.getItem('token')
         console.log(a)
         // Sample wishlist data
         let wishlistData = [
@@ -551,16 +552,18 @@
         ];
 
     //     // Fonction pour récupérer les produits depuis le backend avec Axios (méthode GET)
-    // function getProducts() {
-    //   axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist')
-    //     .then(response => {
-    //       const wishlistData = response.data;
-    //       renderWishlist(wishlistData);
-    //     })
-    //     .catch(error => {
-    //       console.error('Erreur lors de la récupération des produits:', error);
-    //     });
-    // }
+     console.log('a')
+       axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist')
+         .then(response => {
+            console.log(response.data)
+       const wishlistData = response.data;
+          renderWishlist(wishlistData);
+
+        })
+        .catch(error => {
+          console.error('Erreur lors de la récupération des produits:', error);
+      });
+    
 
         // Function to calculate and display the number of wishlist items
         function calculateItemCount() {
