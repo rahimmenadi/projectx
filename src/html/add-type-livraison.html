@@ -464,13 +464,13 @@
 
 
             // Send data to the backend using Axios
-            // axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories?fbclid=IwAR3Eszxr3RJPqY5AoqlMA9mAevZbtyeQYXl6EA9YCrnkinlJorT3Lk20JU4", data)
-            //     .then(function (response) {
-            //         displayPopup("Type-Livraison added");
-            //     })
-            //     .catch(function (error) {
-            //         displayPopup("Error: Type-Livraison could not be added");
-            //     });
+            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories?fbclid=IwAR3Eszxr3RJPqY5AoqlMA9mAevZbtyeQYXl6EA9YCrnkinlJorT3Lk20JU4", data)
+                .then(function (response) {
+                    displayPopup("Type-Livraison added");
+                })
+                .catch(function (error) {
+                    displayPopup("Error: Type-Livraison could not be added");
+                });
             console.log(data)
             document.getElementById("typeLivraisonForm").reset();
         });
