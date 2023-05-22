@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="src/css/add-cat.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<head>
+    <title>Ajouter des sous-catégories</title>
+</head>
+
+<body>
+    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 id="h2">Ajouter des catégories</h2>
+                    <form id="subcategory-form">
+                        <div class="category-container">
+                            <div class="input-container">
+                                <span class="counter">1</span>
+                                <label for="category">Catégorie:</label>
+                                <input type="text" class="category-input" name="category[]">
+                                <button type="button" class="add-category-subcategory">Ajouter une
+                                    sous-catégorie</button>
+                            </div>
+                            <div class="subcategories-container">
+                                <div class="input-container">
+                                    <span class="counter">1.1</span>
+                                    <label for="subcategory">Sous-catégorie:</label>
+                                    <input type="text" class="subcategory-input" name="subcategory[]">
+                                    <button type="button" class="remove-subcategory">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-category">Ajouter une autre catégorie</button>
+                        <button type="submit">Enregistrer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const addCategoryButton = document.getElementById('add-category');
+            let categoryCounter = 1;
+            let subcategoryCounters = [1];
+
+            addCategoryButton.addEventListener('click', () => {
+                categoryCounter++;
+                subcategoryCounters.push(1);
+
+                const categoryContainer = document.createElement('div');
+                categoryContainer.classList.add('category-container');
+
+                const inputContainer = document.createElement('div');
+                inputContainer.classList.add('input-container');
+
+                const counterSpan = document.createElement('span');
+                counterSpan.classList.add('counter');
+                counterSpan.textContent = categoryCounter;
+
+                const categoryLabel = document.createElement('label');
+                categoryLabel.textContent = 'Catégorie:';
+
+                const categoryInput = document.createElement('input');
+                categoryInput.type = 'text';
+                categoryInput.classList.add('category-input');
+                categoryInput.name = 'category[]';
+
+                const addCategorySubcategoryButton = document.createElement('button');
+                addCategorySubcategoryButton.type = 'button';
+                addCategorySubcategoryButton.classList.add('add-category-subcategory');
+                addCategorySubcategoryButton.textContent = 'Ajouter une sous-catégorie';
+
+                const subcategoryContainer = document.createElement('div');
+                subcategoryContainer.classList.add('subcategories-container');
+
+                const subcategoryInputContainer = document.createElement('div');
+                subcategoryInputContainer.classList.add('input-container');
+
+                const subcategoryCounterSpan = document.createElement('span');
+                subcategoryCounterSpan.classList.add('counter');
+                subcategoryCounterSpan.textContent = `${categoryCounter}.${subcategoryCounters[categoryCounter - 1]}`;
+
+                const subcategoryLabel = document.createElement('label');
+                subcategoryLabel.textContent = 'Sous-catégorie:';
+
+                const subcategoryInput = document.createElement('input');
+                subcategoryInput.type = 'text';
+                subcategoryInput.classList.add('subcategory-input');
+                subcategoryInput.name = 'subcategory[]';
+
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.classList.add('remove-subcategory');
+                removeButton.textContent = '-';
+
+                inputContainer.appendChild(counterSpan);
+                inputContainer.appendChild(categoryLabel);
+                inputContainer.appendChild(categoryInput);
+                inputContainer.appendChild(addCategorySubcategoryButton);
+                categoryContainer.appendChild(inputContainer);
+
+                subcategoryInputContainer.appendChild(subcategoryCounterSpan);
+                subcategoryInputContainer.appendChild(subcategoryLabel);
+                subcategoryInputContainer.appendChild(subcategoryInput);
+                subcategoryInputContainer.appendChild(removeButton);
+                subcategoryContainer.appendChild(subcategoryInputContainer);
+                categoryContainer.appendChild(subcategoryContainer);
+
+                addCategoryButton.parentNode.insertBefore(categoryContainer, addCategoryButton);
+            });
+
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('add-category-subcategory')) {
+                    const categoryContainer = event.target.parentNode.parentNode;
+                    const subcategoriesContainer = categoryContainer.querySelector('.subcategories-container');
+
+                    const categoryIndex = Array.from(addCategoryButton.parentNode.children).indexOf(categoryContainer);
+                    subcategoryCounters[categoryIndex]++;
+
+                    const subcategoryInputContainer = document.createElement('div');
+                    subcategoryInputContainer.classList.add('input-container');
+
+                    const subcategoryCounterSpan = document.createElement('span');
+                    subcategoryCounterSpan.classList.add('counter');
+                    subcategoryCounterSpan.textContent = `${categoryIndex + 1}.${subcategoryCounters[categoryIndex]}`;
+
+                    const subcategoryLabel = document.createElement('label');
+                    subcategoryLabel.textContent = 'Sous-catégorie:';
+
+                    const subcategoryInput = document.createElement('input');
+                    subcategoryInput.type = 'text';
+                    subcategoryInput.classList.add('subcategory-input');
+                    subcategoryInput.name = 'subcategory[]';
+
+                    const removeButton = document.createElement('button');
+                    removeButton.type = 'button';
+                    removeButton.classList.add('remove-subcategory');
+                    removeButton.textContent = '-';
+
+                    subcategoryInputContainer.appendChild(subcategoryCounterSpan);
+                    subcategoryInputContainer.appendChild(subcategoryLabel);
+                    subcategoryInputContainer.appendChild(subcategoryInput);
+                    subcategoryInputContainer.appendChild(removeButton);
+                    subcategoriesContainer.appendChild(subcategoryInputContainer);
+
+                    removeButton.addEventListener('click', () => {
+                        const subcategoryInputs = Array.from(subcategoriesContainer.querySelectorAll('.input-container'));
+                        const subcategoryIndex = subcategoryInputs.indexOf(subcategoryInputContainer);
+
+                        subcategoriesContainer.removeChild(subcategoryInputContainer);
+                        subcategoryCounters[categoryIndex]--;
+
+                        subcategoryInputs.forEach((input, index) => {
+                            const counterSpan = input.querySelector('.counter');
+                            counterSpan.textContent = `${categoryIndex + 1}.${index + 1}`;
+                        });
+                    });
+                }
+            });
+
+            const form = document.getElementById('subcategory-form');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                axios.post('/your-api-endpoint', formData)
+                    .then((response) => {
+                        console.log(response.data);
+                        // Faire quelque chose avec la réponse du serveur
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        // Gérer les erreurs
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
