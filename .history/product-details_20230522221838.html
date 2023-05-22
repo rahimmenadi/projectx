@@ -315,16 +315,16 @@
                                             <div class="big-image">
                                                 <div class="big-image-wrapper swiper-wrapper">
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-1" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img id="imgfirst" src="" alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-2" src=""alt=""></a>
+                                                        <a data-fslightbox href=""><img id="imgsecond" src=""alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-3" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img id="imgthird" src="" alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-4" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img id="imgfour" src="" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="swiper-button-next"></div>
@@ -1170,7 +1170,6 @@
    var labelElement2 = document.querySelector(".products .variant label[for='coblue']");
 
    labelElement.style.backgroundColor =a.color[0].colors[0].hexaColor
-
   
 
 
@@ -1192,12 +1191,7 @@ title.textContent=data.data[0].title
     reviewnumber3.textContent=a.totalRating
     
      
-    $('.colors .variant input[type="radio"]').each(function(index) {
-       
-        var label = $(this).siblings('label');
-        
-        label.css('background-color',a.color[0].colors[index]);
-    });
+   
     
      
      for (var i = 0; i < 2; i++) {
@@ -1207,13 +1201,10 @@ title.textContent=data.data[0].title
         var bigimg= 'bigimg-'+(i + 1);
        
         $('#' + imgid).attr('src',a.images[i])
-        $('#' + bigimg).attr('src',a.images[i])
-        console.log(a.images[i]) 
-
-
+        console.log(a.images[i])  
+             
        
     }
-
     
      
     
@@ -1223,7 +1214,7 @@ title.textContent=data.data[0].title
         
         var spanId = 'size-' + (i + 1);
        
-        $('#' + spanId).text(a.color[0].size[i].taille);
+        $('#' + spanId).text(a.color[0].size[0].taille);
         
        
     }

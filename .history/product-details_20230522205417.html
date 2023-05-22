@@ -315,37 +315,21 @@
                                             <div class="big-image">
                                                 <div class="big-image-wrapper swiper-wrapper">
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-1" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img id="flight" src="" alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-2" src=""alt=""></a>
+                                                        <a data-fslightbox href=""><img id="second-img" src="" alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-3" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img id="therd" src="" alt=""></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href=""><img id="bigimg-4" src="" alt=""></a>
+                                                        <a data-fslightbox href=""><img src="" alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="swiper-button-next"></div>
                                                 <div class="swiper-button-prev"></div>
-                                            </div>
-
-                                            <div thumbSlider="" class="small-image">
-                                                <ul class="small-image-wrapper flexitem swiper-wrapper">
-                                                    <li class="thumbnail-show swiper-slide">
-                                                        <img id="smallimg-1" src="" alt="">
-                                                    </li>
-                                                    <li class="thumbnail-show swiper-slide">
-                                                        <img id="smallimg-2" src="" alt="">
-                                                    </li>
-                                                    <li class="thumbnail-show swiper-slide">
-                                                        <img id="smallimg-3" src="" alt="">
-                                                    </li>
-                                                    <li class="thumbnail-show swiper-slide">
-                                                        <img id="smallimg-4" src="" alt=""> 
-                                                    </li>
-                                                </ul>
+                                       
                                             </div>
                                         </div>
                                     </div>
@@ -392,19 +376,19 @@
                                                         <form action="">
                                                             <p>
                                                                 <input type="radio" name="size" id="size-40">
-                                                                <label for="size-40" class="circle"><span id="size-1">40</span></label>
+                                                                <label for="size-40" class="circle"><span>40</span></label>
                                                             </p>
                                                             <p>
                                                                 <input type="radio" name="size" id="size-41">
-                                                                <label for="size-41" class="circle"><span id="size-2">41</span></label>
+                                                                <label for="size-41" class="circle"><span>41</span></label>
                                                             </p>
                                                             <p>
                                                                 <input type="radio" name="size" id="size-42">
-                                                                <label for="size-42" class="circle"><span id="size-3">42</span></label>
+                                                                <label for="size-42" class="circle"><span>42</span></label>
                                                             </p>
                                                             <p>
                                                                 <input type="radio" name="size" id="size-43">
-                                                                <label for="size-43" class="circle"><span id="size-4">43</span></label>
+                                                                <label for="size-43" class="circle"><span>43</span></label>
                                                             </p>
                                                         </form>
                                                     </div>
@@ -1148,7 +1132,7 @@
     
    
    
-    
+    var flight=document.getElementById('flight')
     var priceafter=document.getElementById('priceafterdis')
     var qnt=document.getElementById('qnt')
     var category=document.getElementById('category')
@@ -1170,7 +1154,6 @@
    var labelElement2 = document.querySelector(".products .variant label[for='coblue']");
 
    labelElement.style.backgroundColor =a.color[0].colors[0].hexaColor
-
   
 
 
@@ -1183,7 +1166,7 @@ title.textContent=data.data[0].title
   
    
   
-   
+    flight.src=a.images[0]
     priceafter.textContent="$"+a.priceAfterDiscount
     qnt.textContent=a.quantity
     category.textContent=a.category
@@ -1192,41 +1175,16 @@ title.textContent=data.data[0].title
     reviewnumber3.textContent=a.totalRating
     
      
-    $('.colors .variant input[type="radio"]').each(function(index) {
-       
-        var label = $(this).siblings('label');
-        
-        label.css('background-color',a.color[0].colors[index]);
-    });
-    
+   
      
-     for (var i = 0; i < 2; i++) {
-        
-        
-        var imgid = 'smallimg-' + (i + 1);
-        var bigimg= 'bigimg-'+(i + 1);
-       
-        $('#' + imgid).attr('src',a.images[i])
-        $('#' + bigimg).attr('src',a.images[i])
-        console.log(a.images[i]) 
 
-
-       
-    }
-
-    
-     
+     $('#firstimg').attr('src', a.images[1]);
+     $('#secondimg').attr('src', a.images[0]);
+     thirdimg
+     $('#second-img').attr('src', a.images[0]);
+     $('#therd').attr('src', a.images[1]);
     
      console.log(a.images[1])
-     for (var i = 0; i < 5; i++) {
-        
-        
-        var spanId = 'size-' + (i + 1);
-       
-        $('#' + spanId).text(a.color[0].size[i].taille);
-        
-       
-    }
 
     
   
@@ -1255,20 +1213,6 @@ title.textContent=data.data[0].title
     // Append the elements to the container
     dataContainer.appendChild(ul);
   }
-</script>
-<script>
-    
-             var n=5
-    // Update the radio buttons with the retrieved sizes
-    for (var i = 0; i < 5; i++) {
-        
-        
-        var spanId = 'size-' + (i + 1);
-       
-        $('#' + spanId).text("44");
-        console.log("washh")
-       
-    }
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>

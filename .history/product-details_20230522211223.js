@@ -90,14 +90,14 @@ dptButton.addEventListener("click", function () {
 
 //product image slider
 var productThumb = new Swiper(".small-image", {
+	loop: true,
+	spaceBetween: 10,
+	slidesPerView: 5,
 	
-	spaceBetween:10 ,
-	slidesPerView: 3,
-	freeMode: true,
 	watchSlidesProgress: true,
 	breakpoints: {
 		481: {
-			spaceBetween: 32,
+			spaceBetween: 3,
 		},
 	},
 });
@@ -127,7 +127,8 @@ for (let x = 0; x < stocks.length; x++) {
 //show cart on click
 const divtoShow = ".mini-cart";
 const divPopup = document.querySelector(divtoShow);
-const divTrigger = document.querySelector(".cart-trigger")
+const divTrigger = document.querySelector(".cart-trigger");
+
 divTrigger.addEventListener("click", () => {
 	setTimeout(() => {
 		if (!divPopup.classList.contains("show")) {

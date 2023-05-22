@@ -89,29 +89,7 @@ dptButton.addEventListener("click", function () {
 });
 
 //product image slider
-var productThumb = new Swiper(".small-image", {
-	
-	spaceBetween:10 ,
-	slidesPerView: 3,
-	freeMode: true,
-	watchSlidesProgress: true,
-	breakpoints: {
-		481: {
-			spaceBetween: 32,
-		},
-	},
-});
-var productBig = new Swiper(".big-image", {
-	loop: true,
-	autoHeight: true,
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
-	thumbs: {
-		swiper: productThumb,
-	},
-});
+
 
 //stock products bar width percentage
 var stocks = document.querySelectorAll(".products .stock");
@@ -127,7 +105,8 @@ for (let x = 0; x < stocks.length; x++) {
 //show cart on click
 const divtoShow = ".mini-cart";
 const divPopup = document.querySelector(divtoShow);
-const divTrigger = document.querySelector(".cart-trigger")
+const divTrigger = document.querySelector(".cart-trigger");
+
 divTrigger.addEventListener("click", () => {
 	setTimeout(() => {
 		if (!divPopup.classList.contains("show")) {

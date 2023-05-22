@@ -1170,7 +1170,6 @@
    var labelElement2 = document.querySelector(".products .variant label[for='coblue']");
 
    labelElement.style.backgroundColor =a.color[0].colors[0].hexaColor
-
   
 
 
@@ -1192,12 +1191,7 @@ title.textContent=data.data[0].title
     reviewnumber3.textContent=a.totalRating
     
      
-    $('.colors .variant input[type="radio"]').each(function(index) {
-       
-        var label = $(this).siblings('label');
-        
-        label.css('background-color',a.color[0].colors[index]);
-    });
+   
     
      
      for (var i = 0; i < 2; i++) {
@@ -1213,7 +1207,6 @@ title.textContent=data.data[0].title
 
        
     }
-
     
      
     
@@ -1223,7 +1216,7 @@ title.textContent=data.data[0].title
         
         var spanId = 'size-' + (i + 1);
        
-        $('#' + spanId).text(a.color[0].size[i].taille);
+        $('#' + spanId).text(a.color[0].size[0].taille);
         
        
     }

@@ -129,7 +129,7 @@
           let password=document.getElementById("password").value
           
           axios.post('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
-            
+           
             window.location.assign('./src/html/add-cat.html');
 
           sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}

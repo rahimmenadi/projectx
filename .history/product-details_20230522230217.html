@@ -1193,10 +1193,10 @@ title.textContent=data.data[0].title
     
      
     $('.colors .variant input[type="radio"]').each(function(index) {
-       
+        var color = colors[index];
         var label = $(this).siblings('label');
         
-        label.css('background-color',a.color[0].colors[index]);
+        label.css('background-color', "red");
     });
     
      
