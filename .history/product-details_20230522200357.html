@@ -1146,7 +1146,8 @@
     var rating=document.getElementById('rating')
     
     
-   
+    var firstimg=document.getElementById('firstimg')
+    var second=document.getElementById('secondimg')
    
     var flight=document.getElementById('flight')
     var priceafter=document.getElementById('priceafterdis')
@@ -1179,7 +1180,7 @@ title.textContent=data.data[0].title
     reviewnumber.textContent=a.totalRating
     rating.textContent=a.ratingAverage
     
-  
+    firstimg.src=a.images[0];
    
   
     flight.src=a.images[0]
@@ -1190,14 +1191,10 @@ title.textContent=data.data[0].title
     reviewnumber2.textContent=a.totalRating
     reviewnumber3.textContent=a.totalRating
     
-     
+     second.src=a.images[0]
+
+
    
-     
-
-     $('#firstimg').attr('src', a.images[0]);
-     $('#secondimg').attr('src', a.images[0]);
-
-     console.log(a.images[1])
 
     
   
@@ -1227,5 +1224,4 @@ title.textContent=data.data[0].title
     dataContainer.appendChild(ul);
   }
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
