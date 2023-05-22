@@ -91,7 +91,7 @@
 
       </div>
       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_zwydiyzs.json"  background="transparent"  speed="1"  style="width: 700px; height: 1050px;"  loop  autoplay></lottie-player>
+      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_zwydiyzs.json"  background="transparent"  speed="1"  style="width: 700px; height: 1150px;"  loop  autoplay></lottie-player>
 
     </div>
 
@@ -125,10 +125,10 @@
           let password=document.getElementById("password").value
           
           axios.post('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
-            if(response.data.data.role=="admin"){
+            if(response.data.data.role=="user"){
               return;
             }
-            window.location.assign('./admin-home.html');
+            window.location.assign('./src/html/add-type-livraison.html');
 
           sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
           )})
