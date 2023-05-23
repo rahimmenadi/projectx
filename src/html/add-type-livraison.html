@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <link rel="stylesheet" href="../css/add-cat.css">
 <link
     href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
 <head>
-    <title>Add Type-Livraison</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ajouter des types de livraison</title>
     <style>
+        .input-group {
+            margin-bottom: 10px;
+        }
+
         .container {
             max-width: 400px;
             margin: 0 auto;
@@ -18,9 +20,7 @@
             border-radius: 5px;
         }
 
-        .form-group {
-            margin-bottom: 10px;
-        }
+
 
         label {
             display: block;
@@ -48,9 +48,18 @@
             cursor: pointer;
         }
 
+        #addPairBtn {
+            transform: translate(7%);
+        }
+
         button[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        button[type="submit"] {
+            transform: translate(150%);
+        }
+    </style>
     </style>
 </head>
 
@@ -59,366 +68,90 @@
         <div class="main main--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 id="h2">Add Type-Livraison</h2>
-                    <form id="typeLivraisonForm">
-                        <div class="form-group">
-                            <label for="typeLivraisonName">Nom Type-Livraison:</label>
-                            <input type="text" id="typeLivraisonName" placeholder="Enter type-livraison name" />
+                    <h1 id="h2">Ajouter des types de livraison</h1>
+
+                    <form id="productForm">
+                        <div class="input-group">
+                            <label for="typeName">Nom du type:</label>
+                            <input type="text" id="typeName" name="typeName" required>
                         </div>
-                        <h4>Prix pour chaque wilaya:</h4>
-                        <div id="wilayaPrices">
-                            <!-- Add wilaya options here -->
-                            <!-- Wilaya 01 -->
-                            <div class="form-group">
-                                <label for="wilaya01">01 Adrar:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya01"
-                                    placeholder="Enter price for Adrar" />
-                            </div>
-                            <!-- Wilaya 02 -->
-                            <div class="form-group">
-                                <label for="wilaya02">02 Chlef:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya02"
-                                    placeholder="Enter price for Chlef" />
-                            </div>
-                            <!-- Wilaya 03 -->
-                            <div class="form-group">
-                                <label for="wilaya03">03 Laghouat:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya03"
-                                    placeholder="Enter price for Laghouat" />
-                            </div>
-                            <!-- Wilaya 04 -->
-                            <div class="form-group">
-                                <label for="wilaya04">04 Oum-El-Bouaghi:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya04"
-                                    placeholder="Enter price for Oum-El-Bouaghi" />
-                            </div>
-                            <!-- Wilaya 05 -->
-                            <div class="form-group">
-                                <label for="wilaya05">05 Batna:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya05"
-                                    placeholder="Enter price for Batna" />
-                            </div>
-                            <!-- Wilaya 06 -->
-                            <div class="form-group">
-                                <label for="wilaya06">06 Béjaïa:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya06"
-                                    placeholder="Enter price for Béjaïa" />
-                            </div>
-                            <!-- Wilaya 07 -->
-                            <div class="form-group">
-                                <label for="wilaya07">07 Biskra:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya07"
-                                    placeholder="Enter price for Biskra" />
-                            </div>
-                            <!-- Wilaya 08 -->
-                            <div class="form-group">
-                                <label for="wilaya08">08 Béchar:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya08"
-                                    placeholder="Enter price for Béchar" />
-                            </div>
-                            <!-- Wilaya 09 -->
-                            <div class="form-group">
-                                <label for="wilaya09">09 Blida:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya09"
-                                    placeholder="Enter price for Blida" />
-                            </div>
-                            <!-- Wilaya 10 -->
-                            <div class="form-group">
-                                <label for="wilaya10">10 Bouira:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya10"
-                                    placeholder="Enter price for Bouira" />
-                            </div>
-                            <!-- Wilaya 11 -->
-                            <div class="form-group">
-                                <label for="wilaya11">11 Tamanrasset:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya11"
-                                    placeholder="Enter price for Tamanrasset" />
-                            </div>
-                            <!-- Wilaya 12 -->
-                            <div class="form-group">
-                                <label for="wilaya12">12 Tébessa:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya12"
-                                    placeholder="Enter price for Tébessa" />
-                            </div>
-                            <!-- Wilaya 13 -->
-                            <div class="form-group">
-                                <label for="wilaya13">13 Tlemcen:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya13"
-                                    placeholder="Enter price for Tlemcen" />
-                            </div>
-                            <!-- Wilaya 14 -->
-                            <div class="form-group">
-                                <label for="wilaya14">14 Tiaret:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya14"
-                                    placeholder="Enter price for Tiaret" />
-                            </div>
-                            <!-- Wilaya 15 -->
-                            <div class="form-group">
-                                <label for="wilaya15">15 Tizi-Ouzou:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya15"
-                                    placeholder="Enter price for Tizi-Ouzou" />
-                            </div>
-                            <!-- Wilaya 16 -->
-                            <div class="form-group">
-                                <label for="wilaya16">16 Alger:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya16"
-                                    placeholder="Enter price for Alger" />
-                            </div>
-                            <!-- Wilaya 17 -->
-                            <div class="form-group">
-                                <label for="wilaya17">17 Djelfa:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya17"
-                                    placeholder="Enter price for Djelfa" />
-                            </div>
-                            <!-- Wilaya 18 -->
-                            <div class="form-group">
-                                <label for="wilaya18">18 Jijel:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya18"
-                                    placeholder="Enter price for Jijel" />
-                            </div>
-                            <!-- Wilaya 19 -->
-                            <div class="form-group">
-                                <label for="wilaya19">19 Sétif:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya19"
-                                    placeholder="Enter price for Sétif" />
-                            </div>
-                            <!-- Wilaya 20 -->
-                            <div class="form-group">
-                                <label for="wilaya20">20 Saïda:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya20"
-                                    placeholder="Enter price for Saïda" />
-                            </div>
-                            <!-- Wilaya 21 -->
-                            <div class="form-group">
-                                <label for="wilaya21">21 Skikda:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya21"
-                                    placeholder="Enter price for Skikda" />
-                            </div>
-                            <!-- Wilaya 22 -->
-                            <div class="form-group">
-                                <label for="wilaya22">22 Sidi Bel Abbès:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya22"
-                                    placeholder="Enter price for Sidi Bel Abbès" />
-                            </div>
-                            <!-- Wilaya 23 -->
-                            <div class="form-group">
-                                <label for="wilaya23">23 Annaba:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya23"
-                                    placeholder="Enter price for Annaba" />
-                            </div>
-                            <!-- Wilaya 24 -->
-                            <div class="form-group">
-                                <label for="wilaya24">24 Guelma:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya24"
-                                    placeholder="Enter price for Guelma" />
-                            </div>
-                            <!-- Wilaya 25 -->
-                            <div class="form-group">
-                                <label for="wilaya25">25 Constantine:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya25"
-                                    placeholder="Enter price for Constantine" />
-                            </div>
-                            <!-- Wilaya 26 -->
-                            <div class="form-group">
-                                <label for="wilaya26">26 Médéa:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya26"
-                                    placeholder="Enter price for Médéa" />
-                            </div>
-                            <!-- Wilaya 27 -->
-                            <div class="form-group">
-                                <label for="wilaya27">27 Mostaganem:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya27"
-                                    placeholder="Enter price for Mostaganem" />
-                            </div>
-                            <!-- Wilaya 28 -->
-                            <div class="form-group">
-                                <label for="wilaya28">28 M’sila:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya28"
-                                    placeholder="Enter price for M’sila" />
-                            </div>
-                            <!-- Wilaya 29 -->
-                            <div class="form-group">
-                                <label for="wilaya29">29 Mascara:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya29"
-                                    placeholder="Enter price for Mascara" />
-                            </div>
-                            <!-- Wilaya 30 -->
-                            <div class="form-group">
-                                <label for="wilaya30">30 Ouargla:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya30"
-                                    placeholder="Enter price for Ouargla" />
-                            </div>
-                            <!-- Wilaya 31 -->
-                            <div class="form-group">
-                                <label for="wilaya31">31 Oran:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya31"
-                                    placeholder="Enter price for Oran" />
-                            </div>
-                            <!-- Wilaya 32 -->
-                            <div class="form-group">
-                                <label for="wilaya32">32 El Bayadh:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya32"
-                                    placeholder="Enter price for El Bayadh" />
-                            </div>
-                            <!-- Wilaya 33 -->
-                            <div class="form-group">
-                                <label for="wilaya33">33 Illizi:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya33"
-                                    placeholder="Enter price for Illizi" />
-                            </div>
-                            <!-- Wilaya 34 -->
-                            <div class="form-group">
-                                <label for="wilaya34">34 Bordj Bou Arreridj:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya34"
-                                    placeholder="Enter price for Bordj Bou Arreridj" />
-                            </div>
-                            <!-- Wilaya 35 -->
-                            <div class="form-group">
-                                <label for="wilaya35">35 Boumerdès:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya35"
-                                    placeholder="Enter price for Boumerdès" />
-                            </div>
-                            <!-- Wilaya 36 -->
-                            <div class="form-group">
-                                <label for="wilaya36">36 El-Tarf:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya36"
-                                    placeholder="Enter price for El-Tarf" />
-                            </div>
-                            <!-- Wilaya 37 -->
-                            <div class="form-group">
-                                <label for="wilaya37">37 Tindouf:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya37"
-                                    placeholder="Enter price for Tindouf" />
-                            </div>
-                            <!-- Wilaya 38 -->
-                            <div class="form-group">
-                                <label for="wilaya38">38 Tissemsilt:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya38"
-                                    placeholder="Enter price for Tissemsilt" />
-                            </div>
-                            <!-- Wilaya 39 -->
-                            <div class="form-group">
-                                <label for="wilaya39">39 El-Oued:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya39"
-                                    placeholder="Enter price for El-Oued" />
-                            </div>
-                            <!-- Wilaya 40 -->
-                            <div class="form-group">
-                                <label for="wilaya40">40 Khenchela:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya40"
-                                    placeholder="Enter price for Khenchela" />
-                            </div>
-                            <!-- Wilaya 41 -->
-                            <div class="form-group">
-                                <label for="wilaya41">41 Souk-Ahras:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya41"
-                                    placeholder="Enter price for Souk-Ahras" />
-                            </div>
-                            <!-- Wilaya 42 -->
-                            <div class="form-group">
-                                <label for="wilaya42">42 Tipaza:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya42"
-                                    placeholder="Enter price for Tipaza" />
-                            </div>
-                            <!-- Wilaya 43 -->
-                            <div class="form-group">
-                                <label for="wilaya43">43 Mila:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya43"
-                                    placeholder="Enter price for Mila" />
-                            </div>
-                            <!-- Wilaya 44 -->
-                            <div class="form-group">
-                                <label for="wilaya44">44 Aïn Defla:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya44"
-                                    placeholder="Enter price for Aïn Defla" />
-                            </div>
-                            <!-- Wilaya 45 -->
-                            <div class="form-group">
-                                <label for="wilaya45">45 Naama:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya45"
-                                    placeholder="Enter price for Naama" />
-                            </div>
-                            <!-- Wilaya 46 -->
-                            <div class="form-group">
-                                <label for="wilaya46">46 Aïn Témouchent:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya46"
-                                    placeholder="Enter price for Aïn Témouchent" />
-                            </div>
-                            <!-- Wilaya 47 -->
-                            <div class="form-group">
-                                <label for="wilaya47">47 Ghardaïa:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya47"
-                                    placeholder="Enter price for Ghardaïa" />
-                            </div>
-                            <!-- Wilaya 48 -->
-                            <div class="form-group">
-                                <label for="wilaya48">48 Relizane:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya48"
-                                    placeholder="Enter price for Relizane" />
-                            </div>
-                            <!-- Wilaya 49 -->
-                            <div class="form-group">
-                                <label for="wilaya49">49 Timimoun :</label>
-                                <input type="number" class="wilayaPrice" id="wilaya49"
-                                    placeholder="Enter price for  Timimoun " />
-                            </div>
-                            <!-- Wilaya 50 -->
-                            <div class="form-group">
-                                <label for="wilaya50">50 Bordj Badji Mokhtar :</label>
-                                <input type="number" class="wilayaPrice" id="wilaya50"
-                                    placeholder="Enter price for Bordj Badji Mokhtar " />
-                            </div>
-                            <!-- Wilaya 51 -->
-                            <div class="form-group">
-                                <label for="wilaya51">51 Ouled Djellal :</label>
-                                <input type="number" class="wilayaPrice" id="wilaya51"
-                                    placeholder="Enter price forOuled Djellal " />
-                            </div>
-                            <!-- Wilaya 52 -->
-                            <div class="form-group">
-                                <label for="wilaya52">52 Béni Abbès:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya52"
-                                    placeholder="Enter price for Béni Abbès" />
-                            </div>
-                            <!-- Wilaya 53 -->
-                            <div class="form-group">
-                                <label for="wilaya53">53 In Salah:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya53"
-                                    placeholder="Enter price for In Salah" />
-                            </div>
-                            <!-- Wilaya 54 -->
-                            <div class="form-group">
-                                <label for="wilaya54">54 In Guezzam:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya54"
-                                    placeholder="Enter price for In Guezzam" />
-                            </div>
-                            <!-- Wilaya 55 -->
-                            <div class="form-group">
-                                <label for="wilaya55">55 Touggourt:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya55"
-                                    placeholder="Enter price for Touggourt" />
-                            </div>
-                            <!-- Wilaya 56 -->
-                            <div class="form-group">
-                                <label for="wilaya56">56 Djanet:</label>
-                                <input type="number" class="wilayaPrice" id="wilaya56"
-                                    placeholder="Enter price for Djanet" />
-                            </div>
-                            <!-- Wilaya 57 -->
-                            <div class="form-group">
-                                <label for="wilaya57">57 El M'Ghair :</label>
-                                <input type="number" class="wilayaPrice" id="wilaya57"
-                                    placeholder="Enter price for El M'Ghair " />
-                            </div>
-                            <!-- Wilaya 58 -->
-                            <div class="form-group">
-                                <label for="wilaya58">58 'El Meniaa :</label>
-                                <input type="number" class="wilayaPrice" id="wilaya58"
-                                    placeholder="Enter price for 'El Meniaa " />
-                            </div>
-                            <!-- End of Wilayas -->
+
+                        <div class="input-group">
+                            <label for="wilaya1">Sélectionner une wilaya:</label>
+                            <select id="wilaya1" name="wilaya1" required>
+                                <option value="">Sélectionnez une wilaya</option>
+                                <option value="adrar">1-drar</option>
+                                <option value="chlef">2-chlef</option>
+                                <option value="Laghouat">3-Laghouat</option>
+                                <option value="Oum-El-Bouaghi">4-Oum-El-Bouaghi</option>
+                                <option value="Batna">5-Batna</option>
+                                <option value="Béjaïa">6-Béjaïa</option>
+                                <option value="Biskra">7-Biskra</option>
+                                <option value="Béchar">8-Béchar</option>
+                                <option value="Blida">9-Blida</option>
+                                <option value="Bouira">10-Bouira</option>
+                                <option value="Tamanrasset">11-Tamanrasset</option>
+                                <option value="Tébessa">12-Tébessa</option>
+                                <option value="Tlemcen">13-Tlemcen</option>
+                                <option value="Tiaret">14-Tiaret</option>
+                                <option value="Tizi-Ouzou">15-Tizi-Ouzou</option>
+                                <option value="Alger">16-Alger</option>
+                                <option value="Djelfa">17-Djelfa</option>
+                                <option value="Jijel">18-Jijel</option>
+                                <option value="Sétif">19-Sétif</option>
+                                <option value="Saïda">20-Saïda</option>
+                                <option value="Skikda">21-Skikda</option>
+                                <option value="Sidi Bel Abbès">22-Sidi Bel Abbès</option>
+                                <option value="Annaba">23-Annaba</option>
+                                <option value="Guelma">24-Guelma</option>
+                                <option value="Constantine">25-Constantine</option>
+                                <option value="Médéa">26-Médéa</option>
+                                <option value="Mostaganem">27-Mostaganem</option>
+                                <option value="M’sila">28-M’sila</option>
+                                <option value="Mascara">29-Mascara</option>
+                                <option value="Ouargla">30-Ouargla</option>
+                                <option value="Oran">31-Oran</option>
+                                <option value="El Bayadh">32-El Bayadh</option>
+                                <option value="Illizi">33-Illizi</option>
+                                <option value="Bordj Bou Arreridj">34-Bordj Bou Arreridj</option>
+                                <option value="Boumerdès">35-Boumerdès</option>
+                                <option value="El-Tarf">36-El-Tarf</option>
+                                <option value="Tindouf">37-Tindouf</option>
+                                <option value="Tissemsilt">38-Tissemsilt</option>
+                                <option value="El-Oued">39-El-Oued</option>
+                                <option value="Khenchela">40-Khenchela</option>
+                                <option value="Souk-Ahras">41-Souk-Ahras</option>
+                                <option value="Tipaza">42-Tipaza</option>
+                                <option value="Mila">43-Mila</option>
+                                <option value="Aïn-Defla">44-Aïn-Defla</option>
+                                <option value="Naâma">45-Naâma</option>
+                                <option value="Aïn-Témouchent">46-Aïn-Témouchent</option>
+                                <option value="Ghardaïa">47-Ghardaïa</option>
+                                <option value="Relizane">48-Relizane</option>
+                                <option value="Timimoun">49-Timimoun</option>
+                                <option value="Bordj Badji Mokhtar">50-Bordj Badji Mokhtar</option>
+                                <option value="Ouled Djellal">51-Ouled Djellal</option>
+                                <option value="Béni Abbès">52-Béni Abbès</option>
+                                <option value="In Salah">53-In Salah</option>
+                                <option value="In Guezzam">54-In Guezzam</option>
+                                <option value="Touggourt">55-Touggourt</option>
+                                <option value="Djanet">56-Djanet</option>
+                                <option value="El M'Ghair">57-El M'Ghair</option>
+                                <option value="El Meniaa">58-El Meniaa</option>
+                            </select>
                         </div>
-                        <button type="submit">Submit</button>
+
+                        <div class="input-group">
+                            <label for="price1">Prix:</label>
+                            <input type="number" min="0" id="price1" name="price1" required>
+                        </div>
+
+                        <div id="additionalPairs">
+                            <!-- Les paires supplémentaires seront ajoutées ici -->
+                        </div>
+
+                        <button type="button" id="addPairBtn">Ajouter une paire</button>
+                        <button type="submit">Valider</button>
                     </form>
                 </div>
             </div>
@@ -426,177 +159,160 @@
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        var numberInputs = document.querySelectorAll('input[type="number"]');
-        for (var i = 0; i < numberInputs.length; i++) {
-            numberInputs[i].min = 0;
-        }
-        document.getElementById("typeLivraisonForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevent the default form submission
+        var a = sessionStorage.getItem('token')
+        console.log(a) 
+    </script>
+    <script>
+        // Récupérer les éléments du formulaire
+        const productForm = document.getElementById("productForm");
+        const additionalPairsContainer = document.getElementById("additionalPairs");
+        const addPairBtn = document.getElementById("addPairBtn");
 
-            var typeLivraisonName = document.getElementById("typeLivraisonName").value;
+        let pairCounter = 2;
 
-            var tabW = {};
-            var typeLivraison = {};
-            var wilayaPrices = document.getElementsByClassName("wilayaPrice");
+        addPairBtn.addEventListener("click", function () {
+            const pairHtml = `
+        <div class="input-group">
+          <label for="wilaya${pairCounter}">Sélectionner une wilaya ${pairCounter}:</label>
+          <select id="wilaya${pairCounter}" name="wilaya${pairCounter}" required>
+            <option value="">Sélectionnez une wilaya</option>
+            <option value="adrar">1-adrar</option>
+            <option value="chlef">2-chlef</option>
+            <option value="Laghouat">3-Laghouat</option>
+                                <option value="Oum-El-Bouaghi">4-Oum-El-Bouaghi</option>
+                                <option value="Batna">5-Batna</option>
+                                <option value="Béjaïa">6-Béjaïa</option>
+                                <option value="Biskra">7-Biskra</option>
+                                <option value="Béchar">8-Béchar</option>
+                                <option value="Blida">9-Blida</option>
+                                <option value="Bouira">10-Bouira</option>
+                                <option value="Tamanrasset">11-Tamanrasset</option>
+                                <option value="Tébessa">12-Tébessa</option>
+                                <option value="Tlemcen">13-Tlemcen</option>
+                                <option value="Tiaret">14-Tiaret</option>
+                                <option value="Tizi-Ouzou">15-Tizi-Ouzou</option>
+                                <option value="Alger">16-Alger</option>
+                                <option value="Djelfa">17-Djelfa</option>
+                                <option value="Jijel">18-Jijel</option>
+                                <option value="Sétif">19-Sétif</option>
+                                <option value="Saïda">20-Saïda</option>
+                                <option value="Skikda">21-Skikda</option>
+                                <option value="Sidi Bel Abbès">22-Sidi Bel Abbès</option>
+                                <option value="Annaba">23-Annaba</option>
+                                <option value="Guelma">24-Guelma</option>
+                                <option value="Constantine">25-Constantine</option>
+                                <option value="Médéa">26-Médéa</option>
+                                <option value="Mostaganem">27-Mostaganem</option>
+                                <option value="M’sila">28-M’sila</option>
+                                <option value="Mascara">29-Mascara</option>
+                                <option value="Ouargla">30-Ouargla</option>
+                                <option value="Oran">31-Oran</option>
+                                <option value="El Bayadh">32-El Bayadh</option>
+                                <option value="Illizi">33-Illizi</option>
+                                <option value="Bordj Bou Arreridj">34-Bordj Bou Arreridj</option>
+                                <option value="Boumerdès">35-Boumerdès</option>
+                                <option value="El-Tarf">36-El-Tarf</option>
+                                <option value="Tindouf">37-Tindouf</option>
+                                <option value="Tissemsilt">38-Tissemsilt</option>
+                                <option value="El-Oued">39-El-Oued</option>
+                                <option value="Khenchela">40-Khenchela</option>
+                                <option value="Souk-Ahras">41-Souk-Ahras</option>
+                                <option value="Tipaza">42-Tipaza</option>
+                                <option value="Mila">43-Mila</option>
+                                <option value="Aïn-Defla">44-Aïn-Defla</option>
+                                <option value="Naâma">45-Naâma</option>
+                                <option value="Aïn-Témouchent">46-Aïn-Témouchent</option>
+                                <option value="Ghardaïa">47-Ghardaïa</option>
+                                <option value="Relizane">48-Relizane</option>
+                                <option value="Timimoun">49-Timimoun</option>
+                                <option value="Bordj Badji Mokhtar">50-Bordj Badji Mokhtar</option>
+                                <option value="Ouled Djellal">51-Ouled Djellal</option>
+                                <option value="Béni Abbès">52-Béni Abbès</option>
+                                <option value="In Salah">53-In Salah</option>
+                                <option value="In Guezzam">54-In Guezzam</option>
+                                <option value="Touggourt">55-Touggourt</option>
+                                <option value="Djanet">56-Djanet</option>
+                                <option value="El M'Ghair">57-El M'Ghair</option>
+                                <option value="El Meniaa">58-El Meniaa</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="price${pairCounter}">Prix ${pairCounter}:</label>
+          <input type="number" min="0" id="price${pairCounter}" name="price${pairCounter}" required>
+        </div>
+      `;
 
-            for (var i = 0; i < wilayaPrices.length; i++) {
-                var wilayaId = i + 1;
-                var wilayaName = getWilayaName(wilayaId);
-                // var wilayaName = ("0" + wilayaId).slice(-2) + " " + getWilayaName(wilayaId);
-                var wilayaPrice = wilayaPrices[i].value;
-                // price[wilayaName] = wilayaPrice;
-                var price = wilayaPrices[i].value;
-                var wap = {
-                    price: price,
-                    city: wilayaName,
+            additionalPairsContainer.insertAdjacentHTML("beforeend", pairHtml);
+            pairCounter++;
+        });
+
+        productForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêcher la soumission du formulaire pour l'exemple
+
+            // Collecter toutes les données du formulaire
+            const formData = new FormData(productForm);
+            const formValues = Object.fromEntries(formData.entries());
+
+            // Afficher les données dans la console (pour l'exemple)
+            // console.log(formValues);
+
+            // Ici, vous pouvez envoyer les données au serveur ou effectuer d'autres opérations nécessaires
+        });
+    </script>
+    <script>
+        document.getElementById("productForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêche la soumission du formulaire
+
+            var typeName = document.getElementById("typeName").value;
+
+            var deliveryPrices = [];
+            var wilayaElements = document.querySelectorAll('[id^="wilaya"]');
+            var priceElements = document.querySelectorAll('[id^="price"]');
+
+            for (var i = 0; i < wilayaElements.length; i++) {
+                var wilayaElement = wilayaElements[i];
+                var priceElement = priceElements[i];
+
+                var wilayaValue = wilayaElement.value;
+                var priceValue = priceElement.value;
+
+                if (wilayaValue && priceValue) {
+                    var pair = {
+                        city: wilayaValue,
+                        price: priceValue
+                    };
+
+                    // deliveryPrices.push(pair);
+                    deliveryPrices[i] = pair
                 }
-                typeLivraison[i] = wap
-                // tabW[i] = wap;
             }
 
-
-
             var data = {
-                name: typeLivraisonName,
-                deliveryPrices: typeLivraison
+                name: typeName,
+                deliveryPrices: deliveryPrices
             };
 
-
-
             // Send data to the backend using Axios
-            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories?fbclid=IwAR3Eszxr3RJPqY5AoqlMA9mAevZbtyeQYXl6EA9YCrnkinlJorT3Lk20JU4", data)
+            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/deliveries", data, {
+                headers: {
+                    Authorization: 'Bearer ' + a,
+                }
+            })
                 .then(function (response) {
                     displayPopup("Type-Livraison added");
                 })
                 .catch(function (error) {
+                    console.log("message erreur est :", error)
                     displayPopup("Error: Type-Livraison could not be added");
                 });
             console.log(data)
-            document.getElementById("typeLivraisonForm").reset();
+            // document.getElementById("typeLivraisonForm").reset();
         });
 
-        function getWilayaName(wilayaId) {
-            switch (wilayaId) {
-                case 1:
-                    return "Adrar";
-                case 2:
-                    return "Chlef";
-                case 3:
-                    return "Laghouat";
-                case 4:
-                    return "Oum-El-Bouaghi";
-                case 5:
-                    return "Batna";
-                case 6:
-                    return "Béjaïa";
-                case 7:
-                    return "Biskra";
-                case 8:
-                    return "Béchar";
-                case 9:
-                    return "Blida";
-                case 10:
-                    return "Bouira";
-                case 11:
-                    return "Tamanrasset";
-                case 12:
-                    return "Tébessa";
-                case 13:
-                    return "Tlemcen";
-                case 14:
-                    return "Tiaret";
-                case 15:
-                    return "Tizi-Ouzou";
-                case 16:
-                    return "Alger";
-                case 17:
-                    return "Djelfa";
-                case 18:
-                    return "Jijel";
-                case 19:
-                    return "Sétif";
-                case 20:
-                    return "Saïda";
-                case 21:
-                    return "Skikda";
-                case 22:
-                    return "Sidi Bel Abbès";
-                case 23:
-                    return "Annaba";
-                case 24:
-                    return "Guelma";
-                case 25:
-                    return "Constantine";
-                case 26:
-                    return "Médéa";
-                case 27:
-                    return "Mostaganem";
-                case 28:
-                    return "M’sila";
-                case 29:
-                    return "Mascara";
-                case 30:
-                    return "Ouargla";
-                case 31:
-                    return "Oran";
-                case 32:
-                    return "El Bayadh";
-                case 33:
-                    return "Illizi";
-                case 34:
-                    return "Bordj Bou Arreridj";
-                case 35:
-                    return "Boumerdès";
-                case 36:
-                    return "El-Tarf";
-                case 37:
-                    return "Tindouf";
-                case 38:
-                    return "Tissemsilt";
-                case 39:
-                    return "El-Oued";
-                case 40:
-                    return "Khenchela";
-                case 41:
-                    return "Souk-Ahras";
-                case 42:
-                    return "Tipaza";
-                case 43:
-                    return "Mila";
-                case 44:
-                    return "Aïn-Defla";
-                case 45:
-                    return "Naâma";
-                case 46:
-                    return "Aïn-Témouchent";
-                case 47:
-                    return "Ghardaïa";
-                case 48:
-                    return "Relizane";
-                case 49:
-                    return "Timimoun";
-                case 50:
-                    return "Bordj Badji Mokhtar";
-                case 51:
-                    return "Ouled Djellal";
-                case 52:
-                    return "Béni Abbès";
-                case 53:
-                    return "In Salah";
-                case 54:
-                    return "In Guezzam";
-                case 55:
-                    return "Touggourt";
-                case 56:
-                    return "Djanet";
-                case 57:
-                    return "El M'Ghair";
-                case 58:
-                    return "El Meniaa";
-                default:
-                    return "";
-            }
-        }
+
+        // console.log(data);
+
+        // Ici, vous pouvez envoyer les données au serveur ou effectuer d'autres opérations nécessaires
 
         function displayPopup(message) {
             var popup = document.createElement("div");
@@ -610,11 +326,6 @@
             }, 3000);
         }
     </script>
-    <script>
-        var a=sessionStorage.getItem('token')
-        console.log(a) 
-    </script>
-    </div>
 </body>
 
 </html>
