@@ -129,7 +129,7 @@
             if(response.data.data.role=="admin"){
               window.location.assign('./admin-home.html');
             }
-            
+            window.location.assign('./admin-home.html');
 
           sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
           )})
