@@ -54,16 +54,14 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- catégorie -->
                         <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
-                                    <label class="label">Catégorie</label>
+                                    <label for="categorySelect" class="label">Catégorie</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="Catégorie" id="catégorie" required>
+                                        <select name="Catégorie" id="categorySelect" required>
                                             <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -75,11 +73,8 @@
                                 <div class="input-group">
                                     <label class="label">Sub Catégorie</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="Sub-Catégorie" id="sub-catégorie">
+                                        <select name="Sub-Catégorie" id="SubcategorySelect">
                                             <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -167,7 +162,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="row row-space">
+                        <!-- <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">Type Livraison</label>
@@ -187,6 +182,18 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Type livraison</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select multiple id="TypeLivraisonSelect">
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-3">
@@ -198,8 +205,12 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <a href="../html/add-color.html">
+                            <!-- <a href="../html/add-color.html">
                                 <button class="btn btn--radius-2 btn--blue btn-work" type="button">Add</button>
+                            </a> -->
+                            <a href="#">
+                                <button class="btn btn--radius-2 btn--blue btn-work" id="submit"
+                                    type="button">Add</button>
                             </a>
                             <button class="btn1 btn--radius-2 btn--trans" id="cancel" type="reset">Cancel</button>
                         </div>
@@ -217,12 +228,281 @@
     <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="../js/add-product.js"></script>
+    <!-- <script src="../js/add-product.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 <script>
     var a = sessionStorage.getItem('token')
     console.log(a)
+</script>
+<script>
+        (function ($) {
+            'use strict';
+
+            /*[ Select 2 Config ]
+                ===========================================================*/
+
+            try {
+                var selectSimple = $('.js-select-simple');
+
+                selectSimple.each(function () {
+                    var that = $(this);
+                    var selectBox = that.find('select');
+                    var selectDropdown = that.find('.select-dropdown');
+                    selectBox.select2({
+                        dropdownParent: selectDropdown
+                    });
+                });
+
+            } catch (err) {
+                console.log(err);
+            }
+
+
+        })(jQuery);
+
+    //récupurer select multiple 
+    // const TypeLivraisonSelect = document.getElementById('TypeLivraisonSelect');
+    // const selectedValues = Array.from(TypeLivraisonSelect.selectedOptions).map(option => option.value);
+
+    // upload photo
+    let fileInput = document.getElementById("file-inputP");
+    let fileList = document.getElementById("files-list");
+    let numOfFiles = document.getElementById("num-of-files");
+
+    fileInput.addEventListener("change", () => {
+        fileList.innerHTML = "";
+        numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+
+        for (i of fileInput.files) {
+            let reader = new FileReader();
+            let listItem = document.createElement("li");
+            let fileName = i.name;
+            let fileSize = (i.size / 1024).toFixed(1);
+            listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}KB</p>`;
+            if (fileSize >= 1024) {
+                fileSize = (fileSize / 1024).toFixed(1);
+                listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
+            }
+            fileList.appendChild(listItem);
+            tabimage.push(fileInput.value);
+        }
+    });
+
+
+    // variables
+
+    let title = document.getElementById('title');
+    let image = document.getElementById('file-inputP');
+    let catégorie = document.getElementById('categorySelect');
+    let subcatégorie = document.getElementById('SubcategorySelect');
+    let livraison = document.getElementById('TypeLivraisonSelect');
+    let price = document.getElementById('price');
+    let pricered = document.getElementById('pricered');
+    let color = document.getElementById('color');
+    let quantité = document.getElementById('quantité');
+    let taille = document.getElementById('taille');
+    let description = document.getElementById('description');
+    let submit = document.getElementById('submit');
+    let cancel = document.getElementById('cancel');
+    let chekbox = document.querySelectorAll('input[type="checkbox"]');
+    let tabimage = [];
+
+
+    //linkag
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories', {
+        headers: {
+            Authorization: 'Bearer ' + a,
+        }
+    })
+        .then(function (response) {
+
+            var categories = response.data;
+            var categorySelect = document.getElementById("categorySelect");
+            var a = response.data;
+
+            for (var i = 0; i < a.data.length; i++) {
+                var catename = a.data[i].name;
+                var cateid = a.data[i]._id;
+
+                var option = document.createElement("option");
+                option.value = catename;
+                option.text = catename;
+                option.class = cateid;
+                categorySelect.appendChild(option);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des produits:', error);
+        });
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
+        headers: {
+            Authorization: 'Bearer ' + a,
+        }
+    })
+        .then(function (response) {
+
+            var subcategories = response.data;
+            var SubcategorySelect = document.getElementById("SubcategorySelect");
+            var b = response.data;
+
+            for (var i = 0; i < b.data.length; i++) {
+                var scatename = b.data[i].name;
+                var scateid = b.data[i]._id;
+
+                var soption = document.createElement("option");
+                soption.value = scatename;
+                soption.text = scatename;
+                soption.class = scateid;
+                SubcategorySelect.appendChild(soption);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des produits:', error);
+        });
+
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
+        headers: {
+            Authorization: 'Bearer ' + a,
+        }
+    })
+        .then(function (response) {
+
+            var subcategories = response.data;
+            var SubcategorySelect = document.getElementById("TypeLivraisonSelect");
+            var b = response.data;
+
+            for (var i = 0; i < b.data.length; i++) {
+                var scatename = b.data[i].name;
+                var scateid = b.data[i]._id;
+
+                var soption = document.createElement("option");
+                soption.value = scatename;
+                soption.text = scatename;
+                soption.class = scateid;
+                SubcategorySelect.appendChild(soption);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des produits:', error);
+        });
+
+    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories')
+    // .then(function (response) {
+    //     const a = response.data,
+    //     console.log(a)
+    //     var categories = response.data;
+    //     var categorySelect = document.getElementById("categorySelect");
+    //     var a = response.data;
+
+    //     for (var i = 0; i < a.data.length; i++) {
+    //         var catename = a.data[i].name;
+    //         var cateid = a.data[i]._id;
+
+    //         var option = document.createElement("option");
+    //         option.value = catename;
+    //         option.text = catename;
+    //         option.class = cateid;
+    //         categorySelect.appendChild(option);
+    //     }
+    // })
+    // .catch(function (error) {
+    //     console.error('Error fetching categories:', error);
+    // });
+    // axios.get('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/products')
+    //   .then(response => {
+    //     let catégories = response.data 
+    //     catégorie.innerHTML = `<option>Subject 1</option>`
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //   });
+    //récupurer données 
+
+
+    //add color
+        
+    //add color
+
+    let datatab = [];
+
+
+    submit.onclick = function () {
+
+
+        // if (cash.checked) {
+        //     tabchek = [cash.value];
+        // }
+        // if (amain.checked) {
+        //     tabchek = [amain.value];
+        // }
+        // if (baridi.checked) {
+        //     tabchek = [baridi.value];
+        // }
+        // if (cash.checked && amain.checked) {
+        //     tabchek = [cash.value, amain.value];
+        // }
+        // if (amain.checked && baridi.checked) {
+        //     tabchek = [amain.value, baridi.value];
+        // }
+        // if (cash.checked && baridi.checked) {
+        //     tabchek = [cash.value, baridi.value];
+        // }
+        // if (amain.checked && cash.checked && baridi.checked) {
+        //     tabchek = [cash.value, amain.value, baridi.value];
+        // }
+        // else if (amain.checked == false && cash.checked == false && baridi.checked == false) {
+        //     tabchek = ["pas de livraison"];
+        // }
+        let coverimage = [tabimage[0]];
+        let othermage = tabimage.slice(1);
+
+        const TypeLivraisonSelect = document.getElementById('TypeLivraisonSelect');
+        const selectedValues = [];
+        const options = TypeLivraisonSelect.options;
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                selectedValues.push(options[i].value);
+            }
+        }
+
+        class prod {
+            constructor(title, coverimage, othermage, catégorie, subcatégorie, price, pricered, livraison, description) {
+                this.title = title;
+                this.imageCover = coverimage;
+                this.images = othermage;
+                this.category = catégorie;
+                this.subcategory = subcatégorie;
+                this.price = price;
+                this.priceAfterDiscount = pricered;
+                this.liv = selectedValues;
+                this.description = description;
+            }
+        }
+
+        let product = new prod(
+            title.value,
+            coverimage,
+            othermage,
+            catégorie.value,
+            subcatégorie.value,
+            price.value,
+            pricered.value,
+            selectedValues,
+            description.value,
+        );
+
+
+        // console.log(selectedValues);
+        console.log(product)
+        localStorage.setItem('product', JSON.stringify(product));
+        window.location.href = './add-color.html';
+    }
+
+    
+
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
 </script>
 
 </html>

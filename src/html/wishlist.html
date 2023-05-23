@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../../home.css">
     <style>
         #wishlistTitle {
             margin-top: 20px;
@@ -70,7 +71,7 @@
         <aside class="site-off desktop-hide">
             <div class="off-canvas">
                 <div class="canvas-head flexitem">
-                    <div class="logo"><a href="/"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <!-- <div class="logo"><a href="/"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div> -->
                     <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
                 </div>
                 <div class="departments"></div>
@@ -110,8 +111,8 @@
                     <div class="wrapper flexitem">
                         <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                         <div class="left flexitem">
-                            <div class="logo"><a href="/"><img src="./assets/banner/logo54 1.png"
-                                        alt=""></span>Buy-it</a></div>
+                            <!-- <div class="logo"><a href="/"><img src="./assets/banner/logo54 1.png"
+                                        alt=""></span>Buy-it</a></div> -->
                             <nav class="mobile-hide">
                                 <ul class="flexitem second-links">
                                     <li><a href="index.html">Home</a></li>
@@ -447,7 +448,7 @@
                     <div class="wrapper">
                         <div class="flexcol">
                             <div class="logo">
-                                <a href=""><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                                <!-- <a href=""><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a> -->
                             </div>
                             <div class="socials">
                                 <ul class="flexitem">
@@ -528,35 +529,39 @@
         <div class="overlay"></div>
     </div>
     <script>
-        let a = sessionStorage.getItem('token')
+        let a = localStorage.getItem('token');
         console.log(a)
         // Sample wishlist data
         let wishlistData = [
-            { id: 1, name: 'Product 1' },
-            { id: 1, name: 'Product 1' },
-            { id: 2, name: 'Product 2' },
-            { id: 4, name: 'Product 4' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 2, name: 'Product 2' },
-            { id: 3, name: 'Product 3' }
+            // { id: 1, name: 'Product 1' },
+            // { id: 1, name: 'Product 1' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 4, name: 'Product 4' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 2, name: 'Product 2' },
+            // { id: 3, name: 'Product 3' }
         ];
 
         // Fonction pour récupérer les produits depuis le backend avec Axios (méthode GET)
 
-        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist')
+        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+            headers: {
+                Authorization: 'Bearer ' + a,
+                        }
+        })
             .then(response => {
-                const wishlistData = response.data;
-                renderWishlist(wishlistData);
+                const wishlistDataTab = response;
+                // renderWishlist(wishlistData);
                 console.log(wishlistData)
             })
             .catch(error => {
@@ -611,7 +616,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
-    <script src="./product-details.js"></script>
+    <!-- <script src="./product-details.js"></script> -->
+    
 </body>
 
 </html>

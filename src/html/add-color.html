@@ -220,8 +220,8 @@
                             <label for="productTitle">Titre du couleur:</label>
                             <input type="text" id="productTitle" placeholder="Entrez le titre du couleur" required />
                         </div>
-                        <!-- 
-                        <div class="form-group">
+
+                        <!-- <div class="form-group">
                             <label for="colorName">Nom de la couleur:</label>
                             <input type="text" id="colorName" placeholder="Entrez le nom de la couleur" required />
                         </div> -->
@@ -241,24 +241,30 @@
                             </div>
                         </div>
 
-                        <button type="button" id="addPairButton">Ajouter paire</button>
+                        <button type="button" id="addPairButton">Ajouter paire qt tl</button>
 
-                        <button type="submit">Ajouter</button>
+                        <button type="submit">Ajouter un type de couleur</button>
+                        <button type="button" id="postButton">add product</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script>
-        const colorContainer = document.getElementById("colorContainer");
-        const addColorButton = document.getElementById("addColorButton");
-        const maxColors = 6;
+        let colorContainer = document.getElementById("colorContainer");
+        let addColorButton = document.getElementById("addColorButton");
+        let maxColors = 6;
+
+        let product = JSON.parse(localStorage.getItem('product'));
+        // console.log(product)
 
         addColorButton.addEventListener("click", function () {
-            const colorInputs = colorContainer.getElementsByClassName("colorInput");
+            let colorInputs = colorContainer.getElementsByClassName("colorInput");
 
             if (colorInputs.length < maxColors) {
-                const newColorInput = document.createElement("input");
+                let newColorInput = document.createElement("input");
                 newColorInput.type = "color";
                 newColorInput.className = "colorInput";
 
@@ -271,23 +277,23 @@
             }
         });
 
-        const sizeQuantityContainer = document.getElementById("sizeQuantityContainer");
-        const addPairButton = document.getElementById("addPairButton");
-        const maxPairs = 9;
+        let sizeQuantityContainer = document.getElementById("sizeQuantityContainer");
+        let addPairButton = document.getElementById("addPairButton");
+        let maxPairs = 9;
 
         addPairButton.addEventListener("click", function () {
-            const pairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+            let pairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
 
             if (pairs.length < maxPairs) {
-                const newPair = document.createElement("div");
+                let newPair = document.createElement("div");
                 newPair.className = "form-group size-quantity-pair";
 
-                const newSizeInput = document.createElement("input");
+                let newSizeInput = document.createElement("input");
                 newSizeInput.type = "text";
                 newSizeInput.placeholder = "Entrez la taille";
                 newSizeInput.required = true;
 
-                const newQuantityInput = document.createElement("input");
+                let newQuantityInput = document.createElement("input");
                 newQuantityInput.type = "number";
                 newQuantityInput.min = "0";
                 newQuantityInput.placeholder = "Entrez la quantité";
@@ -310,57 +316,105 @@
         document.getElementById("productForm").addEventListener("submit", function (e) {
             e.preventDefault(); // Empêche l'envoi du formulaire par défaut
 
-            const productTitle = document.getElementById("productTitle").value;
+            let productTitle = document.getElementById("productTitle").value;
 
             // Création de l'objet size contenant les paires taille-quantité
-            const size = {};
-            const sizePairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+            let size = {};
+            let Tsize = [];
+            let sizePairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
 
             for (let i = 0; i < sizePairs.length; i++) {
-                const pair = sizePairs[i];
-                const sizeInput = pair.querySelector("input[type='text']");
-                const quantityInput = pair.querySelector("input[type='number']");
+                let pair = sizePairs[i];
+                let sizeInput = pair.querySelector("input[type='text']");
+                let quantityInput = pair.querySelector("input[type='number']");
 
-                const sizeValue = sizeInput.value.trim();
-                const quantityValue = parseInt(quantityInput.value);
+                let sizeValue = sizeInput.value.trim();
+                let quantityValue = parseInt(quantityInput.value);
 
                 if (sizeValue && !isNaN(quantityValue)) {
                     size[i] = {
                         taille: sizeValue,
                         qnt: quantityValue
                     };
+                    Tsize.push(size[i]);
                 }
             }
 
+            // console.log(Tsize);
+
+
             // Création de l'objet colors contenant les couleurs choisies
-            const colors = [];
-            const colorInputs = colorContainer.getElementsByClassName("colorInput");
+            let colors = [];
+            let colorInputs = colorContainer.getElementsByClassName("colorInput");
 
             for (let i = 0; i < colorInputs.length; i++) {
-                const colorInput = colorInputs[i];
+                let colorInput = colorInputs[i];
 
-                const colorValue = colorInput.value;
-                const colorName = document.getElementById("colorName").value.trim();
+                let colorValue = colorInput.value;
+                // let colorName = document.getElementById("colorName").value.trim();
 
-                if (colorValue && colorName) {
-                    const colorObject = {
-                        [colorValue]: colorName,
+                if (colorValue) {
+                    let colorObject = {
+                        ['hexaCode']: colorValue,
                     };
                     colors.push(colorObject);
                 }
             }
 
             // Création de l'objet productColor contenant les données du produit
-            const productColor = {
-                title: productTitle,
-                size: size,
+            let colordata = {
+                name: productTitle,
+                size: Tsize,
                 colors: colors
             };
+            let varia = colordata
+            let colorsi = []
+            colorsi.push(varia)
 
-            console.log(productColor);
+            let color = {
+                color: colorsi
+            }
+
+            Object.assign(product, color);
+            console.log(product);
         });
 
+        // axios.post('https://example.com/api/endpoint', finalObject)
+        //     .then(response => {
+        //         // Handle the response
+        //         console.log(response.data);
+        //     })
+        //     .catch(error => {
+        //         // Handle the error
+        //         console.error(error);
+        //     });
 
+        // axiossss 
+
+        const postButton = document.getElementById('postButton');
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjYWUxYTkxYzcyNDVkMGRjYWY3ZjIiLCJpYXQiOjE2ODQ4NDU0NzEsImV4cCI6MTY5MjYyMTQ3MX0.b8ejxmQArh-ndjangG5XCfopvhnUZXb4WRN7qDapZmM';
+
+        var a = sessionStorage.getItem('token');
+        console.log(a);
+        postButton.addEventListener('click', () => {
+
+            const config = {
+                headers: {
+                    'Authorization': 'Bearer ' + a,
+                    'Content-Type': 'multipart/form-data'
+                }
+            };
+            // Effectuez la requête POST en utilisant Axios ou toute autre méthode de votre choix
+            axios.post('https://buy-it-sigma.herokuapp.com/api/v1/products', product)
+                .then(response => {
+                    // Gérez la réponse
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Gérez l'erreur
+                    console.error(error);
+                });
+        });
     </script>
 </body>
 
