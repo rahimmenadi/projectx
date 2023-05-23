@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .font-robo {
+            font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+        .font-poppins {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+
+
+
+
+        html {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+
+        }
+
+        .page-main {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .bg-gra-01 {
+            background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+            background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+        }
+
+        .bg-gra-02 {
+            background: -webkit-gradient(linear, left bottom, right top, from(#fc2c77), to(#6c4079));
+            background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+        }
+
+        .p-t-100 {
+            padding-top: 100px;
+        }
+
+        .p-t-130 {
+            padding-top: 130px;
+        }
+
+
+        .p-b-100 {
+            padding-bottom: 100px;
+        }
+
+
+        .main {
+            margin: 0 auto;
+        }
+
+        .main--w960 {
+            max-width: 960px;
+        }
+
+        .main--w780 {
+            max-width: 780px;
+        }
+
+        .main--w680 {
+            max-width: 680px;
+        }
+
+
+        .card {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background: #fff;
+        }
+
+        .card-4 {
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-4 .card-body {
+            padding: 57px 65px;
+            padding-bottom: 65px;
+        }
+
+        @media (max-width: 767px) {
+            .card-4 .card-body {
+                padding: 50px 40px;
+            }
+        }
+
+
+
+        /* style tei */
+        #h2 {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+            margin-bottom: 20px;
+            font-size: 25px;
+            transform: translate(-3%);
+        }
+
+
+
+
+        #labelN {
+            text-transform: capitalize;
+            margin-right: 7px;
+            font-size: 18px;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        .input-container input {
+            margin-right: 5px;
+        }
+
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category-container .add-subcategory {
+            margin-left: 5px;
+        }
+
+        .subcategories-container {
+            margin-top: 10px;
+            margin-left: 7px;
+        }
+
+        .counter {
+            font-weight: bold;
+            margin-right: 5px;
+            color: #555;
+            text-transform: capitalize;
+        }
+
+        input {
+            margin: 10px 0;
+            background: #cac6c6;
+            -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            padding: 0 10px;
+            font-size: 18px;
+            color: #666;
+            border: none;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        button {
+            padding: 0 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+
+
+        #addColorButton {
+            margin-right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+
+                    <form id="productForm">
+                        <div class="form-group">
+                            <label for="productTitle">Titre du couleur:</label>
+                            <input type="text" id="productTitle" placeholder="Entrez le titre du couleur" required />
+                        </div>
+                        <!-- 
+                        <div class="form-group">
+                            <label for="colorName">Nom de la couleur:</label>
+                            <input type="text" id="colorName" placeholder="Entrez le nom de la couleur" required />
+                        </div> -->
+
+                        <div id="colorContainer" class="form-group1">
+                            <label>Couleurs disponibles:</label>
+                            <input type="color" class="colorInput" />
+                            <button type="button" id="addColorButton">Ajouter couleur</button>
+                        </div>
+
+                        <div id="sizeQuantityContainer">
+                            <div class="form-group size-quantity-pair">
+                                <label for="size1">Taille 1:</label><br>
+                                <input type="text" id="size1" placeholder="Entrez la taille" required /><br>
+                                <label for="quantity1">Quantité 1:</label><br>
+                                <input type="number" id="quantity1" min="0" placeholder="Entrez la quantité" required />
+                            </div>
+                        </div>
+
+                        <button type="button" id="addPairButton">Ajouter paire</button>
+
+                        <button type="submit">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const colorContainer = document.getElementById("colorContainer");
+        const addColorButton = document.getElementById("addColorButton");
+        const maxColors = 6;
+
+        addColorButton.addEventListener("click", function () {
+            const colorInputs = colorContainer.getElementsByClassName("colorInput");
+
+            if (colorInputs.length < maxColors) {
+                const newColorInput = document.createElement("input");
+                newColorInput.type = "color";
+                newColorInput.className = "colorInput";
+
+                colorContainer.insertBefore(newColorInput, addColorButton);
+
+                // Vérifier le nombre total de couleurs et masquer le bouton "Ajouter couleur" si nécessaire
+                if (colorInputs.length + 1 >= maxColors) {
+                    addColorButton.style.display = "none";
+                }
+            }
+        });
+
+        const sizeQuantityContainer = document.getElementById("sizeQuantityContainer");
+        const addPairButton = document.getElementById("addPairButton");
+        const maxPairs = 9;
+
+        addPairButton.addEventListener("click", function () {
+            const pairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+
+            if (pairs.length < maxPairs) {
+                const newPair = document.createElement("div");
+                newPair.className = "form-group size-quantity-pair";
+
+                const newSizeInput = document.createElement("input");
+                newSizeInput.type = "text";
+                newSizeInput.placeholder = "Entrez la taille";
+                newSizeInput.required = true;
+
+                const newQuantityInput = document.createElement("input");
+                newQuantityInput.type = "number";
+                newQuantityInput.min = "0";
+                newQuantityInput.placeholder = "Entrez la quantité";
+                newQuantityInput.required = true;
+
+                newPair.appendChild(document.createElement("label")).textContent = `Taille ${pairs.length + 1}:`;
+                newPair.appendChild(newSizeInput);
+                newPair.appendChild(document.createElement("label")).textContent = `Quantité ${pairs.length + 1}:`;
+                newPair.appendChild(newQuantityInput);
+
+                sizeQuantityContainer.appendChild(newPair);
+
+                // Vérifier le nombre total de paires et masquer le bouton "Ajouter paire" si nécessaire
+                if (pairs.length + 1 >= maxPairs) {
+                    addPairButton.style.display = "none";
+                }
+            }
+        });
+
+        document.getElementById("productForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+            const productTitle = document.getElementById("productTitle").value;
+
+            // Création de l'objet size contenant les paires taille-quantité
+            const size = {};
+            const sizePairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+
+            for (let i = 0; i < sizePairs.length; i++) {
+                const pair = sizePairs[i];
+                const sizeInput = pair.querySelector("input[type='text']");
+                const quantityInput = pair.querySelector("input[type='number']");
+
+                const sizeValue = sizeInput.value.trim();
+                const quantityValue = parseInt(quantityInput.value);
+
+                if (sizeValue && !isNaN(quantityValue)) {
+                    size[i] = {
+                        taille: sizeValue,
+                        qnt: quantityValue
+                    };
+                }
+            }
+
+            // Création de l'objet colors contenant les couleurs choisies
+            const colors = [];
+            const colorInputs = colorContainer.getElementsByClassName("colorInput");
+
+            for (let i = 0; i < colorInputs.length; i++) {
+                const colorInput = colorInputs[i];
+
+                const colorValue = colorInput.value;
+                const colorName = document.getElementById("colorName").value.trim();
+
+                if (colorValue && colorName) {
+                    const colorObject = {
+                        [colorValue]: colorName,
+                    };
+                    colors.push(colorObject);
+                }
+            }
+
+            // Création de l'objet productColor contenant les données du produit
+            const productColor = {
+                title: productTitle,
+                size: size,
+                colors: colors
+            };
+
+            console.log(productColor);
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+<link rel="stylesheet" href="../css/add-cat.css">
+
+<head>
+    <title>Ajouter des sous-catégories</title>
+    <style>
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        .input-container input,
+        .input-container select {
+            margin-right: 5px;
+        }
+
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category-container .add-subcategory {
+            margin-left: 5px;
+        }
+
+        .subcategories-container {
+            margin-top: 10px;
+        }
+
+        .counter {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2>Ajouter des sous-catégories aux catégories</h2>
+                    <form id="subcategory-form">
+                        <div class="category-container">
+                            <div class="input-container">
+                                <span class="counter">1</span>
+                                <label for="category">Catégorie:</label>
+                                <input type="text" class="category-input" name="category[]">
+                                <button type="button" class="add-category-subcategory">Ajouter une
+                                    sous-catégorie</button>
+                            </div>
+                            <div class="subcategories-container">
+                                <div class="input-container">
+                                    <span class="counter">1.1</span>
+                                    <label for="subcategory">Sous-catégorie:</label>
+                                    <select class="subcategory-select" name="subcategory[]">
+                                        <option value="">Sélectionner une sous-catégorie</option>
+                                        <option value="1">Sous-catégorie 1</option>
+                                        <option value="2">Sous-catégorie 2</option>
+                                        <option value="3">Sous-catégorie 3</option>
+                                    </select>
+                                    <input type="number" class="price-input" name="price[]" placeholder="Prix">
+                                    <button type="button" class="remove-subcategory">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-category">Ajouter une autre catégorie</button>
+                        <button type="submit">Enregistrer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const addCategoryButton = document.getElementById('add-category');
+            const subcategoryForm = document.getElementById('subcategory-form');
+            let categoryCounter = 1;
+            let subcategoryCounters = [1];
+            let categoriesData = [];
+
+            addCategoryButton.addEventListener('click', () => {
+                categoryCounter++;
+                subcategoryCounters.push(1);
+
+                const categoryContainer = document.createElement('div');
+                categoryContainer.classList.add('category-container');
+
+                const inputContainer = document.createElement('div');
+                inputContainer.classList.add('input-container');
+
+                const counterSpan = document.createElement('span');
+                counterSpan.classList.add('counter');
+                counterSpan.textContent = categoryCounter;
+
+                const categoryLabel = document.createElement('label');
+                categoryLabel.textContent = 'Catégorie:';
+
+                const categoryInput = document.createElement('input');
+                categoryInput.type = 'text';
+                categoryInput.classList.add('category-input');
+                categoryInput.name = 'category[]';
+
+                const addCategorySubcategoryButton = document.createElement('button');
+                addCategorySubcategoryButton.type = 'button';
+                addCategorySubcategoryButton.classList.add('add-category-subcategory');
+                addCategorySubcategoryButton.textContent = 'Ajouter une sous-catégorie';
+
+                const subcategoryContainer = document.createElement('div');
+                subcategoryContainer.classList.add('subcategories-container');
+
+                const subcategoryInputContainer = document.createElement('div');
+                subcategoryInputContainer.classList.add('input-container');
+
+                const subcategoryCounterSpan = document.createElement('span');
+                subcategoryCounterSpan.classList.add('counter');
+                subcategoryCounterSpan.textContent = `${categoryCounter}.1`;
+
+                const subcategoryLabel = document.createElement('label');
+                subcategoryLabel.textContent = 'Sous-catégorie:';
+
+                const subcategorySelect = document.createElement('select');
+                subcategorySelect.classList.add('subcategory-select');
+                subcategorySelect.name = 'subcategory[]';
+
+                const option1 = document.createElement('option');
+                option1.value = '';
+                option1.textContent = 'Sélectionner une sous-catégorie';
+
+                const option2 = document.createElement('option');
+                option2.value = '1';
+                option2.textContent = 'Sous-catégorie 1';
+
+                const option3 = document.createElement('option');
+                option3.value = '2';
+                option3.textContent = 'Sous-catégorie 2';
+
+                const option4 = document.createElement('option');
+                option4.value = '3';
+                option4.textContent = 'Sous-catégorie 3';
+
+                subcategorySelect.appendChild(option1);
+                subcategorySelect.appendChild(option2);
+                subcategorySelect.appendChild(option3);
+                subcategorySelect.appendChild(option4);
+
+                const priceInput = document.createElement('input');
+                priceInput.type = 'number';
+                priceInput.classList.add('price-input');
+                priceInput.name = 'price[]';
+                priceInput.placeholder = 'Prix';
+
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.classList.add('remove-subcategory');
+                removeButton.textContent = '-';
+
+                inputContainer.appendChild(counterSpan);
+                inputContainer.appendChild(categoryLabel);
+                inputContainer.appendChild(categoryInput);
+                inputContainer.appendChild(addCategorySubcategoryButton);
+                categoryContainer.appendChild(inputContainer);
+
+                subcategoryInputContainer.appendChild(subcategoryCounterSpan);
+                subcategoryInputContainer.appendChild(subcategoryLabel);
+                subcategoryInputContainer.appendChild(subcategorySelect);
+                subcategoryInputContainer.appendChild(priceInput);
+                subcategoryInputContainer.appendChild(removeButton);
+                subcategoryContainer.appendChild(subcategoryInputContainer);
+                categoryContainer.appendChild(subcategoryContainer);
+
+                addCategoryButton.parentNode.insertBefore(categoryContainer, addCategoryButton);
+
+                removeButton.addEventListener('click', () => {
+                    categoryContainer.parentNode.removeChild(categoryContainer);
+                    const index = Array.from(addCategoryButton.parentNode.children).indexOf(categoryContainer);
+                    subcategoryCounters.splice(index, 1);
+                    updateCounters();
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('add-category-subcategory')) {
+                    const categoryContainer = event.target.parentNode.parentNode;
+                    const subcategoriesContainer = categoryContainer.querySelector('.subcategories-container');
+
+                    const categoryIndex = Array.from(addCategoryButton.parentNode.children).indexOf(categoryContainer);
+                    subcategoryCounters[categoryIndex]++;
+
+                    const subcategoryInputContainer = document.createElement('div');
+                    subcategoryInputContainer.classList.add('input-container');
+
+                    const subcategoryCounterSpan = document.createElement('span');
+                    subcategoryCounterSpan.classList.add('counter');
+                    subcategoryCounterSpan.textContent = `${categoryIndex + 1}.${subcategoryCounters[categoryIndex]}`;
+
+                    const subcategoryLabel = document.createElement('label');
+                    subcategoryLabel.textContent = 'Sous-catégorie:';
+
+                    const subcategorySelect = document.createElement('select');
+                    subcategorySelect.classList.add('subcategory-select');
+                    subcategorySelect.name = 'subcategory[]';
+
+                    const option1 = document.createElement('option');
+                    option1.value = '';
+                    option1.textContent = 'Sélectionner une sous-catégorie';
+
+                    const option2 = document.createElement('option');
+                    option2.value = '1';
+                    option2.textContent = 'Sous-catégorie 1';
+
+                    const option3 = document.createElement('option');
+                    option3.value = '2';
+                    option3.textContent = 'Sous-catégorie 2';
+
+                    const option4 = document.createElement('option');
+                    option4.value = '3';
+                    option4.textContent = 'Sous-catégorie 3';
+
+                    subcategorySelect.appendChild(option1);
+                    subcategorySelect.appendChild(option2);
+                    subcategorySelect.appendChild(option3);
+                    subcategorySelect.appendChild(option4);
+
+                    const priceInput = document.createElement('input');
+                    priceInput.type = 'number';
+                    priceInput.classList.add('price-input');
+                    priceInput.name = 'price[]';
+                    priceInput.placeholder = 'Prix';
+
+                    const removeButton = document.createElement('button');
+                    removeButton.type = 'button';
+                    removeButton.classList.add('remove-subcategory');
+                    removeButton.textContent = '-';
+
+                    subcategoryInputContainer.appendChild(subcategoryCounterSpan);
+                    subcategoryInputContainer.appendChild(subcategoryLabel);
+                    subcategoryInputContainer.appendChild(subcategorySelect);
+                    subcategoryInputContainer.appendChild(priceInput);
+                    subcategoryInputContainer.appendChild(removeButton);
+                    subcategoriesContainer.appendChild(subcategoryInputContainer);
+
+                    removeButton.addEventListener('click', () => {
+                        subcategoryInputContainer.parentNode.removeChild(subcategoryInputContainer);
+                        updateCounters();
+                    });
+                }
+            });
+
+            subcategoryForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const categoriesInputs = document.querySelectorAll('.category-input');
+                const subcategoriesSelects = document.querySelectorAll('.subcategory-select');
+                const priceInputs = document.querySelectorAll('.price-input');
+
+                const categories = Array.from(categoriesInputs).map((input) => input.value);
+                const subcategories = Array.from(subcategoriesSelects).map((select) => select.value);
+                const prices = Array.from(priceInputs).map((input) => input.value);
+
+                categoriesData = [];
+
+                categories.forEach((category, index) => {
+                    const subcategory = {
+                        name: subcategories[index],
+                        price: prices[index]
+                    };
+
+                    if (!categoriesData[index]) {
+                        categoriesData[index] = {
+                            name: category,
+                            subcategories: [subcategory]
+                        };
+                    } else {
+                        categoriesData[index].subcategories.push(subcategory);
+                    }
+                });
+
+                console.log(categoriesData);
+            });
+
+            function updateCounters() {
+                const categoryInputs = document.querySelectorAll('.category-input');
+                const subcategoryCountersSpans = document.querySelectorAll('.counter');
+
+                categoryInputs.forEach((input, index) => {
+                    const categoryCounterSpan = subcategoryCountersSpans[index * 2];
+                    const subcategoryCountersSpan = subcategoryCountersSpans[index * 2 + 1];
+
+                    categoryCounterSpan.textContent = index + 1;
+                    subcategoryCountersSpan.textContent = `${index + 1}.${subcategoryCounters[index]}`;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

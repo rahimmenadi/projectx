@@ -1,3 +1,28 @@
+var number=document.getElementById("number-of-product")
+var plusbtn=document.getElementById("plus-btn")
+
+
+let n=0;
+ plusbtn.addEventListener("click",function(e){
+	console.log("hiiiii")
+	n+=1
+	document.getElementById('number-of-product').value =n
+
+})
+
+var minusbtn=document.getElementById("minus-btn")
+minusbtn.addEventListener("click",function(){
+	
+	n-=1
+	if(n<0){n=0}
+	document.getElementById('number-of-product').value =n
+
+})
+
+sessionStorage.getItem('token')
+console.log(sessionStorage.getItem('token'))
+
+
 
 console.log(sessionStorage.getItem('productId'));
 
@@ -46,14 +71,7 @@ function toggle(e) {
 	this.closest(".has-child").classList.toggle("expand");
 }
 
-//slider
-const swiper = new Swiper(".swiper", {
-	loop: true,
 
-	pagination: {
-		el: ".swiper-pagination",
-	},
-});
 
 //show search
 const searchButton = document.querySelector(".t-search"),
@@ -75,8 +93,8 @@ dptButton.addEventListener("click", function () {
 
 //product image slider
 var productThumb = new Swiper(".small-image", {
-	loop: true,
-	spaceBetween: 10,
+	
+	spaceBetween:10 ,
 	slidesPerView: 3,
 	freeMode: true,
 	watchSlidesProgress: true,
@@ -112,8 +130,7 @@ for (let x = 0; x < stocks.length; x++) {
 //show cart on click
 const divtoShow = ".mini-cart";
 const divPopup = document.querySelector(divtoShow);
-const divTrigger = document.querySelector(".cart-trigger");
-
+const divTrigger = document.querySelector(".cart-trigger")
 divTrigger.addEventListener("click", () => {
 	setTimeout(() => {
 		if (!divPopup.classList.contains("show")) {
@@ -137,3 +154,10 @@ window.onload = function () {
 document.querySelector(".modalclose").addEventListener("click", function () {
 	document.querySelector(".site").classList.remove("showmodal");
 });
+let addtocart=document.getElementById('add-to-cart')
+addtocart.addEventListener("click",function(e) {
+	e.preventDefault()
+	window.location.assign("")
+
+})
+

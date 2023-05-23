@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/add-cat.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<head>
+    <title>add catégorie</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #previewImage, 
+        #previewImage2, 
+        #previewImage3 {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 id="h2">Add Category</h2>
+                    <form id="categoryForm">
+                        <div class="form-group">
+                            <label id="labelN" for="categoryName">Category Name:</label>
+                            <input type="text" id="categoryName" placeholder="Enter category name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryImage" id="walid">Choose Image 1:</label>
+
+                            <input type="file" id="categoryImage" style="visibility: hidden;" accept="image/*" />
+
+                            <img id="previewImage" src="#" alt="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryImage2" id="walid2">Choose Image 2:</label>
+                            <input type="file" id="categoryImage2" style="visibility: hidden;" accept="image/*" />
+                            <img id="previewImage2" src="#" alt="" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoryImage3" id="walid3">Choose Image 3:</label>
+                            <input type="file" id="categoryImage3" style="visibility: hidden;" accept="image/*" />
+                            <img id="previewImage3" src="#" alt="" />
+                        </div>
+                        
+                      
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById("categoryImage").addEventListener("change", function (e) {
+            var file = e.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById("previewImage").setAttribute("src", e.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById("categoryImage2").addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById("previewImage2").setAttribute("src", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+document.getElementById("categoryImage3").addEventListener("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById("previewImage3").setAttribute("src", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+
+          document.getElementById("categoryForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            var categoryName = document.getElementById("categoryName").value;
+            var categoryImages = [];
+
+              // Retrieve all file input elements
+             var fileInputs = document.querySelectorAll('input[type="file"]');
+    
+              // Iterate over each file input
+                 fileInputs.forEach(function(input) {
+                  if (input.files.length > 0) {
+                      categoryImages.push(input.files[0]);
+                     }
+    });
+
+            // var formData = new FormData();
+            formData = {
+                name: categoryName,
+                image: categoryImages[0],
+            }
+            console.log(formData)
+            // formData.append("name", categoryName);
+            // formData.append("image", categoryImages);
+            //  console.log(formData)
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjMDhhN2UxOWMyNjNmNTllNjFhN2YiLCJpYXQiOjE2ODQ4MDE5NjYsImV4cCI6MTY5MjU3Nzk2Nn0.M5SILMk_aRSj4Kum_SN2VV193-1h6XtHcbAMIkaKnGY';
+
+            var a = sessionStorage.getItem('token');
+            console.log(a) ;
+            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories",formData, {headers :{
+                Authorization : 'Bearer '+a,
+                'Content-Type' : 'multipart/form-data',
+            }})
+            .then(function (response) {
+                    console.log(response)
+                    displayPopup("Category added");
+                    document.getElementById("categoryForm").reset();
+                    document.getElementById("previewImage").setAttribute("src", "#");
+                })
+                .catch(function (error) {
+                    displayPopup("An error occurred");
+                    console.error(error.response.data);
+                });
+                
+            });
+            
+        function displayPopup(message) {
+            alert(message);
+        }
+
+
+        // second methode
+        // const postData = async () => {
+        //         try {
+        //             const response = await axios.post('https://buy-it-sigma.herokuapp.com/api/v1/categories', {
+        //                 name: formData.name,
+        //                 image: formData.image,
+        //             });
+                    
+        //             console.log(response.data); // Réponse de l'API
+        //         } catch (error) {
+        //             console.error(error);
+        //         }
+        //     };
+
+        //     postData();
+    </script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
