@@ -14,7 +14,7 @@
         <aside class="site-off desktop-hide">
             <div class="off-canvas">
                 <div class="canvas-head flexitem">
-                    <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <div class="logo"><a href="/src/html/guest.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                     <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
                 </div>
                 <div class="departments"></div>
@@ -54,10 +54,10 @@
                     <div class="wrapper flexitem">
                         <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                         <div class="left flexitem">
-                            <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <div class="logo"><a href="/src/html/guest.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                             <nav class="mobile-hide">
                                 <ul class="flexitem second-links">
-                                    <li><a href="./home.html">Home</a></li>
+                                    <li><a href="/src/html/guest.html">Home</a></li>
                                     <li><a href="#">Shop</a></li>
                                     
                                     <li><a href="#">Men</a></li>
@@ -1043,7 +1043,7 @@
                     <div class="wrapper">
                         <div class="flexcol">
                             <div class="logo">
-                                <a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                                <a href="./src/html/guest.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
                             </div>
                             <div class="socials">
                                 <ul class="flexitem">
@@ -1132,7 +1132,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    let productid=sessionStorage.getItem('productId')
+    let productid="6468177dbb896111accd4a10"
     console.log("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
     axios.get("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
   .then(response => {
@@ -1176,9 +1176,9 @@
   
 
 
-title.textContent=a.title
-    text.textContent=a.description
-    price.textContent="$"+a.price
+title.textContent=data.data[0].title
+    text.textContent=data.data[0].description
+    price.textContent="$"+data.data[0].price
     reviewnumber.textContent=a.totalRating
     rating.textContent=a.ratingAverage
     
@@ -1220,7 +1220,7 @@ title.textContent=a.title
      
     
      console.log(a.images[1])
-     for (var i = 0; i < a.color[0].size.length ; i++) {
+     for (var i = 0; i < 5; i++) {
         
         
         var spanId = 'size-' + (i + 1);
@@ -1238,7 +1238,25 @@ title.textContent=a.title
     console.error("Error fetching products:", error);
   });
  
+  function updateHTML(data) {
+    // Get a reference to the container element
+    const dataContainer = document.getElementById('');
+
   
+    // Clear any existing content
+    dataContainer.innerHTML = '';
+  
+    // Create HTML elements to display the data
+    const ul = document.createElement('ul');
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+  
+    // Append the elements to the container
+    dataContainer.appendChild(ul);
+  }
 </script>
 <script>
     
