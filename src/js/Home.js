@@ -294,14 +294,14 @@ function displayFeaturedProduct(){
         <div class="item">
         <div class="media">
             <div class="thumbnail object-cover">
-                <a href="#">
+                <a onclick="sendNewProductId(${i}) href="#">
                     <img src="${newProductList[i].imageCover}" alt="">
                 </a>
             </div>
             <div class="hoverable">
                 <ul>
                     <li class="active"><a id="click-me${newProductList[i]._id}" onclick="btn_wishlist_new(this,${i})" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-                    <li ><a  onclick="sendNewProductId(${i})"><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
+                    <li ><a  onclick="sendNewProductIdCart(${i})"><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
                 </ul>
             </div>
             <div class="discount circle flexcenter"><span>${newProductList[i].price/newProductList[i].priceAfterDiscount*100}%</span></div>
@@ -488,6 +488,39 @@ function sendNewProductId(k){
   localStorage.setItem('productId',newProductList[k]._id);
   window.location.replace('/product-details.html');
 }
+function sendProductIdCard(k){
+    
+    // Make a POST request to add the product
+    axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',  AllProductList[k] , {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      })
+      .then(response => {
+        console.log("added")
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+    
+}
+function sendNewProductIdCard(k){
+  // Serialize the object to JSON
+  // Navigate to another page with the encoded product ID
+  
+ 
+  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',   newProductList[k], {
+    headers: {
+        Authorization: `Bearer ${token}`
+      }
+  })
+  .then(response => {
+    console.log("added")
+  })
+  .catch(error => {
+    console.error('Error adding product:', error);
+  });
+}
 
 console.log(localStorage.getItem("token"))
 
@@ -515,14 +548,14 @@ function displayProduct(){
         <div class="item">
         <div class="media">
             <div class="thumbnail object-cover">
-                <a href="#">
+                <a onclick="sendProductId(${i})" href="#">
                     <img src="${AllProductList[i].imageCover}" alt="">
                 </a>
             </div>
             <div class="hoverable">
                 <ul>
                     <li  class="active"><a id="click-me${AllProductList[i]._id}a" onclick="btn_wishlist_all(this,${i})" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-                    <li><a  onclick="sendProductId(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
+                    <li><a  onclick="sendProductIdCart(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
                 </ul>
             </div>
             <div class="discount circle flexcenter"><span>${AllProductList[i].price/AllProductList[i].priceAfterDiscount*100}%</span></div>
