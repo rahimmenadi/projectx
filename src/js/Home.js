@@ -488,6 +488,39 @@ function sendNewProductId(k){
   localStorage.setItem('productId',newProductList[k]._id);
   window.location.replace('/product-details.html');
 }
+function sendProductIdCard(k){
+    
+    // Make a POST request to add the product
+    axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',  AllProductList[k] , {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      })
+      .then(response => {
+        console.log("added")
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+    
+}
+function sendNewProductIdCard(k){
+  // Serialize the object to JSON
+  // Navigate to another page with the encoded product ID
+  
+ 
+  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',   newProductList[k], {
+    headers: {
+        Authorization: `Bearer ${token}`
+      }
+  })
+  .then(response => {
+    console.log("added")
+  })
+  .catch(error => {
+    console.error('Error adding product:', error);
+  });
+}
 
 console.log(localStorage.getItem("token"))
 
