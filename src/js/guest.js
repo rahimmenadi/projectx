@@ -1,4 +1,4 @@
-
+console.log(sessionStorage.getItem('productId'));
 
 //nav bar code
 //search code
@@ -171,6 +171,7 @@ function displayProduct(){
     
 }
 
+console.log(sessionStorage.getItem('token'))
 // <!-- Initialize Swiper -->
 let j = 1;
 let degree=30;
@@ -281,7 +282,7 @@ function reee(){
 }
 let btnPreviews = document.getAnimations('swipe-left');
 
-var swiper = new Swiper(".mySwiper", {
+var swipe3 = new Swiper(".mySwiper3", {
   spaceBetween: 30,
   centeredSlides: true,
   allowTouchMove:false,
