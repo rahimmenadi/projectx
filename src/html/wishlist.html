@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="../../product-details.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         #wishlistTitle {
             margin-top: 20px;
             margin-bottom: 30px;
         }
-        
+
         #wishlist {
             display: flex;
             margin: 10px;
@@ -527,7 +528,7 @@
         <div class="overlay"></div>
     </div>
     <script>
-        let a=  sessionStorage.getItem('token')
+        let a = sessionStorage.getItem('token')
         console.log(a)
         // Sample wishlist data
         let wishlistData = [
@@ -550,17 +551,17 @@
             { id: 3, name: 'Product 3' }
         ];
 
-    //     // Fonction pour récupérer les produits depuis le backend avec Axios (méthode GET)
-    // function getProducts() {
-    //   axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist')
-    //     .then(response => {
-    //       const wishlistData = response.data;
-    //       renderWishlist(wishlistData);
-    //     })
-    //     .catch(error => {
-    //       console.error('Erreur lors de la récupération des produits:', error);
-    //     });
-    // }
+        // Fonction pour récupérer les produits depuis le backend avec Axios (méthode GET)
+
+        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist')
+            .then(response => {
+                const wishlistData = response.data;
+                renderWishlist(wishlistData);
+                console.log(wishlistData)
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des produits:', error);
+            });
 
         // Function to calculate and display the number of wishlist items
         function calculateItemCount() {
@@ -600,12 +601,14 @@
         }
 
         //link 
-        
+
         // Initial rendering
         renderWishlist();
         calculateItemCount();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
     <script src="./product-details.js"></script>

@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
+                        <!-- <div class="row row-space">
                             <div id="colors-container">
                                 <div class="color-container">
                                     <label for="color-name">Nom du couleur:</label>
@@ -117,13 +117,11 @@
                                     <div class="color-input">
                                         <label for="couleur" class="labelC">Couleurs:</label>
                                         <div class="color-container">
-                                            <!-- <input type="color" name="couleur" class="color input--style-2"> -->
+                                            <input type="color" name="couleur" class="color input--style-2">
                                         </div>
                                     </div>
                                     <button class="add-color">+</button>
                                     <br>
-
-
                                     <div class="size-quantity-container">
                                         <div class="size-quantity-input">
                                             <label for="size">Taille:</label>
@@ -135,9 +133,8 @@
                                     <button class="add-size-quantity">+</button>
                                 </div>
                             </div>
-                            <button id="add-color">Ajouter un couleur</button>
-
-                        </div>
+                            <button id="add-color">Ajouter un couleur</button> -->
+                        <!-- </div> -->
                         <!-- <div class="row row-space">
                             <div class="col-4">
                                 <div class="input-group">
@@ -201,7 +198,9 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue btn-work" id="save" type="button">Add</button>
+                            <a href="../html/add-color.html">
+                                <button class="btn btn--radius-2 btn--blue btn-work" type="button">Add</button>
+                            </a>
                             <button class="btn1 btn--radius-2 btn--trans" id="cancel" type="reset">Cancel</button>
                         </div>
                     </form>
@@ -222,8 +221,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 <script>
-    var a=sessionStorage.getItem('token')
-console.log(a)
+    var a = sessionStorage.getItem('token')
+    console.log(a)
 </script>
+
 </html>
 <!-- end document-->

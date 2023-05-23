@@ -149,17 +149,19 @@ document.getElementById("categoryImage3").addEventListener("change", function (e
             // var formData = new FormData();
             formData = {
                 name: categoryName,
-                image: categoryImages,
+                image: categoryImages[0],
             }
             console.log(formData)
             // formData.append("name", categoryName);
             // formData.append("image", categoryImages);
             //  console.log(formData)
-            
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjMDhhN2UxOWMyNjNmNTllNjFhN2YiLCJpYXQiOjE2ODQ4MDE5NjYsImV4cCI6MTY5MjU3Nzk2Nn0.M5SILMk_aRSj4Kum_SN2VV193-1h6XtHcbAMIkaKnGY';
+
             var a = sessionStorage.getItem('token');
             console.log(a) ;
             axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories",formData, {headers :{
-                Authorization : `Bearer ${a}`
+                Authorization : 'Bearer '+a,
+                'Content-Type' : 'multipart/form-data',
             }})
             .then(function (response) {
                     console.log(response)
@@ -169,7 +171,7 @@ document.getElementById("categoryImage3").addEventListener("change", function (e
                 })
                 .catch(function (error) {
                     displayPopup("An error occurred");
-                    console.error(error);
+                    console.error(error.response.data);
                 });
                 
             });
