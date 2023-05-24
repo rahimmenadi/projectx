@@ -243,8 +243,8 @@
 
                         <button type="button" id="addPairButton">Ajouter paire qt tl</button>
 
-                        <button type="submit">Ajouter un type de couleur</button>
-                        <button type="button" id="postButton">add product</button>
+                        <button type="button" id="addtcol">Ajouter un type de couleur</button>
+                        <button type="submit" id="postButton">add product</button>
                     </form>
                 </div>
             </div>
@@ -313,7 +313,7 @@
             }
         });
 
-        document.getElementById("productForm").addEventListener("submit", function (e) {
+        document.getElementById("addtcol").addEventListener("click", function (e) {
             e.preventDefault(); // Empêche l'envoi du formulaire par défaut
 
             let productTitle = document.getElementById("productTitle").value;
@@ -376,7 +376,7 @@
             }
 
             Object.assign(product, color);
-            console.log(product);
+
         });
 
         // axios.post('https://example.com/api/endpoint', finalObject)
@@ -391,30 +391,18 @@
 
         // axiossss 
 
-        const postButton = document.getElementById('postButton');
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjYWUxYTkxYzcyNDVkMGRjYWY3ZjIiLCJpYXQiOjE2ODQ4NDU0NzEsImV4cCI6MTY5MjYyMTQ3MX0.b8ejxmQArh-ndjangG5XCfopvhnUZXb4WRN7qDapZmM';
 
         var a = sessionStorage.getItem('token');
         console.log(a);
-        postButton.addEventListener('click', () => {
 
-            const config = {
-                headers: {
-                    'Authorization': 'Bearer ' + a,
-                    'Content-Type': 'multipart/form-data'
-                }
-            };
-            // Effectuez la requête POST en utilisant Axios ou toute autre méthode de votre choix
-            axios.post('https://buy-it-sigma.herokuapp.com/api/v1/products', product)
-                .then(response => {
-                    // Gérez la réponse
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    // Gérez l'erreur
-                    console.error(error);
-                });
+        document.getElementById("productForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+            // Object.assign(product, colorsi);
+
+            console.log(product);
         });
+
+
     </script>
 </body>
 

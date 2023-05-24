@@ -29,6 +29,204 @@
 
     <!-- Main CSS-->
     <link href="../css/add-product.css" rel="stylesheet" media="all">
+    <style>
+        .font-robo {
+            font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+        .font-poppins {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+
+
+
+
+        html {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+
+        }
+
+        .page-main {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .bg-gra-01 {
+            background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+            background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+        }
+
+        .bg-gra-02 {
+            background: -webkit-gradient(linear, left bottom, right top, from(#fc2c77), to(#6c4079));
+            background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+            background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+        }
+
+        .p-t-100 {
+            padding-top: 100px;
+        }
+
+        .p-t-130 {
+            padding-top: 130px;
+        }
+
+
+        .p-b-100 {
+            padding-bottom: 100px;
+        }
+
+
+        .main {
+            margin: 0 auto;
+        }
+
+        .main--w960 {
+            max-width: 960px;
+        }
+
+        .main--w780 {
+            max-width: 780px;
+        }
+
+        .main--w680 {
+            max-width: 680px;
+        }
+
+
+        .card {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background: #fff;
+        }
+
+        .card-4 {
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-4 .card-body {
+            padding: 57px 65px;
+            padding-bottom: 65px;
+        }
+
+        @media (max-width: 767px) {
+            .card-4 .card-body {
+                padding: 50px 40px;
+            }
+        }
+
+
+
+        /* style tei */
+        #h2 {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+            margin-bottom: 20px;
+            font-size: 25px;
+            transform: translate(-3%);
+        }
+
+
+
+
+        #labelN {
+            text-transform: capitalize;
+            margin-right: 7px;
+            font-size: 18px;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        .input-container input {
+            margin-right: 5px;
+        }
+
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category-container .add-subcategory {
+            margin-left: 5px;
+        }
+
+        .subcategories-container {
+            margin-top: 10px;
+            margin-left: 7px;
+        }
+
+        .counter {
+            font-weight: bold;
+            margin-right: 5px;
+            color: #555;
+            text-transform: capitalize;
+        }
+
+        input {
+            margin: 10px 0;
+            background: #cac6c6;
+            -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            padding: 0 10px;
+            font-size: 18px;
+            color: #666;
+            border: none;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        button {
+            padding: 0 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+
+
+        #addColorButton {
+            margin-right: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,13 +235,13 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Add Product Page</h2>
-                    <form method="POST" action="# ">
+                    <form method="POST" action="# " id="myform">
                         <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">add image</label>
                                     <div class="containerP">
-                                        <input type="file" id="file-inputP" multiple name="image" />
+                                        <input type="file" id="file-inputP" multiple name="image" accept="image" />
                                         <label class="labelP" for="file-inputP">
                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                             &nbsp; Choose Pictures To Upload
@@ -84,6 +282,19 @@
                         <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
+                                    <label class="label">Delivery</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="Sub-Catégorie" id="DeliverySelect">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
                                     <label class="label">Title</label>
                                     <input class="input--style-4" type="text" id="title" name="Title">
                                 </div>
@@ -101,6 +312,14 @@
                                     <label class="label">Price (reduction)</label>
                                     <input class="input--style-4" type="number" min="0" id="pricered"
                                         name="price-reduction">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">quantity</label>
+                                    <input class="input--style-4" type="number" min="0" id="quantity" name="quantity">
                                 </div>
                             </div>
                         </div>
@@ -183,7 +402,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="row row-space">
+                        <!-- <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Type livraison</label>
@@ -194,7 +413,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row row-space">
                             <div class="col-3">
                                 <div>
@@ -204,14 +423,42 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="productTitle">Titre du couleur:</label>
+                            <input type="text" id="productTitle" placeholder="Entrez le titre du couleur" required />
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label for="colorName">Nom de la couleur:</label>
+                            <input type="text" id="colorName" placeholder="Entrez le nom de la couleur" required />
+                        </div> -->
+
+                        <div id="colorContainer" class="form-group1">
+                            <label>Couleurs disponibles:</label>
+                            <input type="color" class="colorInput" />
+                            <button type="button" id="addColorButton">Ajouter couleur</button>
+                        </div>
+
+                        <div id="sizeQuantityContainer">
+                            <div class="form-group size-quantity-pair">
+                                <label for="size1">Taille 1:</label><br>
+                                <input type="text" id="size1" placeholder="Entrez la taille" required /><br>
+                                <label for="quantity1">Quantité 1:</label><br>
+                                <input type="number" id="quantity1" min="0" placeholder="Entrez la quantité" required />
+                            </div>
+                        </div>
+
+                        <button type="button" id="addPairButton">Ajouter paire qt tl</button>
+
+                        <!-- <button type="button" id="addtcol">Ajouter un type de couleur</button> -->
+
                         <div class="p-t-15">
                             <!-- <a href="../html/add-color.html">
                                 <button class="btn btn--radius-2 btn--blue btn-work" type="button">Add</button>
                             </a> -->
-                            <a href="#">
-                                <button class="btn btn--radius-2 btn--blue btn-work" id="submit"
-                                    type="button">Add</button>
-                            </a>
+
+                            <button class="btn btn--radius-2 btn--blue btn-work" id="submit" type="button">Add</button>
+
                             <button class="btn1 btn--radius-2 btn--trans" id="cancel" type="reset">Cancel</button>
                         </div>
                     </form>
@@ -296,10 +543,12 @@
     let image = document.getElementById('file-inputP');
     let catégorie = document.getElementById('categorySelect');
     let subcatégorie = document.getElementById('SubcategorySelect');
-    let livraison = document.getElementById('TypeLivraisonSelect');
+    let Deliverycatégorie = document.getElementById('DeliverySelect');
+    // let livraison = document.getElementById('TypeLivraisonSelect');
     let price = document.getElementById('price');
     let pricered = document.getElementById('pricered');
-    let color = document.getElementById('color');
+    let quantity = document.getElementById('quantity');
+    // let color = document.getElementById('color');
     let quantité = document.getElementById('quantité');
     let taille = document.getElementById('taille');
     let description = document.getElementById('description');
@@ -318,6 +567,7 @@
         .then(function (response) {
 
             var categories = response.data;
+            // console.log(categories)
             var categorySelect = document.getElementById("categorySelect");
             var a = response.data;
 
@@ -326,7 +576,7 @@
                 var cateid = a.data[i]._id;
 
                 var option = document.createElement("option");
-                option.value = catename;
+                option.value = cateid;
                 option.text = catename;
                 option.class = cateid;
                 categorySelect.appendChild(option);
@@ -351,7 +601,7 @@
                 var scateid = b.data[i]._id;
 
                 var soption = document.createElement("option");
-                soption.value = scatename;
+                soption.value = scateid;
                 soption.text = scatename;
                 soption.class = scateid;
                 SubcategorySelect.appendChild(soption);
@@ -361,31 +611,57 @@
             console.error('Erreur lors de la récupération des produits:', error);
         });
 
-    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/deliveries', {
         headers: {
             Authorization: 'Bearer ' + a,
         }
     })
         .then(function (response) {
 
-            var subcategories = response.data;
-            var SubcategorySelect = document.getElementById("TypeLivraisonSelect");
-            var b = response.data;
+            var delivery = response.data;
+            // console.log(delivery)
+            var DeliverySelect = document.getElementById("DeliverySelect");
+            var c = response.data;
 
-            for (var i = 0; i < b.data.length; i++) {
-                var scatename = b.data[i].name;
-                var scateid = b.data[i]._id;
+            for (var i = 0; i < c.data.length; i++) {
+                var sdeliname = c.data[i].name;
+                var sdeliid = c.data[i]._id;
 
-                var soption = document.createElement("option");
-                soption.value = scatename;
-                soption.text = scatename;
-                soption.class = scateid;
-                SubcategorySelect.appendChild(soption);
+                var doption = document.createElement("option");
+                doption.value = sdeliid;
+                doption.text = sdeliname;
+                doption.class = sdeliid;
+                DeliverySelect.appendChild(doption);
             }
         })
         .catch(error => {
             console.error('Erreur lors de la récupération des produits:', error);
         });
+    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
+    //     headers: {
+    //         Authorization: 'Bearer ' + a,
+    //     }
+    // })
+    //     .then(function (response) {
+
+    //         var subcategories = response.data;
+    //         var SubcategorySelect = document.getElementById("TypeLivraisonSelect");
+    //         var b = response.data;
+
+    //         for (var i = 0; i < b.data.length; i++) {
+    //             var scatename = b.data[i].name;
+    //             var scateid = b.data[i]._id;
+
+    //             var soption = document.createElement("option");
+    //             soption.value = scateid;
+    //             soption.text = scatename;
+    //             soption.class = scateid;
+    //             SubcategorySelect.appendChild(soption);
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error('Erreur lors de la récupération des produits:', error);
+    //     });
 
     // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories')
     // .then(function (response) {
@@ -421,7 +697,7 @@
 
 
     //add color
-        
+
     //add color
 
     let datatab = [];
@@ -457,49 +733,271 @@
         let coverimage = [tabimage[0]];
         let othermage = tabimage.slice(1);
 
-        const TypeLivraisonSelect = document.getElementById('TypeLivraisonSelect');
-        const selectedValues = [];
-        const options = TypeLivraisonSelect.options;
-        for (let i = 0; i < options.length; i++) {
-            if (options[i].selected) {
-                selectedValues.push(options[i].value);
-            }
-        }
+        // const TypeLivraisonSelect = document.getElementById('TypeLivraisonSelect');
+        // const selectedValues = [];
+        // const options = TypeLivraisonSelect.options;
+        // for (let i = 0; i < options.length; i++) {
+        //     if (options[i].selected) {
+        //         selectedValues.push(options[i].value);
+        //     }
+        // }
+        var categoryImages = [];
+
 
         class prod {
-            constructor(title, coverimage, othermage, catégorie, subcatégorie, price, pricered, livraison, description) {
+            constructor(title, coverimage, othermage, catégorie, subcatégorie, Deliverycatégorie, price, pricered, quantity, description) {
                 this.title = title;
                 this.imageCover = coverimage;
                 this.images = othermage;
                 this.category = catégorie;
                 this.subcategory = subcatégorie;
+                this.delivery = Deliverycatégorie;
                 this.price = price;
                 this.priceAfterDiscount = pricered;
-                this.liv = selectedValues;
+                this.quantity = quantity;
+                // this.liv = selectedValues;
                 this.description = description;
             }
         }
 
         let product = new prod(
             title.value,
-            coverimage,
+            coverimage.toString('base64'),
             othermage,
             catégorie.value,
             subcatégorie.value,
+            Deliverycatégorie.value,
             price.value,
             pricered.value,
-            selectedValues,
+            quantity.value,
+            // selectedValues,
             description.value,
         );
 
+        //xx
+        let productTitle = document.getElementById("productTitle").value;
+
+        // Création de l'objet size contenant les paires taille-quantité
+        let size = {};
+        let Tsize = [];
+        let sizePairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+
+        for (let i = 0; i < sizePairs.length; i++) {
+            let pair = sizePairs[i];
+            let sizeInput = pair.querySelector("input[type='text']");
+            let quantityInput = pair.querySelector("input[type='number']");
+
+            let sizeValue = sizeInput.value.trim();
+            let quantityValue = parseInt(quantityInput.value);
+
+            if (sizeValue && !isNaN(quantityValue)) {
+                size[i] = {
+                    taille: sizeValue,
+                    qnt: quantityValue
+                };
+                Tsize.push(size[i]);
+            }
+        }
+
+        // console.log(Tsize);
+
+
+        // Création de l'objet colors contenant les couleurs choisies
+        let colors = [];
+        let colorInputs = colorContainer.getElementsByClassName("colorInput");
+
+        for (let i = 0; i < colorInputs.length; i++) {
+            let colorInput = colorInputs[i];
+
+            let colorValue = colorInput.value;
+            // let colorName = document.getElementById("colorName").value.trim();
+
+            if (colorValue) {
+                let colorObject = {
+                    ['hexaCode']: colorValue,
+                };
+                colors.push(colorObject);
+            }
+        }
+
+        // Création de l'objet productColor contenant les données du produit
+        let colordata = {
+            name: productTitle,
+            size: Tsize,
+            colors: colors
+        };
+        let varia = colordata
+        let colorsi = []
+        colorsi.push(varia)
+
+        let color = {
+            color: colorsi
+        }
+
+        Object.assign(product, color);
+
 
         // console.log(selectedValues);
-        console.log(product)
-        localStorage.setItem('product', JSON.stringify(product));
-        window.location.href = './add-color.html';
-    }
 
-    
+        console.log(catégorie.value)
+        console.log(catégorie.value)
+        console.log(product)
+        // localStorage.setItem('product', JSON.stringify(product));
+        // window.location.href = './add-color.html';
+
+        //post 
+        axios.post('https://buy-it-sigma.herokuapp.com/api/v1/products', product, {
+            headers: {
+                Authorization: 'Bearer ' + a,
+                'Content-Type': 'multipart/form-data',
+            }
+        })
+            .then(function (response) {
+                console.log('Product added successfully:', response.data);
+                displayPopup("Product added successfully");
+                document.getElementById("myform").reset();
+            })
+            .catch(function (error) {
+                console.log(error)
+                console.error('Error adding Product:', error);
+                displayPopup("an error occured");
+            });
+
+
+        function displayPopup(message) {
+            alert(message);
+        }
+
+    }
+    //jdid
+
+
+    let colorContainer = document.getElementById("colorContainer");
+    let addColorButton = document.getElementById("addColorButton");
+    let maxColors = 6;
+
+    let product = JSON.parse(localStorage.getItem('product'));
+    // console.log(product)
+
+    addColorButton.addEventListener("click", function () {
+        let colorInputs = colorContainer.getElementsByClassName("colorInput");
+
+        if (colorInputs.length < maxColors) {
+            let newColorInput = document.createElement("input");
+            newColorInput.type = "color";
+            newColorInput.className = "colorInput";
+
+            colorContainer.insertBefore(newColorInput, addColorButton);
+
+            // Vérifier le nombre total de couleurs et masquer le bouton "Ajouter couleur" si nécessaire
+            if (colorInputs.length + 1 >= maxColors) {
+                addColorButton.style.display = "none";
+            }
+        }
+    });
+
+    let sizeQuantityContainer = document.getElementById("sizeQuantityContainer");
+    let addPairButton = document.getElementById("addPairButton");
+    let maxPairs = 9;
+
+    addPairButton.addEventListener("click", function () {
+        let pairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+
+        if (pairs.length < maxPairs) {
+            let newPair = document.createElement("div");
+            newPair.className = "form-group size-quantity-pair";
+
+            let newSizeInput = document.createElement("input");
+            newSizeInput.type = "text";
+            newSizeInput.placeholder = "Entrez la taille";
+            newSizeInput.required = true;
+
+            let newQuantityInput = document.createElement("input");
+            newQuantityInput.type = "number";
+            newQuantityInput.min = "0";
+            newQuantityInput.placeholder = "Entrez la quantité";
+            newQuantityInput.required = true;
+
+            newPair.appendChild(document.createElement("label")).textContent = `Taille ${pairs.length + 1}:`;
+            newPair.appendChild(newSizeInput);
+            newPair.appendChild(document.createElement("label")).textContent = `Quantité ${pairs.length + 1}:`;
+            newPair.appendChild(newQuantityInput);
+
+            sizeQuantityContainer.appendChild(newPair);
+
+            // Vérifier le nombre total de paires et masquer le bouton "Ajouter paire" si nécessaire
+            if (pairs.length + 1 >= maxPairs) {
+                addPairButton.style.display = "none";
+            }
+        }
+    });
+
+        // document.getElementById("addtcol").addEventListener("click", function (e) {
+        //     e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+        //     let productTitle = document.getElementById("productTitle").value;
+
+        //     // Création de l'objet size contenant les paires taille-quantité
+        //     let size = {};
+        //     let Tsize = [];
+        //     let sizePairs = sizeQuantityContainer.getElementsByClassName("size-quantity-pair");
+
+        //     for (let i = 0; i < sizePairs.length; i++) {
+        //         let pair = sizePairs[i];
+        //         let sizeInput = pair.querySelector("input[type='text']");
+        //         let quantityInput = pair.querySelector("input[type='number']");
+
+        //         let sizeValue = sizeInput.value.trim();
+        //         let quantityValue = parseInt(quantityInput.value);
+
+        //         if (sizeValue && !isNaN(quantityValue)) {
+        //             size[i] = {
+        //                 taille: sizeValue,
+        //                 qnt: quantityValue
+        //             };
+        //             Tsize.push(size[i]);
+        //         }
+        //     }
+
+        //     // console.log(Tsize);
+
+
+        //     // Création de l'objet colors contenant les couleurs choisies
+        //     let colors = [];
+        //     let colorInputs = colorContainer.getElementsByClassName("colorInput");
+
+        //     for (let i = 0; i < colorInputs.length; i++) {
+        //         let colorInput = colorInputs[i];
+
+        //         let colorValue = colorInput.value;
+        //         // let colorName = document.getElementById("colorName").value.trim();
+
+        //         if (colorValue) {
+        //             let colorObject = {
+        //                 ['hexaCode']: colorValue,
+        //             };
+        //             colors.push(colorObject);
+        //         }
+        //     }
+
+        //     // Création de l'objet productColor contenant les données du produit
+        //     let colordata = {
+        //         name: productTitle,
+        //         size: Tsize,
+        //         colors: colors
+        //     };
+        //     let varia = colordata
+        //     let colorsi = []
+        //     colorsi.push(varia)
+
+        //     let color = {
+        //         color: colorsi
+        //     }
+
+        //     Object.assign(product, color);
+
+        // });
+
 
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js">
