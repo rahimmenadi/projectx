@@ -195,6 +195,24 @@
             text-transform: capitalize;
         }
 
+        #addPairButton {
+            line-height: 30px;
+            padding: 0 20px;
+            color: #fff;
+            background-color: #4272d7;
+            border-radius: 3px;
+            max-width: 20%;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            font-size: 14px;
+            /* display: inline-flex; */
+            justify-content: center;
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
         input {
             margin: 10px 0;
             background: #cac6c6;
@@ -241,7 +259,7 @@
                                 <div class="input-group">
                                     <label class="label">add image</label>
                                     <div class="containerP">
-                                        <input type="file" id="file-inputP" multiple name="image" accept="image" />
+                                        <input type="file" id="file-inputP" multiple name="image" accept="image/*" />
                                         <label class="labelP" for="file-inputP">
                                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                                             &nbsp; Choose Pictures To Upload
@@ -516,8 +534,7 @@
     let fileInput = document.getElementById("file-inputP");
     let fileList = document.getElementById("files-list");
     let numOfFiles = document.getElementById("num-of-files");
-
-    fileInput.addEventListener("change", () => {
+    fileInput.addEventListener("change", function (e) {
         fileList.innerHTML = "";
         numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
 
@@ -532,7 +549,8 @@
                 listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
             }
             fileList.appendChild(listItem);
-            tabimage.push(fileInput.value);
+            tabimage.push(e.target.fileInput[i]);
+
         }
     });
 
@@ -562,6 +580,7 @@
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories', {
         headers: {
             Authorization: 'Bearer ' + a,
+            'Content-Type': 'multipart/form-data'
         }
     })
         .then(function (response) {
@@ -705,7 +724,6 @@
 
     submit.onclick = function () {
 
-
         // if (cash.checked) {
         //     tabchek = [cash.value];
         // }
@@ -762,7 +780,7 @@
 
         let product = new prod(
             title.value,
-            coverimage.toString('base64'),
+            coverimage,
             othermage,
             catégorie.value,
             subcatégorie.value,
@@ -814,7 +832,7 @@
 
             if (colorValue) {
                 let colorObject = {
-                    ['hexaCode']: colorValue,
+                    ['hexaColor']: colorValue,
                 };
                 colors.push(colorObject);
             }
@@ -839,8 +857,8 @@
 
         // console.log(selectedValues);
 
-        console.log(catégorie.value)
-        console.log(catégorie.value)
+        console.log(coverimage)
+        // console.log(catégorie.value)
         console.log(product)
         // localStorage.setItem('product', JSON.stringify(product));
         // window.location.href = './add-color.html';
@@ -855,7 +873,7 @@
             .then(function (response) {
                 console.log('Product added successfully:', response.data);
                 displayPopup("Product added successfully");
-                document.getElementById("myform").reset();
+                // document.getElementById("myform").reset();
             })
             .catch(function (error) {
                 console.log(error)
