@@ -1134,7 +1134,7 @@
 <script>
     let productid=sessionStorage.getItem('productId')
     console.log("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
-    axios.get("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
+    axios.get("https://buy-it-sigma.herokuapp.com/api/v1/products")
   .then(response => {
     
     // Process the received data
