@@ -534,7 +534,7 @@
     let fileInput = document.getElementById("file-inputP");
     let fileList = document.getElementById("files-list");
     let numOfFiles = document.getElementById("num-of-files");
-    fileInput.addEventListener("change", function (e) {
+    fileInput.addEventListener("change", () => {
         fileList.innerHTML = "";
         numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
 
@@ -549,7 +549,7 @@
                 listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
             }
             fileList.appendChild(listItem);
-            tabimage.push(e.target.fileInput[i]);
+            tabimage.push(fileInput.value);
 
         }
     });
@@ -780,7 +780,7 @@
 
         let product = new prod(
             title.value,
-            coverimage,
+            coverimage.toString,
             othermage,
             catégorie.value,
             subcatégorie.value,

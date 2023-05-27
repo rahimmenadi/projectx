@@ -298,11 +298,19 @@
         <!-- Header -->
         <main>
             <div class="containerw">
-                <h1 id="wishlistTitle">Wishlist</h1>
-                <div id="wishlist">
+                <h1 id="wishlistTitle">Wishlist</h1><br><br>
+                <div class="features">
+                    <div class="container">
+                        <div class="column">
+                            <div class="products main flexwrap">
+                                <div style="display: inherit;" id="wishlist">
 
-                    <!-- Wishlist items will be dynamically added here -->
-                </div>
+                                    <!-- Wishlist items will be dynamically added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
             </div>
         </main>
         <!-- Main -->
@@ -540,24 +548,27 @@
                 const itemElement = document.createElement('div');
                 itemElement.setAttribute('data-id', item._id);
                 itemElement.innerHTML = `
-                <div class="features" >
-                <div class="container" >
-                <div class="column" >
-                <div class="products main flexwrap" >
-                <div class="item">
+             
+                <div   class="item">
                      <div class="media">
                           <div class="thumbnail object-cover">
                              <a  href="#">
-                                  <img  src="${item.imageCover}" alt="">
+                                  <img style="border-radius: 5%;" src="${item.imageCover}" alt="">
                               </a>
                            </div>
-        
-                       <div class="discount circle flexcenter"><span>${item.price / item.priceAfterDiscount * 100}%</span></div>
+                           <div class="hoverable">
+                               <ul>
+                                  <li  class="active"><a onclick="deleteProduct('${item._id}')"  id="add-wishlist-btn"><i class="fa-light fa-trash"></i>a></li>
+                                 
+                              </ul>
+                            </div>
+                       <div   class="discount circle flexcenter"><span>${item.price / item.priceAfterDiscount * 100}%</span></div>
                      </div>
                      <div class="content">
                           <div class="rating">
-                             <div style="width:${item.ratingAverage / 5 * 80}px"></div>
-                                 <span class="mini-text">${item.ratingAverage}</span>
+                            <div style="width:${item.ratingAverage / 5 * 80}px" class="stars"></div>
+                             <div ></div>
+                                 <span class="mini-text">${item.totalRating}</span>
                               </div>
                               <h3><a href="#">${item.title}</a></h3>
                              <div class="price">
@@ -566,10 +577,7 @@
                          </div>
                          <div><button class="delete" onclick="deleteProduct('${item._id}')">Delete</button></div>
                      </div>
-                 </div>
-            </div>
-         </div>
-    </div>
+           
                 `;
                 wishlistElement.appendChild(itemElement);
             });
@@ -602,7 +610,7 @@
     <div class="hoverable">
         <ul>
             <li  class="active"><a id="click-me${AllProductList[i]._id}a" onclick="btn_wishlist_all(this,${i})" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-            <li><a  onclick="sendProductIdCart(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
+            <li><a  onclick="sendProductIdCart(${item})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
         </ul>
     </div>
     <div class="discount circle flexcenter"><span>${AllProductList[i].price/AllProductList[i].priceAfterDiscount*100}%</span></div>
