@@ -67,6 +67,7 @@ let nbcomment = document.getElementById('nb-comment');
 //comment
 var comments = [
     { author: "John", content: "Great product!", rating: 5, date: "2023-05-15" },
+    { author: "esi", content: "Great product!", rating: 5, date: "2023-05-15" },
     { author: "Mike", content: "Excellent quality!", rating: 3, date: "2023-05-10" },
     { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
     { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
@@ -179,7 +180,7 @@ var couleursHTML1 = ["#FF0000", "#00FF00", "#0000FF", "#0000FF", "#0000FF"];
 var couleursHTML2 = ["#FFFF00", "#FF00FF", "#00FFFF", "#0000FF", "#0000FF"];
 var couleursHTML3 = ["#FFA500", "#800080", "#008000", "#0000FF", "#0000FF"];
 var couleursHTML4 = ["#FFA500", "#800080", "#008000", "#0000FF", "#0000FF"];
-var couleursHTML5 = ["#FFA500", "#800080", "#008000", "#0000FF", "#0000FF"];
+var couleursHTML5 = ["#FFA500", "#800080", "#008000", "#0000FF"];
 
 // Récupérer les lignes des couleurs pour chaque tableau
 var couleursRow1 = document.getElementById("couleursRow1");

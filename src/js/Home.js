@@ -1,4 +1,19 @@
-
+function sendProductIdCard(k){
+    
+    // Make a POST request to add the product
+    axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',  {productId : AllProductList[k]._id}  , {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      })
+      .then(response => {
+        console.log("added" , response.data.data)
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+    
+}
 
 function btn_add_cart(){
     console.log(i)
@@ -375,35 +390,31 @@ function btn_wishlist(link,i) {
     link.style.color = 'white'
     
     
-    addProduct(product);
+    addProduct(AllProductList[i]);
   }else{
     link.style.backgroundColor = 'white';
     link.style.color = 'black'
-    removeProduct(product._id);
+    removeProduct(AllProductList[i]._id);
     
   }
   
   }
 
   const token = localStorage.getItem("token");
-  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
-    headers: {
-        Authorization: `Bearer ${token}`
-      }
-  })
-  .then(response => {
-    for (let i = 0; i  <response.data.data.length; i++) {
-        
-    document.getElementById("click-me" + response.data.data[i]._id +"").click();
-    document.getElementById("click-me" + response.data.data[i]._id +"a").click();
-    
-    }
-    document.getElementById("wishlist-number").textContent=response.data.data.length+"";
-    console.log('Product added:', response.data.data[0]._id);
-  })
-  .catch(error => {
-    console.error('Error adding product:', error);
-  });
+
+
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart',  {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      })
+      .then(response => {
+        console.log("gettedcart" , response.data.data)
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+
   function addProduct(product) {
     // Make a POST request to add the product
     axios.post('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {productId:product._id} , {
@@ -414,7 +425,7 @@ function btn_wishlist(link,i) {
       .then(response => {
         document.getElementById("wishlist-number").textContent= response.data.data.length + "";
         
-        document.getElementById("click-me" + response.data.data[i]._id +"").click();
+        console.log("product added",response.data.data)
       })
       .catch(error => {
         console.error('Error adding product:', error);
@@ -431,6 +442,7 @@ function btn_wishlist(link,i) {
       })
         .then(response => {
           document.getElementById("wishlist-number").textContent= response.data.data.length + "";
+          console.log("product deleted" ,response.data.data)
         })
         .catch(error => {
           console.error('Error deleting product:', error);
@@ -489,38 +501,24 @@ function sendNewProductId(k){
   localStorage.setItem('productId',newProductList[k]._id);
   window.location.assign('/product-details.html');
 }
-function sendProductIdCard(k){
-    
-    // Make a POST request to add the product
-    axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',  AllProductList[k] , {
-        headers: {
-            Authorization: `Bearer ${token}`
-          }
-      })
-      .then(response => {
-        console.log("added")
-      })
-      .catch(error => {
-        console.error('Error adding product:', error);
-      });
-    
-}
+
 function sendNewProductIdCard(k){
   // Serialize the object to JSON
   // Navigate to another page with the encoded product ID
   
- 
-  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',   newProductList[k], {
+  
+  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',   newProductList[k]._id , {
     headers: {
         Authorization: `Bearer ${token}`
       }
   })
   .then(response => {
-    console.log("added")
+    console.log("added" + response.data.data)
   })
   .catch(error => {
     console.error('Error adding product:', error);
   });
+  
 }
 
 console.log(localStorage.getItem("token"))
@@ -531,6 +529,22 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
     AllProductList = response.data.data;
     
     displayProduct();
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+      })
+      .then(response => {
+        for (let i = 0; i  <response.data.data.length; i++) {
+        document.getElementById("click-me" + response.data.data[i]._id +"a").click();
+        
+        }
+        document.getElementById("wishlist-number").textContent=response.data.data.length+"";
+        console.log('Product added:', response.data.data);
+      })
+      .catch(error => {
+        console.error('Error get product:', error);
+      });
   })
   .catch(error => {
     console.log(error)
@@ -556,7 +570,7 @@ function displayProduct(){
             <div class="hoverable">
                 <ul>
                     <li  class="active"><a id="click-me${AllProductList[i]._id}a" onclick="btn_wishlist_all(this,${i})" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-                    <li><a  onclick="sendProductIdCart(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
+                    <li><a  onclick="sendProductIdCard(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
                 </ul>
             </div>
             <div class="discount circle flexcenter"><span>${AllProductList[i].price/AllProductList[i].priceAfterDiscount*100}%</span></div>

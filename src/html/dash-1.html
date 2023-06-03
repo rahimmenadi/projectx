@@ -184,16 +184,25 @@
             </button><button class="nav">
               <img class="shopping-cart-1-icon" alt="" src="../../public/product-1-1.svg" />
               <div class="sales">Products</div>
-            </button><button class="nav3">
-              <img class="shopping-cart-1-icon" alt="" src="../../public/chat-1.svg" />
-              <div class="sales">Chat</div>
-            </button><button class="nav3">
+            </button>
+            <button id="addtyli" class="nav3">
+              <img class="shopping-cart-1-icon" alt="" src="../../img/add.png" />
+              <div class="sales">Add type livraison</div>
+            </button>
+            <button class="nav3">
               <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
               <div class="sales">Delivery</div>
             </button><button class="nav">
               <img class="shopping-cart-1-icon" alt="" src="../../public/shop-1.svg" />
               <div class="sales">Your store</div>
             </button>
+            </button>
+            <button class="nav" id="addpro">
+              <img class="shopping-cart-1-icon" alt="" src="../../img/add.product.png" />
+              <div class="sales">Add product</div>
+            </button>
+            </button>
+            <hr>
           </div>
           <div class="nav-group">
             <button class="nav">
@@ -222,6 +231,17 @@
     </div>
   </div>
   <script>
+    const addpro = document.getElementById('addpro');
+    addpro.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = './add-product.html'; // Replace 'page-x.html' with the actual page URL
+    });
+    const addtyli = document.getElementById('addtyli');
+    addtyli.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = './add-type-livraison.html'; // Replace 'page-x.html' with the actual page URL
+    });
+
     function addOrder(photo, productName, date, clientName, price, status) {
       var tableBody = document.getElementById('orderTableBody');
 
@@ -265,7 +285,7 @@
 
     // Exemples de commandes (peut être remplacé par des données dynamiques)
     addOrder('../../public/frame-1974@2x.png', 'Produit 1', '2023-05-19', 'John Doe', '$50', 'delivered');
-    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'delivered');
     addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
     addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
     addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
@@ -273,7 +293,7 @@
     addOrder('../../public/frame-1974@2x.png', 'Produit x', '2023-05-20', 'bendida', '381da', 'delivered');
 
   </script>
-  <script>var a=sessionStorage.getItem('token')
+  <script>var a = sessionStorage.getItem('token')
     console.log(a)</script>
 </body>
 
