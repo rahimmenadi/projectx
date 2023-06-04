@@ -1236,7 +1236,7 @@ title.textContent=a.title
     price.textContent="$"+a.price
     reviewnumber.textContent=a.totalRating
     rating.textContent=a.ratingAverage
-  $('#totalreviwsavrege.stars').css('width', a.ratingAverage/5*80+'px');
+  t$('#totalreviwsavrege.stars').css('width', a.ratingAverage/5*80'px');
     
   
    
@@ -1569,15 +1569,7 @@ navigator.clipboard.writeText(currentTabLink)
    let addcart=document.getElementById('addtocart');
 
     addcart.addEventListener('click', function(e){
-        const selectedColor = $('.colors input[type="radio"]:checked').siblings('label').css('background-color');
-        console.log('Selected color background color:', selectedColor);
-    
         
-        // Get the span value for the selected size
-        const selectedSizeSpan = $('.sizes input[type="radio"]:checked').siblings('label').find('span').text();
-        console.log('Selected size span:', selectedSizeSpan);
-        var color=selectedSizeSpan
-        var size=selectedSizeSpan
         
         e.preventDefault();
         axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart',{productId:productid}, {
@@ -1586,25 +1578,18 @@ navigator.clipboard.writeText(currentTabLink)
               }
           })
           .then(response => {
-            console.log(response)
-            console.log("added" + response.data.message)
+            console.log("addd")
+            console.log("added" + response.data.data)
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Product added to cart successfully',
+                title: 'Your Product has been saved to The Cart',
                 showConfirmButton: false,
                 timer: 2000
               })
           })
           .catch(error => {
             console.error('Error adding product:', error);
-            Swal.fire({
-                position: 'center',
-                icon: 'warning',
-                title: 'Product not added to cart ',
-                showConfirmButton: false,
-                timer: 2000
-              })
           });
    
          
