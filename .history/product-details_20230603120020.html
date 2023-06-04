@@ -419,7 +419,7 @@
                                                     <div class="wish-share">
                                                         <ul class="flexitem second-links">
                                                             <li><a id="addto-wishlist" >
-                                                                <span class="icon-large"><i class="ri-heart-line" id="exist-inwishlist"></i></span>
+                                                                <span class="icon-large"><i class="ri-heart-line"></i></span>
                                                                 <span>Wishlist</span>
                                                             </a></li>
                                                             <li><a href="#">
@@ -1130,31 +1130,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     let productid=localStorage.getItem('productId')
-    var token=localStorage.getItem('token')
-    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
-        headers: {
-           Authorization: 'Bearer ' + token
-          }
-      })
-      .then(response => {
-                console.log
-       $('#wishlistnumber').text(response.data.data.length)
-       
-       var productExists = response.data.data.find(item => item.id === productid);
-    
-    if (productExists) {
-        console.log('Product ID exists in the response.')
-        $('#exist-inwishlist').css('color', '#fb5607');
-
-    } else {
-        console.log('Product ID does not exist in the response.');
-    }
-      
-      })
-      .catch(error => {
-        console.error('Error adding product:', error);
-      });
-  
     console.log(productid)
     console.log("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
     axios.get("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
@@ -1307,12 +1282,8 @@ $('#title').text(a.title)
  
   
 </script>
-
 <script>
-
-
- 
-  
+   
 let addtowishlist=document.getElementById('addto-wishlist')
 addtowishlist.addEventListener('click',function(e){
     var token=localStorage.getItem('token')
@@ -1327,13 +1298,10 @@ addtowishlist.addEventListener('click',function(e){
         
         console.log("product added",response.data.data)
         $('#wishlistnumber').text(response.data.data.length);
-        $('#exist-inwishlist').css('color', '#fb5607');
-
       })
       .catch(error => {
         console.error('Error adding product:', error);
       });
-    
     
   })
 </script>

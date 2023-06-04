@@ -419,7 +419,7 @@
                                                     <div class="wish-share">
                                                         <ul class="flexitem second-links">
                                                             <li><a id="addto-wishlist" >
-                                                                <span class="icon-large"><i class="ri-heart-line" id="exist-inwishlist"></i></span>
+                                                                <span class="icon-large"><i class="ri-heart-line"></i></span>
                                                                 <span>Wishlist</span>
                                                             </a></li>
                                                             <li><a href="#">
@@ -1129,7 +1129,6 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    let productid=localStorage.getItem('productId')
     var token=localStorage.getItem('token')
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
         headers: {
@@ -1137,24 +1136,18 @@
           }
       })
       .then(response => {
-                console.log
+                
        $('#wishlistnumber').text(response.data.data.length)
-       
-       var productExists = response.data.data.find(item => item.id === productid);
-    
-    if (productExists) {
-        console.log('Product ID exists in the response.')
-        $('#exist-inwishlist').css('color', '#fb5607');
+       if (response.data.data.includes(productid)){
+        console.log("wishlistexit")
 
-    } else {
-        console.log('Product ID does not exist in the response.');
-    }
-      
+       }
       })
       .catch(error => {
         console.error('Error adding product:', error);
       });
   
+    let productid=localStorage.getItem('productId')
     console.log(productid)
     console.log("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
     axios.get("https://buy-it-sigma.herokuapp.com/api/v1/products/"+productid)
@@ -1307,7 +1300,20 @@ $('#title').text(a.title)
  
   
 </script>
-
+<script>
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+        headers: {
+           Authorization: 'Bearer ' + token
+          }
+      })
+      .then(response => {
+        $('#wishlistnumber').text(response.data.data.length)
+     
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+</script>
 <script>
 
 
@@ -1327,13 +1333,11 @@ addtowishlist.addEventListener('click',function(e){
         
         console.log("product added",response.data.data)
         $('#wishlistnumber').text(response.data.data.length);
-        $('#exist-inwishlist').css('color', '#fb5607');
 
       })
       .catch(error => {
         console.error('Error adding product:', error);
       });
-    
     
   })
 </script>

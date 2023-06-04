@@ -1307,7 +1307,20 @@ $('#title').text(a.title)
  
   
 </script>
-
+<script>
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+        headers: {
+           Authorization: 'Bearer ' + token
+          }
+      })
+      .then(response => {
+        $('#wishlistnumber').text(response.data.data.length)
+     
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+</script>
 <script>
 
 
@@ -1327,13 +1340,11 @@ addtowishlist.addEventListener('click',function(e){
         
         console.log("product added",response.data.data)
         $('#wishlistnumber').text(response.data.data.length);
-        $('#exist-inwishlist').css('color', '#fb5607');
 
       })
       .catch(error => {
         console.error('Error adding product:', error);
       });
-    
     
   })
 </script>
