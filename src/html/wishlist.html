@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 
 </head>
 
@@ -545,7 +547,7 @@
             const wishlistElement = document.getElementById('wishlist');
             wishlistElement.innerHTML = '';
             wishlistData.forEach((item) => {
-                const itemElement = document.createElement('div');
+                // const itemElement = document.createElement('div');
                 itemElement.setAttribute('data-id', item._id);
                 itemElement.innerHTML = `
              
@@ -558,7 +560,7 @@
                            </div>
                            <div class="hoverable">
                                <ul>
-                                  <li  class="active"><a onclick="deleteProduct('${item._id}')"  id="add-wishlist-btn"><i class="fa-light fa-trash"></i>a></li>
+                                  <li  class="active"><a onclick="deleteProduct('${item._id}')"  id="add-wishlist-btn"><i ' class="fa fa-trash" aria-hidden="true"></i></a></li>
                                  
                               </ul>
                             </div>
@@ -568,7 +570,7 @@
                           <div class="rating">
                             <div style="width:${item.ratingAverage / 5 * 80}px" class="stars"></div>
                              <div ></div>
-                                 <span class="mini-text">${item.totalRating}</span>
+                                 <span class="mini-text">${item.ratingAverage}</span>
                               </div>
                               <h3><a href="#">${item.title}</a></h3>
                              <div class="price">
