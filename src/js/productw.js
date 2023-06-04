@@ -217,7 +217,7 @@ ajouterCouleurs(couleursHTML5, couleursRow5);
 
 //options 
 // Tableau des options
-var options = ["Opt1", "Opt2", "Opt3", "Opt4", "Opt5" ];
+var options = ["Opt1", "Opt2", "Opt3", "Opt4", "Opt5"];
 
 // Récupérer la ligne des options
 var optionsRow = document.getElementById("optionsRow");
@@ -234,3 +234,15 @@ for (var i = 0; i < options.length; i++) {
     // Ajouter la cellule d'option à la ligne
     optionsRow.appendChild(optionCell);
 }
+
+
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+    .then(function (response) {
+        var data = response.data;
+        // var a = response.data;
+
+        console.log(data)
+    })
+    .catch(function (error) {
+        console.error('Error fetching categories:', error);
+    });

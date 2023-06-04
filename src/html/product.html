@@ -12,6 +12,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
+<style>
+  #mainImage {
+    max-width: 300px;
+    max-height: 300px;
+    /* Ajoutez cette ligne pour limiter la hauteur */
+  }
+
+  .thumbnails img {
+    width: 80px;
+    height: 80px;
+    /* Ajoutez d'autres styles supplémentaires pour les miniatures si nécessaire */
+  }
+</style>
 
 <body>
   <header>
@@ -104,11 +117,11 @@
       <button class="frame-delet" id="delet">
         <img class="edit-2-icon" alt="" src="../../public/bin1@3x.png" />
       </button>
-      <button class="frame-promotion">
+      <!-- <button class="frame-promotion">
         <a href="#">
           <img class="edit-3-icon" alt="" src="../../public/promotion1@3x.png" />
         </a>
-      </button>
+      </button> -->
       <div class="nb-avis" id="nbavis">(nb-avis)</div>
       <div class="cont-img">
         <div class="carousel">
@@ -131,7 +144,8 @@
 
       <img class="frame-img1-icon" alt="" src="../../public/mask-group2@2x.png" /> -->
 
-      <div class="product-name" id="titre">Product-name</div>
+      <div class="product-namew" id="titre">Product-name</div>
+      <!-- <div class="product-name" id="titrew">Product-name</div> -->
       <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div>
       <b class="price-da" id="price">Price DA</b>
       <div class="share-this-product">Share this product</div>
@@ -184,7 +198,7 @@
       <div class="color2">color2</div>
       <div class="color3">color3</div> -->
       <div class="nb-articles-dispo"> <span id="prod-dispo">x</span> pièces disponibles</div>
-      <div class="ancien-da"><span id="ancien">ancien</span> DA</div>
+      <div class="ancien-da"><span id="ancien">ancien</span></div>
       <!-- <img class="stars-icon" alt="" src="../../public/stars.svg" /> -->
 
       <div class="frame-item"></div>
@@ -193,8 +207,8 @@
       <div class="frame-child1"></div>
       <div class="frame-twitter">
         <button class="twitter-1">
-          <a href="https://twitter.com/intent/tweet">
-            <img src="../../public/twitter1@3x.png" class="twitter-1">
+          <a>
+            <img src="../../public/twitter1@3x.png" id="shareButton" class="twitter-1">
           </a>
         </button>
       </div>
@@ -207,8 +221,8 @@
       </div>
       <div class="frame-insta">
         <button class="instagram-1">
-          <a href="https://www.instagram.com/share?url=https://your-website.com&caption=Check%20out%20my%20website">
-            <img src="../../public/instagram1@3x.png" class="instagram-1">
+          <a>
+            <img src="../../public/instagram1@3x.png" id="shareButton1" class="instagram-1">
           </a>
         </button>
       </div>
@@ -230,9 +244,9 @@
       <button class="frame-child6"></button>
       <button class="frame-child7"></button> -->
       <div class="frame-discount">
-        <img class="frame-discount-child" alt="" src="../../public/rectangle-57@2x.png" />
+        <!-- <img class="frame-discount-child" alt="" src="../../public/rectangle-57@2x.png" /> -->
 
-        <div class="div">-<span id="reduction">x</span>%</div>
+        <div class="div" style="text-align: center;">-<span id="reduction">x</span>%</div>
       </div>
 
 
@@ -353,9 +367,343 @@
 
   <br><br><br>
   <br><br>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    var ab = sessionStorage.getItem('token')
+    console.log(ab)
+  </script>
+  <script>
+    // copy link
+    var copyButton = document.getElementById('copyButton');
+    var linkInput = document.getElementById('linkInput');
+
+    copyButton.addEventListener('click', function () {
+      // Get the URL of the current page
+      var currentUrl = window.location.href;
+
+      // Copy the URL to the clipboard
+      navigator.clipboard.writeText(currentUrl).then(function () {
+        // Write the URL to the input field
+        linkInput.value = currentUrl;
+        alert('Link copied!');
+      }).catch(function (err) {
+        console.error('Failed to copy link: ', err);
+      });
+    });
 
 
-  <script src="../js/productw.js"></script>
+    // pop up
+    var delet = document.getElementById('delet');
+    var confirmationPopup = document.getElementById('confirmationPopup');
+    var confirmYes = document.getElementById('confirmYes');
+    var confirmNo = document.getElementById('confirmNo');
+
+    delet.addEventListener('click', function () {
+      confirmationPopup.style.display = 'block';
+    });
+
+    confirmYes.addEventListener('click', function () {
+      // Code to execute when "Yes" is clicked
+      confirmationPopup.style.display = 'none';
+    });
+
+    confirmNo.addEventListener('click', function () {
+      // Code to execute when "No" is clicked
+      confirmationPopup.style.display = 'none';
+    });
+
+    // variables
+
+
+    let titre = document.getElementById('titre');
+    let nbavis = document.getElementById('nbavis');
+    let price = document.getElementById('price');
+    let mark = document.getElementById('mark');
+    let reduction = document.getElementById('reduction');
+    let ancien = document.getElementById('ancien');
+    let proddispo = document.getElementById('prod-dispo');
+    let nbstock = document.getElementById('nb-stock');
+    let nbsales = document.getElementById('nb-sales');
+    let nbprocess = document.getElementById('nb-in-process');
+    let nbretour = document.getElementById('nb-retour');
+    let classement = document.getElementById('classement');
+    let agence = document.getElementById('agence-a-name');
+    let typeliv = document.getElementById('typeliv');
+    let description = document.getElementById('description');
+    let typegr = document.getElementById('typegr');
+    let typepr = document.getElementById('typepr');
+    let poids = document.getElementById('poids');
+    let barre = document.getElementById('barre');
+    let moyrev = document.getElementById('moyrev');
+    let nbreviews = document.getElementById('nb-reviews');
+    let nbcomment = document.getElementById('nb-comment');
+    // let mainImage = document.getElementById('mainImage');
+
+
+
+    //comment
+    var comments = [
+      { author: "John", content: "Great product!", rating: 5, date: "2023-05-15" },
+      { author: "esi", content: "Great product!", rating: 5, date: "2023-05-15" },
+      { author: "Mike", content: "Excellent quality!", rating: 3, date: "2023-05-10" },
+      { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
+      { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
+      { author: "rahil", content: "mliha!", rating: 4.5, date: "2023-05-12" },
+      // Ajoutez plus de commentaires au besoin
+    ];
+
+    var commentsContainer = document.getElementById('commentsContainer');
+
+    // Génération et remplissage des commentaires
+    for (var i = 0; i < comments.length; i++) {
+      var comment = comments[i];
+
+      var commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+
+      var authorElement = document.createElement('div');
+      authorElement.className = 'author';
+      authorElement.textContent = comment.author;
+
+      var contentElement = document.createElement('div');
+      contentElement.className = 'content';
+      contentElement.textContent = comment.content;
+
+      var ratingElement = document.createElement('div');
+      ratingElement.className = 'rating';
+      ratingElement.innerHTML = generateStarRating(comment.rating);
+
+      var dateElement = document.createElement('div');
+      dateElement.className = 'date';
+      dateElement.textContent = 'Date : ' + comment.date;
+
+      commentElement.appendChild(authorElement);
+      commentElement.appendChild(contentElement);
+      commentElement.appendChild(ratingElement);
+      commentElement.appendChild(dateElement);
+      commentsContainer.appendChild(commentElement);
+    }
+
+    nbcomment.textContent = comments.length;
+
+    function generateStarRating(rating) {
+      var starRatingElement = document.createElement('div');
+      starRatingElement.className = 'star-rating';
+
+      for (var i = 1; i <= 5; i++) {
+        var starInput = document.createElement('input');
+        starInput.type = 'radio';
+        starInput.name = 'rating';
+        starInput.value = i;
+        starInput.id = 'star' + i;
+        starInput.disabled = true;
+        if (i === rating) {
+          starInput.checked = true;
+        }
+
+        var starLabel = document.createElement('label');
+        starLabel.htmlFor = 'star' + i;
+
+        starRatingElement.appendChild(starInput);
+        starRatingElement.appendChild(starLabel);
+      }
+
+      return starRatingElement.innerHTML;
+    }
+
+
+
+
+    //essaie
+
+    var newTitle = "";
+    titre.textContent = newTitle;
+
+
+    //color
+    // Tableaux des couleurs HTML
+
+    //options 
+
+
+    //share tweet 
+    // Fonction pour récupérer le lien de la page
+    function getLink() {
+      return window.location.href;
+    }
+
+    // Fonction pour gérer le clic sur le bouton
+    function shareOnTwitter() {
+      // Récupérer le lien de la page
+      var link = getLink();
+
+      // Créer l'URL de la page de publication de Twitter avec le lien en tant que texte du tweet
+      var tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(link);
+
+      // Rediriger l'utilisateur vers la page de publication de Twitter
+      window.location.href = tweetUrl;
+    }
+
+    // Attacher l'événement de clic au bouton
+    var shareButton = document.getElementById("shareButton");
+    shareButton.addEventListener("click", shareOnTwitter);
+
+    //share insta 
+    <!-- Bouton dans votre site web -->
+
+    // Fonction pour récupérer le lien de la page
+    function getLink() {
+      return window.location.href;
+    }
+
+    // Fonction pour gérer le clic sur le bouton
+    function shareOnInstagram() {
+      // Récupérer le lien de la page
+      var link = getLink();
+
+      // Créer le texte de la légende pour la publication Instagram
+      var captionText = "Vérifiez ce lien : " + link;
+
+      // Pré-remplir la légende dans Instagram
+      var instagramUrl = "https://www.instagram.com/?url=" + encodeURIComponent(captionText);
+
+      // Rediriger l'utilisateur vers Instagram
+      window.location.href = instagramUrl;
+    }
+
+    // Attacher l'événement de clic au bouton
+    var shareButton = document.getElementById("shareButton1");
+    shareButton.addEventListener("click", shareOnInstagram);
+
+
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+      .then(function (response) {
+        var a = response.data.data[4];
+        // var a = response.data;
+        titre.textContent = a.title
+        price.textContent = a.priceAfterDiscount + " $"
+        ancien.textContent = a.price + " $"
+        proddispo.textContent = a.quantity
+        description.textContent = a.description
+        nbstock.textContent = a.quantity
+        typepr.textContent = a.category.name
+        // mark.textContent = a.category
+        reduction.textContent = ((a.priceAfterDiscount * 100) / a.price).toFixed(2)
+
+        //options 
+        // Récupérer la ligne des options
+        var options = [];
+        var optionsRow = document.getElementById("optionsRow");
+
+        // Boucle pour parcourir le tableau color
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+
+          // Boucle pour parcourir le tableau size
+          for (var j = 0; j < color.size.length; j++) {
+            var taille = color.size[j].taille;
+
+            // Vérifier si la taille n'est pas déjà présente dans les options
+            if (!options.includes(taille)) {
+              // Créer une cellule pour l'option
+              var optionCell = document.createElement("td");
+              optionCell.classList.add("option-cell");
+              optionCell.innerHTML = taille;
+
+              // Ajouter la cellule d'option à la ligne
+              optionsRow.appendChild(optionCell);
+
+              // Ajouter la taille à la liste des options pour éviter les doublons
+              options.push(taille);
+            }
+          }
+        }
+        // a.imageCover,
+        //  a.images[0],
+        //  a.images[0],
+        //  a.images[0],
+        //  a.images[0],
+        //color 
+        // Récupérer les lignes des couleurs pour chaque tableau
+        var couleursRow1 = document.getElementById("couleursRow1");
+        var couleursRow2 = document.getElementById("couleursRow2");
+        var couleursRow3 = document.getElementById("couleursRow3");
+        var couleursRow4 = document.getElementById("couleursRow4");
+        var couleursRow5 = document.getElementById("couleursRow5");
+
+        // Fonction pour ajouter les couleurs à une ligne donnée
+        function ajouterCouleurs(couleurs, row) {
+          // Boucle pour ajouter chaque couleur dans la ligne
+          for (var i = 0; i < 5; i++) {
+            if (i >= couleurs.length) {
+              break; // Sortir de la boucle si on atteint la fin du tableau
+            }
+            var couleur = couleurs[i].hexaColor;
+
+            // Créer une cellule pour la couleur
+            var couleurCell = document.createElement("td");
+            couleurCell.classList.add("couleur-cell");
+            couleurCell.style.backgroundColor = couleur;
+
+            // Ajouter la cellule de couleur à la ligne
+            row.appendChild(couleurCell);
+          }
+        }
+
+        // Parcourir le tableau color dans le backend
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+          var couleurs = color.colors;
+
+          // Ajouter les couleurs à chaque ligne de tableau
+          if (i === 0) {
+            ajouterCouleurs(couleurs, couleursRow1);
+          } else if (i === 1) {
+            ajouterCouleurs(couleurs, couleursRow2);
+          } else if (i === 2) {
+            ajouterCouleurs(couleurs, couleursRow3);
+          } else if (i === 3) {
+            ajouterCouleurs(couleurs, couleursRow4);
+          } else if (i === 4) {
+            ajouterCouleurs(couleurs, couleursRow5);
+          }
+        }
+        //photos 
+        // image scrool
+        var mainImage = document.getElementById('mainImage');
+        var thumbnailContainer = document.getElementById('thumbnailContainer');
+
+        // Afficher l'image principale
+        mainImage.setAttribute('src', a.imageCover);
+        mainImage.classList.add('main-image');
+        // Générer les miniatures des images
+        for (var i = 1; i < a.images.length && i <= 5; i++) {
+          var thumbnail = document.createElement('img');
+          thumbnail.setAttribute('src', a.images[i]);
+          thumbnail.setAttribute('alt', 'Thumbnail ' + i + 1);
+
+          // Ajouter la classe CSS pour le style des miniatures
+          thumbnail.classList.add('thumbnails-img');
+
+          // Gérer le clic sur la miniature
+          thumbnail.addEventListener('click', function () {
+            var currentImageSrc = mainImage.getAttribute('src');
+            var clickedImageSrc = this.getAttribute('src');
+            mainImage.setAttribute('src', clickedImageSrc);
+            this.setAttribute('src', currentImageSrc);
+          });
+
+          thumbnailContainer.appendChild(thumbnail);
+        }
+
+        console.log(a)
+      })
+      .catch(function (error) {
+        console.error('Error fetching categories:', error);
+      });
+  </script>
+
 </body>
 
 </html>

@@ -181,7 +181,7 @@
             </button><button class="nav">
               <img class="shopping-cart-1-icon" alt="" src="../../public/shoppingcart-1.svg" />
               <div class="sales">Sales</div>
-            </button><button class="nav">
+            </button><button class="nav" id="produita">
               <img class="shopping-cart-1-icon" alt="" src="../../public/product-1-1.svg" />
               <div class="sales">Products</div>
             </button>
@@ -240,6 +240,12 @@
     addtyli.addEventListener('click', function () {
       // Navigate to the desired page
       window.location.href = './add-type-livraison.html'; // Replace 'page-x.html' with the actual page URL
+    });
+    //hna
+    const produit = document.getElementById('produita');
+    produit.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = './product.html'; // Replace 'page-x.html' with the actual page URL
     });
 
     function addOrder(photo, productName, date, clientName, price, status) {
