@@ -52,6 +52,7 @@
             padding: 0;
             margin: 0;
             font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+            background: linear-gradient(to right, #ff6701, #ff2600);
         }
 
         *,
@@ -61,6 +62,10 @@
             -moz-box-sizing: inherit;
             box-sizing: inherit;
 
+        }
+
+        .colorInput {
+            min-width: 100px;
         }
 
         .page-main {
@@ -213,6 +218,16 @@
             font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            text-align: center;
+            position: relative;
+            left: 75%;
+            margin-top: 10px;
+            border-radius: 10%;
+        }
+
         input {
             margin: 10px 0;
             background: #cac6c6;
@@ -243,18 +258,35 @@
 
         #addColorButton {
             margin-right: 100px;
+            margin: 15px 0;
+            line-height: 20px;
+            padding: 0 20px;
+            color: #fff;
+            background-color: #4272d7;
+            border-radius: 3px;
+            max-width: 20%;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            font-size: 14px;
+            /* display: inline-flex; */
+            justify-content: center;
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+
         }
     </style>
 </head>
 
 <body>
-    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="page-main  p-t-130 p-b-100 font-poppins">
         <div class="main main--w680">
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Add Product Page</h2>
                     <form method="POST" action="# " id="myform">
-                        <div class="row row-space">
+                        <!-- <div class="row row-space">
                             <div class="col-1">
                                 <div class="input-group">
                                     <label class="label">add image</label>
@@ -266,6 +298,120 @@
                                         </label>
                                         <div id="num-of-files">No Pictures Choosen</div>
                                         <ul id="files-list"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image Cover:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 1:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage1" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage1">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage1" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 2:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage2" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage2">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage2" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 3:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage3" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage3">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage3" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 4:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage4" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage4">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage4" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 5:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage5" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage5">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage5" src="#" alt="" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -531,28 +677,94 @@
     // const selectedValues = Array.from(TypeLivraisonSelect.selectedOptions).map(option => option.value);
 
     // upload photo
-    let fileInput = document.getElementById("file-inputP");
-    let fileList = document.getElementById("files-list");
-    let numOfFiles = document.getElementById("num-of-files");
-    fileInput.addEventListener("change", () => {
-        fileList.innerHTML = "";
-        numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+    // let fileInput = document.getElementById("file-inputP");
+    // let fileList = document.getElementById("files-list");
+    // let numOfFiles = document.getElementById("num-of-files");
+    // fileInput.addEventListener("change", () => {
+    //     fileList.innerHTML = "";
+    //     numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
 
-        for (i of fileInput.files) {
-            let reader = new FileReader();
-            let listItem = document.createElement("li");
-            let fileName = i.name;
-            let fileSize = (i.size / 1024).toFixed(1);
-            listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}KB</p>`;
-            if (fileSize >= 1024) {
-                fileSize = (fileSize / 1024).toFixed(1);
-                listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
-            }
-            fileList.appendChild(listItem);
-            tabimage.push(fileInput.value);
+    //     for (i of fileInput.files) {
+    //         let reader = new FileReader();
+    //         let listItem = document.createElement("li");
+    //         let fileName = i.name;
+    //         let fileSize = (i.size / 1024).toFixed(1);
+    //         listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}KB</p>`;
+    //         if (fileSize >= 1024) {
+    //             fileSize = (fileSize / 1024).toFixed(1);
+    //             listItem.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
+    //         }
+    //         fileList.appendChild(listItem);
+    //         tabimage.push(fileInput.value);
 
-        }
+    //     }
+    // });
+
+    document.getElementById("categoryImage").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
     });
+
+    document.getElementById("categoryImage1").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage1").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById("categoryImage2").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage2").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById("categoryImage3").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage3").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+    document.getElementById("categoryImage4").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage4").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+    document.getElementById("categoryImage5").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage5").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+
 
 
     // variables
@@ -638,7 +850,7 @@
         .then(function (response) {
 
             var delivery = response.data;
-            // console.log(delivery)
+            console.log(delivery)
             var DeliverySelect = document.getElementById("DeliverySelect");
             var c = response.data;
 
@@ -748,8 +960,20 @@
         // else if (amain.checked == false && cash.checked == false && baridi.checked == false) {
         //     tabchek = ["pas de livraison"];
         // }
-        let coverimage = [tabimage[0]];
-        let othermage = tabimage.slice(1);
+        var fileInputs = document.querySelectorAll('input[type="file"]');
+
+        var categoryImages = [];
+        fileInputs.forEach(function (input) {
+            if (input.files.length > 0) {
+                categoryImages.push(input.files[0]);
+            }
+        });
+        let coverimage = categoryImages[0];
+        let othermage = [];
+
+        for (var i = 1; i < categoryImages.length; i++) {
+            othermage.push(categoryImages[i]);
+        }
 
         // const TypeLivraisonSelect = document.getElementById('TypeLivraisonSelect');
         // const selectedValues = [];
@@ -759,7 +983,7 @@
         //         selectedValues.push(options[i].value);
         //     }
         // }
-        var categoryImages = [];
+        // var categoryImages = [];
 
 
         class prod {
@@ -780,7 +1004,7 @@
 
         let product = new prod(
             title.value,
-            coverimage.toString,
+            coverimage,
             othermage,
             catégorie.value,
             subcatégorie.value,
@@ -876,8 +1100,8 @@
                 // document.getElementById("myform").reset();
             })
             .catch(function (error) {
-                console.log(error)
-                console.error('Error adding Product:', error);
+                // console.log(error.response)
+                console.error('Error adding Product:', error.response);
                 displayPopup("an error occured");
             });
 

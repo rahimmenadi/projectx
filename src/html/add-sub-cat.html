@@ -10,6 +10,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        body {
+            background: linear-gradient(to right, #ff6701, #ff2600);
+        }
+
         .container {
             max-width: 400px;
             margin: 0 auto;
@@ -50,7 +54,7 @@
 </head>
 
 <body>
-    <div class="page-main bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="page-main  p-t-130 p-b-100 font-poppins">
         <div class="main main--w680">
             <div class="card card-4">
                 <div class="card-body">
@@ -81,7 +85,7 @@
                     for (var i = 0; i < a.data.length; i++) {
                         var catename = a.data[i].name;
                         var cateid = a.data[i]._id;
-                        
+
                         var option = document.createElement("option");
                         option.value = catename;
                         option.text = catename;
@@ -104,7 +108,7 @@
                 // Prepare the data to be sent in the POST request
                 var postData = {
                     name: subcategoryName,
-                    category : categoryId,
+                    category: categoryId,
                 };
 
                 // Send the sub-category to the backend
