@@ -816,6 +816,7 @@
         .catch(error => {
             console.error('Erreur lors de la récupération des produits:', error);
         });
+    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories/' + cateid + '/subcategories', {
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
         headers: {
             Authorization: 'Bearer ' + a,
