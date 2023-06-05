@@ -529,9 +529,10 @@ function btn_wishlist(link,i) {
 //     `
 // }
 function sendProductId(k){
+    
     localStorage.setItem('productId',AllProductList[k]._id);
     
-    window.location.replace('/product-details.html');
+    window.location.assign('/product-details.html');
 }
 function sendNewProductId(k){
   // Serialize the object to JSON
@@ -539,7 +540,7 @@ function sendNewProductId(k){
   
 
   localStorage.setItem('productId',newProductList[k]._id);
-  window.location.replace('/product-details.html');
+  window.location.assign('/product-details.html');
 }
 
 function sendNewProductIdCard(k){
