@@ -1,57 +1,96 @@
 
 let productList = [];
-
+function sendProductId(k){
+    localStorage.setItem('productIdSeller',productList[k]._id);
+    
+    window.location.replace('../html/product.html');
+}
 //display product
-function displayProduct(){
-    let table='';
-    for (let i=0 ; i < productList.length; i++) {
-        table =table + `
-        <div class="items">
-            <div class="img img1">
-                <img
-                    src="${productList[i].imageCover}"
-                    alt=""
-                />
-            </div>
-            <div class="icons">
-                <a href="https://www.google.com"  class="add-cart">
-                <span class="iconify" data-icon="iconoir:shopping-bag-add"></span>
-                </a>
-                <a href="https://www.google.com" class="add-wish">
-                <span class="iconify" data-icon="material-symbols:heart-plus-outline"></span>
-                </a>
-                <a href="https://www.google.com" class="display">
-                <span class="iconify" data-icon="mdi:eye-arrow-right-outline"></span>
-                </a>
-            </div>
-            <div class="name">${productList[i].title}</div>
-            <div class="info">
-            ${productList[i].description} lkdfsjlfddsafsdfadfasdfasdsdfsd
-            </div>
-            <div class="foot-items">
-                <div class="prices">
-                    <div class="price">${productList[i].priceAfterDiscount}.99 USD</div>
-                    <div class="old-price">${productList[i].price} USD</div>
+function displayProduct(ordering){
+    if(ordering=="asc"){
+        console.log("shit")
+        let table='';
+        for (let i=0 ; i < productList.length; i++) {
+            table = table +`
+            <div onclick="sendProductId(${i})" class="items">
+                <div class="img img1">
+                    <img
+                        src="${productList[i].imageCover}"
+                        alt=""
+                    />
                 </div>
-                <div class="review">
-                    <div class="review-is">${productList[i].ratingAverage}</div>
-                    <img class="start-img" src="/star.png" alt="">
-                    
+                <div class="name">${productList[i].title}</div>
+                <div class="info">
+                ${productList[i].description} lkdfsjlfddsafsdfadfasdfasdsdfsd
                 </div>
+                <div class="foot-items">
+                    <div class="prices">
+                        <div class="price">${productList[i].priceAfterDiscount}.99 USD</div>
+                        <div class="old-price">${productList[i].price} USD</div>
+                    </div>
+                    <div class="review">
+                        <div class="review-is">${productList[i].ratingAverage}</div>
+                        <img class="start-img" src="/star.png" alt="">
+                        
+                    </div>
+                </div>
+                
             </div>
-            
-        </div>
-        `
-    
-    document.getElementById('product-container-dash').innerHTML = table;
-   
+            `;
+        
+        document.getElementById('product-container-dash').innerHTML = table;
+       
+        }
+        
+        
+        
+    }else if(ordering=="des"){
+        console.log("hi in tow")
+        let table='';
+        for (let i=0 ; i < productList.length; i++) {
+            table = `
+            <div class="items">
+                <div class="img img1">
+                    <img
+                        src="${productList[i].imageCover}"
+                        alt=""
+                    />
+                </div>
+                <div class="name">${productList[i].title}</div>
+                <div class="info">
+                ${productList[i].description} lkdfsjlfddsafsdfadfasdfasdsdfsd
+                </div>
+                <div class="foot-items">
+                    <div class="prices">
+                        <div class="price">${productList[i].priceAfterDiscount}.99 USD</div>
+                        <div class="old-price">${productList[i].price} USD</div>
+                    </div>
+                    <div class="review">
+                        <div class="review-is">${productList[i].ratingAverage}</div>
+                        <img class="start-img" src="/star.png" alt="">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            ` + table;
+        
+        document.getElementById('product-container-dash').innerHTML = table;
+       
+        }
+        
+        
+        
     }
-    
-    
-    
+
     
 }
-displayProduct();
+
+//topper
+let btn_add_product = document.getElementById("add-product-btn");
+btn_add_product.addEventListener("click" , ()=>{
+    window.location.href="../html/add-product.html"
+})
 
 
 //select display mode code
@@ -70,6 +109,17 @@ btn_display_table.addEventListener("click" , ()=>{
     displayer.innerHTML=table_display.innerHTML;
 
     //table display code
+let table_content_head = document.getAnimations("table-content-head");
+table_content_head.innerHTML=`
+<tr class="table-head">
+                                    <th>Product name</th>
+                                    <th>Quantity</th>
+                                    <th>Sales</th>
+                                    <th>In Process</th>
+                                    <th>Price</th>
+                                    <th>Reduction</th>
+                                </tr>
+`
 let table_display_content = document.getElementById("table-content-js");
 let rows_table = ""
 for (let index = 0; index < 8; index++) {
@@ -92,9 +142,8 @@ btn_display_list.addEventListener("click",()=>{
     btn_display_table.style.color="#000"
     btn_display_table.style.borderBottom="none";
     displayer.innerHTML=list_display.innerHTML;
-    displayProduct();
 })
-btn_display_table.click();
+btn_display_list.click();
 
 //filter code
 let filter_price = document.getElementById("price-filter");
@@ -106,12 +155,26 @@ filter_price.addEventListener("click" , ()=>{
     filter_price.style.backgroundColor = "#FB5607"
     filter_quantity.style.color = "black";
     filter_quantity.style.backgroundColor="white";
+
+
+  
+    
 })
 filter_quantity.addEventListener("click" , ()=>{
     filter_quantity.style.color = "white";
     filter_quantity.style.backgroundColor = "#FB5607"
     filter_price.style.color = "black";
     filter_price.style.backgroundColor="white";
+        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+        .then(response => {
+          productList = response.data.data;
+      
+          displayProduct(order.value);
+        })
+        .catch(error => {
+          console.log(error)
+        });
+
 })
 
 
@@ -137,17 +200,16 @@ filter_quantity.addEventListener("click" , ()=>{
 //     }
 //   }
 
-//   axios.get('https://tiny-jade-reindeer-cape.cyclic.app/api/v1/products')
-//   .then(response => {
-//     productList = response.data.data;
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+  .then(response => {
+    productList = response.data.data;
     
-//     console.log(productList)
 
-//     displayProduct();
-//   })
-//   .catch(error => {
-//     console.log(error)
-//   });
+    displayProduct("asc");
+  })
+  .catch(error => {
+    console.log(error)
+  });
 
 
 // console.log(productList)
