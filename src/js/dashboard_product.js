@@ -1,9 +1,12 @@
 
+const token = sessionStorage.getItem("sellertoken")
+console.log(token);
+
 let productList = [];
 function sendProductId(k){
     localStorage.setItem('productIdSeller',productList[k]._id);
     
-    window.location.replace('../html/product.html');
+    window.location.assign('../html/product.html');
 }
 //display product
 function displayProduct(ordering){
@@ -155,7 +158,18 @@ filter_price.addEventListener("click" , ()=>{
     filter_price.style.backgroundColor = "#FB5607"
     filter_quantity.style.color = "black";
     filter_quantity.style.backgroundColor="white";
-
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?sortby=price', {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }})
+    .then(response => {
+      productList = response.data.data;
+        console.log("byprice")
+      displayProduct(order.value);
+    })
+    .catch(error => {
+      console.log(error)
+    });
 
   
     
@@ -165,10 +179,13 @@ filter_quantity.addEventListener("click" , ()=>{
     filter_quantity.style.backgroundColor = "#FB5607"
     filter_price.style.color = "black";
     filter_price.style.backgroundColor="white";
-        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?sortby=quantity', {
+            headers: {
+                Authorization: `Bearer ${token}`
+              }})
         .then(response => {
           productList = response.data.data;
-      
+            console.log("by quantity")
           displayProduct(order.value);
         })
         .catch(error => {
@@ -200,7 +217,12 @@ filter_quantity.addEventListener("click" , ()=>{
 //     }
 //   }
 
-  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+
+
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products', {
+    headers: {
+        Authorization: `Bearer ${token}`
+      }})
   .then(response => {
     productList = response.data.data;
     

@@ -1,4 +1,4 @@
-
+let cart_id;
 
 
 
@@ -26,7 +26,7 @@ function copyMenu() {
 	var topPlace = document.querySelector(".off-canvas .thetop-nav");
 	topPlace.innerHTML = topNav.innerHTML;
 }
-copyMenu();
+
 
 //show mobile menu
 const menuButton = document.querySelector(".trigger"),
@@ -70,9 +70,7 @@ tClose.addEventListener("click", function () {
 //show dpt menu
 const dptButton = document.querySelector(".dpt-cat .dpt-trigger"),
 	dptClass = document.querySelector(".site");
-dptButton.addEventListener("click", function () {
-	dptClass.classList.toggle("showdpt");
-});
+
 
 //product image slider
 var productThumb = new Swiper(".small-image", {
@@ -123,12 +121,12 @@ const divTrigger = document.querySelector(".cart-trigger")
 // });
 
 //close by click outside
-document.addEventListener("click", (e) => {
-	const isClosest = e.target.closest(divtoShow);
-	if (!isClosest && divPopup.classList.contains("show")) {
-		divPopup.classList.remove("show");
-	}
-});
+// document.addEventListener("click", (e) => {
+// 	const isClosest = e.target.closest(divtoShow);
+// 	if (!isClosest && divPopup.classList.contains("show")) {
+// 		divPopup.classList.remove("show");
+// 	}
+// });
 
 //show modal on load
 window.onload = function () {
@@ -144,7 +142,219 @@ let addtocart=document.getElementById('add-to-cart')
 
 // })
 
+//start header
+let home_sign_up_btn = document.getElementById("sign-up-home");
+let home_my_account_btn = document.getElementById("my-account-home");
+let home_wishlist_btn = document.getElementById("wishlist-home");
+let home_wishlist_icon = document.getElementById("wish-list-icon-home");
+if(localStorage.getItem('token')==null){
+    home_my_account_btn.style.display="none";
+    home_wishlist_btn.style.display="none";
+    home_wishlist_icon.style.display="none";
+}else{
+    home_sign_up_btn.style.display="none";
+}
 
+let Total_cart = document.getElementById("total-cart-home");
+
+
+//category code
+let all_categories_items = "";
+
+// Create a map to store subcategories by category ID
+const subcategoriesByCategoryId = new Map();
+
+        // Fetch the categories separately
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories')
+.then(categoryResponse => {
+// Handle the category response data
+const categories = categoryResponse.data.data;
+
+// Loop through the categories and retrieve their subcategories
+
+//category code sellers code
+let swiper_categories = document.getElementById("swiper-category-js");
+let swiper_items="";
+
+let sellers = document.getElementById("sellers-part-js");
+let three_sellers = "";
+
+for (let i = 0; i < categories.length; i++) {
+    const category = categories[i];
+    if(!subcategoriesByCategoryId.has(category._id)){
+        subcategoriesByCategoryId.set(category._id,[]);
+        }
+        all_categories_items += `
+                    <li class="has-child beauty">
+                        <a href="#">
+                            ${category.name}
+                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                        </a>
+                        <ul>
+                        </ul>
+                    </li>
+                    `
+            //category code sellers code
+            axios.get(`https://buy-it-sigma.herokuapp.com/api/v1/categories/${category._id}/products?limit=3&sort=-sold`)
+                .then(response => {
+                    // Handle the response data
+                    console.log(response.data.data);
+    
+                    
+                    let three_sellers_first="";
+                    three_sellers_first += `
+                <div class="swiper-slide sellers-info">
+                    <div class="three-sellers">
+                        <ul>
+                            `
+                            let three_sellers_second="";
+                            three_sellers_second += `
+                        </ul>
+                    </div>
+                </div>
+                `
+                let the_three_sellers="";
+                for (let i = 0; i < response.data.data.length; i++) {
+                    const element = response.data.data[i];
+                    the_three_sellers = the_three_sellers + `
+                            <li>
+                                <a href="" class="third-seller">
+                                    <img src="${element.imageCover}" alt="">
+                                    <div class="text">
+                                    <div class="name">${element.title}</div>
+                                    <p>${element.description}</p>
+                                </div>
+                                </a>
+                            </li>
+                    `
+    
+                    three_sellers += three_sellers_first + the_three_sellers + three_sellers_second;
+                }
+
+
+    
+                swiper_items = swiper_items + `<div class="swiper-slide"> 
+                    <img src="${category.image}" alt="">
+                </div>`
+                
+                if(i==(categories.length -1)){
+                swiper_categories.innerHTML=swiper_items;
+    console.log("in here swiper" + swiper_items)
+    sellers.innerHTML=three_sellers;
+    console.log("in here swipesellerr" + three_sellers)
+                }
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error(error);
+                });
+    
+    
+    
+    
+    
+    
+                
+            
+}
+
+
+
+        
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories')
+    .then(response => {
+        // Handle the response data
+        const subcategories = response.data.data;
+
+
+
+        // Categorize subcategories by category ID
+        
+          //in here the category
+        subcategories.forEach(subcategory => {
+        const categoryId = subcategory.category;
+        if (subcategoriesByCategoryId.has(categoryId)) {
+            let table_sub = subcategoriesByCategoryId.get(categoryId);
+            table_sub.push(subcategory);
+            subcategoriesByCategoryId.set(categoryId,table_sub);
+        } else {
+            // let table_new_sub=[];
+            // table_new_sub.push(subcategory);
+            // subcategoriesByCategoryId.set(categoryId, table_new_sub );
+            console.log("mkash lid ta3 categori hadi ftableaux")
+        }
+        
+        });
+
+        
+        let all_categories_items = "";
+            
+            
+            categories.forEach(category => {
+                
+            let sub_categories_code =""
+                subcategoriesByCategoryId.get(category._id).forEach(subcat =>{
+                    //in here the sub categories
+                    sub_categories_code +=`
+                    <li><a href="#">${subcat.name}</a></li>
+                    `
+                })
+
+                all_categories_items += `
+                            <li class="has-child electronic">
+                                <a href="#">
+                                    ${category.name}
+                                    <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                </a>
+                                <ul>
+                                    ${sub_categories_code}
+                                </ul>
+                            </li>
+                            `
+            });
+            let categories_contain = document.getElementById("categories-container");
+            categories_contain.innerHTML = `
+            <div class="dpt-head">
+            <div class="main-text">All Departments</div>
+            <div class="mini-text mobile-hide">Total 1059 Products</div>
+            <a href="#" class="dpt-trigger mobile-hide">
+                <i class="ri-menu-3-line ri-xl"></i>
+            </a>
+            </div>
+
+            <div  class="dpt-menu">
+            <ul class="second-links">
+            ` + all_categories_items + `
+            </ul>`;
+
+
+            
+            dptButton.addEventListener("click", function () {
+                dptClass.classList.toggle("showdpt");
+            });
+copyMenu();
+
+
+
+
+        }
+
+
+        
+    )
+    .catch(subcategoryError => {
+        console.error(subcategoryError);
+    });
+})
+.catch(categoryError => {
+console.error(categoryError);
+});
+
+//end header
+
+
+
+let cartItemsis;
 
 let panierall= document.getElementById("panier-all");
 let panier_items = "";
@@ -157,8 +367,13 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
 })
 .then(response => {
     let panier_item = response.data.data;
-    let cartItemsis = panier_item.cartItems;
-    console.log(cartItemsis)
+    cart_id = panier_item._id;
+    console.log(panier_item);
+    cartItemsis = panier_item.cartItems;
+    console.log(cartItemsis.length)
+    document.getElementById("cart-number").textContent= response.data.data.cartItems.length + "";
+    document.getElementById("cart-number-one").textContent= response.data.data.cartItems.length + "";
+    Total_cart.textContent = panier_item.totalCartPrice;
     for (let i = 0; i  <cartItemsis.length; i++) {
         axios.get(`https://buy-it-sigma.herokuapp.com/api/v1/products/${cartItemsis[i].product}`
         , {
@@ -169,15 +384,16 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
       .then(response => {
         let product_item = response.data.data;
         console.log(product_item)
+        console.log(i)
         panier_items += `
         <div class="product">
-                            <div class="product-image">
+                            <div onclick="sendProductId(${i})" class="product-image">
                                 <img src="${product_item.imageCover}" alt="">
                             </div>
-                            <div class="product-info">
+                            <div  class="product-info">
                                 <div class="prix">${product_item.price} USD</div>
-                                <div class="product-name">${product_item.title}</div>
-                                <p class="desc">${product_item.description}</p>
+                                <div onclick="sendProductId(${i})" class="product-name">${product_item.title}</div>
+                                <p onclick="sendProductId(${i})" class="desc">${product_item.description}</p>
                                 <div class="seller">ROZANA</div>
                                 <div class="rule">
                                     <div class="icon">hh</div>
@@ -185,19 +401,16 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
                                 </div>
                                 <div class="buttons">
                                     <div class="change-qts">
-                                        <div class="text">${product_item.quantity}</div>
+                                        <div class="text">Quantity</div>
                                         <div class="wrapper">
                                             <button class="minus">-</button>
-                                            <div class="num">1</div>
+                                            <div class="num">${product_item.quantity}</div>
                                             <button class="plus">+</button>
                                         </div>
                                     </div>
                                     <div class="centered">
-                                    <button id="wishlist">
-                                        <img src="/images/contract-icon.svg" alt="">
-                                    </button>
                                 
-                                    <button id="remove"><img src="/images/megaphone-icon.svg" alt=""></button>
+                                    <button onclick="removeFromCart(${i})"  id="remove"><img src="/images/megaphone-icon.svg" alt=""></button>
                                     
                                 </div>
                                 </div>
@@ -242,3 +455,40 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
   console.error('Error adding product:', error);
 });
 
+
+//remove product from panier
+function removeFromCart(i) {
+    console.log(cartItemsis)
+    console.log(i)
+  
+    // Make a DELETE request to remove the product
+    axios.delete(`https://buy-it-sigma.herokuapp.com/api/v1/cart/${cartItemsis[i].product}`, {
+      headers: {
+          Authorization: `Bearer ${token}`
+        }
+    })
+      .then(response => {
+        // document.getElementById("wishlist-number").textContent= response.data.data.length + "";
+        document.getElementById("cart-number").textContent= response.data.data.length + "";
+        console.log("product deleted" ,response.data.data)
+      })
+      .catch(error => {
+        console.error('Error deleting product:', error);
+      });
+  
+}
+
+//checkout
+let checkout_btn = document.getElementById("checkout");
+checkout_btn.addEventListener("click" , ()=>{
+    localStorage.setItem("cart_id" , cart_id);
+    console.log(cart_id);
+    //window.location.href = "../../payment-details.html"
+})
+
+function sendProductId(k){
+    
+    localStorage.setItem('productId',cartItemsis[k].product);
+    
+    window.location.assign('../../product-details.html');
+}

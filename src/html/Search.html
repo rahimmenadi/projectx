@@ -35,8 +35,8 @@
                         </div>
                         <div class="right">
                             <ul class="flexitem main-links">
-                                <li><a href="#">Sign Up</a></li>
-                                <li><a href="#">My Account</a></li>
+                                <li id="sign-up-home"><a href="#">Sign Up</a></li>
+                                <li id="my-account-home"><a href="#">My Account</a></li>
                                 <li><a href="#">Order Tracking</a></li>
                               
                                 </li>
@@ -71,20 +71,21 @@
                         </div>
                         <div class="right">
                             <ul class="flexitem second-links">
-                                <li class="mobile-hide"><a href="#">
+                                <li id="wish-list-icon-home" class="mobile-hide"><a href="src/html/wishlist.html">
                                         <div class="icon-large"><i class="ri-heart-line"></i></div>
-                                        <div class="fly-item"><span class="item-number">0</span></div>
+                                        <div class="fly-item"><span id="wishlist-number" class="item-number">0</span></div>
                                     </a></li>
-                                <li><a href="#" class="iscart">
+                                <li><a  href="src/html/cart.html" class="iscart">
 
                                         <div class="icon-large">
                                             <i class="ri-shopping-cart-line"></i>
-                                            <div class="fly-item"><span class="item-number">0</span></div>
+                                            <div class="fly-item"><span id="cart-number" class="item-number">0</span></div>
                                         </div>
 
-                                        <div class="icon-text">
+                                        <div id="total-is-js" class="icon-text">
+                                            
                                             <div class="mini-text">Total</div>
-                                            <div class="cart-total">$0.00</div>
+                                            <div id="total-cart-home" class="cart-total">$0.00</div>
                                         </div>
                                     </a></li>
                             </ul>

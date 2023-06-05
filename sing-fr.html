@@ -134,7 +134,11 @@
             }
             window.location.replace('./src/html/dash-1.html');
 
-          sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
+          sessionStorage.setItem('sellertoken',response.data.token.toString())
+          sessionStorage.setItem('token',response.data.token.toString())
+          localStorage.setItem("Token",response.data.token.toString);
+        
+        }).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
           )})
           
 

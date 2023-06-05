@@ -410,8 +410,9 @@ h4 {
     margin-bottom: 20px;
   }
   .section-all {
-    max-width: 100%;
-	min-width:810px;
+    
+    width: 100%;
+	
     margin-right: 20px;
   
   }
@@ -425,7 +426,6 @@ h4 {
     display: flex;
     flex-flow: column;
     background-color: white;
-    overflow: auto;
     box-shadow: 0px 1px 1px 2px rgb(232, 232, 232);
     border-radius: 7px;
   } 
@@ -433,14 +433,15 @@ h4 {
   .section-all .product-section .all-product {
     display: flex;
     flex-direction: column;
-    padding: 0 0px 10px 0px;
+    padding: 0 20px 10px 20px;
   
   }
   .section-all .product-section .all-product .product {
     display: flex;
+	overflow: hidden;
     align-items: center;
-    min-width: 500px;
-    margin: 10px 10px 0 10px;
+	cursor: auto;
+    margin: 10px 0px 0 0px;
     background-color: rgb(255, 255, 255);
     padding: 0 15px;
     border-radius: 8px;
@@ -449,7 +450,7 @@ h4 {
     
   }
   .section-all .product-section .all-product .product:hover {
-    outline: 1px solid black;
+    
     box-shadow: 0 0 5px 0px rgb(182, 182, 182);
     
   }
@@ -466,14 +467,18 @@ h4 {
     height: 0.5px;
   }
   .section-all .product-section .all-product .product .product-image {
-    
+    cursor: pointer;
   }
   .section-all .product-section .all-product .product .product-image img{
     height:250px;
     padding-top: 20px;
     padding-bottom: 15px;
     border-radius: 7px;
+	transition: 0.3s;
     object-fit: cover;
+  }
+  .section-all .product-section .all-product .product:hover .product-image img{
+	scale: 1.2;
   }
   .section-all .product-section .all-product .product .product-info {
     margin-left: 10px;
@@ -500,12 +505,17 @@ h4 {
     
     margin: 5px 0;
     height: 30px;
+	cursor: pointer;
     overflow: hidden;
     margin-right: 50px;
+  }
+  .all-product .product .product-info .product-name:hover{
+	text-decoration: underline;
   }
   .all-product .product .product-info .desc{
     margin: 0 0 0 0;
     overflow: hidden;
+	cursor: pointer;
     height: 40px;
   }
   .all-product .product .product-info .seller{
@@ -620,8 +630,10 @@ h4 {
   
   /* summary section */
   .order-summery-section{
-    width: 380px;
+    /* width: 380px; */
+	width: 100%;
     display: flex;
+	background-color: #08142f;
     height: fit-content;
     flex-direction: column;
     background-color: white;
@@ -638,13 +650,13 @@ h4 {
     justify-content: space-between;
   background-color: white;
     position: relative;
-    width:100%;
+	width: 100%;
     padding-bottom: 10px;
     box-shadow: 0 0 1px 0px black;
   }
   
   .card-details h2 {
-    margin: 20px 30px 20px 20px;
+    margin: 20px auto;
     font-weight: 500;
     font-size: 25px;
   }
@@ -692,6 +704,7 @@ h4 {
     justify-content: space-between;
     padding: 5px;
     padding-left: 0;
+	margin: auto;
     margin-top: 5px;
     font-size: 13px;
     width: 90%;
@@ -701,6 +714,7 @@ h4 {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+	margin: auto;
     padding-left: 0;
     margin-top: 5px;
     font-size: 13px;
@@ -718,13 +732,15 @@ h4 {
   .card-details .line {
     width: 90%;
     height: 0.4px;
+	
     background-color: rgb(182, 182, 182);
-    margin: 7px 0;
+    margin: 7px auto;
   }
   .card-details .total {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+	margin: auto;
     padding-left: 0;
     margin-top: 5px;
     font-size: 13px;
@@ -734,6 +750,7 @@ h4 {
     padding: 6px 10px;
     height: 32px;
     width: 90%;
+	cursor: pointer;
     margin: auto;
     margin-top: 20px;
     border: none;
