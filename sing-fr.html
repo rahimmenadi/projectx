@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignIn&SignUp</title>
     <link rel="stylesheet" type="text/css" href="./sing-fr.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
@@ -21,20 +24,22 @@
       <div class="forms-container">
         <div class="signin-signup">
           
-          <div id="error-message" style="display: none;"></div>
-          <form action="" class="sign-in-form">
-            <h2 class="title">Welcome back</h2>
-            
+          
+          <form action="" class="sign-in-form" id="form">
+            <h2 class="title">Welcome</h2>
+          
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input id="email" type="email" placeholder="Email"required />
+              <input type="email" id="email" placeholder="Email"required />
+              <div class="error"></div>
             </div>
             <div class="input-field">
 
               <i class="fas fa-lock"></i>
-              <input id="password" type="password" placeholder="Password" required />
+              <input type="password" id="password" placeholder="Password" required />
+              <div class="error"></div>
             </div>
-            <input id="btn-login" type="button" value="Login" class="btn solid" />
+            <input type="button" id="btn-login" value="Login" class="btn solid" >
             
            
          
@@ -75,9 +80,11 @@
             
               </a>
             </div>
+            <p id="error-message" class="error-message"></p>
+    <p id="success-message" class="success-message"></p>
           </form>
         </div>
-      </div>
+      </div>>
       <div class="panels-container">
 
         <div class="panel left-panel">
@@ -101,9 +108,17 @@
 
         
     </div>
-
+<script>
+  let regester=document.getElementById('sign-up-btn'); 
+  regester.addEventListener('click',function(e){
+    e.preventDefault();
+    window.location.assign('./sallerinfos.html')
+    
+  })
+</script>
     
     <script>
+      
       const errorMessage = document.getElementById('error-message');
       if(sessionStorage.getItem('token')){
           console.log(sessionStorage.getItem('token'))
@@ -112,14 +127,14 @@
 
 
     var button=document.getElementById("btn-login");
-      let email=document.getElementById("Email");
+      
     
      
     
   
 
       button.addEventListener("click",function(e){
-        
+        validateInputs()
           console.log("hiii");
           e.preventDefault(); 
           
@@ -132,18 +147,105 @@
             if(response.data.data.role=="user"){
               return;
             }
-            window.location.replace('./src/html/dash-1.html');
+            const timer = setTimeout(function() {
+              // Redirect to another page
+              window.location.assign('./src/html/dash-1.html');
+            }, 2000);
+            
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Verify your E-mail!',
+              showConfirmButton: false,
+              timer: 2000
+            })
+            
 
+<<<<<<< HEAD
+          sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong check Your Inputs!',
+            
+            }) ;}
+=======
           sessionStorage.setItem('sellertoken',response.data.token.toString())
           sessionStorage.setItem('token',response.data.token.toString())
           localStorage.setItem("Token",response.data.token.toString);
         
         }).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
+>>>>>>> 5de437cc962fc7543e437fd673bc9f584d774a10
           )})
           
 
   </script>
+  <script>
+    const form = document.getElementById('form');
+   
+  const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+form.addEventListener('submit', e => {
+  ValidityState();
+  validateInputs();
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const validateInputs = () => {
+  
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    
+
+ 
+
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
+    }
+
+    if(passwordValue === '') {
+        setError(password, 'Password is required');
+      button.disable=true;
+    } else if (passwordValue.length < 8 ) {
+        setError(password, 'Password must be at least 8 character.')
+    } else {
+        setSuccess(password);
+    }
+
+};
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       
  
   </body>

@@ -321,7 +321,7 @@
                                     <div class="row">
                                         <div class="item is_sticky">
                                             <div class="price">
-                                                <span class="discount">32%<br>OFF</span>
+                                                <span class="discount" id="discountpersentage">32%<br>OFF</span>
                                             </div>
                                             <div class="big-image">
                                                 <div class="big-image-wrapper swiper-wrapper">
@@ -1344,7 +1344,7 @@
    
 >>>>>>> 420e9178c01951d8905e80f52d2d9955e76ae23c
 
-
+var discount=document.getElementById('discountpersentage')
 
 
 
@@ -1361,7 +1361,17 @@ title.textContent=a.title
     price.textContent="$"+a.price
     reviewnumber.textContent=a.totalRating
     rating.textContent=a.ratingAverage
+   
+    // jQuery code to edit the number portion:
+const discountElement = $("#discountpersentage");
+const discountText = discountElement.html();
+const numericValue = discountText.replace('%<br>OFF', '');
+// Assuming the numeric value is 32, you can update it as needed
+const updatedNumericValue = ((a.priceAfterDiscount/a.price)*100.).toFixed(0); 
+const updatedDiscountText = updatedNumericValue + '%<br>OFF';
+discountElement.html(updatedDiscountText);
   $('#totalreviwsavrege.stars').css('width', a.ratingAverage/5*80+'px');
+
     
   
    
