@@ -15,13 +15,13 @@
 <style>
   #mainImage {
     max-width: 300px;
-    max-height: 300px;
+    max-height: 320px;
     /* Ajoutez cette ligne pour limiter la hauteur */
   }
 
   .thumbnails img {
-    width: 80px;
-    height: 80px;
+    max-width: 70px;
+    max-height: 80px;
     /* Ajoutez d'autres styles supplémentaires pour les miniatures si nécessaire */
   }
 
@@ -43,6 +43,7 @@
     color: rgba(241, 196, 14, 1);
     /* Couleur jaune */
   }
+ 
 </style>
 
 <body>
@@ -249,7 +250,7 @@
         <div class="group-copy-link">
           <input class="group-copy-link-child" id="linkInput" readonly></input>
           <button class="group-copy-link-item" id="copyButton"></button>
-          <div class="copy-link" for="copyButton">Copy link</div>
+          <label class="copy-link" for="copyButton">Copy link</label>
         </div>
       </div>
       <div class="frame-worning">
@@ -698,7 +699,7 @@
         mainImage.setAttribute('src', a.imageCover);
         mainImage.classList.add('main-image');
         // Générer les miniatures des images
-        for (var i = 1; i < a.images.length && i <= 5; i++) {
+        for (var i = 0; i < a.images.length && i <= 5; i++) {
           var thumbnail = document.createElement('img');
           thumbnail.setAttribute('src', a.images[i]);
           thumbnail.setAttribute('alt', 'Thumbnail ' + i + 1);

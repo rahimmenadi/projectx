@@ -64,6 +64,10 @@
 
         }
 
+        .colorInput {
+            min-width: 100px;
+        }
+
         .page-main {
             min-height: 100vh;
         }
@@ -254,6 +258,23 @@
 
         #addColorButton {
             margin-right: 100px;
+            margin: 15px 0;
+            line-height: 20px;
+            padding: 0 20px;
+            color: #fff;
+            background-color: #4272d7;
+            border-radius: 3px;
+            max-width: 20%;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            font-size: 14px;
+            /* display: inline-flex; */
+            justify-content: center;
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+
         }
     </style>
 </head>
@@ -371,6 +392,25 @@
                                         </label>
                                         <div class="col-1" style="width: 40%; height: 40%;">
                                             <img id="previewImage4" src="#" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-1">
+                                <div class="input-group">
+                                    <label class="label">Choose Image 5:</label>
+                                    <div class="containerP">
+
+                                        <input type="file" id="categoryImage5" style="visibility: hidden;"
+                                            accept="image/*" />
+                                        <label class="labelP" for="categoryImage5">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            &nbsp; Choose Pictures To Upload
+                                        </label>
+                                        <div class="col-1" style="width: 40%; height: 40%;">
+                                            <img id="previewImage5" src="#" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -713,6 +753,16 @@
 
         reader.readAsDataURL(file);
     });
+    document.getElementById("categoryImage5").addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById("previewImage5").setAttribute("src", e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
 
 
 
@@ -800,7 +850,7 @@
         .then(function (response) {
 
             var delivery = response.data;
-            // console.log(delivery)
+            console.log(delivery)
             var DeliverySelect = document.getElementById("DeliverySelect");
             var c = response.data;
 
@@ -1050,8 +1100,8 @@
                 // document.getElementById("myform").reset();
             })
             .catch(function (error) {
-                console.log(error.data)
-                console.error('Error adding Product:', error);
+                // console.log(error.response)
+                console.error('Error adding Product:', error.response);
                 displayPopup("an error occured");
             });
 
