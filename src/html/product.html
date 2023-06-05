@@ -394,6 +394,18 @@
     console.log(ab)
   </script>
   <script>
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products', {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }).then((response) => {
+      console.log(response.data.data)
+    })
+      .catch((error) => {
+        console.error('Erreur lors de la suppression du produit:', error);
+      });
+
+
     // copy link
     var copyButton = document.getElementById('copyButton');
     var linkInput = document.getElementById('linkInput');
@@ -425,7 +437,8 @@
 
     confirmYes.addEventListener('click', function () {
       // Code to execute when "Yes" is clicked
-      confirmationPopup.style.display = 'none';
+      confirmationPopup.style.display = 'produit suprimé';
+      deleteProduct(productid);
     });
 
     confirmNo.addEventListener('click', function () {
@@ -527,6 +540,7 @@
     var token = localStorage.getItem('token')
     //id
     let productid = "647a34d9d1deece3c633b352"
+    // let productid = 
     // let productid = localStorage.getItem('productId')
 
 
@@ -715,7 +729,7 @@
         let commentsData = response.data.data
         console.log(commentsData)
 
-       
+
 
         var commentsContainer = document.getElementById('commentsContainer');
 
@@ -781,8 +795,26 @@
         console.error('Failed to fetch reviews: ', error);
       });
 
-  </script>
+    function deleteProduct(productid) {
+      axios
+        .delete(`https://buy-it-sigma.herokuapp.com/api/v1/products/${productid}`, {
+          headers: {
+            Authorization: 'Bearer ' + ab,
+          },
+        })
+        .then((response) => {
+          // Produit supprimé avec succès, afficher le message et rediriger
+          alert('Produit supprimé');
+          window.location.href = '../../home.html'; // Redirection vers la page guest.html
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression du produit:', error);
+        });
+    }
 
+
+
+  </script>
 </body>
 
 </html>

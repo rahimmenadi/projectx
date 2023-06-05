@@ -898,7 +898,7 @@ form.search button:hover {
 .products .rating .stars {
 	width: 80px;
 	height: 20px;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z' fill='rgba(241,196,14,1)'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928zM12 4.262l1.913 3.902 4.287.623-3.105 3.034.732 4.267L12 15.26l-3.828 2.019.732-4.267-3.105-3.034 4.287-.623L12 4.262z' fill='rgba(241,196,14,1)'/%3E%3C/svg%3");
 	background-position-y: top;
 	background-repeat-y: no-repeat;
 }
