@@ -24,6 +24,25 @@
     height: 80px;
     /* Ajoutez d'autres styles supplémentaires pour les miniatures si nécessaire */
   }
+
+  .star {
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+    font-size: 17px;
+  }
+
+  .star-rating {
+    display: inline-block;
+    font-size: 16px;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
+
+  .star-rating .star {
+    display: inline-block;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
 </style>
 
 <body>
@@ -102,7 +121,7 @@
           <div class="opt-3">opt 3</div>
         </button> -->
       </div>
-      <button class="frame-edit">
+      <button style="display:none;" class="frame-edit">
         <a href="#">
           <img class="edit-2-icon" alt="" src="../../public/edit-2@2x.png" />
         </a>
@@ -146,7 +165,7 @@
 
       <div class="product-namew" id="titre">Product-name</div>
       <!-- <div class="product-name" id="titrew">Product-name</div> -->
-      <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div>
+      <!-- <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div> -->
       <b class="price-da" id="price">Price DA</b>
       <div class="share-this-product">Share this product</div>
       <div class="color-disponible">Color disponible
@@ -230,7 +249,7 @@
         <div class="group-copy-link">
           <input class="group-copy-link-child" id="linkInput" readonly></input>
           <button class="group-copy-link-item" id="copyButton"></button>
-          <div class="copy-link">Copy link</div>
+          <div class="copy-link" for="copyButton">Copy link</div>
         </div>
       </div>
       <div class="frame-worning">
@@ -258,9 +277,9 @@
       <div class="quantity">Quantity</div>
       <div class="livraison">Livraison</div>
       <div class="in-stock">In stock : <span id="nb-stock">nb-stock</span></div>
-      <div class="agence-a-name">-Agence : <span id="agence"> A-name</span></div>
-      <div class="type-type">-Type : <span id="typeliv">Type x</span> </div>
-      <div class="retour-nb-retour">Retour : <span id="nb-retour">nb-retour</span></div>
+      <div class="agence-a-name">-Type : <span id="typeliv"> T-name</span></div>
+      <!-- <div class="type-type">-Type : <span id="typeliv">Type x</span> </div> -->
+      <!-- <div class="retour-nb-retour">Retour : <span id="nb-retour">nb-retour</span></div> -->
       <div class="classement"># <span id="classement">classement</span> </div>
       <div class="in-process">In process : <span id="nb-in-process">nb-in-process</span></div>
       <div class="sales-nb-sales">Sales : <span id="nb-sales">nb-sales</span></div>
@@ -270,7 +289,7 @@
 
       <img class="frame-child12" alt="" src="../../public/ellipse-105.svg" />
 
-      <img class="frame-child13" alt="" src="../../public/ellipse-105.svg" />
+      <!-- <img class="frame-child13" alt="" src="../../public/ellipse-105.svg" /> -->
     </div>
     <div class="wrapper">
       <div class="div1">
@@ -337,7 +356,7 @@
 
       <div class="frame-reviews-child"></div>
       <div class="reviews1">Reviews</div>
-      <div class="checked-reviews-12">Checked reviews </div>
+      <div class="checked-reviews-12">Moayen reviews </div>
       <div class="comments-nb-comments">Comments <span id="nb-comment">(nb-comments)</span>
         <div class="frame-comment">
           <div id="commentsContainer"></div>
@@ -348,11 +367,11 @@
           <b id="moyrev">3.6</b>
           <span class="span">/5</span>
         </div>
-        <img class="stars-icon4" alt="" src="../../public/stars3.svg" />
-
+        <!-- <img class="stars-icon4" alt="" src="../../public/stars3.svg" /> -->
+        <div class="stars-icon4" id="reviewContainer"></div>
         <div class="reviews2"><span id="nb-reviews">12</span> Reviews</div>
       </div>
-      <div class="frame-show-more">
+      <!-- <div class="frame-show-more">
         <div class="show-more">
           <a href="../html/guest.html" id="show-more">
             <button class="show-more1">show-more
@@ -361,12 +380,13 @@
           <img class="show-more-child" alt="" src="../../public/line-36.svg" />
           <img class="show-more-item" alt="" src="../../public/line-37.svg" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
   <br><br><br>
   <br><br>
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
@@ -426,7 +446,7 @@
     let nbstock = document.getElementById('nb-stock');
     let nbsales = document.getElementById('nb-sales');
     let nbprocess = document.getElementById('nb-in-process');
-    let nbretour = document.getElementById('nb-retour');
+    // let nbretour = document.getElementById('nb-retour');
     let classement = document.getElementById('classement');
     let agence = document.getElementById('agence-a-name');
     let typeliv = document.getElementById('typeliv');
@@ -439,78 +459,6 @@
     let nbreviews = document.getElementById('nb-reviews');
     let nbcomment = document.getElementById('nb-comment');
     // let mainImage = document.getElementById('mainImage');
-
-
-
-    //comment
-    var comments = [
-      { author: "John", content: "Great product!", rating: 5, date: "2023-05-15" },
-      { author: "esi", content: "Great product!", rating: 5, date: "2023-05-15" },
-      { author: "Mike", content: "Excellent quality!", rating: 3, date: "2023-05-10" },
-      { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
-      { author: "Jane", content: "Awesome service!", rating: 4.5, date: "2023-05-12" },
-      { author: "rahil", content: "mliha!", rating: 4.5, date: "2023-05-12" },
-      // Ajoutez plus de commentaires au besoin
-    ];
-
-    var commentsContainer = document.getElementById('commentsContainer');
-
-    // Génération et remplissage des commentaires
-    for (var i = 0; i < comments.length; i++) {
-      var comment = comments[i];
-
-      var commentElement = document.createElement('div');
-      commentElement.className = 'comment';
-
-      var authorElement = document.createElement('div');
-      authorElement.className = 'author';
-      authorElement.textContent = comment.author;
-
-      var contentElement = document.createElement('div');
-      contentElement.className = 'content';
-      contentElement.textContent = comment.content;
-
-      var ratingElement = document.createElement('div');
-      ratingElement.className = 'rating';
-      ratingElement.innerHTML = generateStarRating(comment.rating);
-
-      var dateElement = document.createElement('div');
-      dateElement.className = 'date';
-      dateElement.textContent = 'Date : ' + comment.date;
-
-      commentElement.appendChild(authorElement);
-      commentElement.appendChild(contentElement);
-      commentElement.appendChild(ratingElement);
-      commentElement.appendChild(dateElement);
-      commentsContainer.appendChild(commentElement);
-    }
-
-    nbcomment.textContent = comments.length;
-
-    function generateStarRating(rating) {
-      var starRatingElement = document.createElement('div');
-      starRatingElement.className = 'star-rating';
-
-      for (var i = 1; i <= 5; i++) {
-        var starInput = document.createElement('input');
-        starInput.type = 'radio';
-        starInput.name = 'rating';
-        starInput.value = i;
-        starInput.id = 'star' + i;
-        starInput.disabled = true;
-        if (i === rating) {
-          starInput.checked = true;
-        }
-
-        var starLabel = document.createElement('label');
-        starLabel.htmlFor = 'star' + i;
-
-        starRatingElement.appendChild(starInput);
-        starRatingElement.appendChild(starLabel);
-      }
-
-      return starRatingElement.innerHTML;
-    }
 
 
 
@@ -576,10 +524,21 @@
     var shareButton = document.getElementById("shareButton1");
     shareButton.addEventListener("click", shareOnInstagram);
 
+    var token = localStorage.getItem('token')
+    //id
+    let productid = "647a34d9d1deece3c633b352"
+    // let productid = localStorage.getItem('productId')
 
-    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    })
       .then(function (response) {
-        var a = response.data.data[4];
+
+        var a = response.data.data;
+        console.log(a)
         // var a = response.data;
         titre.textContent = a.title
         price.textContent = a.priceAfterDiscount + " $"
@@ -588,11 +547,58 @@
         description.textContent = a.description
         nbstock.textContent = a.quantity
         typepr.textContent = a.category.name
+        typeliv.textContent = a.delivery.name
         // mark.textContent = a.category
-        reduction.textContent = ((a.priceAfterDiscount * 100) / a.price).toFixed(2)
+        reduction.textContent = (((a.price - a.priceAfterDiscount) * 100) / a.price).toFixed(2)
 
         //options 
         // Récupérer la ligne des options
+        //review
+
+        //reviewnb
+
+        //nb-review
+        nbreviews.textContent = a.totalRating
+        nbavis.textContent = a.totalRating + " avis"
+        moyrev.textContent = a.ratingAverage
+        var nbReview = a.ratingAverage;
+
+        var reviewContainer = document.getElementById('reviewContainer');
+
+        function generateStarRating(ratingAverage) {
+          var starRatingElement = document.createElement('div');
+          starRatingElement.className = 'star-rating';
+
+          for (var i = 1; i <= 5; i++) {
+            var starSpan = document.createElement('span');
+            starSpan.className = 'star';
+
+            if (i <= ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+            } else if (i - 0.5 === ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+              starSpan.style.setProperty('clip-path', 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'); // Clip le contenu pour afficher la moitié de l'étoile
+            } else {
+              starSpan.style.visibility = 'hidden'; // Étoile vide (masquée)
+            }
+
+            starRatingElement.appendChild(starSpan);
+          }
+
+          return starRatingElement.innerHTML;
+        }
+
+        var reviewElement = document.createElement('div');
+        reviewElement.className = 'review';
+
+        var ratingElement = document.createElement('div');
+        ratingElement.className = 'rating';
+        ratingElement.innerHTML = generateStarRating(nbReview);
+
+        reviewElement.appendChild(ratingElement);
+        reviewContainer.appendChild(reviewElement);
+
+
         var options = [];
         var optionsRow = document.getElementById("optionsRow");
 
@@ -702,6 +708,79 @@
       .catch(function (error) {
         console.error('Error fetching categories:', error);
       });
+
+    // Fetch review data from the backend using Axios (replace with your actual endpoint)
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid + '/reviews')
+      .then(function (response) {
+        let commentsData = response.data.data
+        console.log(commentsData)
+
+       
+
+        var commentsContainer = document.getElementById('commentsContainer');
+
+        function generateStarRating(ratingAverage) {
+          var starRatingElement = document.createElement('div');
+          starRatingElement.className = 'star-rating';
+
+          for (var i = 1; i <= 5; i++) {
+            var starSpan = document.createElement('span');
+            starSpan.className = 'star';
+
+            if (i <= ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+            } else if (i - 0.5 === ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+              starSpan.style.setProperty('clip-path', 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'); // Clip le contenu pour afficher la moitié de l'étoile
+            } else {
+              starSpan.style.visibility = 'hidden'; // Étoile vide (masquée)
+            }
+
+            starRatingElement.appendChild(starSpan);
+          }
+
+          return starRatingElement.innerHTML;
+        }
+
+        // Génération et remplissage des commentaires
+        for (var i = 0; i < commentsData.length; i++) {
+          var comment = commentsData[i];
+
+          var commentElement = document.createElement('div');
+          commentElement.className = 'comment';
+
+          var authorElement = document.createElement('div');
+          authorElement.className = 'author';
+          authorElement.textContent = comment.users.name;
+
+          var contentElement = document.createElement('div');
+          contentElement.className = 'content';
+          contentElement.textContent = comment.description;
+
+          var ratingElement = document.createElement('div');
+          ratingElement.className = 'rating';
+          ratingElement.innerHTML = generateStarRating(comment.rating);
+
+          var dateElement = document.createElement('div');
+          dateElement.className = 'date';
+          dateElement.textContent = 'Date : ' + comment.createdAt;
+
+          commentElement.appendChild(authorElement);
+          commentElement.appendChild(contentElement);
+          commentElement.appendChild(ratingElement);
+          // commentElement.appendChild(dateElement);
+          commentsContainer.appendChild(commentElement);
+        }
+
+        nbcomment.textContent = commentsData.length;
+
+
+        // Call a function to populate the reviews with the retrieved data
+      })
+      .catch(function (error) {
+        console.error('Failed to fetch reviews: ', error);
+      });
+
   </script>
 
 </body>

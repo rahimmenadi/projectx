@@ -1407,12 +1407,22 @@ header {
   height: 0.09rem;
 }
 
-.checked-reviews-12,
+
 .comments-nb-comments,
 .reviews1 {
   position: absolute;
   top: 0.94rem;
   left: 1.5rem;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  display: inline-block;
+  width: 6.31rem;
+  height: 1.06rem;
+}
+.checked-reviews-12{
+  position: absolute;
+  top: 0.94rem;
+  left: 2.45rem;
   font-size: var(--font-size-base);
   font-weight: 600;
   display: inline-block;
@@ -1636,11 +1646,18 @@ header {
   height: 1.13rem;
 }
 
-.reviews2,
+.reviews2{
+  position: absolute;
+  top: 2rem;
+  left: 1.6rem;
+  width: 4.19rem;
+  height: 0.69rem;
+}
+
 .stars-icon4 {
   position: absolute;
-  top: 2.13rem;
-  left: 0.94rem;
+  top: 2rem;
+  transform: translate(20%);
   width: 4.19rem;
   height: 0.69rem;
 }
