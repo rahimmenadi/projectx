@@ -483,7 +483,7 @@ let checkout_btn = document.getElementById("checkout");
 checkout_btn.addEventListener("click" , ()=>{
     localStorage.setItem("cart_id" , cart_id);
     console.log(cart_id);
-    window.location.href = "/shiping-details.html"
+    //window.location.href = "../../payment-details.html"
 })
 
 function sendProductId(k){

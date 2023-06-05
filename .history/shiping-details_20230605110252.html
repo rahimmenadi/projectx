@@ -733,7 +733,6 @@
     <script src="./product-details.js"></script>
     <script>
         let cart_id=localStorage.getItem('cart_id')
-        console.log(cart_id)
         var payment=document.getElementById("primary-button")
          payment.addEventListener('click',(e)=>{
             e.preventDefault()
@@ -791,7 +790,25 @@
        })
 
          
-       
+        const FtoShow = '.filter';
+        const Fpopup = document.querySelector(FtoShow);
+        const Ftrigger = document.querySelector('.filter-trigger');
+
+        Ftrigger.addEventListener('click', () => {
+            setTimeout(() => {
+                if(!Fpopup.classList.contains('show')) {
+                    Fpopup.classList.add('show')
+                }
+            }, 250 )
+        })
+
+        //auto close by click outside .filter
+        document.addEventListener('click', (e) => {
+            const isClosest = e.target.closest(FtoShow);
+            if(!isClosest && Fpopup.classList.contains('show')) {
+                Fpopup.classList.remove('show')
+            }
+        })
          
 
     </script>
