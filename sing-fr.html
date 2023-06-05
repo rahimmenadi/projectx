@@ -161,6 +161,7 @@
             })
             
 
+<<<<<<< HEAD
           sessionStorage.setItem('token',response.data.token.toString())}).catch((error)=>{console.log(error.response.data)
             Swal.fire({
               icon: 'error',
@@ -168,6 +169,13 @@
               text: 'Something went wrong check Your Inputs!',
             
             }) ;}
+=======
+          sessionStorage.setItem('sellertoken',response.data.token.toString())
+          sessionStorage.setItem('token',response.data.token.toString())
+          localStorage.setItem("Token",response.data.token.toString);
+        
+        }).catch((error)=>{console.log(error.response.data) ,displayError('Please enter both email and password.');}
+>>>>>>> 5de437cc962fc7543e437fd673bc9f584d774a10
           )})
           
 

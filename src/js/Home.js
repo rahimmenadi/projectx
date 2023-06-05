@@ -77,65 +77,87 @@ let swiper_items="";
 
 let sellers = document.getElementById("sellers-part-js");
 let three_sellers = "";
-categories.forEach(category => {
-    if(!subcategoriesByCategoryId.has(category._id)){
-    subcategoriesByCategoryId.set(category._id,[]);
-    }
-    all_categories_items += `
-                <li class="has-child beauty">
-                    <a href="#">
-                        ${category.name}
-                        <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
-                    </a>
-                    <ul>
-                    </ul>
-                </li>
-                `
-        //category code sellers code
-        
-            swiper_items = swiper_items + `<div class="swiper-slide"> 
-                <img src="${category.image}" alt="">
-            </div>`
-            three_sellers += `
-            <div class="swiper-slide sellers-info">
-                <div class="three-sellers">
-                    <ul>
-                        <li>
-                            <a href="" class="first-seller">
-                                <img src="../../SHOES.svg" alt="">
-                                <div class="text">
-                                <div class="name">hello there</div>
-                                <p>Lorem ipsum dolor sit, amet consectetur</p>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="second-seller">
-                                <img src="../../SHOES.svg" alt="">
-                                <div class="text">
-                                <div class="name">hello there</div>
-                                <p>Lorem ipsum dolor sit, amet consectetur</p>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="third-seller">
-                                <img src="../../SHOES.svg" alt="">
-                                <div class="text">
-                                <div class="name">hello there</div>
-                                <p>Lorem ipsum dolor sit, amet consectetur</p>
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            `
-        
-});
 
-swiper_categories.innerHTML+=swiper_items;
-sellers.innerHTML=three_sellers;
+for (let i = 0; i < categories.length; i++) {
+    const category = categories[i];
+    if(!subcategoriesByCategoryId.has(category._id)){
+        subcategoriesByCategoryId.set(category._id,[]);
+        }
+        all_categories_items += `
+                    <li class="has-child beauty">
+                        <a href="#">
+                            ${category.name}
+                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                        </a>
+                        <ul>
+                        </ul>
+                    </li>
+                    `
+            //category code sellers code
+            axios.get(`https://buy-it-sigma.herokuapp.com/api/v1/categories/${category._id}/products?limit=3&sort=-sold`)
+                .then(response => {
+                    // Handle the response data
+                    console.log(response.data.data);
+    
+                    
+                    let three_sellers_first="";
+                    three_sellers_first += `
+                <div class="swiper-slide sellers-info">
+                    <div class="three-sellers">
+                        <ul>
+                            `
+                            let three_sellers_second="";
+                            three_sellers_second += `
+                        </ul>
+                    </div>
+                </div>
+                `
+                let the_three_sellers="";
+                for (let i = 0; i < response.data.data.length; i++) {
+                    const element = response.data.data[i];
+                    the_three_sellers = the_three_sellers + `
+                            <li>
+                                <a href="" class="third-seller">
+                                    <img src="${element.imageCover}" alt="">
+                                    <div class="text">
+                                    <div class="name">${element.title}</div>
+                                    <p>${element.description}</p>
+                                </div>
+                                </a>
+                            </li>
+                    `
+    
+                    three_sellers += three_sellers_first + the_three_sellers + three_sellers_second;
+                }
+
+
+    
+                swiper_items = swiper_items + `<div class="swiper-slide"> 
+                    <img src="${category.image}" alt="">
+                </div>`
+                
+                if(i==(categories.length -1)){
+                swiper_categories.innerHTML=swiper_items;
+    console.log("in here swiper" + swiper_items)
+    sellers.innerHTML=three_sellers;
+    console.log("in here swipesellerr" + three_sellers)
+                }
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error(error);
+                });
+    
+    
+    
+    
+    
+    
+                
+            
+}
+
+
 
         
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories')
@@ -272,9 +294,28 @@ console.log("hleoo");
 let searchis = document.getElementById("searchis");
 let btn_search = document.getElementById("search-btn");
 btn_search.addEventListener("click" , ()=>{
-    console.log(searchis.value);
+    
+    localStorage.setItem('searchValue',searchis.value);
+
+    window.location.href = "../html/Search.html";
 })
 
+document.getElementById("myform").addEventListener("submit", function(event) {
+    
+    // Redirect to another page
+    window.location.href = "../html/Search.html";
+    console.log("hie")
+  });
+  document.getElementById("myform").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    localStorage.setItem('searchValue',searchis.value);
+  
+    // Get the search query from the input field
+    var searchQuery = document.getElementById("searchis").value;
+  
+    // Redirect to another page with the search query as a parameter
+    window.location.href = "/src/html/Search.html?query=" + encodeURIComponent(searchQuery);
+  });
 
 
 
@@ -587,6 +628,7 @@ function displayProduct(){
                 <span class="normal mini-text">$${AllProductList[i].price}</span>
             </div>
         </div>
+       
     </div>
         `
     
