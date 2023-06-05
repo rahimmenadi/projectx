@@ -565,11 +565,12 @@ th {
 }
 td {
     padding: 12px 8px;
-    background-color: #eee;;
+    background-color: #f6f6f6;;
     color: black;
     font-weight: 500;
 }
 table {
+    border-collapse: collapse;
     width: 100%;
     margin: 5px;
     align-items: center;
@@ -648,7 +649,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -730,7 +731,28 @@ header {
     left: 0;
     
 }
+.profile{
+    display: flex;
+    align-items: center;
+    padding-inline: 20px;
+    padding: 3px;
+    padding-inline: 20px;
+    border-radius: 90px;
+    cursor: pointer;
+}
+.profile:hover{
+    background-color: #f3f3f3;
+}
+.profile .profile-image img{
+    width: 30px;
+    border-radius: 50%;
 
+}
+.profile .profile-name{
+    font-size: 20px;
+    font-weight: bold;
+    padding-inline: 20px;
+}
 
 
 .search #input {
