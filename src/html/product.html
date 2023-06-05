@@ -43,7 +43,6 @@
     color: rgba(241, 196, 14, 1);
     /* Couleur jaune */
   }
- 
 </style>
 
 <body>
@@ -543,9 +542,8 @@
 
     var token = localStorage.getItem('token')
     //id
-    let productid = "647a34d9d1deece3c633b352"
-    // let productid = 
-    // let productid = localStorage.getItem('productId')
+    // let productid = "647a34d9d1deece3c633b352"
+    let productid = localStorage.getItem('productIdSeller')
 
 
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid, {
@@ -809,7 +807,7 @@
         .then((response) => {
           // Produit supprimé avec succès, afficher le message et rediriger
           alert('Produit supprimé');
-          window.location.href = '../../home.html'; // Redirection vers la page guest.html
+          window.location.href = './dash_product.html'; // Redirection vers la page guest.html
         })
         .catch((error) => {
           console.error('Erreur lors de la suppression du produit:', error);
