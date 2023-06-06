@@ -1,3 +1,11 @@
+function updateCartNumber(cartLenth,totalPrice){
+    document.getElementById("cart-number").textContent= cartLenth + "";
+    document.getElementById("cart-number-one").textContent= cartLenth + "";
+    let Total_cart = document.getElementById("total-cart-home");
+    Total_cart.textContent = totalPrice;
+}
+
+
 function sendProductIdCard(k){
     
     // Make a POST request to add the product
@@ -8,7 +16,7 @@ function sendProductIdCard(k){
       })
       .then(response => {
         console.log("added" , response.data.data)
-      })
+        updateCartNumber(response.data.data.cartItems.length,response.data.data.totalCartPrice);      })
       .catch(error => {
         console.error('Error adding product:', error);
       });
@@ -229,7 +237,6 @@ for (let i = 0; i < categories.length; i++) {
 
             
 
-copyMenu();
 
 
 
@@ -290,22 +297,14 @@ function showCategoriesData(){
 console.log("hleoo");
 //header code
 
+//==================================SEARCH CODE=========================================================
 
 let searchis = document.getElementById("searchis");
+let searchisis = document.getElementById("searchisis");
 let btn_search = document.getElementById("search-btn");
-btn_search.addEventListener("click" , ()=>{
-    
-    localStorage.setItem('searchValue',searchis.value);
 
-    window.location.href = "../html/Search.html";
-})
 
-document.getElementById("myform").addEventListener("submit", function(event) {
-    
-    // Redirect to another page
-    window.location.href = "../html/Search.html";
-    console.log("hie")
-  });
+
   document.getElementById("myform").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission
     localStorage.setItem('searchValue',searchis.value);
@@ -317,6 +316,20 @@ document.getElementById("myform").addEventListener("submit", function(event) {
     window.location.href = "/src/html/Search.html?query=" + encodeURIComponent(searchQuery);
   });
 
+  document.getElementById("myformone").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    localStorage.setItem('searchValue',searchisis.value);
+  
+    // Get the search query from the input field
+    var searchQuery = document.getElementById("searchisis").value;
+  
+    // Redirect to another page with the search query as a parameter
+    window.location.href = "/src/html/Search.html?query=" + encodeURIComponent(searchQuery);
+  });
+
+
+
+//==================================SEARCH CODE=========================================================
 
 
 
@@ -451,7 +464,7 @@ function btn_wishlist(link,i) {
       })
       .then(response => {
         console.log("gettedcart" , response.data.data)
-      })
+        updateCartNumber(response.data.data.cartItems.length,response.data.data.totalCartPrice);      })
       .catch(error => {
         console.error('Error adding product:', error);
       });
@@ -555,6 +568,7 @@ function sendNewProductIdCard(k){
   })
   .then(response => {
     console.log("added" + response.data.data)
+    
   })
   .catch(error => {
     console.error('Error adding product:', error);
@@ -861,7 +875,7 @@ tClose.addEventListener("click", function () {
 });
 
 //show dpt menu
-const dptButton = document.querySelector(".dpt-cat .dpt-trigger"),
+conutton = document.querySelector(".dpt-cat .dpt-trigger"),
 	dptClass = document.querySelector(".site");
 // dptButton.addEventListener("click", function () {
 // 	dptClass.classList.toggle("showdpt");
