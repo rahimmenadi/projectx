@@ -90,18 +90,18 @@
                 <div class="search">
                         <input
                         type="text"
-                        placeholder="search products"
+                        placeholder="search in your products"
                         id="input">
-                        <a href="#"><ion-icon class="s" name="search"></ion-icon></a>
+                        <a id="btn-search-seller" href="#"><ion-icon class="s" name="search"></ion-icon></a>
                     
                     
                 
                 </div>
                 <div class="profile">
                   <div class="profile-image">
-                    <img src="/images/product-orange.svg" alt="">
+                    <img id="profile-image" src="" alt="">
                   </div>
-                  <div class="profile-name">hello</div>
+                  <div id="profile-name" class="profile-name"></div>
                   
                 </div>
               
@@ -111,7 +111,7 @@
         </header>
             <div class="product-vertical">
               <div class="container">
-                <div class="text-topper">Your product
+                <div  class="text-topper"><span id="topper-text">Your product</span>
                   <div id="add-product-btn">Add Product
                     <span class="iconify" data-icon="basil:add-outline" ></span>
                   </div>

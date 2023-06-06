@@ -40,6 +40,7 @@
                             <ul class="flexitem main-links">
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">New Products</a></li>
+                                <li><a href="/src/html/commandes.html">My orders</a></li>
                                 <li id="wishlist-home"><a  href="#">Wishlist</a></li>
                             </ul>
                         </div>
@@ -1198,7 +1199,7 @@
                                     <i class="ri-shopping-cart-line"></i>
                                     <span>Cart</span>
                                     <div class="fly-item">
-                                        <span class="item-number">0</span>
+                                        <span id="cart-number-one" class="item-number">0</span>
                                     </div>
                                 </a>
                             </li>
@@ -1212,11 +1213,13 @@
         <div class="search-bottom desktop-hide">
             <div class="container">
                 <div class="wrapper">
-                    <form action="" id="myform" class="search">
+                    <form id="myformone" class="search">
                         <a href="#" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
-                        <span class="icon-large"><i class="ri-search-line"></i></span>
-                        <input type="search" placeholder="Search">
-                        <button id="search-btn" type="submit">Search</button>
+
+                            <span class="icon-large"><i class="ri-search-line"></i></span>
+                            <input id="searchisis" type="search" placeholder="Search for products">
+                            <button onclick="searchclick()"  id="searchis-btn" type="submit">Search</button>
+                        
                     </form>
                 </div>
             </div>

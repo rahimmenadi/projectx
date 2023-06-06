@@ -738,10 +738,9 @@ header {
     padding: 3px;
     padding-inline: 20px;
     border-radius: 90px;
-    cursor: pointer;
+    cursor: default;
 }
 .profile:hover{
-    background-color: #f3f3f3;
 }
 .profile .profile-image img{
     width: 30px;
