@@ -112,9 +112,9 @@
                 };
 
                 // Send the sub-category to the backend
-                const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjMDhhN2UxOWMyNjNmNTllNjFhN2YiLCJpYXQiOjE2ODQ4MDcwNDAsImV4cCI6MTY5MjU4MzA0MH0.HcgzMBa1NCuBxDflJ2-rH7OKi2d4IHRJ28ezKZ1qCDs';
+                // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjMDhhN2UxOWMyNjNmNTllNjFhN2YiLCJpYXQiOjE2ODQ4MDcwNDAsImV4cCI6MTY5MjU4MzA0MH0.HcgzMBa1NCuBxDflJ2-rH7OKi2d4IHRJ28ezKZ1qCDs';
 
-                var a = sessionStorage.getItem('token');
+                var a = localStorage.getItem('admintoken');
                 console.log(a);
                 console.log(categoryId);
                 axios.post('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', postData, {
