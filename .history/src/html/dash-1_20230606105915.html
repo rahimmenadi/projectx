@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="../css/dash-1g.css" />
+  <link rel="stylesheet" href="../css/dash-1.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+</head>
+
+<body>
+  <div class="dashbord">
+    <div class="dashboard">
+      <div class="welcome-back-user-parent">
+        <div class="welcome-back-user-container">
+          <b>Welcome Back,</b><span class="user"><span class="span"> </span><span id="userN">Kadida!</span></span>
+        </div>
+        <div class="look-whats-happening">
+          Look what’s happening with your store’s update.
+        </div>
+        <div class="frame-parent">
+          <div class="frame-group">
+            <img class="frame-child" alt="" src="../../public/frame-1968.svg" />
+            <div class="total-sales">Total Sales</div>
+            <b class="b" id="totalS">$22,045.00</b>
+          </div>
+          <div class="frame-group">
+            <img class="frame-child" alt="" src="../../public/frame-19681.svg" />
+            <div class="total-sales">Total Products</div>
+            <b class="b" id="totalP">100</b>
+          </div>
+          <div class="frame-group">
+            <img class="frame-child" alt="" src="../../public/frame-19682.svg" />
+            <div class="total-sales">Total Reviews</div>
+            <b class="b" id="totalR">100,00</b>
+          </div>
+          <div class="frame-group">
+            <img class="frame-child" alt="" src="../../public/frame-19683.svg" />
+            <div class="total-sales">Total Visitors</div>
+            <b class="b" id="totalV">25,000.00</b>
+          </div>
+        </div>
+        <div class="chart-parent">
+          <b class="sales-analytic">Sales Analytic</b>
+          <div class="this-week-parent">
+            <select name="Status" class="this-week" id="selectVariable" onchange="updateChart()">variant
+              <option value="jour">that day</option>
+              <option value="semaine">this week</option>
+              <option value="mois">this month</option>
+              <option value="annee">this year</option>
+            </select>
+          </div>
+          <div class="container-chart">
+            <canvas id="myChart"></canvas>
+          </div>
+          <script src="../js/chart.js"></script>
+        </div>
+        <div class="recent-orders-parent">
+          <b class="recent-orders">Recent Orders</b>
+          <a href="../html/guest.html">
+            <button class="see-all">See All</button>
+          </a>
+          <table>
+            <thead>
+              <tr>
+                <th>Photo</th> <br><br><br><br>
+                <th>Nom du produit</th>
+                <th>Date</th>
+                <th>Nom du client</th>
+                <th>Prix</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody id="orderTableBody"></tbody>
+          </table>
+
+          <!-- <div class="photo-parent">
+            <b class="photo">Photo</b><b class="photo">Product name</b><b class="photo">Date</b><b
+              class="photo">Customer</b><b class="photo">Price</b><b class="photo">Status</b>
+          </div> -->
+          <!-- <div class="frame-parent2">
+            <div class="frame-parent3">
+              <img class="frame-child1" alt="" src="../../public/frame-1974@2x.png" />
+              <div class="product-wrapper">
+                <b class="product">Rolex silicon</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="date">Nov, 24 2023</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="name-client">Bendida Abdellah</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="price">6200DA</b>
+              </div>
+              <div class="frame-wrapper">
+                <div class="delivery-wrapper">
+                  <b class="delivery">delivered</b>
+                </div>
+              </div>
+            </div>
+            <div class="frame-parent3">
+              <img class="frame-child1" alt="" src="../../public/frame-1974@2x.png" />
+              <div class="product-wrapper">
+                <b class="product">Rolex silicon</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="date">Nov, 24 2023</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="name-client">Bendida Abdellah</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="price">6200DA</b>
+              </div>
+              <div class="frame-wrapper">
+                <div class="delivery-wrapper">
+                  <b class="delivery">delivered</b>
+                </div>
+              </div>
+            </div>
+            <div class="frame-parent3">
+              <img class="frame-child1" alt="" src="../../public/frame-1974@2x.png" />
+              <div class="product-wrapper">
+                <b class="product">Rolex silicon</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="date">Nov, 24 2023</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="name-client">Bendida Abdellah</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="price">6200DA</b>
+              </div>
+              <div class="frame-wrapper">
+                <div class="delivery-wrapper">
+                  <b class="delivery">delivered</b>
+                </div>
+              </div>
+            </div>
+            <div class="frame-parent3">
+              <img class="frame-child1" alt="" src="../../public/frame-1974@2x.png" />
+              <div class="product-wrapper">
+                <b class="product">Rolex silicon</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="date">Nov, 24 2023</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="name-client">Bendida Abdellah</b>
+              </div>
+              <div class="product-wrapper">
+                <b class="price">6200DA</b>
+              </div>
+              <div class="frame-wrapper">
+                <div class="delivery-wrapper">
+                  <b class="delivery">delivered</b>
+                </div>
+              </div>
+            </div>
+
+          </div> -->
+        </div>
+      </div>
+      <div class="sidebar">
+        <a href="../html/guest.html">
+          <button class="logo54-1-parent">
+            <img class="logo54-1-icon" alt="" src="../../public/logo54-1@2x.png" />
+            <div class="buy-it">Buy-it</div>
+          </button>
+        </a>
+        <div class="line-parent">
+          <div class="line-div"></div>
+          <div class="nav-parent">
+            <button class="nav" id="dash">
+              <img class="dashboard-1-icon" alt="" src="../../public/dashboard-1.svg" />
+              <div class="sales">Dashboard</div>
+            </button><button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/shoppingcart-1.svg" />
+              <div class="sales">Sales</div>
+            </button>
+            <button class="nav" id="produita">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/product-1-1.svg" />
+              <div class="sales"><a>Products</a></div>
+            </button>
+            <button id="addtyli" class="nav3">
+              <img class="shopping-cart-1-icon" alt="" src="../../img/add.png" />
+              <div class="sales">Add type livraison</div>
+            </button>
+            <button class="nav3" id="delivery">
+             <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
+              <div class="sales"> Delivery</div> 
+            </button><button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/shop-1.svg" />
+              <div class="sales">Your store</div>
+            </button>
+            </button>
+            <button class="nav" id="addpro">
+              <img class="shopping-cart-1-icon" alt="" src="../../img/add.product.png" />
+              <div class="sales">Add product</div>
+            </button>
+            </button>
+            <hr>
+          </div>
+          <div class="nav-group">
+            <button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/contract-1.svg" />
+              <div class="sales">Your plan</div>
+            </button><button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/megaphone-1.svg" />
+              <div class="sales">Your ads</div>
+            </button><button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/setting-1.svg" />
+              <div class="sales">Settings</div>
+            </button>
+          </div>
+          <div class="square">
+            <div class="message-square">Become Sigma!</div>
+            <div class="and-get-all-container">
+              <p class="and-get-all">And get all the features of</p>
+              <p class="and-get-all">your e-commerce</p>
+            </div>
+            <button class="upgrade-wrapper">
+              <div class="upgrade">Upgrade</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var delivery=document.getElementById('delivery')
+    delivery.addEventListener('click', function(event){
+      console.log("yo")
+      window.location.assign('./orders.html')
+    })
+    const addpro = document.getElementById('addpro');
+    addpro.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = './add-product.html'; // Replace 'page-x.html' with the actual page URL
+    });
+    const addtyli = document.getElementById('addtyli');
+    addtyli.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = './add-type-livraison.html'; // Replace 'page-x.html' with the actual page URL
+    });
+    //hna
+    const produit = document.getElementById('produita');
+    produit.addEventListener('click', function () {
+      // Navigate to the desired page
+      window.location.href = '../html/dash_product.html'; // Replace 'page-x.html' with the actual page URL
+    });
+
+    function addOrder(photo, productName, date, clientName, price, status) {
+      var tableBody = document.getElementById('orderTableBody');
+
+      var row = document.createElement('tr');
+      if (status === 'delivered') {
+        row.classList.add('delivered');
+      } else if (status === 'pending') {
+        row.classList.add('pending');
+      }
+
+      var photoCell = document.createElement('td');
+      var photoImg = document.createElement('img');
+      photoImg.src = photo;
+      photoImg.alt = 'Product Photo';
+      photoImg.classList.add('product-photo'); // Ajout de la classe CSS
+      photoCell.appendChild(photoImg);
+      row.appendChild(photoCell);
+
+      var productNameCell = document.createElement('td');
+      productNameCell.textContent = productName;
+      row.appendChild(productNameCell);
+
+      var dateCell = document.createElement('td');
+      dateCell.textContent = date;
+      row.appendChild(dateCell);
+
+      var clientNameCell = document.createElement('td');
+      clientNameCell.textContent = clientName;
+      row.appendChild(clientNameCell);
+
+      var priceCell = document.createElement('td');
+      priceCell.textContent = price;
+      row.appendChild(priceCell);
+
+      var statusCell = document.createElement('td');
+      statusCell.textContent = status === 'delivered' ? 'Délivré' : 'Pas encore';
+      row.appendChild(statusCell);
+
+      tableBody.appendChild(row);
+    }
+
+    // Exemples de commandes (peut être remplacé par des données dynamiques)
+    addOrder('../../public/frame-1974@2x.png', 'Produit 1', '2023-05-19', 'John Doe', '$50', 'delivered');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'delivered');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
+    addOrder('../../public/frame-1974@2x.png', 'Produit 2', '2023-05-18', 'Jane Smith', '$30', 'pending');
+    addOrder('../../public/frame-1974@2x.png', 'Produit x', '2023-05-20', 'bendida', '381da', 'delivered');
+
+  </script>
+  <script>var token = localStorage.getItem('sellertoken')
+    co)</script>
+</body>
+
+</html>

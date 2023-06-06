@@ -159,10 +159,10 @@ document.getElementById("categoryImage3").addEventListener("change", function (e
             // formData.append("image", categoryImages);
             //  console.log(formData)
 
-            var a = localStorage.getItem('admintoken');
-            console.log(a) ;
+            var token = localStorage.getItem('admintoken')
+console.log(token)
             axios.post("https://buy-it-sigma.herokuapp.com/api/v1/categories",formData, {headers :{
-                Authorization : 'Bearer '+a,
+                Authorization : 'Bearer '+token,
                 'Content-Type' : 'multipart/form-data',
             }})
             .then(function (response) {

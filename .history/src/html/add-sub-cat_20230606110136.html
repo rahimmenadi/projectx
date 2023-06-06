@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/add-cat.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<head>
+    <title>Add Sub-Category</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            background: linear-gradient(to right, #ff6701, #ff2600);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="page-main  p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2>Add Sub-Category</h2>
+                    <form id="subcategoryForm">
+                        <div class="form-group">
+                            <label for="subcategoryName">Sub-Category Name:</label>
+                            <input type="text" id="subcategoryName" placeholder="Enter sub-category name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="categorySelect">Category:</label>
+                            <select id="categorySelect"></select>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+
+            axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories')
+                .then(function (response) {
+                    var categories = response.data;
+                    var categorySelect = document.getElementById("categorySelect");
+                    var a = response.data;
+
+                    for (var i = 0; i < a.data.length; i++) {
+                        var catename = a.data[i].name;
+                        var cateid = a.data[i]._id;
+
+                        var option = document.createElement("option");
+                        option.value = catename;
+                        option.text = catename;
+                        option.class = cateid;
+                        categorySelect.appendChild(option);
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Error fetching categories:', error);
+                });
+
+            // Handle form submission
+            document.getElementById("subcategoryForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                var subcategoryName = document.getElementById("subcategoryName").value;
+                var categorySelect = document.getElementById("categorySelect");
+                var categoryId = categorySelect.options[categorySelect.selectedIndex].class;
+
+                // Prepare the data to be sent in the POST request
+                var postData = {
+                    name: subcategoryName,
+                    category: categoryId,
+                };
+
+                // Send the sub-category to the backend
+                const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDZjMDhhN2UxOWMyNjNmNTllNjFhN2YiLCJpYXQiOjE2ODQ4MDcwNDAsImV4cCI6MTY5MjU4MzA0MH0.HcgzMBa1NCuBxDflJ2-rH7OKi2d4IHRJ28ezKZ1qCDs';
+
+                var a = localStorage.getItem('sellertoken');
+                console.log(a);
+                console.log(categoryId);
+                axios.post('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', postData, {
+                    headers: {
+                        Authorization: 'Bearer ' + a,
+                    }
+                })
+                    .then(function (response) {
+                        console.log('Sub-Category added successfully:', response.data);
+                        displayPopup("Sub-Category added");
+                        document.getElementById("subcategoryForm").reset();
+                    })
+                    .catch(function (error) {
+                        console.error('Error adding sub-category:', error);
+                        displayPopup("an error occured");
+                    });
+            });
+
+            function displayPopup(message) {
+                alert(message);
+            }
+        </script>
+    </div>
+</body>
+
+</html>

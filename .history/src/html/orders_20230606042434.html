@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/all.min.css">
+    <link
+            href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+            rel="stylesheet"
+        />
+    <link rel="stylesheet" href="../css/dash_style.css">
+</head>
+<body>
+    <div class="page">
+        <div class="sidebar-all">
+            <div class="sidebar">
+                <div class="upper-sidebar">
+                <h3 class="">BUY-IT</h3>
+                <ul>
+                    <li>
+                      <a class="" href="index.html">
+                        <img class="dash-i" src="../../images/dashboard-icon.svg" alt="">
+                        <span>Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="" href="settings.html">
+                        <img class="sales-i" src="../../images/shopping-cart-icon.svg" alt="">
+                        <span>Sales</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="active" href="profile.html">
+                        <img class="products-i" src="../../images/product_icon.svg" alt="">
+                        <span>Products</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="" href="projects.html">
+                        <img class="chat-i" src="../../images/chat-icon.svg" alt="">
+                        <span>Chat</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class=" " href="courses.html">
+                        <img class="delivery-i" src="../../images/delivery_icon.svg" alt="">
+                        <span>Delivery</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="" href="friends.html">
+                        <img class="store-i" src="../../images/shop-icon.svg" alt="">
+                        <span>Your store</span>
+                      </a>
+                    </li>
+                    <div class="line"></div>
+                    <li>
+                      <a class="" href="files.html">
+                        <img class="plan-i" src="../../images/contract-icon.svg" alt="">
+                        <span>Your plan</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="" href="plans.html">
+                        <img class="ads-i" src="../../images/megaphone-icon.svg" alt="">
+                        <span>Your ads</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="" href="plans.html">
+                        <img class="settings-i" src="../../images/setting-icon.svg" alt="">
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                  <div class="under-sidebar">
+                    <h5>Become Sigma!</h5>
+                    <p>And get all the features of your e-commerce</p>
+                    <button id="Upgrade-btn" class="upgrade">Upgrade</button>
+                  </div>
+              </div>
+        </div>
+        <div class="main-section">
+          <header>
+            <div class="container head-flex">
+                
+                <div class="search">
+                        <input
+                        type="text"
+                        placeholder="search products"
+                        id="input">
+                        <a href="#"><ion-icon class="s" name="search"></ion-icon></a>
+                    
+                    
+                
+                </div>
+                <div class="profile">
+                  <div class="profile-image">
+                    <img src="/images/product-orange.svg" alt="">
+                  </div>
+                  <div class="profile-name">hello</div>
+                  
+                </div>
+              
+           
+        </div>
+        <!-- <div class="section-head">dd</div> -->
+        </header>
+            <div class="product-vertical">
+              <div class="container">
+                <div class="text-topper">Your Orders
+                  <div id="add-product-btn">Add Product
+                    <span class="iconify" data-icon="basil:add-outline" ></span>
+                  </div>
+                </div>
+
+              <div class="topper-products">
+                <div class="filters">
+                  <div id="price-filter" class="filter">price</div>
+                  <div id="quantity-filter" class="filter">Quantity</div>
+                  <div class="order-container">
+                    <label for="order">Order :</label>
+  
+                    <select name="order" id="order">
+                      <option value="asc">ascending</option>
+                      <option value="des">descending</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="select-mode">
+                  <div id="display-table-btn" class="table">Table</div>
+                  <div class="line"></div>
+                  <div id="display-list-btn" class="list">List</div>
+                </div>
+              </div>
+            </div>
+                <div class="container" id="select-choice">
+                    <div id="choice-1">
+                        
+                        <table class="product-table">
+                            <thead id="table-head-content">
+                                
+                            </thead>
+                            <tbody id="table-content-js">
+                                
+
+                                
+                            </tbody>
+                        </table>
+                </div>
+                <div id="choice-2">
+                    <div class="section2">
+                        
+                        <div class="container" id="product-container-dash">
+                            
+                            
+                            
+                                                </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- iconify -->
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="../js/dashboard_product.js"></script>
+</body>
+</html>

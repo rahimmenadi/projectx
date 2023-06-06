@@ -248,7 +248,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    var a = sessionStorage.getItem('token');
+    var a = localStorage.getItem('admintoken');
     console.log(a);
     axios.get("https://buy-it-sigma.herokuapp.com/api/v1/orders", {
       headers: {
