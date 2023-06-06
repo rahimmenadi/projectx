@@ -2,7 +2,6 @@
 var copyButton = document.getElementById('copyButton');
 var linkInput = document.getElementById('linkInput');
 
-console.log(localStorage.getItem("productIdSeller"));
 
 copyButton.addEventListener('click', function () {
     // Get the URL of the current page

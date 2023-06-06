@@ -1,5 +1,5 @@
 
-const token = sessionStorage.getItem("sellertoken")
+const token = sessionStorage.getItem("token")
 console.log(token);
 
 let productList = [];
@@ -158,7 +158,7 @@ filter_price.addEventListener("click" , ()=>{
     filter_price.style.backgroundColor = "#FB5607"
     filter_quantity.style.color = "black";
     filter_quantity.style.backgroundColor="white";
-    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?sortby=price', {
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/seller/products?sort=price', {
         headers: {
             Authorization: `Bearer ${token}`
           }})
@@ -179,7 +179,7 @@ filter_quantity.addEventListener("click" , ()=>{
     filter_quantity.style.backgroundColor = "#FB5607"
     filter_price.style.color = "black";
     filter_price.style.backgroundColor="white";
-        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?sortby=quantity', {
+        axios.get('https://buy-it-sigma.herokuapp.com/api/v1/seller/products?sort=quantity', {
             headers: {
                 Authorization: `Bearer ${token}`
               }})
@@ -219,7 +219,7 @@ filter_quantity.addEventListener("click" , ()=>{
 
 
 
-  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products', {
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/seller/products', {
     headers: {
         Authorization: `Bearer ${token}`
       }})
@@ -228,6 +228,46 @@ filter_quantity.addEventListener("click" , ()=>{
     
 
     displayProduct("asc");
+  })
+  .catch(error => {
+    console.log(error)
+  });
+
+//search code
+let search_btn= document.getElementById("btn-search-seller");
+let search = document.getElementById("input");
+let topper_text = document.getElementById("topper-text");
+
+search_btn.addEventListener("click",()=>{
+    let search_result = search.value;
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/seller/products?keyword='+search_result, {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }})
+      .then(response => {
+        productList = response.data.data;
+        console.log(response.data.data)
+        if(search_result.replace(/\s/g, "")==""){
+            topper_text.textContent="Your Products"
+        }else{
+            topper_text.textContent="Search Result"
+        }
+        displayProduct("asc");
+      })
+      .catch(error => {
+        console.log(error)
+      });
+})
+
+//account
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/profile', {
+    headers: {
+        Authorization: `Bearer ${token}`
+      }})
+  .then(response => {
+    let profile = response.data;
+    document.getElementById("profile-image").src = ""
+    document.getElementById("profile-name").textContent=profile.name;
   })
   .catch(error => {
     console.log(error)
@@ -256,3 +296,4 @@ filter_quantity.addEventListener("click" , ()=>{
                                 </div>
                                 
                             </div> */}
+
