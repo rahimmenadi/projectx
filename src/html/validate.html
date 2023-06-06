@@ -1,16 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- <link rel="stylesheet" href="../css/add-cat.css"> -->
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>valid Commandes</title>
-  <link rel="stylesheet" href="../CSS/all.min.css">
-  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/dash_styleV.css">
+  <title>valid command</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    .circle-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
+    /* css */
+    .font-robo {
+      font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    }
+
+    .font-poppins {
+      font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+    }
+
+    /* ul {
+      list-style-type: none;
+    } */
+
+
+
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+
+    }
+
+    .button-container {
+      display: flex;
+    }
+
+    .button-container button {
+      margin-right: 5px;
+    }
+
+    .page-main {
+      min-height: 100vh;
+    }
+
+    body {
+      font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .bg-gra-01 {
+      background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+      background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+      background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+      background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+      background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+    }
+
+    .bg-gra-02 {
+      background: -webkit-gradient(linear, left bottom, right top, from(#fc2c77), to(#6c4079));
+      background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+      background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+      background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
+      background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+    }
+
+    .p-t-100 {
+      padding-top: 100px;
+    }
+
+    .p-t-130 {
+      padding-top: 130px;
+    }
+
+
+    .p-b-100 {
+      padding-bottom: 100px;
+    }
+
+
+    .main {
+      margin: 0 auto;
+    }
+
+    .main--w960 {
+      max-width: 960px;
+    }
+
+    .main--w780 {
+      max-width: 780px;
+    }
+
+    .main--w680 {
+      max-width: 680px;
+    }
+
+
+    .card {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    .card-4 {
+      background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-4 .card-body {
+      padding: 57px 65px;
+      padding-bottom: 65px;
+    }
+
+    @media (max-width: 767px) {
+      .card-4 .card-body {
+        padding: 50px 40px;
+      }
+    }
+
+
+    /* css */
+
+    body {
+      background: linear-gradient(to right, #ff6701, #ff2600);
+    }
+
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    button {
+      padding: 0;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+    }
+
+    .main--w680 {
+      max-width: 1200px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      /* margin: 5px; */
+      align-items: center;
+      text-align: center;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th {
+      text-transform: uppercase;
+      padding: 15px 8px;
+      background-color: #FB5607;
+      color: white;
+    }
+
+    td {
+      padding: 12px 8px;
+      background-color: #f6f6f6;
+      ;
+      color: black;
+      font-weight: 500;
+    }
+
     caption {
+      margin-bottom: 10px;
       font-size: 1.5em;
       font-weight: bold;
       background-color: #f2f2f2;
@@ -21,177 +221,239 @@
 </head>
 
 <body>
-  <div class="page">
-    <div class="sidebar-all">
-      <div class="sidebar">
-        <div class="upper-sidebar">
-          <h3 class="">BUY-IT</h3>
-          <ul>
-            <li>
-              <a class="" href="index.html">
-                <img class="dash-i" src="../../images/dashboard-icon.svg" alt="">
-                <span>Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <a class="" href="settings.html">
-                <img class="sales-i" src="../../images/shopping-cart-icon.svg" alt="">
-                <span>All Commandes</span>
-              </a>
-            </li>
-            <li>
-              <a href="profile.html">
-                <img class="products-i" src="../../images/product_icon.svg" alt="">
-                <span>Products</span>
-              </a>
-            </li>
-            <li>
-              <a class="" href="projects.html">
-                <img class="chat-i" src="../../images/chat-icon.svg" alt="">
-                <span>Chat</span>
-              </a>
-            </li>
-            <li>
-              <a class="active" href="courses.html">
-                <img class="delivery-i" src="../../images/delivery_icon.svg" alt="">
-                <span>Valid Commande</span>
-              </a>
-            </li>
-            <li>
-              <a class="" href="friends.html">
-                <img class="store-i" src="../../images/shop-icon.svg" alt="">
-                <span>Your store</span>
-              </a>
-            </li>
-            <div class="line"></div>
-            <li>
-              <a class="" href="files.html">
-                <img class="plan-i" src="../../images/contract-icon.svg" alt="">
-                <span>Your plan</span>
-              </a>
-            </li>
-            <li>
-              <a class="" href="plans.html">
-                <img class="ads-i" src="../../images/megaphone-icon.svg" alt="">
-                <span>Your ads</span>
-              </a>
-            </li>
-            <li>
-              <a class="" href="plans.html">
-                <img class="settings-i" src="../../images/setting-icon.svg" alt="">
-                <span>Settings</span>
-              </a>
-            </li>
-          </ul>
+  <div class="page-main  p-t-130 p-b-100 font-poppins">
+    <div class="main main--w680">
+      <div class="card card-4">
+        <div class="card-body">
+
+          <table>
+            <caption>Liste des commandes</caption>
+            <thead>
+              <tr>
+                <th>Nom du client</th>
+                <th>Nom des produits</th>
+                <th>Adresse</th>
+                <th>Numéro</th>
+                <th>Prix total</th>
+                <th>Validation</th>
+              </tr>
+            </thead>
+            <tbody id="orderTableBody"></tbody>
+          </table>
+
         </div>
-        <div class="under-sidebar">
-          <h5>Become Sigma!</h5>
-          <p>And get all the features of your e-commerce</p>
-          <button id="Upgrade-btn" class="upgrade">Upgrade</button>
-        </div>
-      </div>
-    </div>
-    <div class="main-section">
-
-      <div class="product-vertical">
-
-        <table>
-          <caption>Liste des commandes</caption>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nom du vendeur</th>
-              <th>Nom du produit</th>
-              <th>Prix total</th>
-              <th>Valid</th>
-            </tr>
-          </thead>
-          <tbody id="orderTableBody"></tbody>
-        </table>
-
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- iconify -->
-  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    var commandes = [
-      { idProduit: 1, vendeur: "John Doe", produit: "Produit 1 très long", prix: 50 },
-      { idProduit: 2, vendeur: "Jane Smith", produit: "Produit 2", prix: 30 },
-      { idProduit: 3, vendeur: "Jane Smith", produit: "Produit 3", prix: 40 },
-      { idProduit: 4, vendeur: "John Doe", produit: "Produit 4", prix: 25 },
-      { idProduit: 5, vendeur: "John Doe", produit: "Produit 5", prix: 35 }
-    ];
-
-    function truncateProductName(productName, maxLength) {
-      if (productName.length > maxLength) {
-        return productName.substring(0, maxLength) + '...';
+    var a = sessionStorage.getItem('token');
+    console.log(a);
+    axios.get("https://buy-it-sigma.herokuapp.com/api/v1/orders", {
+      headers: {
+        Authorization: 'Bearer ' + a,
+        'Content-Type': 'multipart/form-data',
       }
-      return productName;
-    }
+    })
+      .then(function (response) {
+        let commandes = response.data.data
+        console.log(commandes)
 
-    function addOrder(index, idProduit, vendeur, produit, prix) {
-      var tableBody = document.getElementById('orderTableBody');
+        function truncateProductName(productName, maxLength) {
+          if (productName.length > maxLength) {
+            return productName.substring(0, maxLength) + '...';
+          }
+          return productName;
+        }
 
-      var row = document.createElement('tr');
+        function addOrder(clientName, address, number, cartItems, totalOrderPrice) {
+          var tableBody = document.getElementById('orderTableBody');
 
-      var indexCell = document.createElement('td');
-      indexCell.textContent = index;
-      row.appendChild(indexCell);
+          var row = document.createElement('tr');
+          row.dataset.orderId = commande._id;
 
-      var vendeurCell = document.createElement('td');
-      vendeurCell.textContent = vendeur;
-      row.appendChild(vendeurCell);
+          var clientNameCell = document.createElement('td');
+          clientNameCell.textContent = clientName;
+          row.appendChild(clientNameCell);
 
-      var productNameCell = document.createElement('td');
-      productNameCell.textContent = truncateProductName(produit, 15);
-      row.appendChild(productNameCell);
+          var productNameCell = document.createElement('td');
+          var productList = document.createElement('ul');
+          cartItems.forEach(function (item) {
+            var productItem = document.createElement('li');
 
-      var prixCell = document.createElement('td');
-      prixCell.textContent = prix + '$';
-      row.appendChild(prixCell);
+            //hna tbadal lenghweeeeeeeeeeeeeeeeeeeee
 
-      var validCell = document.createElement('td');
-      var validateBtn = document.createElement('button');
-      validateBtn.textContent = 'Validate';
-      validateBtn.addEventListener('click', function () {
-        deleteRow(index, idProduit);
-      });
-      validCell.appendChild(validateBtn);
-      row.appendChild(validCell);
+            productItem.textContent = truncateProductName(item.product.title, 15);
+            productList.appendChild(productItem);
+          });
+          productNameCell.appendChild(productList);
+          row.appendChild(productNameCell);
 
-      tableBody.appendChild(row);
-    }
+          var addressCell = document.createElement('td');
+          addressCell.textContent = address;
+          row.appendChild(addressCell);
 
-    function deleteRow(index, idProduit) {
-      var tableBody = document.getElementById('orderTableBody');
-      var row = tableBody.childNodes[index - 1];
-      tableBody.removeChild(row);
+          var numberCell = document.createElement('td');
+          numberCell.textContent = number;
+          row.appendChild(numberCell);
 
-      // Send data via Axios POST request to "linkme.something"
-      axios.post('linkme.something', {
-        index: index,
-        idProduit: idProduit
+          var totalOrderPriceCell = document.createElement('td');
+          totalOrderPriceCell.textContent = totalOrderPrice + '$';
+          row.appendChild(totalOrderPriceCell);
+
+          var validCell = document.createElement('td');
+          var buttonContainer = document.createElement('div');
+          buttonContainer.classList.add('button-container');
+
+          var validateBtnTrue = createCircleButton('✔', 'green', function () {
+            valideRow(row);
+          });
+          var validateBtnFalse = createCircleButton('╳', 'red', function () {
+            deleteRow(row);
+          });
+
+          buttonContainer.appendChild(validateBtnTrue);
+          buttonContainer.appendChild(validateBtnFalse);
+          validCell.appendChild(buttonContainer);
+          row.appendChild(validCell);
+
+          tableBody.appendChild(row);
+        }
+
+
+        function valideRow(row) {
+          // Mettre à jour la commande avec axios.patch
+          var orderId = row.dataset.orderId;
+          axios.patch(`https://buy-it-sigma.herokuapp.com/api/v1/orders/${orderId}/verified`, {
+            headers: {
+              Authorization: 'Bearer ' + a,
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+            .then(function (response) {
+              console.log('Commande mise à jour avec succès');
+            })
+            .catch(function (error) {
+              console.error('Erreur lors de la mise à jour de la commande:', error);
+            });
+
+          // Supprimer la ligne de la table
+          var tableBody = document.getElementById('orderTableBody');
+          tableBody.removeChild(row);
+        }
+
+
+        function createCircleButton(text, color, clickHandler) {
+          var button = document.createElement('button');
+          button.classList.add('circle-button');
+          button.style.backgroundColor = color;
+          button.textContent = text;
+          button.addEventListener('click', clickHandler);
+          return button;
+        }
+
+        // function deleteRow(row) {
+        //   var tableBody = document.getElementById('orderTableBody');
+        //   tableBody.removeChild(row);
+
+        //   // Send data via Axios POST request to "linkme.something"
+        //   // axios.post('linkme.something', {
+        //   //   idProduit: row.dataset.productId
+        //   // })
+        //   //   .then(function (response) {
+        //   //     console.log(response.data);
+        //   //   })
+        //   //   .catch(function (error) {
+        //   //     console.log(error);
+        //   //   });
+        // }
+        function deleteRow(row) {
+          var tableBody = document.getElementById('orderTableBody');
+          var orderId = row.dataset.orderId; // Récupérer l'ID de la commande depuis l'attribut "data-order-id"
+
+          // Supprimer la commande de la table "commandes"
+          var updatedCommandes = commandes.filter(function (commande) {
+            return commande._id !== orderId;
+          });
+          commandes = updatedCommandes;
+
+          tableBody.removeChild(row);
+
+          // Effectuer une requête DELETE pour supprimer la commande de l'API
+
+          axios.delete(`https://buy-it-sigma.herokuapp.com/api/v1/orders/${orderId}`, {
+            headers: {
+              Authorization: 'Bearer ' + a,
+            },
+          })
+            .then(function (response) {
+              // Succès de la requête
+              alert('Commande supprimée avec succès!');
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              // Erreur de la requête
+              alert('Une erreur s\'est produite lors de la suppression de la commande.');
+              console.log(error);
+            });
+        }
+
+
+        for (var i = 0; i < commandes.length; i++) {
+          var commande = commandes[i];
+          var clientName = commande.shippingAddress.firstName + ' ' + commande.shippingAddress.lastName;
+          var address = commande.shippingAddress.address;
+          var number = commande.shippingAddress.phone;
+          var cartItems = commande.cartItems;
+          var totalOrderPrice = commande.totalOrderPrice;
+
+          addOrder(clientName, address, number, cartItems, totalOrderPrice);
+        }
       })
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
+      .catch(function (error) {
+        console.error(error);
+      });
 
-    for (var i = 0; i < commandes.length; i++) {
-      var commande = commandes[i];
-      addOrder(i + 1, commande.idProduit, commande.vendeur, commande.produit, commande.prix);
-    }
+
+
+    // var commandes = [
+    //   {
+    //     shippingAddress: {
+    //       firstName: "John",
+    //       lastName: "Doe",
+    //       address: "123 Street, City",
+    //       phone: "1234567890"
+    //     },
+    //     cartItems: [
+    //       { product: { title: "Produit 1 très long" }, quantity: 2 },
+    //       { product: { title: "Produit 2" }, quantity: 1 },
+    //       { product: { title: "Produit 3" }, quantity: 3 }
+    //     ],
+    //     totalOrderPrice: 150
+    //   },
+    //   {
+    //     shippingAddress: {
+    //       firstName: "Jane",
+    //       lastName: "Smith",
+    //       address: "456 Avenue, Town",
+    //       phone: "9876543210"
+    //     },
+    //     cartItems: [
+    //       { product: { title: "Produit 4" }, quantity: 1 },
+    //       { product: { title: "Produit 5" }, quantity: 2 }
+    //     ],
+    //     totalOrderPrice: 120
+    //   }
+    // ];
+
+
+
+
   </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

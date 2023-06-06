@@ -277,7 +277,6 @@
             font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
 
         }
-       
     </style>
 </head>
 
@@ -426,6 +425,7 @@
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="Catégorie" id="categorySelect" required>
                                             <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option>Cgsdgfdsg</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -600,9 +600,9 @@
                         </div> -->
 
                         <div id="colorContainer" class="form-group1">
-                            <label>Couleurs disponibles:</label><div></div>
-                            <input type="color" class="colorInput" /><div></div>
-                        
+                            <label>Couleurs disponibles:</label>
+                            <div></div>
+                            <input type="color" class="colorInput" />
                             <button type="button" id="addColorButton">+</button>
                         </div>
 
@@ -792,6 +792,8 @@
 
 
     //linkag
+    // Votre code JavaScript ici
+
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories', {
         headers: {
             Authorization: 'Bearer ' + a,
@@ -799,52 +801,61 @@
         }
     })
         .then(function (response) {
-
             var categories = response.data;
             // console.log(categories)
-            var categorySelect = document.getElementById("categorySelect");
-            var a = response.data;
+            var categorySelect = document.getElementById('categorySelect');
+            var categoriesData = response.data.data;
 
-            for (var i = 0; i < a.data.length; i++) {
-                var catename = a.data[i].name;
-                var cateid = a.data[i]._id;
+            for (var i = 0; i < categoriesData.length; i++) {
+                var category = categoriesData[i];
+                var categoryId = category._id;
+                // console.log(categoryId)
+                var categoryName = category.name;
 
-                var option = document.createElement("option");
-                option.value = cateid;
-                option.text = catename;
-                option.class = cateid;
+                var option = document.createElement('option');
+                option.value = categoryId;
+                option.text = categoryName;
                 categorySelect.appendChild(option);
             }
         })
-        .catch(error => {
-            console.error('Erreur lors de la récupération des produits:', error);
+        .catch(function (error) {
+            console.error('Erreur lors de la récupération des catégories:', error);
         });
-    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories/' + cateid + '/subcategories', {
-    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
-        headers: {
-            Authorization: 'Bearer ' + a,
-        }
-    })
-        .then(function (response) {
+    function choisir() {
+        var categoryId = document.getElementById('categorySelect').value;
+        console.log(categoryId)
+        fetchSubcategories(categoryId)
 
-            var subcategories = response.data;
-            var SubcategorySelect = document.getElementById("SubcategorySelect");
-            var b = response.data;
+    }
 
-            for (var i = 0; i < b.data.length; i++) {
-                var scatename = b.data[i].name;
-                var scateid = b.data[i]._id;
 
-                var soption = document.createElement("option");
-                soption.value = scateid;
-                soption.text = scatename;
-                soption.class = scateid;
-                SubcategorySelect.appendChild(soption);
+    function fetchSubcategories(categoryId) {
+        var subcategorySelect = document.getElementById('SubcategorySelect');
+        subcategorySelect.innerHTML = ''; // Effacer les options précédentes
+
+        axios.get(`https://buy-it-sigma.herokuapp.com/api/v1/categories/${categoryId}/subcategories`, {
+            headers: {
+                Authorization: 'Bearer ' + a,
             }
         })
-        .catch(error => {
-            console.error('Erreur lors de la récupération des produits:', error);
-        });
+            .then(function (response) {
+                var subcategories = response.data;
+                console.log(subcategories)
+                subcategories.forEach(function (subcategory) {
+                    var subcategoryId = subcategory._id;
+                    var subcategoryName = subcategory.name;
+
+                    var option = document.createElement('option');
+                    option.value = subcategoryId;
+                    option.text = subcategoryName;
+                    subcategorySelect.appendChild(option);
+                });
+            })
+            .catch(function (error) {
+                console.error('Erreur lors de la récupération des sous-catégories:', error);
+            });
+    }
+
 
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/deliveries', {
         headers: {
@@ -854,7 +865,7 @@
         .then(function (response) {
 
             var delivery = response.data;
-            console.log(delivery)
+            // console.log(delivery)
             var DeliverySelect = document.getElementById("DeliverySelect");
             var c = response.data;
 
