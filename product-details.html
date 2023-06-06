@@ -81,7 +81,7 @@
                                         <div class="icon-large"><i class="ri-heart-line"></i></div>
                                         <div class="fly-item"><span id="wishlistnumber" class="item-number">0</span></div>
                                     </a></li>
-                                <li><a href="./shiping-details.html" class="iscart">
+                                <li><a href="./src/html/cart.html" class="iscart">
 
                                         <div class="icon-large">
                                             <i class="ri-shopping-cart-line"></i>
@@ -316,7 +316,7 @@
                                     <div class="row">
                                         <div class="item is_sticky">
                                             <div class="price">
-                                                <span class="discount">32%<br>OFF</span>
+                                                <span class="discount" id="discountpersentage">32%<br>OFF</span>
                                             </div>
                                             <div class="big-image">
                                                 <div class="big-image-wrapper swiper-wrapper">
@@ -1216,8 +1216,11 @@
     var totalreviwsavrege=document.getElementById('totalreviwsavrege')
     
    
+<<<<<<< HEAD
+=======
 
-
+var discount=document.getElementById('discountpersentage')
+>>>>>>> 5af55c70b40f5f19378a86cab6335bd9253f8bbd
 
 
     const data = response.data;
@@ -1231,12 +1234,36 @@
   
 
 
+<<<<<<< HEAD
+    const data = response.data;
+    console.log(data)
+    console.log(data.data.description);
+    
+   var a= data.data
+
+   
+
+  
+
+
+=======
+>>>>>>> 5af55c70b40f5f19378a86cab6335bd9253f8bbd
 title.textContent=a.title
     text.textContent=a.description
     price.textContent="$"+a.price
     reviewnumber.textContent=a.totalRating
     rating.textContent=a.ratingAverage
+   
+    // jQuery code to edit the number portion:
+const discountElement = $("#discountpersentage");
+const discountText = discountElement.html();
+const numericValue = discountText.replace('%<br>OFF', '');
+// Assuming the numeric value is 32, you can update it as needed
+const updatedNumericValue = ((a.priceAfterDiscount/a.price)*100.).toFixed(0); 
+const updatedDiscountText = updatedNumericValue + '%<br>OFF';
+discountElement.html(updatedDiscountText);
   $('#totalreviwsavrege.stars').css('width', a.ratingAverage/5*80+'px');
+
     
   
    

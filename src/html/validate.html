@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>valid Commandes</title>
+  <link rel="stylesheet" href="../CSS/all.min.css">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/dash_styleV.css">
+  <style>
+    caption {
+      font-size: 1.5em;
+      font-weight: bold;
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="sidebar-all">
+      <div class="sidebar">
+        <div class="upper-sidebar">
+          <h3 class="">BUY-IT</h3>
+          <ul>
+            <li>
+              <a class="" href="index.html">
+                <img class="dash-i" src="../../images/dashboard-icon.svg" alt="">
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a class="" href="settings.html">
+                <img class="sales-i" src="../../images/shopping-cart-icon.svg" alt="">
+                <span>All Commandes</span>
+              </a>
+            </li>
+            <li>
+              <a href="profile.html">
+                <img class="products-i" src="../../images/product_icon.svg" alt="">
+                <span>Products</span>
+              </a>
+            </li>
+            <li>
+              <a class="" href="projects.html">
+                <img class="chat-i" src="../../images/chat-icon.svg" alt="">
+                <span>Chat</span>
+              </a>
+            </li>
+            <li>
+              <a class="active" href="courses.html">
+                <img class="delivery-i" src="../../images/delivery_icon.svg" alt="">
+                <span>Valid Commande</span>
+              </a>
+            </li>
+            <li>
+              <a class="" href="friends.html">
+                <img class="store-i" src="../../images/shop-icon.svg" alt="">
+                <span>Your store</span>
+              </a>
+            </li>
+            <div class="line"></div>
+            <li>
+              <a class="" href="files.html">
+                <img class="plan-i" src="../../images/contract-icon.svg" alt="">
+                <span>Your plan</span>
+              </a>
+            </li>
+            <li>
+              <a class="" href="plans.html">
+                <img class="ads-i" src="../../images/megaphone-icon.svg" alt="">
+                <span>Your ads</span>
+              </a>
+            </li>
+            <li>
+              <a class="" href="plans.html">
+                <img class="settings-i" src="../../images/setting-icon.svg" alt="">
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="under-sidebar">
+          <h5>Become Sigma!</h5>
+          <p>And get all the features of your e-commerce</p>
+          <button id="Upgrade-btn" class="upgrade">Upgrade</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-section">
+
+      <div class="product-vertical">
+
+        <table>
+          <caption>Liste des commandes</caption>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nom du vendeur</th>
+              <th>Nom du produit</th>
+              <th>Prix total</th>
+              <th>Valid</th>
+            </tr>
+          </thead>
+          <tbody id="orderTableBody"></tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- iconify -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    var commandes = [
+      { idProduit: 1, vendeur: "John Doe", produit: "Produit 1 très long", prix: 50 },
+      { idProduit: 2, vendeur: "Jane Smith", produit: "Produit 2", prix: 30 },
+      { idProduit: 3, vendeur: "Jane Smith", produit: "Produit 3", prix: 40 },
+      { idProduit: 4, vendeur: "John Doe", produit: "Produit 4", prix: 25 },
+      { idProduit: 5, vendeur: "John Doe", produit: "Produit 5", prix: 35 }
+    ];
+
+    function truncateProductName(productName, maxLength) {
+      if (productName.length > maxLength) {
+        return productName.substring(0, maxLength) + '...';
+      }
+      return productName;
+    }
+
+    function addOrder(index, idProduit, vendeur, produit, prix) {
+      var tableBody = document.getElementById('orderTableBody');
+
+      var row = document.createElement('tr');
+
+      var indexCell = document.createElement('td');
+      indexCell.textContent = index;
+      row.appendChild(indexCell);
+
+      var vendeurCell = document.createElement('td');
+      vendeurCell.textContent = vendeur;
+      row.appendChild(vendeurCell);
+
+      var productNameCell = document.createElement('td');
+      productNameCell.textContent = truncateProductName(produit, 15);
+      row.appendChild(productNameCell);
+
+      var prixCell = document.createElement('td');
+      prixCell.textContent = prix + '$';
+      row.appendChild(prixCell);
+
+      var validCell = document.createElement('td');
+      var validateBtn = document.createElement('button');
+      validateBtn.textContent = 'Validate';
+      validateBtn.addEventListener('click', function () {
+        deleteRow(index, idProduit);
+      });
+      validCell.appendChild(validateBtn);
+      row.appendChild(validCell);
+
+      tableBody.appendChild(row);
+    }
+
+    function deleteRow(index, idProduit) {
+      var tableBody = document.getElementById('orderTableBody');
+      var row = tableBody.childNodes[index - 1];
+      tableBody.removeChild(row);
+
+      // Send data via Axios POST request to "linkme.something"
+      axios.post('linkme.something', {
+        index: index,
+        idProduit: idProduit
+      })
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    for (var i = 0; i < commandes.length; i++) {
+      var commande = commandes[i];
+      addOrder(i + 1, commande.idProduit, commande.vendeur, commande.produit, commande.prix);
+    }
+  </script>
+</body>
+
+</html>

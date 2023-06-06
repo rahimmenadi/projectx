@@ -65,7 +65,8 @@
         }
 
         .colorInput {
-            min-width: 100px;
+            width: 40px;
+            margin-right: 5px;
         }
 
         .page-main {
@@ -258,8 +259,8 @@
 
         #addColorButton {
             margin-right: 100px;
-            margin: 15px 0;
-            line-height: 20px;
+            margin: 5px 0;
+            line-height: 15px;
             padding: 0 20px;
             color: #fff;
             background-color: #4272d7;
@@ -276,6 +277,7 @@
             font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
 
         }
+       
     </style>
 </head>
 
@@ -598,9 +600,9 @@
                         </div> -->
 
                         <div id="colorContainer" class="form-group1">
-                            <label>Couleurs disponibles:</label>
+                            <label>Couleurs disponibles:</label><div></div>
                             <input type="color" class="colorInput" />
-                            <button type="button" id="addColorButton">Ajouter couleur</button>
+                            <button type="button" id="addColorButton">+</button>
                         </div>
 
                         <div id="sizeQuantityContainer">
@@ -816,6 +818,7 @@
         .catch(error => {
             console.error('Erreur lors de la récupération des produits:', error);
         });
+    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/categories/' + cateid + '/subcategories', {
     axios.get('https://buy-it-sigma.herokuapp.com/api/v1/subcategories', {
         headers: {
             Authorization: 'Bearer ' + a,
@@ -1101,8 +1104,10 @@
             })
             .catch(function (error) {
                 // console.log(error.response)
-                console.error('Error adding Product:', error.response);
+                console.error('Error adding Product:', error);
                 displayPopup("an error occured");
+                console.log(product.imageCover)
+                console.log(product.images[0])
             });
 
 

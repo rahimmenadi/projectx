@@ -394,7 +394,8 @@
 }
 
 #dash {
-  background-color: var(--color-orangered-100);
+  background-color: rgba(255, 68, 0, 0.212);
+  color: #fb5607;
 }
 
 .nav {
@@ -410,6 +411,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 12.77px;
+  color: #fb5607;
 }
 
 .nav3:hover,
