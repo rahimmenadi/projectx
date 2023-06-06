@@ -1,4 +1,4 @@
-import axios from "axios";
+;
 
 const token = localStorage.getItem("sellertoken")
 console.log(token)

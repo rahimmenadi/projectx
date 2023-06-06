@@ -145,7 +145,7 @@
           
           axios.post('https://buy-it-sigma.herokuapp.com/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
            
-            if(response.data.data.role=='seller'){
+            if(response.data.data.role=='user'){
               Swal.fire({
                   position: 'center',
                   icon: 'success',
@@ -159,21 +159,21 @@
                   // Redirect to another page
                   window.location.replace('./src/html/dash-1.html');
                 },3000);
-        
-                let token=localStorage.setItem('sellertoken',response.data.token)
-                console.log(token)
+          localStorage.setItem('token',response.data.token.toString())
              }
              else{
 
               Swal.fire({
                   icon: 'error',
                   title: 'Oops...',
-                  text: 'Your are not seller!',
+                  text: 'Your are not user!',
                 
                 })
              }
        
-}).catch((error)=>{console.log(error.response.data)
+
+         let token=localStorage.setItem('sellertoken',response.data.token)
+        console.log(token)}).catch((error)=>{console.log(error.response.data)
             Swal.fire({
               icon: 'error',
               title: 'Oops...',

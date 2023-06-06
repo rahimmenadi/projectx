@@ -201,6 +201,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     
+    <script src="../js/dellivrey.js"></script>
     <script>
       
 
@@ -248,9 +249,8 @@ const validerbtn=document.getElementById('valider');
 validerbtn.addEventListener('click',function(e){
     e.preventDefault();
     console.log("wash")
-   
 
-axios.post('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid+'/delivery', {
+axios.patch('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid+'/delivery', {
     headers: {
         Authorization: `Bearer ${token}`
       }})

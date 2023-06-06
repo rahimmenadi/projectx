@@ -193,81 +193,10 @@
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<!-- iconify -->
-<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     
-    <script>
-      
-
-const token = localStorage.getItem("sellertoken")
-console.log(token)
-
-var orderid=localStorage.getItem('orderIdSeller')
-console.log(orderid)
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
-
-one.onclick = function() {
-    one.classList.add("active");
-    two.classList.remove("active");
-    three.classList.remove("active");
-    four.classList.remove("active");
-    
-}
-
-two.onclick = function() {
-    one.classList.add("active");
-    two.classList.add("active");
-    three.classList.remove("active");
-    four.classList.remove("active");
-   
-}
-three.onclick = function() {
-    one.classList.add("active");
-    two.classList.add("active");
-    three.classList.add("active");
-    four.classList.remove("active");
-    
-}
-four.onclick = function() {
-    one.classList.add("active");
-    two.classList.add("active");
-    three.classList.add("active");
-    four.classList.add("active");
-  
-}
-const validerbtn=document.getElementById('valider');
-validerbtn.addEventListener('click',function(e){
-    e.preventDefault();
-    console.log("wash")
-   
-
-axios.post('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid+'/delivery', {
-    headers: {
-        Authorization: `Bearer ${token}`
-      }})
-  .then(response => {
-    
-    
-console.log(response.data.data)
-    
-  })
-  .catch(error => {
-    console.log(error)
-  });
-
-
-  
-})
-    </script>
+    <script src="../js/dellivrey.js"></script>
 
 </body>
 </html>

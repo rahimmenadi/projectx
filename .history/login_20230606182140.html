@@ -106,17 +106,8 @@
                 const timer = setTimeout(function() {
                     // Redirect to another page
                     window.location.replace('/home.html');
-                  },3000);
+                  },10000);
             localStorage.setItem('token',response.data.token.toString())
-               }
-               else{
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Your are not user!',
-                  
-                  })
                }
              }).catch((error)=>{console.log(error.response.data)
                 Swal.fire({

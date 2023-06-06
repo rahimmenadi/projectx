@@ -45,7 +45,7 @@ validerbtn.addEventListener('click',function(e){
     e.preventDefault();
     console.log("wash")
 
-axios.patch('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid+'/delivery', {
+axios('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid+'/delivery', {
     headers: {
         Authorization: `Bearer ${token}`
       }})

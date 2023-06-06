@@ -127,7 +127,7 @@
           let password=document.getElementById("password").value
           
           axios.post('https://buy-it-sigma.herokuapp.com/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
-            
+            window.location.assign('./admin-home.html');
             if(response.data.data.role=="admin"){
              Swal.fire({
                     position: 'center',
@@ -140,7 +140,7 @@
                 
                 const timer = setTimeout(function() {
                     // Redirect to another page
-                    window.location.replace('/admin-home.html');
+                    window.location.replace('/home.html');
                   },3000);
             localStorage.setItem('admintoken',response.data.token.toString())
 
@@ -150,7 +150,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Your are not admin!',
+                    text: 'Your are not user!',
                   
                   })
                 }

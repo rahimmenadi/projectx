@@ -145,7 +145,7 @@
           
           axios.post('https://buy-it-sigma.herokuapp.com/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
            
-            if(response.data.data.role=='seller'){
+            if(response.data.data.role=='user'){
               Swal.fire({
                   position: 'center',
                   icon: 'success',
@@ -168,7 +168,7 @@
               Swal.fire({
                   icon: 'error',
                   title: 'Oops...',
-                  text: 'Your are not seller!',
+                  text: 'Your are not user!',
                 
                 })
              }
