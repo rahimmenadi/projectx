@@ -545,9 +545,8 @@
     <div class="overlay"></div>
     </div>
     <script>
-
-        let a = localStorage.getItem('token');
-        console.log(a);
+        var token = localStorage.getItem('admintoken')
+        console.log(token)
         // Fonction pour récupérer les produits depuis le backend avec Axios(méthode GET)
         axios.get('https://buy-it-sigma.herokuapp.com/api/v1/orders/user/history', {
             headers: {
