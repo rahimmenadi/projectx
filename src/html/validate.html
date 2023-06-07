@@ -341,24 +341,26 @@
 
         function valideRow(row) {
           // Mettre à jour la commande avec axios.patch
-          var orderId = row.dataset.orderId;
-          axios.patch(`https://buy-it-sigma.herokuapp.com/api/v1/orders/${orderId}/verified`, {}, {
-            headers: {
-              Authorization: 'Bearer ' + a,
-              'Content-Type': 'multipart/form-data',
-            },
-          })
-            .then(function (response) {
-              console.log('Commande mise à jour avec succès');
+          // var orderId = row.dataset.orderId;
+          // axios.patch(`https://buy-it-sigma.herokuapp.com/api/v1/orders/${orderId}/verified`, {}, {
+          //   headers: {
+          //     Authorization: 'Bearer ' + a,
+          //     'Content-Type': 'multipart/form-data',
+          //   },
+          // })
+          //   .then(function (response) {
+          //     console.log('Commande mise à jour avec succès');
 
-            })
-            .catch(function (error) {
-              console.error('Erreur lors de la mise à jour de la commande:', error);
-            });
+          //   })
+          //   .catch(function (error) {
+          //     console.error('Erreur lors de la mise à jour de la commande:', error);
+          //   });
 
           // Supprimer la ligne de la table
           var tableBody = document.getElementById('orderTableBody');
           tableBody.removeChild(row);
+          alert('Commande validée avec succès!');
+
         }
 
 
