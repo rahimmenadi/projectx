@@ -15,7 +15,7 @@
     <div class="dashboard">
       <div class="welcome-back-user-parent">
         <div class="welcome-back-user-container">
-          <b>Welcome Back,</b><span class="user"><span class="span"> </span><span id="userN">Kadida!</span></span>
+          <b>Welcome Back,</b><span class="user"><span class="span"> </span><span id="userN"></span></span>
         </div>
         <div class="look-whats-happening">
           Look what’s happening with your store’s update.
@@ -57,12 +57,12 @@
           </div>
           <script src="../js/chart.js"></script>
         </div>
-        <div class="recent-orders-parent">
-          <b class="recent-orders">Recent Orders</b>
-          <a href="../html/guest.html">
+        <div class="recent-orders-parent" style="display: none;">
+          <!-- <b class="recent-orders">Recent Orders</b> -->
+          <!-- <a href="../html/guest.html">
             <button class="see-all">See All</button>
-          </a>
-          <table>
+          </a> -->
+          <!-- <table>
             <thead>
               <tr>
                 <th>Photo</th> <br><br><br><br>
@@ -74,7 +74,9 @@
               </tr>
             </thead>
             <tbody id="orderTableBody"></tbody>
-          </table>
+          </table> -->
+        </div>
+      </div>
 
           <!-- <div class="photo-parent">
             <b class="photo">Photo</b><b class="photo">Product name</b><b class="photo">Date</b><b
@@ -163,8 +165,6 @@
             </div>
 
           </div> -->
-        </div>
-      </div>
       <div class="sidebar">
         <a href="../html/guest.html">
           <button class="logo54-1-parent">
@@ -201,7 +201,7 @@
             <button class="nav3" id="delivery">
               <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
               <div class="sales">Delivery</div>
-            <!-- </button><button class="nav">
+              <!-- </button><button class="nav">
             <button class="nav3" id="delivery">
              <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
               <div class="sales"> Delivery</div> 
@@ -244,9 +244,25 @@
       </div>
     </div>
   </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <script>
-    var delivery=document.getElementById('delivery')
-    delivery.addEventListener('click', function(event){
+    var token = localStorage.getItem('sellertoken')
+    console.log(token)
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products', {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }).then((response) => {
+      console.log(response.data.data)
+    })
+      .catch((error) => {
+        console.error('Erreur lors de la suppression du produit:', error);
+      });
+
+
+    var delivery = document.getElementById('delivery')
+    delivery.addEventListener('click', function (event) {
       console.log("yo")
       window.location.assign('./orders.html')
     })
@@ -320,7 +336,7 @@
 
   </script>
   <script>var token = localStorage.getItem('sellertoken')
-    </script>
+  </script>
 </body>
 
 </html>

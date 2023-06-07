@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../css/add-cat.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link
     href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
@@ -10,6 +11,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        .tali {
+            font-size: 18px;
+            position: relative;
+            right: 35px;
+            top: -25px;
+        }
+
         body {
             background: linear-gradient(to right, #ff6701, #ff2600);
         }
@@ -58,6 +74,8 @@
         <div class="main main--w680">
             <div class="card card-4">
                 <div class="card-body">
+                    <a href="../../admin-home.html" class="tali" onclick="history.back();"> <i class="fas fa-arrow-left"></i>
+                        Retour </a>
                     <h2>Add Sub-Category</h2>
                     <form id="subcategoryForm">
                         <div class="form-group">
