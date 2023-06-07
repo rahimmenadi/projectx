@@ -179,29 +179,37 @@
               <img class="dashboard-1-icon" alt="" src="../../public/dashboard-1.svg" />
               <div class="sales">Dashboard</div>
             </button>
-            <button class="nav" id="commandes">
+            <!-- <button class="nav" id="commandes">
               <img class="shopping-cart-1-icon" alt="" src="../../public/shoppingcart-1.svg" />
               <div class="sales">sales</div>
-            </button>
+            </button> -->
+            <!-- <button class="nav" id="produita">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/product-1-1.svg" />
+              <div class="sales">Products</div> -->
+            <!-- </button><button class="nav">
+              <img class="shopping-cart-1-icon" alt="" src="../../public/shoppingcart-1.svg" />
+              <div class="sales">Sales</div>
+            </button> -->
             <button class="nav" id="produita">
               <img class="shopping-cart-1-icon" alt="" src="../../public/product-1-1.svg" />
-<<<<<<< HEAD
-              <div class="sales">Products</div>
-=======
               <div class="sales"><a>Products</a></div>
->>>>>>> 5af55c70b40f5f19378a86cab6335bd9253f8bbd
             </button>
             <button id="addtyli" class="nav3">
               <img class="shopping-cart-1-icon" alt="" src="../../img/add.png" />
               <div class="sales">Add type livraison</div>
             </button>
-            <button class="nav3" id="validate">
+            <button class="nav3" id="delivery">
               <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
               <div class="sales">Delivery</div>
-            </button><button class="nav">
+            <!-- </button><button class="nav">
+            <button class="nav3" id="delivery">
+             <img class="shopping-cart-1-icon" alt="" src="../../public/delivery-1-1.svg" />
+              <div class="sales"> Delivery</div> 
+            </button>
+            <button class="nav">
               <img class="shopping-cart-1-icon" alt="" src="../../public/shop-1.svg" />
               <div class="sales">Your store</div>
-            </button>
+            </button> -->
             </button>
             <button class="nav" id="addpro">
               <img class="shopping-cart-1-icon" alt="" src="../../img/add.product.png" />
@@ -237,6 +245,11 @@
     </div>
   </div>
   <script>
+    var delivery=document.getElementById('delivery')
+    delivery.addEventListener('click', function(event){
+      console.log("yo")
+      window.location.assign('./orders.html')
+    })
     const addpro = document.getElementById('addpro');
     addpro.addEventListener('click', function () {
       // Navigate to the desired page
@@ -251,24 +264,9 @@
     const produit = document.getElementById('produita');
     produit.addEventListener('click', function () {
       // Navigate to the desired page
-<<<<<<< HEAD
-      window.location.href = './dash_product.html'; // Replace 'page-x.html' with the actual page URL
-=======
+      // window.location.ref = './dash_product.html'; // Replace 'page-x.html' with the actual page URL
       window.location.href = '../html/dash_product.html'; // Replace 'page-x.html' with the actual page URL
->>>>>>> 5af55c70b40f5f19378a86cab6335bd9253f8bbd
     });
-    //hna
-    // const commandes = document.getElementById('commandes');
-    // commandes.addEventListener('click', function () {
-    //   // Navigate to the desired page
-    //   window.location.href = './commandes.html'; // Replace 'page-x.html' with the actual page URL
-    // });
-    //hna
-    // const validate = document.getElementById('validate');
-    // validate.addEventListener('click', function () {
-    //   // Navigate to the desired page
-    //   window.location.href = './validate.html'; // Replace 'page-x.html' with the actual page URL
-    // });
 
     function addOrder(photo, productName, date, clientName, price, status) {
       var tableBody = document.getElementById('orderTableBody');
@@ -321,8 +319,8 @@
     addOrder('../../public/frame-1974@2x.png', 'Produit x', '2023-05-20', 'bendida', '381da', 'delivered');
 
   </script>
-  <script>var a = sessionStorage.getItem('token')
-    console.log(a)</script>
+  <script>var token = localStorage.getItem('sellertoken')
+    </script>
 </body>
 
 </html>

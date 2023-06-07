@@ -4,12 +4,12 @@ const closeBtn = document.querySelector("#close-btn")
 const themeToggler = document.querySelector(".theme-toggler")
 
 // Show Sidebar
-menuBtn.addEventListener('click', ()=>{
+menuBtn.addEventListener('click', () => {
     sideMenu.style.display = 'block';
 }
 )
 // Close Sidebar
-closeBtn.addEventListener('click', ()=>{
+closeBtn.addEventListener('click', () => {
     sideMenu.style.display = 'none';
 })
 
@@ -21,5 +21,7 @@ themeToggler.addEventListener('click', () => {
     themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
 }
 )
+var token = localStorage.getItem('admintoken')
+console.log(token)
 
 

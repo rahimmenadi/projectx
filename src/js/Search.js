@@ -1,5 +1,6 @@
 
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("sellertoken");
+
 function updateCartNumber(cartLenth,totalPrice){
     document.getElementById("cart-number").textContent= cartLenth + "";
     document.getElementById("cart-number-one").textContent= cartLenth + "";

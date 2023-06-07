@@ -9,6 +9,18 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
                   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+  rel="stylesheet"
+/>
+<link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
 </head>
 <body>
     <div id="page" class="site page-home">
@@ -28,6 +40,7 @@
                 <div class="container">
                     <div class="wrapper flexitem">
                         <div class="left">
+                            
                             <ul class="flexitem main-links">
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">New Products</a></li>
@@ -35,27 +48,18 @@
                                 <li id="wishlist-home"><a  href="#">Wishlist</a></li>
                             </ul>
                         </div>
+                       
                         <div class="right">
                         
                             <ul class="flexitem main-links">
                                 <li id="sign-up-home"><a href="#">Sign Up</a></li>
-                                <li id="my-account-home"><a href="#">My Account</a></li>
-                                <li><a href="#">Order Tracking</a></li>
                                 <li><a href="#">USD <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
-                                    <ul>
-                                        <li class="current"><a href="#">USD</a></li>
-                                        <li><a href="#">EURO</a></li>
-                                        <li><a href="#">GBP</a></li>
-                                        <li><a href="#">IDR</a></li>
-                                    </ul>
+                                    
                                 </li>
+                                <li><a href="#">Order Tracking</a></li>
+                               
                                 <li><a href="#">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
-                                    <ul>
-                                        <li class="current"><a href="#">English</a></li>
-                                        <li><a href="#">German</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">Polish</a></li>
-                                    </ul>
+                                   
                                 </li>
                             </ul>
                         </div>
@@ -176,8 +180,11 @@
                                 </ul>
                             </nav>
                         </div>
+                        
                         <div class="right">
                             <ul class="flexitem second-links">
+                                   
+                                  
                                 <li id="wish-list-icon-home" class="mobile-hide"><a href="src/html/wishlist.html">
                                         <div class="icon-large"><i class="ri-heart-line"></i></div>
                                         <div class="fly-item"><span id="wishlist-number" class="item-number">0</span></div>
@@ -195,8 +202,45 @@
                                             <div id="total-cart-home" class="cart-total">$0.00</div>
                                         </div>
                                     </a></li>
+                                   
                             </ul>
+                            
                         </div>
+                        <ul class="ulprofile">
+                                      
+                            <li class="liprofile">
+                              <img src="images/profile (2).svg" class="profile" />
+                              <ul class="subulprofile">
+                                <li class="sub-item">
+                                  <span class="material-icons-outlined"> grid_view </span>
+                    
+                                  <a href="./src/html/wishlist.html">
+                                    <p>Wishlist</p>
+                                  </a>
+                                </li>
+                                <li class="sub-item">
+                                  <span class="material-icons-outlined">
+                                    format_list_bulleted
+                                  </span>
+                                  <a href="./src/html/ordertrack.html">
+                                  <p>My Orders</p>
+                                </a>
+                                </li>
+                                <li class="sub-item">
+                                  <span class="material-icons-outlined"> manage_accounts </span>
+                                  <a href="#">
+
+                                  <p>History</p>
+                                </a>
+
+                                </li>
+                                <li class="sub-item" id="logout">
+                                  <span  id="logout" class="material-icons-outlined"> logout </span>
+                                  <p >Logout</p>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
                     </div>
                 </div>
             </div>
@@ -1202,6 +1246,30 @@
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000); -->
+
+<script>
+    var logoutElement = document.getElementById("logout");
+ 
+logoutElement.addEventListener("click", function() {
+   
+    localStorage.removeItem('token')
+    Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Good Bye !',
+        showConfirmButton: false,
+        timer: 3000
+      })
+    
+    
+    const timer = setTimeout(function() {
+        // Redirect to another page
+        window.location.replace('./login.html');
+      },3000);
+  // Code to execute when the "Logout" element is clicked
+  // For example, you can perform a logout action here
+});
+    
 </script>
 </body>
 

@@ -367,6 +367,8 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
 .then(response => {
     let panier_item = response.data.data;
     cart_id = panier_item._id;
+    console.log(response.data)
+    console.log("kadia")
     console.log(panier_item);
     cartItemsis = panier_item.cartItems;
     console.log(cartItemsis.length)

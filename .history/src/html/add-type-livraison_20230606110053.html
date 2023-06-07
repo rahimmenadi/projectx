@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="../css/add-cat.css">
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+<head>
+    <title>Ajouter des types de livraison</title>
+    <style>
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+
+        input[type="text"],
+        select {
+            width: 70%;
+            padding: 5px;
+        }
+
+        input[type="number"] {
+            width: 50%;
+            padding: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff6701, #ff2600);
+        }
+
+        #addPairBtn {
+            transform: translate(7%);
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button[type="submit"] {
+            transform: translate(150%);
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="page-main  p-t-130 p-b-100 font-poppins">
+        <div class="main main--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h1 id="h2">Ajouter des types de livraison</h1>
+
+                    <form id="productForm">
+                        <div class="input-group">
+                            <label for="typeName">Nom du type:</label>
+                            <input type="text" id="typeName" name="typeName" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="wilaya1">Sélectionner une wilaya:</label>
+                            <select id="wilaya1" name="wilaya1" required>
+                                <option value="">Sélectionnez une wilaya</option>
+                                <option value="adrar">1-drar</option>
+                                <option value="chlef">2-chlef</option>
+                                <option value="Laghouat">3-Laghouat</option>
+                                <option value="Oum-El-Bouaghi">4-Oum-El-Bouaghi</option>
+                                <option value="Batna">5-Batna</option>
+                                <option value="Béjaïa">6-Béjaïa</option>
+                                <option value="Biskra">7-Biskra</option>
+                                <option value="Béchar">8-Béchar</option>
+                                <option value="Blida">9-Blida</option>
+                                <option value="Bouira">10-Bouira</option>
+                                <option value="Tamanrasset">11-Tamanrasset</option>
+                                <option value="Tébessa">12-Tébessa</option>
+                                <option value="Tlemcen">13-Tlemcen</option>
+                                <option value="Tiaret">14-Tiaret</option>
+                                <option value="Tizi-Ouzou">15-Tizi-Ouzou</option>
+                                <option value="Alger">16-Alger</option>
+                                <option value="Djelfa">17-Djelfa</option>
+                                <option value="Jijel">18-Jijel</option>
+                                <option value="Sétif">19-Sétif</option>
+                                <option value="Saïda">20-Saïda</option>
+                                <option value="Skikda">21-Skikda</option>
+                                <option value="Sidi Bel Abbès">22-Sidi Bel Abbès</option>
+                                <option value="Annaba">23-Annaba</option>
+                                <option value="Guelma">24-Guelma</option>
+                                <option value="Constantine">25-Constantine</option>
+                                <option value="Médéa">26-Médéa</option>
+                                <option value="Mostaganem">27-Mostaganem</option>
+                                <option value="M’sila">28-M’sila</option>
+                                <option value="Mascara">29-Mascara</option>
+                                <option value="Ouargla">30-Ouargla</option>
+                                <option value="Oran">31-Oran</option>
+                                <option value="El Bayadh">32-El Bayadh</option>
+                                <option value="Illizi">33-Illizi</option>
+                                <option value="Bordj Bou Arreridj">34-Bordj Bou Arreridj</option>
+                                <option value="Boumerdès">35-Boumerdès</option>
+                                <option value="El-Tarf">36-El-Tarf</option>
+                                <option value="Tindouf">37-Tindouf</option>
+                                <option value="Tissemsilt">38-Tissemsilt</option>
+                                <option value="El-Oued">39-El-Oued</option>
+                                <option value="Khenchela">40-Khenchela</option>
+                                <option value="Souk-Ahras">41-Souk-Ahras</option>
+                                <option value="Tipaza">42-Tipaza</option>
+                                <option value="Mila">43-Mila</option>
+                                <option value="Aïn-Defla">44-Aïn-Defla</option>
+                                <option value="Naâma">45-Naâma</option>
+                                <option value="Aïn-Témouchent">46-Aïn-Témouchent</option>
+                                <option value="Ghardaïa">47-Ghardaïa</option>
+                                <option value="Relizane">48-Relizane</option>
+                                <option value="Timimoun">49-Timimoun</option>
+                                <option value="Bordj Badji Mokhtar">50-Bordj Badji Mokhtar</option>
+                                <option value="Ouled Djellal">51-Ouled Djellal</option>
+                                <option value="Béni Abbès">52-Béni Abbès</option>
+                                <option value="In Salah">53-In Salah</option>
+                                <option value="In Guezzam">54-In Guezzam</option>
+                                <option value="Touggourt">55-Touggourt</option>
+                                <option value="Djanet">56-Djanet</option>
+                                <option value="El M'Ghair">57-El M'Ghair</option>
+                                <option value="El Meniaa">58-El Meniaa</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="price1">Prix:</label>
+                            <input type="number" min="0" id="price1" name="price1" required>
+                        </div>
+
+                        <div id="additionalPairs">
+                            <!-- Les paires supplémentaires seront ajoutées ici -->
+                        </div>
+
+                        <button type="button" id="addPairBtn">Ajouter une paire</button>
+                        <button type="submit">Valider</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var a = localStorage.getItem('token')
+        console.log(a) 
+    </script>
+    <script>
+        // Récupérer les éléments du formulaire
+        const productForm = document.getElementById("productForm");
+        const additionalPairsContainer = document.getElementById("additionalPairs");
+        const addPairBtn = document.getElementById("addPairBtn");
+
+        let pairCounter = 2;
+
+        addPairBtn.addEventListener("click", function () {
+            const pairHtml = `
+        <div class="input-group">
+          <label for="wilaya${pairCounter}">Sélectionner une wilaya ${pairCounter}:</label>
+          <select id="wilaya${pairCounter}" name="wilaya${pairCounter}" required>
+            <option value="">Sélectionnez une wilaya</option>
+            <option value="adrar">1-adrar</option>
+            <option value="chlef">2-chlef</option>
+            <option value="Laghouat">3-Laghouat</option>
+                                <option value="Oum-El-Bouaghi">4-Oum-El-Bouaghi</option>
+                                <option value="Batna">5-Batna</option>
+                                <option value="Béjaïa">6-Béjaïa</option>
+                                <option value="Biskra">7-Biskra</option>
+                                <option value="Béchar">8-Béchar</option>
+                                <option value="Blida">9-Blida</option>
+                                <option value="Bouira">10-Bouira</option>
+                                <option value="Tamanrasset">11-Tamanrasset</option>
+                                <option value="Tébessa">12-Tébessa</option>
+                                <option value="Tlemcen">13-Tlemcen</option>
+                                <option value="Tiaret">14-Tiaret</option>
+                                <option value="Tizi-Ouzou">15-Tizi-Ouzou</option>
+                                <option value="Alger">16-Alger</option>
+                                <option value="Djelfa">17-Djelfa</option>
+                                <option value="Jijel">18-Jijel</option>
+                                <option value="Sétif">19-Sétif</option>
+                                <option value="Saïda">20-Saïda</option>
+                                <option value="Skikda">21-Skikda</option>
+                                <option value="Sidi Bel Abbès">22-Sidi Bel Abbès</option>
+                                <option value="Annaba">23-Annaba</option>
+                                <option value="Guelma">24-Guelma</option>
+                                <option value="Constantine">25-Constantine</option>
+                                <option value="Médéa">26-Médéa</option>
+                                <option value="Mostaganem">27-Mostaganem</option>
+                                <option value="M’sila">28-M’sila</option>
+                                <option value="Mascara">29-Mascara</option>
+                                <option value="Ouargla">30-Ouargla</option>
+                                <option value="Oran">31-Oran</option>
+                                <option value="El Bayadh">32-El Bayadh</option>
+                                <option value="Illizi">33-Illizi</option>
+                                <option value="Bordj Bou Arreridj">34-Bordj Bou Arreridj</option>
+                                <option value="Boumerdès">35-Boumerdès</option>
+                                <option value="El-Tarf">36-El-Tarf</option>
+                                <option value="Tindouf">37-Tindouf</option>
+                                <option value="Tissemsilt">38-Tissemsilt</option>
+                                <option value="El-Oued">39-El-Oued</option>
+                                <option value="Khenchela">40-Khenchela</option>
+                                <option value="Souk-Ahras">41-Souk-Ahras</option>
+                                <option value="Tipaza">42-Tipaza</option>
+                                <option value="Mila">43-Mila</option>
+                                <option value="Aïn-Defla">44-Aïn-Defla</option>
+                                <option value="Naâma">45-Naâma</option>
+                                <option value="Aïn-Témouchent">46-Aïn-Témouchent</option>
+                                <option value="Ghardaïa">47-Ghardaïa</option>
+                                <option value="Relizane">48-Relizane</option>
+                                <option value="Timimoun">49-Timimoun</option>
+                                <option value="Bordj Badji Mokhtar">50-Bordj Badji Mokhtar</option>
+                                <option value="Ouled Djellal">51-Ouled Djellal</option>
+                                <option value="Béni Abbès">52-Béni Abbès</option>
+                                <option value="In Salah">53-In Salah</option>
+                                <option value="In Guezzam">54-In Guezzam</option>
+                                <option value="Touggourt">55-Touggourt</option>
+                                <option value="Djanet">56-Djanet</option>
+                                <option value="El M'Ghair">57-El M'Ghair</option>
+                                <option value="El Meniaa">58-El Meniaa</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="price${pairCounter}">Prix ${pairCounter}:</label>
+          <input type="number" min="0" id="price${pairCounter}" name="price${pairCounter}" required>
+        </div>
+      `;
+
+            additionalPairsContainer.insertAdjacentHTML("beforeend", pairHtml);
+            pairCounter++;
+        });
+
+        productForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêcher la soumission du formulaire pour l'exemple
+
+            // Collecter toutes les données du formulaire
+            const formData = new FormData(productForm);
+            const formValues = Object.fromEntries(formData.entries());
+
+            // Afficher les données dans la console (pour l'exemple)
+            // console.log(formValues);
+
+            // Ici, vous pouvez envoyer les données au serveur ou effectuer d'autres opérations nécessaires
+        });
+    </script>
+    <script>
+        document.getElementById("productForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Empêche la soumission du formulaire
+
+            var typeName = document.getElementById("typeName").value;
+
+            var deliveryPrices = [];
+            var wilayaElements = document.querySelectorAll('[id^="wilaya"]');
+            var priceElements = document.querySelectorAll('[id^="price"]');
+
+            for (var i = 0; i < wilayaElements.length; i++) {
+                var wilayaElement = wilayaElements[i];
+                var priceElement = priceElements[i];
+
+                var wilayaValue = wilayaElement.value;
+                var priceValue = priceElement.value;
+
+                if (wilayaValue && priceValue) {
+                    var pair = {
+                        city: wilayaValue,
+                        price: priceValue
+                    };
+
+                    // deliveryPrices.push(pair);
+                    deliveryPrices[i] = pair
+                }
+            }
+
+            var data = {
+                name: typeName,
+                deliveryPrices: deliveryPrices
+            };
+
+            // Send data to the backend using Axios
+            axios.post("https://buy-it-sigma.herokuapp.com/api/v1/deliveries", data, {
+                headers: {
+                    Authorization: 'Bearer ' + a,
+                }
+            })
+                .then(function (response) {
+                    displayPopup("Type-Livraison added");
+                })
+                .catch(function (error) {
+                    console.log("message erreur est :", error)
+                    displayPopup("Error: Type-Livraison could not be added");
+                });
+            console.log(data)
+            // document.getElementById("typeLivraisonForm").reset();
+        });
+
+
+        // console.log(data);
+
+        // Ici, vous pouvez envoyer les données au serveur ou effectuer d'autres opérations nécessaires
+
+        function displayPopup(message) {
+            var popup = document.createElement("div");
+            popup.className = "popup";
+            popup.textContent = message;
+
+            document.body.appendChild(popup);
+
+            setTimeout(function () {
+                document.body.removeChild(popup);
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" href="./product-details.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+</head>
+<body>
+    <div id="page" class="site page-cart">
+        <aside class="site-off desktop-hide">
+            <div class="off-canvas">
+                <div class="canvas-head flexitem">
+                    <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="departments"></div>
+                <nav></nav>
+                <div class="thetop-nav"></div>
+            </div>
+        </aside>
+
+        <header>
+            <div class="header-top mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <ul class="flexitem main-links">
+                                
+                                <li><a href="#">Featured Products</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem main-links">
+                                <li><a href="#">Sign Up</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                               
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-top -->
+
+            <div class="header-nav">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                        <div class="left flexitem">
+                            <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <nav class="mobile-hide">
+                                <ul class="flexitem second-links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">Shop</a></li>
+                                    
+                                    <li><a href="#">Men</a></li>
+                                    <li>
+                                        <a href="#">Sports
+                                            <div class="fly-item"><span>New!</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem second-links">
+                                <li class="mobile-hide"><a href="#">
+                                        <div class="icon-large"><i class="ri-heart-line"></i></div>
+                                        <div class="fly-item"><span class="item-number">0</span></div>
+                                    </a></li>
+                                <li class="iscart"><a href="#">
+
+                                    <a href="./src/html/panier.html"> <div class="icon-large">
+                                            <i class="ri-shopping-cart-line"></i>
+                                            <div class="fly-item"><span class="item-number">5</span></div></a>
+                                        </div>
+
+                                        <div class="icon-text">
+                                            <div class="mini-text">Total</div>
+                                            <div class="cart-total">$1,622</div>
+                                        </div>
+                                    </a>
+                                <div class="mini-cart">
+                                    <div class="content">
+                                        <div class="cart-head">
+                                            5 items in cart
+                                        </div>
+                                        <div class="cart-body">
+                                            <ul class="products mini">
+                                                <li class="item">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#"><img src="assets/products/home2.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <p><a href="#">Dimmable Ceiling Light Modern</a></p>
+                                                        <span class="price">
+                                                            <span>$279.99</span>
+                                                            <span class="fly-item"><span>2x</span></span>
+                                                        </span>
+                                                    </div>
+                                                    <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#"><img src="assets/products/home3.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <p><a href="#">Modern Storage Cabinet with Door & 3 Drawers</a></p>
+                                                        <span class="price">
+                                                            <span>$129.99</span>
+                                                            <span class="fly-item"><span>2x</span></span>
+                                                        </span>
+                                                    </div>
+                                                    <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#"><img src="assets/products/home4.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <p><a href="#">Vonanda Velvet Sofa Couch</a></p>
+                                                        <span class="price">
+                                                            <span>$352.99</span>
+                                                            <span class="fly-item"><span>2x</span></span>
+                                                        </span>
+                                                    </div>
+                                                    <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#"><img src="assets/products/home5.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <p><a href="#">Awesome Bed for a Couple</a></p>
+                                                        <span class="price">
+                                                            <span>$579.99</span>
+                                                            <span class="fly-item"><span>2x</span></span>
+                                                        </span>
+                                                    </div>
+                                                    <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="thumbnail object-cover">
+                                                        <a href="#"><img src="assets/products/home1.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <p><a href="#">Dimmable Ceiling Light Modern</a></p>
+                                                        <span class="price">
+                                                            <span>$279.99</span>
+                                                            <span class="fly-item"><span>2x</span></span>
+                                                        </span>
+                                                    </div>
+                                                    <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cart-footer">
+                                            <div class="subtotal">
+                                                <p>Subtotal</p>
+                                                <p><strong>$1,622.95</strong></p>
+                                            </div>
+                                            <div class="actions">
+                                                <a href="./shiping-details.html" class="primary-button">Checkout</a>
+                                                <a href="./" class="secondary-button">View Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-nav -->
+
+            <div class="header-main mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <div class="dpt-cat">
+                                <div class="dpt-head">
+                                    <div class="main-text">All Departments</div>
+                                    <div class="mini-text mobile-hide">Total 1059 Products</div>
+                                    <a href="#" class="dpt-trigger mobile-hide">
+                                        <i class="ri-menu-3-line ri-xl"></i>
+                                        <i class="ri-close-line ri-xl"></i>
+                                    </a>
+                                </div>
+                                <div class="dpt-menu">
+                                    <ul class="second-links">
+                                        <li class="has-child beauty">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-bear-smile-line"></i></div>
+                                                Beauty
+                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                            </a>
+                                            <ul>
+                                                <li><a href="#">Makeup</a></li>
+                                                <li><a href="#">Skin Care</a></li>
+                                                <li><a href="#">Hair Care</a></li>
+                                                <li><a href="#">Fragrance</a></li>
+                                                <li><a href="#">Foot & Hand Care</a></li>
+                                                <li><a href="#">Tools & Accessories</a></li>
+                                                <li><a href="#">Shave & Hair Removal</a></li>
+                                                <li><a href="#">Personal Care</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-child electronic">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-bluetooth-connect-line"></i></div>
+                                                Electronic
+                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                            </a>
+                                            <ul>
+                                                <li><a href="#">Camera</a></li>
+                                                <li><a href="#">Cell Phone</a></li>
+                                                <li><a href="#">Computers</a></li>
+                                                <li><a href="#">GPS & Navigation</a></li>
+                                                <li><a href="#">Headphones</a></li>
+                                                <li><a href="#">Home Audio</a></li>
+                                                <li><a href="#">Television</a></li>
+                                                <li><a href="#">Video Projectors</a></li>
+                                                <li><a href="#">Wearable Technology</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-t-shirt-air-line"></i></div>
+                                                Women's Fashion
+                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                            </a>
+                                            <ul>
+                                                <li><a href="#">Clothing</a></li>
+                                                <li><a href="#">Shoes</a></li>
+                                                <li><a href="#">Jewelry</a></li>
+                                                <li><a href="#">Watches</a></li>
+                                                <li><a href="#">Handbags</a></li>
+                                                <li><a href="#">Accessories</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-shirt-line"></i></div>
+                                                Men's Fashion
+                                            </a>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-user-5-line"></i></div>
+                                                Girl's Fashion
+                                            </a>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-user-6-line"></i></div>
+                                                Boy's Fashion
+                                            </a>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-heart-pulse-line"></i></div>
+                                                Health & Household
+                                            </a>
+                                        </li>
+
+                                        <li class="has-child homekit">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-home-8-line"></i></div>
+                                                Home & Kitchen
+                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                            </a>
+                                            <div class="mega">
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4><a href="#">Kitchen & Dining</a></h4>
+                                                        <ul>
+                                                            <li><a href="#">Kitchen</a></li>
+                                                            <li><a href="#">Dining Room</a></li>
+                                                            <li><a href="#">Pantry</a></li>
+                                                            <li><a href="#">Great Room</a></li>
+                                                            <li><a href="#">Breakfast Nook</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h4><a href="#">Living</a></h4>
+                                                        <ul>
+                                                            <li><a href="#">Living Room</a></li>
+                                                            <li><a href="#">Family Room</a></li>
+                                                            <li><a href="#">Sunroom</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4><a href="#">Bed & Bath</a></h4>
+                                                        <ul>
+                                                            <li><a href="#">Bathroom</a></li>
+                                                            <li><a href="#">Powder Room</a></li>
+                                                            <li><a href="#">Bedroom</a></li>
+                                                            <li><a href="#">Storage & Closet </a></li>
+                                                            <li><a href="#">Baby & Kids</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h4><a href="#">Utility</a></h4>
+                                                        <ul>
+                                                            <li><a href="#">Laundry</a></li>
+                                                            <li><a href="#">Garage</a></li>
+                                                            <li><a href="#">Mudroom</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4><a href="#">Outdoor</a></h4>
+                                                        <ul>
+                                                            <li><a href="#">Landscape</a></li>
+                                                            <li><a href="#">Patio</a></li>
+                                                            <li><a href="#">Deck</a></li>
+                                                            <li><a href="#">Pool</a></li>
+                                                            <li><a href="#">Backyard</a></li>
+                                                            <li><a href="#">Porch</a></li>
+                                                            <li><a href="#">Exterior</a></li>
+                                                            <li><a href="#">Outdoor Kitchen</a></li>
+                                                            <li><a href="#">Front Yard</a></li>
+                                                            <li><a href="#">Driveway</a></li>
+                                                            <li><a href="#">Poolhouse</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                        </li>
+   
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-android-line"></i></div>
+                                                Pet Supplies
+                                            </a>
+                                        </li>
+
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-basketball-line"></i></div>
+                                                Sports
+                                            </a>
+                                        </li>
+                                        <li class="has-child fashion">
+                                            <a href="#">
+                                                <div class="icon-large"><i class="ri-shield-star-line"></i></div>
+                                                Best Seller
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="search-box">
+                                <form action="" class="search">
+                                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                                    <input type="search" placeholder="Search for products">
+                                    <button type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-main -->
+
+        </header>
+        <!-- Header -->
+        <main>
+
+           <div class="single-checkout">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="checkout flexwrap">
+                            <div class="item left styled">
+                                <h1>Shipping Address</h1>
+                                <form action="">
+                                    <p>
+                                        <label for="phone">Phone Number <span></span></label>
+                                        <input type="number" id="phone" required>
+                                    </p>
+                                    <p>
+                                        <label for="fname">First Name <span></span></label>
+                                        <input type="text" id="fname" required>
+                                    </p>
+                                    <p>
+                                        <label for="lname">Last Name <span></span></label>
+                                        <input type="text" id="lname" required>
+                                    </p>
+                                   
+                                    <p>
+                                        <label for="adress">Street Address <span></span></label>
+                                        <input type="text" id="adress" required>
+                                    </p>
+                                  
+                                   
+                                    <p>
+                                        <label for="postal">Zip / Postal Code <span></span></label>
+                                        <input type="number" id="postal" required>
+                                    </p>
+                                    <p>
+                                        <label for="country">Country</label>
+                                            <select name="country" id="country">
+                                                <option value="adrar">1-drar</option>
+                                                <option value="chlef">2-chlef</option>
+                                                <option value="Laghouat">3-Laghouat</option>
+                                                <option value="Oum-El-Bouaghi">4-Oum-El-Bouaghi</option>
+                                                <option value="Batna">5-Batna</option>
+                                                <option value="Béjaïa">6-Béjaïa</option>
+                                                <option value="Biskra">7-Biskra</option>
+                                                <option value="Béchar">8-Béchar</option>
+                                                <option value="Blida">9-Blida</option>
+                                                <option value="Bouira">10-Bouira</option>
+                                                <option value="Tamanrasset">11-Tamanrasset</option>
+                                                <option value="Tébessa">12-Tébessa</option>
+                                                <option value="Tlemcen">13-Tlemcen</option>
+                                                <option value="Tiaret">14-Tiaret</option>
+                                                <option value="Tizi-Ouzou">15-Tizi-Ouzou</option>
+                                                <option value="Alger">16-Alger</option>
+                                                <option value="Djelfa">17-Djelfa</option>
+                                                <option value="Jijel">18-Jijel</option>
+                                                <option value="Sétif">19-Sétif</option>
+                                                <option value="Saïda">20-Saïda</option>
+                                                <option value="Skikda">21-Skikda</option>
+                                                <option value="Sidi Bel Abbès">22-Sidi Bel Abbès</option>
+                                                <option value="Annaba">23-Annaba</option>
+                                                <option value="Guelma">24-Guelma</option>
+                                                <option value="Constantine">25-Constantine</option>
+                                                <option value="Médéa">26-Médéa</option>
+                                                <option value="Mostaganem">27-Mostaganem</option>
+                                                <option value="M’sila">28-M’sila</option>
+                                                <option value="Mascara">29-Mascara</option>
+                                                <option value="Ouargla">30-Ouargla</option>
+                                                <option value="Oran">31-Oran</option>
+                                                <option value="El Bayadh">32-El Bayadh</option>
+                                                <option value="Illizi">33-Illizi</option>
+                                                <option value="Bordj Bou Arreridj">34-Bordj Bou Arreridj</option>
+                                                <option value="Boumerdès">35-Boumerdès</option>
+                                                <option value="El-Tarf">36-El-Tarf</option>
+                                                <option value="Tindouf">37-Tindouf</option>
+                                                <option value="Tissemsilt">38-Tissemsilt</option>
+                                                <option value="El-Oued">39-El-Oued</option>
+                                                <option value="Khenchela">40-Khenchela</option>
+                                                <option value="Souk-Ahras">41-Souk-Ahras</option>
+                                                <option value="Tipaza">42-Tipaza</option>
+                                                <option value="Mila">43-Mila</option>
+                                                <option value="Aïn-Defla">44-Aïn-Defla</option>
+                                                <option value="Naâma">45-Naâma</option>
+                                                <option value="Aïn-Témouchent">46-Aïn-Témouchent</option>
+                                                <option value="Ghardaïa">47-Ghardaïa</option>
+                                                <option value="Relizane">48-Relizane</option>
+                                                <option value="Timimoun">49-Timimoun</option>
+                                                <option value="Bordj Badji Mokhtar">50-Bordj Badji Mokhtar</option>
+                                                <option value="Ouled Djellal">51-Ouled Djellal</option>
+                                                <option value="Béni Abbès">52-Béni Abbès</option>
+                                                <option value="In Salah">53-In Salah</option>
+                                                <option value="In Guezzam">54-In Guezzam</option>
+                                                <option value="Touggourt">55-Touggourt</option>
+                                                <option value="Djanet">56-Djanet</option>
+                                                <option value="El M'Ghair">57-El M'Ghair</option>
+                                                <option value="El Meniaa">58-El Meniaa</option>
+                                                
+                                            </select>
+                                    </p>
+                                    <p>
+                                        
+                                    </p>
+                                    <p>
+                                        <label>Order Notes (optional)</label>
+                                        <textarea id="details" cols="30" rows="10"></textarea>
+                                    </p>
+                                   
+                                
+                                <div class="shipping-methods">
+                                    <h2>Payment Methods</h2>
+                                    <p class="checkset">
+                                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_6gbmelc1.json"  background="transparent"  speed="1"  style="width: 120px; height: 120px;position:sticky"  loop  autoplay></lottie-player>
+                                        <input id="cod" type="radio" name="payment" required>
+                                        <label for="cod">COD</label>
+                                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                        <lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_3lkgjhng.json"  background="transparent"  speed="1"  style="width: 120px; height: 120px;"  loop  autoplay></lottie-player>
+                                        <input id="visa" type="radio" name="payment" required>
+                                        <label for="visa">Business Card</label>
+                                    </p>
+                                </div>
+                                <div class="primary-checkout">
+                                    <button class="primary-button" id="primary-button">Payment</button>
+                                </div>
+                            </div>
+                        </form>
+                      
+
+        </main>
+        <!-- Main -->
+
+        <footer>
+            <div class="newsletter">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="box">
+                            <div class="content">
+                                <h3>Join Now</h3>
+                                <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                            </div>
+                            <form action="" class="search">
+                                <span class="icon-large"><i class="ri-mail-line"></i></span>
+                                <input type="mail" placeholder="Your email address" required>
+                                <button type="submit">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- newsletter -->
+
+            <div class="widgets">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexwrap">
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Help & Contact</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Your Account</a></li>
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping Rates</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Assistant</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Product Categories</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Beauty</a></li>
+                                        <li><a href="#">Electronic</a></li>
+                                        <li><a href="#">Women's Fashion</a></li>
+                                        <li><a href="#">Men's Fashion</a></li>
+                                        <li><a href="#">Girl's Fashion</a></li>
+                                        <li><a href="#">Boy's Fashion</a></li>
+                                        <li><a href="#">Health & Household</a></li>
+                                        <li><a href="#">Home & Kitchen</a></li>
+                                        <li><a href="#">Pet Supplies</a></li>
+                                        <li><a href="#">Sports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Payment Info</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Bussiness Card</a></li>
+                                        <li><a href="#">Shop with Points</a></li>
+                                        <li><a href="#">Reload Your Balance</a></li>
+                                        <li><a href="#">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>About Us</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="">Company Info</a></li>
+                                        <li><a href="">News</a></li>
+                                        <li><a href="">Investors</a></li>
+                                        <li><a href="">Careers</a></li>
+                                        <li><a href="">Policies</a></li>
+                                        <li><a href="">Customer reviews</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- widgets-->
+
+            <div class="footer-info">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexcol">
+                            <div class="logo">
+                                <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            </div>
+                            <div class="socials">
+                                <ul class="flexitem">
+                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-youtube-line"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mini-text">Copyright 2022 © .Store. All right reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Trending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="cart-trigger">
+                                    <i class="ri-shopping-cart-line"></i>
+                                    <span>Cart</span>
+                                    <div class="fly-item">
+                                        <span class="item-number">0</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- menu bottom -->
+
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <form action="" class="search">
+                        <a href="#" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+                        <span class="icon-large"><i class="ri-search-line"></i></span>
+                        <input type="search" placeholder="Search" required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- search bottom -->
+
+        <div id="modal" class="modal">
+            <div class="content flexcol">
+                <div class="image object-cover">
+                    <img src="assets/products/shoe1-2.jpg" alt="">
+                </div>
+                <h2>Get the latest deals and coupons</h2>
+                <p class="mobile-hide">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, quam animi aspernatur quasi voluptatibus laudantium.</p>
+                <form action="" class="search">
+                    <span class="icon-large"><i class="ri-mail-line"></i></span>
+                    <input type="mail" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </form>
+                <a href="#" class="mini-text">Do not show me this again</a>
+                <a href="#" class="t-close modalclose flexcenter">
+                    <i class="ri-close-line"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Modal -->
+
+        <div class="backtotop">
+            <a href="#" class="flexcol">
+                <i class="ri-arrow-up-line"></i>
+                <span>Top</span>
+            </a>
+        </div>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
+    <script src="./product-details.js"></script>
+    <script>
+        let cart_id=localStorage.getItem('cart_id')
+        console.log(cart_id)
+        var payment=document.getElementById("primary-button")
+        var selectElement = document.getElementById("country");
+
+         payment.addEventListener('click',(e)=>{
+            e.preventDefault()
+                let city = selectElement.value;
+                console.log(city)
+                let phone=document.getElementById('phone').value
+                let firstName=document.getElementById('fname').value
+                let lastName=document.getElementById('lname').value
+                
+               let zipCode=document.getElementById('postal').value
+               let address=document.getElementById('adress').value
+               let details=document.getElementById('details').value
+              
+            var shippingAddress={
+                city,phone,firstName,lastName,zipCode,address,details
+                
+
+            }
+          
+            
+       let visa=document.getElementById('visa')
+       if(visa.checked){
+        var token = localStorage.getItem('token');
+        console.log(token)
+        axios.post('https://buy-it-sigma.herokuapp.com/api/v1/orders/checkout-session/'+cart_id, {shippingAddress}, {
+            headers: {
+              Authorization: 'Bearer ' + token
+            }
+          })
+            .then(function(response) {
+              // Handle the success response
+              console.log('payment submitted successfully!', response.data);
+            
+              
+              // Reset the form if needed
+         window.location.assign(response.data.session.url)
+              // Optionally show a success message to the user
+              alert('payment sucess');
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'complete your payment!',
+                showConfirmButton: false,
+                timer: 2000
+              })
+            })
+            .catch(function(error) {
+              // Handle the error response
+              console.error('Error submitting ', error);
+              // Optionally show an error message to the user
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Check Your inputs!',
+                showConfirmButton: true,
+                timer: 2000
+              })
+            });
+       
+
+       }
+       else{
+        
+        var token = localStorage.getItem('token');
+        axios.post('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+cart_id, {shippingAddress}, {
+            headers: {
+              Authorization: 'Bearer ' + token
+            }
+          })
+            .then(function(response) {
+              // Handle the success response
+              console.log('payment submitted successfully!', response.data);
+            
+              Swal.fire({
+                position: 'center',
+                icon: 'wait for our call to confirm your order',
+                title: 'Wait For Our Call!',
+                showConfirmButton: false,
+                timer: 2000
+              })
+              // Reset the form if needed
+         
+              // Optionally show a success message to the user
+            
+            })
+            .catch(function(error) {
+              // Handle the error response
+              console.error('Error submitting ', error);
+              // Optionally show an error message to the user
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Check Your inputs!',
+                showConfirmButton: true,
+                timer: 5000
+              })
+            });
+        
+          // Make the POST request
+        
+         
+       }
+       })
+
+         
+       
+         
+
+    </script>
+ 
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   
+
+</body>
+
+</html>

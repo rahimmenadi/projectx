@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 199d054e8ceeffd4334f698a80168f909a9ed41f
 const token = localStorage.getItem("sellertoken")
 console.log(token);
 
@@ -296,4 +299,3 @@ search_btn.addEventListener("click",()=>{
                                 </div>
                                 
                             </div> */}
-

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product details</title>
+    <link rel="stylesheet" href="../css/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link
+    href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <div id="page" class="site page-single">
+        <aside class="site-off desktop-hide">
+            <div class="off-canvas">
+                <div class="canvas-head flexitem">
+                    <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="departments"></div>
+                <nav></nav>
+                <div class="thetop-nav"></div>
+            </div>
+        </aside>
+        <header>
+            <div class="header-top mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <ul class="flexitem main-links">
+                                
+                                <li><a href="#">Featured Products</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem main-links">
+                                <li id="sign-up-home"><a href="#">Sign Up</a></li>
+                                <li id="my-account-home"><a href="/home.html">My Account</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                              
+                                </li>
+                               
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-top -->
+            <div class="header-nav">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                        <div class="left flexitem">
+                            <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <nav class="mobile-hide">
+                                <ul class="flexitem second-links">
+                                    <li><a href="./home.html">Home</a></li>
+                                    <li><a href="#">Shop</a></li>
+                                    
+                                    <li><a href="#">Men</a></li>
+                                    <li>
+                                        <a href="#">Sports
+                                            <div class="fly-item"><span>New!</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem second-links">
+                                <li id="wish-list-icon-home" class="mobile-hide"><a href="/src/html/wishlist.html">
+                                        <div class="icon-large"><i class="ri-heart-line"></i></div>
+                                        <div class="fly-item"><span id="wishlistnumber" class="item-number">0</span></div>
+                                    </a></li>
+                                <li><a  href="/src/html/cart.html" class="iscart">
+
+                                        <div class="icon-large">
+                                            <i class="ri-shopping-cart-line"></i>
+                                            <div class="fly-item"><span id="cartnumber" class="item-number">0</span></div>
+                                        </div>
+
+                                        <div id="total-is-js" class="icon-text">
+                                            
+                                            <div class="mini-text">Total</div>
+                                            <div id="total-cart-home" class="cart-total">$0.00</div>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-nav -->
+
+            <div class="header-main mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <div id="categories-container" class="dpt-cat">
+                                
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="search-box">
+                                <form action="" id="myform" class="search">
+                                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                                    <input id="searchis" type="search" placeholder="Search">
+                                    <button id="search-btn" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-main -->
+
+        </header>
+        <!-- Header -->
+        <main>
+            <div class="panier-main">
+                <div class="container">
+                    <div class="section-all">
+                        <div class="product-section">
+                            <div class="main-text">Track Your Order</div>
+                        </header>
+                        <div class="product-vertical">
+                          <div class="container">
+                            
+                            <div class="main">
+
+                                <ul class="orderul">
+                                    <li class="orderli">
+                                        <i class="icon uil uil-box"></i>
+                                        <div class="progress one">
+                                            <p>1</p>
+                                            <i class="uil uil-check"></i>
+                                        </div>
+                                        <p class="text">Packging</p>
+                                    </li>
+                                    <li class="orderli">
+                                        <i class="icon uil uil-truck-loading"></i>
+                                        <div class="progress two">
+                                            <p>2</p>
+                                            <i class="uil uil-check"></i>
+                                        </div>
+                                        <p class="text">Truck loading</p>
+                                    </li>
+                                   
+                                    <li class="orderli">
+                                        <i class="icon uil uil-truck"></i>
+                                        <div class="progress three">
+                                            <p>3</p>
+                                            <i class="uil uil-check"></i>
+                                        </div>
+                                        <p class="text">Order in Progress</p>
+                                    </li>
+                                    <li class="orderli">
+                                        <i class="icon uil uil-map-marker"></i>
+                                        <div class="progress four">
+                                            <p>4</p>
+                                            <i class="uil uil-check"></i>
+                                        </div>
+                                        <p class="text">Order Arrived</p>
+                                    </li>
+                                    
+                                </ul>
+                          
+                          </div>
+                        </div>
+                            <div class="container" id="select-choice">
+                                <div id="choice-1">
+                                    
+                                    <table class="product-table">
+                                        <thead id="table-head-content">
+                                            
+                                        </thead>
+                                        <tbody id="table-content-js">
+                                            
+            
+                                            
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div id="choice-2">
+                                <div class="section2">
+                                    
+                                    <div class="container" id="product-container-dash">
+                                        
+                                        
+                                        
+                                                            </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                  
+                </div>
+            </div>
+        </main>
+        <!-- Main -->
+
+        <footer>
+            <div class="newsletter">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="box">
+                            <div class="content">
+                                <h3>Join Now</h3>
+                                <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                            </div>
+                            <form action="" class="search">
+                                <span class="icon-large"><i class="ri-mail-line"></i></span>
+                                <input type="mail" placeholder="Your email address" required>
+                                <button type="submit">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- newsletter -->
+
+            <div class="widgets">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexwrap">
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Help & Contact</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Your Account</a></li>
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping Rates</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Assistant</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Product Categories</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Beauty</a></li>
+                                        <li><a href="#">Electronic</a></li>
+                                        <li><a href="#">Women's Fashion</a></li>
+                                        <li><a href="#">Men's Fashion</a></li>
+                                        <li><a href="#">Girl's Fashion</a></li>
+                                        <li><a href="#">Boy's Fashion</a></li>
+                                        <li><a href="#">Health & Household</a></li>
+                                        <li><a href="#">Home & Kitchen</a></li>
+                                        <li><a href="#">Pet Supplies</a></li>
+                                        <li><a href="#">Sports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Payment Info</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Bussiness Card</a></li>
+                                        <li><a href="#">Shop with Points</a></li>
+                                        <li><a href="#">Reload Your Balance</a></li>
+                                        <li><a href="#">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>About Us</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="">Company Info</a></li>
+                                        <li><a href="">News</a></li>
+                                        <li><a href="">Investors</a></li>
+                                        <li><a href="">Careers</a></li>
+                                        <li><a href="">Policies</a></li>
+                                        <li><a href="">Customer reviews</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- widgets-->
+
+            <div class="footer-info">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexcol">
+                            <div class="logo">
+                                <a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                            </div>
+                            <div class="socials">
+                                <ul class="flexitem">
+                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-youtube-line"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mini-text">Copyright 2022 © .Store. All right reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Trending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <i class="ri-shopping-cart-line"></i>
+                                    <span>Cart</span>
+                                    <div class="fly-item">
+                                        <span class="item-number" id="cart-number-one">0</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- menu bottom -->
+
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <form id="myformone" class="search">
+                        <a href="#" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+
+                            <span class="icon-large"><i class="ri-search-line"></i></span>
+                            <input id="searchisis" type="search" placeholder="Search for products">
+                            <button onclick="searchclick()"  id="searchis-btn" type="submit">Search</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- search bottom -->
+
+        <div class="overlay"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+ 
+    var token = localStorage.getItem('token')
+    console.log(token)
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+        headers: {
+           Authorization: 'Bearer ' + token
+          }
+      })
+      .then(response => {
+                console.log("wishhhlist")
+                console.log(response.data.data.length)
+       $('#wishlistnumber').text(response.data.data.length)
+       
+       console.log("wishhhlist")
+    
+    
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
+    
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
+        headers: {
+            Authorization: 'Bearer ' + token
+          }
+      })
+      .then(response => {
+        $("#cartnumber").text(response.data.data.cartItems.length)
+        $(".cart-total").text(response.data.data.totalCartPrice+' $');
+        console.log(response.data)
+     
+                  
+       
+      })
+      .catch(error => {
+       
+      });
+let isDelivered=[false,false,false,false]
+
+var orderid=localStorage.getItem('orderIdUser')
+console.log(orderid)
+
+
+
+  
+
+
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const four = document.querySelector(".four");
+const five = document.querySelector(".five");
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/orders/'+orderid, {
+  headers: {
+    Authorization: 'Bearer ' + token
+  }
+
+})
+  .then(response => {
+    
+    console.log(response.data)
+
+console.log(response.data.isDelivered)
+
+if(response.data.isDelivered[0]==true){
+
+  one.classList.add("active");
+    two.classList.remove("active");
+    three.classList.remove("active");
+    four.classList.remove("active");
+    console.log('rani f 11')
+  
+}
+if(response.data.isDelivered[1]==true){
+  one.classList.add("active");
+  two.classList.add("active");
+  three.classList.remove("active");
+  four.classList.remove("active");  
+}
+if(response.data.isDelivered[2]==true){
+  one.classList.add("active");
+    two.classList.add("active");
+    three.classList.add("active");
+    four.classList.remove("active");
+}
+if(response.data.isDelivered[3]==true){
+  
+
+  
+  one.classList.add("active");
+  two.classList.add("active");
+  three.classList.add("active");
+  four.classList.add("active");
+  console.log('rani f 3')
+}
+
+
+
+
+
+
+
+    
+  })
+  .catch(error => {
+    console.log(token)
+
+    console.log(error)
+  });
+
+
+
+
+
+
+
+</script>
+</html>
