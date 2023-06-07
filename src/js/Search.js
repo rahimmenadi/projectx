@@ -293,181 +293,7 @@ function displaySearchProduct(){
     
 }
 
-document.getElementById("categories-container").innerHTML=`
-<div class="dpt-head">
-                                    <div class="main-text">All Departments</div>
-                                    <div class="mini-text mobile-hide">Total 1059 Products</div>
-                                    <a href="#" class="dpt-trigger mobile-hide">
-                                        <i class="ri-menu-3-line ri-xl"></i>
-                                        <i class="ri-close-line ri-xl"></i>
-                                    </a>
-                                </div>
-                                <div class="dpt-menu">
-                                    <ul class="second-links">
-                                        <li class="has-child beauty">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-bear-smile-line"></i></div>
-                                                Beauty
-                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
-                                            </a>
-                                            <ul>
-                                                <li><a href="#">Makeup</a></li>
-                                                <li><a href="#">Skin Care</a></li>
-                                                <li><a href="#">Hair Care</a></li>
-                                                <li><a href="#">Fragrance</a></li>
-                                                <li><a href="#">Foot & Hand Care</a></li>
-                                                <li><a href="#">Tools & Accessories</a></li>
-                                                <li><a href="#">Shave & Hair Removal</a></li>
-                                                <li><a href="#">Personal Care</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-child electronic">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-bluetooth-connect-line"></i></div>
-                                                Electronic
-                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
-                                            </a>
-                                            <ul>
-                                                <li><a href="#">Camera</a></li>
-                                                <li><a href="#">Cell Phone</a></li>
-                                                <li><a href="#">Computers</a></li>
-                                                <li><a href="#">GPS & Navigation</a></li>
-                                                <li><a href="#">Headphones</a></li>
-                                                <li><a href="#">Home Audio</a></li>
-                                                <li><a href="#">Television</a></li>
-                                                <li><a href="#">Video Projectors</a></li>
-                                                <li><a href="#">Wearable Technology</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-t-shirt-air-line"></i></div>
-                                                Women's Fashion
-                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
-                                            </a>
-                                            <ul>
-                                                <li><a href="#">Clothing</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Jewelry</a></li>
-                                                <li><a href="#">Watches</a></li>
-                                                <li><a href="#">Handbags</a></li>
-                                                <li><a href="#">Accessories</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-shirt-line"></i></div>
-                                                Men's Fashion
-                                            </a>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-user-5-line"></i></div>
-                                                Girl's Fashion
-                                            </a>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-user-6-line"></i></div>
-                                                Boy's Fashion
-                                            </a>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-heart-pulse-line"></i></div>
-                                                Health & Household
-                                            </a>
-                                        </li>
 
-                                        <li class="has-child homekit">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-home-8-line"></i></div>
-                                                Home & Kitchen
-                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
-                                            </a>
-                                            <div class="mega">
-                                                <div class="flexcol">
-                                                    <div class="row">
-                                                        <h4><a href="#">Kitchen & Dining</a></h4>
-                                                        <ul>
-                                                            <li><a href="#">Kitchen</a></li>
-                                                            <li><a href="#">Dining Room</a></li>
-                                                            <li><a href="#">Pantry</a></li>
-                                                            <li><a href="#">Great Room</a></li>
-                                                            <li><a href="#">Breakfast Nook</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="row">
-                                                        <h4><a href="#">Living</a></h4>
-                                                        <ul>
-                                                            <li><a href="#">Living Room</a></li>
-                                                            <li><a href="#">Family Room</a></li>
-                                                            <li><a href="#">Sunroom</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="flexcol">
-                                                    <div class="row">
-                                                        <h4><a href="#">Bed & Bath</a></h4>
-                                                        <ul>
-                                                            <li><a href="#">Bathroom</a></li>
-                                                            <li><a href="#">Powder Room</a></li>
-                                                            <li><a href="#">Bedroom</a></li>
-                                                            <li><a href="#">Storage & Closet </a></li>
-                                                            <li><a href="#">Baby & Kids</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="row">
-                                                        <h4><a href="#">Utility</a></h4>
-                                                        <ul>
-                                                            <li><a href="#">Laundry</a></li>
-                                                            <li><a href="#">Garage</a></li>
-                                                            <li><a href="#">Mudroom</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="flexcol">
-                                                    <div class="row">
-                                                        <h4><a href="#">Outdoor</a></h4>
-                                                        <ul>
-                                                            <li><a href="#">Landscape</a></li>
-                                                            <li><a href="#">Patio</a></li>
-                                                            <li><a href="#">Deck</a></li>
-                                                            <li><a href="#">Pool</a></li>
-                                                            <li><a href="#">Backyard</a></li>
-                                                            <li><a href="#">Porch</a></li>
-                                                            <li><a href="#">Exterior</a></li>
-                                                            <li><a href="#">Outdoor Kitchen</a></li>
-                                                            <li><a href="#">Front Yard</a></li>
-                                                            <li><a href="#">Driveway</a></li>
-                                                            <li><a href="#">Poolhouse</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                        </li>
-   
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-android-line"></i></div>
-                                                Pet Supplies
-                                            </a>
-                                        </li>
-
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-basketball-line"></i></div>
-                                                Sports
-                                            </a>
-                                        </li>
-                                        <li class="has-child fashion">
-                                            <a href="#">
-                                                <div class="icon-large"><i class="ri-shield-star-line"></i></div>
-                                                Best Seller
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-`
 
 
 //show dpt menu
@@ -651,3 +477,214 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart',  {
   });
 
 //======================cart number=============================================================
+
+
+//=============================FILTER==================================================
+
+function toggleFilterOptions() {
+  var filterOptions = document.getElementById('filter-options');
+  if (filterOptions.style.display === 'none') {
+    filterOptions.style.display = 'block';
+  } else {
+    filterOptions.style.display = 'none';
+  }
+}
+
+
+const rangeqin = document.querySelectorAll(".rangeq-input input"),
+quantityInput = document.querySelectorAll(".priceq-input input"),
+rangeq = document.querySelector(".slider .progressq");
+let quantityGap = 0;
+
+const rangeInput = document.querySelectorAll(".range-input input"),
+priceInput = document.querySelectorAll(".price-input input"),
+range = document.querySelector(".slider .progress");
+let priceGap = 0;
+
+let minVal=0 , maxVal=parseInt(rangeInput[1].value) , minqVal=0 , maxqVal=parseInt(rangeqin[1].value);
+
+
+
+quantityInput.forEach(input =>{
+input.addEventListener("input", e =>{
+    let minQuanti = parseInt(quantityInput[0].value),
+    maxQuanty = parseInt(quantityInput[1].value);
+    
+    if((maxQuanty - minQuanti >= quantityGap) && maxQuanty <= rangeqin[1].max){
+        if(e.target.className === "inputq-in"){
+            rangeqin[0].value = minQuanti;
+            rangeq.style.left = ((minQuanti / rangeqin[0].max) * 100) + "%";
+        }else{
+            rangeqin[1].value = maxQuanty;
+            rangeq.style.right = 100 - (maxQuanty / rangeqin[1].max) * 100 + "%";
+        }
+    }
+});
+});
+
+rangeqin.forEach(input =>{
+input.addEventListener("input", e =>{
+    minqVal = parseInt(rangeqin[0].value),
+    maxqVal = parseInt(rangeqin[1].value);
+
+    if((maxqVal - minqVal) < quantityGap){
+        if(e.target.className === "rangeq-min"){
+            rangeqin[0].value = maxqVal - quantityGap
+        }else{
+            rangeqin[1].value = minqVal + quantityGap;
+        }
+    }else{
+        quantityInput[0].value = minqVal;
+        quantityInput[1].value = maxqVal;
+        rangeq.style.left = ((minqVal / rangeqin[0].max) * 100) + "%";
+        rangeq.style.right = 100 - (maxqVal / rangeqin[1].max) * 100 + "%";
+    }
+
+});
+});
+
+
+
+
+priceInput.forEach(input =>{
+input.addEventListener("input", e =>{
+    let minPrice = parseInt(priceInput[0].value),
+    maxPrice = parseInt(priceInput[1].value);
+    
+    if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
+        if(e.target.className === "input-min"){
+            rangeInput[0].value = minPrice;
+            range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+        }else{
+            rangeInput[1].value = maxPrice;
+            range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+        }
+    }
+   // console.log(maxPrice + "min" + minPrice)
+});
+});
+
+rangeInput.forEach(input =>{
+input.addEventListener("input", e =>{
+    minVal = parseInt(rangeInput[0].value),
+    maxVal = parseInt(rangeInput[1].value);
+
+    if((maxVal - minVal) < priceGap){
+        if(e.target.className === "range-min"){
+            rangeInput[0].value = maxVal - priceGap
+        }else{
+            rangeInput[1].value = minVal + priceGap;
+        }
+    }else{
+        priceInput[0].value = minVal;
+        priceInput[1].value = maxVal;
+        range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+    }
+});
+});
+
+
+
+const apply_filter_btn = document.getElementById("apply-filter-btn");
+apply_filter_btn.addEventListener("click" , ()=>{
+var form_filter = document.getElementById("filter-form");
+var checkboxes = form_filter.elements["filter-choice"];
+var selectedValues = [];
+
+for (var i = 0; i < checkboxes.length; i++) {
+if (checkboxes[i].checked) {
+  selectedValues.push(checkboxes[i].value);
+}
+}
+
+
+
+
+
+
+
+
+let the_filter_link="";
+
+if (selectedValues.includes("price-filter-choice")) {
+let the_min_price = minVal;
+let the_max_price = maxVal;
+the_filter_link+="&price[gt]=" + minVal + "&price[lt]=" + maxVal;
+}
+if (selectedValues.includes("quantity-filter-choice")) {
+let the_min_quantity = minqVal;
+let the_max_quantity = maxqVal;
+if(the_filter_link.length==1){
+    the_filter_link+="&quantity[gt]=" + minqVal + "&quantity[lt]=" + maxqVal;
+
+}else{
+    the_filter_link+="&quantity[gt]=" + minqVal + "&quantity[lt]=" + maxqVal;
+
+}
+
+}
+if (selectedValues.includes("review-filter-choice")) {
+let value_review=0;
+const selectedqOption = document.querySelector('input[name="selected-review"]:checked');
+let = selectedqValue="one-star"
+if(selectedqOption){
+selectedqValue = selectedqOption.value;
+
+}
+
+if(selectedqValue == "five-star"){
+    value_review=5;
+}
+if(selectedqValue == "four-star"){
+    value_review=4;    }
+if(selectedqValue == "three-star"){
+    value_review=3;    }
+if(selectedqValue == "two-star"){
+    value_review=2;    }
+if(selectedqValue == "one-star"){
+    value_review=1;    }
+
+
+    if(the_filter_link.length==1){
+        the_filter_link+="$ratingAverage[gte]=" + value_review;
+
+    }else{
+        the_filter_link+="&ratingAverage[gte]=" + value_review;
+
+    }
+}
+
+console.log(the_filter_link)
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?keyword='+searchisis.value+the_filter_link)
+.then(response => {
+  SearchProductList = response.data.data;
+  console.log('https://buy-it-sigma.herokuapp.com/api/v1/products?keyword='+searchisis.value+the_filter_link)
+  displaySearchProduct();
+  // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+  //     headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //   })
+  //   .then(response => {
+  //     for (let i = 0; i  <response.data.data.length; i++) {
+  //     document.getElementById("click-me" + response.data.data[i]._id +"a").click();
+      
+  //     }
+  //     document.getElementById("wishlist-number").textContent=response.data.data.length+"";
+  //     console.log('Product added:', response.data.data);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error get product:', error);
+  //   });
+})
+.catch(error => {
+  console.log(error)
+});
+})
+
+
+
+
+
+//=============================FILTER==================================================

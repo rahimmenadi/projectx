@@ -1,3 +1,6 @@
+
+let number;
+let subList=[];
 function updateCartNumber(cartLenth,totalPrice){
     document.getElementById("cart-number").textContent= cartLenth + "";
     document.getElementById("cart-number-one").textContent= cartLenth + "";
@@ -65,6 +68,12 @@ let Total_cart = document.getElementById("total-cart-home");
 //https://buy-it-sigma.herokuapp.com/api/v1/products?sort=-createdAt
 
 //categories code
+
+function sendCategoryId(j){
+    localStorage.setItem("subcatId",subList[j]._id);
+    window.location.assign('/src/html/categoriesPage.html')
+}
+
 
 let all_categories_items = "";
 
@@ -135,8 +144,9 @@ for (let i = 0; i < categories.length; i++) {
                             </li>
                     `
     
-                    three_sellers += three_sellers_first + the_three_sellers + three_sellers_second;
                 }
+                three_sellers += three_sellers_first + the_three_sellers + three_sellers_second;
+
 
 
     
@@ -149,6 +159,39 @@ for (let i = 0; i < categories.length; i++) {
     console.log("in here swiper" + swiper_items)
     sellers.innerHTML=three_sellers;
     console.log("in here swipesellerr" + three_sellers)
+    var swipe3 = new Swiper(".mySwiper3", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        allowTouchMove:false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        loop: true,
+        speed:600,
+        navigation: {
+          nextEl: ".button",
+          prevEl: ".button-previews",
+        },
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        
+        centeredSlides: true,
+        autoplay:{
+          delay:3000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        speed:600,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
                 }
                 })
                 .catch(error => {
@@ -202,8 +245,11 @@ for (let i = 0; i < categories.length; i++) {
             let sub_categories_code =""
                 subcategoriesByCategoryId.get(category._id).forEach(subcat =>{
                     //in here the sub categories
+                    subList.push(subcat);
+                    number = subList.length - 1;
+                    let the_id=parseInt(subcat._id);
                     sub_categories_code +=`
-                    <li><a href="#">${subcat.name}</a></li>
+                    <li><a onclick="sendCategoryId(${number})" href="#">${subcat.name}</a></li>
                     `
                 })
 
@@ -547,6 +593,12 @@ function sendProductId(k){
     
     window.location.assign('/product-details.html');
 }
+function sendBestProductId(k){
+    
+    localStorage.setItem('productId',BestProductList[k]._id);
+    
+    window.location.assign('/product-details.html');
+}
 function sendNewProductId(k){
   // Serialize the object to JSON
   // Navigate to another page with the encoded product ID
@@ -579,6 +631,7 @@ function sendNewProductIdCard(k){
 console.log(localStorage.getItem("token"))
 
 let AllProductList = [];
+let BestProductList = [];
 axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
   .then(response => {
     AllProductList = response.data.data;
@@ -600,6 +653,16 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
       .catch(error => {
         console.error('Error get product:', error);
       });
+  })
+  .catch(error => {
+    console.log(error)
+  });
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products')
+  .then(response => {
+    BestProductList = response.data.data;
+    
+    displayBestProduct();
+
   })
   .catch(error => {
     console.log(error)
@@ -657,6 +720,104 @@ function displayProduct(){
     
     
 }
+function displayBestProduct(){
+
+//trendig 8 product
+let first_offer_row = document.getElementById("offer-first-row");
+let second_offer_row = document.getElementById("offer-second-row");
+
+let offer_products_first="";
+let offer_products_second="";
+let product_offer_content
+for (let i = 1; i < 9; i++) {
+    if(i<5){
+        offer_products_first+=`
+        <div onclick="sendProductId(${i})" class="item">
+            <div class="media">
+                <div class="thumbnail object-cover">
+                    <a onclick="sendProductId(${i})" href="#">
+                        <img src="${BestProductList[i].imageCover}" alt="">
+                    </a>
+                </div>
+                <div class="discount circle flexcenter"><span>${BestProductList[i].price/BestProductList[i].priceAfterDiscount}%</span></div>
+            </div>
+            <div class="content">
+                <h3 class="main-links"><a href="#">${BestProductList[i].description}</a></h3>
+                
+                <div class="rating">
+                <div style="width:${BestProductList[i].ratingAverage/5*80}px" class="stars"></div>
+                <span class="mini-text">${BestProductList[i].ratingAverage}</span>
+                </div>
+                <div class="price">
+                    <span class="current">$${BestProductList[i].priceAfterDiscount}</span>
+                    <span class="normal mini-text">$${BestProductList[i].price}</span>
+                </div>
+                <div class="mini-text">
+                    <p>2975 sold</p>
+                    <p>Free Shipping</p>
+                </div>
+            </div>
+        </div>
+        
+        `
+    }else{
+        offer_products_second+=`
+        <div onclick="sendProductId(${i})" class="item">
+            <div class="media">
+                <div class="thumbnail object-cover">
+                    <a onclick="sendProductId(${i})" href="#">
+                        <img src="${BestProductList[i].imageCover}" alt="">
+                    </a>
+                </div>
+                <div class="discount circle flexcenter"><span>${BestProductList[i].price/BestProductList[i].priceAfterDiscount}%</span></div>
+            </div>
+            <div class="content">
+                <h3 class="main-links"><a href="#">${BestProductList[i].title}</a></h3>
+                
+                <div class="rating">
+                <div style="width:${BestProductList[i].ratingAverage/5*80}px" class="stars"></div>
+                <span class="mini-text">${BestProductList[i].ratingAverage}</span>
+                </div>
+                <div class="price">
+                    <span class="current">$${BestProductList[i].priceAfterDiscount}</span>
+                    <span class="normal mini-text">$${BestProductList[i].price}</span>
+                </div>
+                <div class="mini-text">
+                    <p>2975 sold</p>
+                    <p>Free Shipping</p>
+                </div>
+            </div>
+        </div>
+        `
+    }
+}
+first_offer_row.innerHTML=offer_products_first;
+second_offer_row.innerHTML=offer_products_second;
+
+let img_special_offre = document.getElementById("special-offre-img");
+let rating_special_offre = document.getElementById("special-offre-rating");
+let count_rating = document.getElementById("rating-count");
+let offer_text = document.getElementById("offer-text");
+let current_offer_price = document.getElementById("current-offer-price");
+let old_offer_price = document.getElementById("old-offer-price");
+let discount_offer = document.getElementById("discount-offer");
+let offer_qty = document.getElementById("offer-qty");
+let offer_qty_sold = document.getElementById("offer-qty-sold");
+let offer_bar = document.getElementById("offer-bar");
+
+img_special_offre.src=BestProductList[1].imageCover;
+rating_special_offre.style.width="50px";
+count_rating.innerHTML=`(${50})`;
+offer_text.textContent="Happy Sailed Womens Summer Boho Florals";
+current_offer_price.textContent="$129.99";
+old_offer_price.textContent="$189.98";
+discount_offer.textContent="31%";
+offer_qty.textContent="3000";
+offer_qty_sold.textContent="3522";
+offer_bar.style.width="30%"
+
+    
+}
 
 
 // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY3YWU5NjExODljYjBkMzE1ZDNmYzgiLCJpYXQiOjE2ODQ3NzY2OTgsImV4cCI6MTY5MjU1MjY5OH0.6ctG0e--AOFYaWCzVi7F6F-xsvcBc3BU41Q4XPDKqew';
@@ -689,141 +850,39 @@ function displayProduct(){
 //=====================================
 
 //special offre
-// Set the date we're counting down to
-var countDownDate = new Date("Dec 13, 2023 15:13:00").getTime();
+// // Set the date we're counting down to
+// var countDownDate = new Date("Dec 13, 2023 15:13:00").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+// // Update the count down every 1 second
+// var x = setInterval(function() {
 
-  // Get today's date and time
-  var now = new Date().getTime();
+//   // Get today's date and time
+//   var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+//   // Find the distance between now and the count down date
+//   var distance = countDownDate - now;
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//   // Time calculations for days, hours, minutes and seconds
+//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("days").innerHTML = days + "d";
-  document.getElementById("hours").innerHTML = hours + "h";
-  document.getElementById("minutes").innerHTML = minutes + "m";
-  document.getElementById("seconds").innerHTML = seconds + "s";
+//   // Display the result in the element with id="demo"
+//   document.getElementById("days").innerHTML = days + "d";
+//   document.getElementById("hours").innerHTML = hours + "h";
+//   document.getElementById("minutes").innerHTML = minutes + "m";
+//   document.getElementById("seconds").innerHTML = seconds + "s";
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
+//   // If the count down is finished, write some text
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "EXPIRED";
+//   }
+// }, 1000);
 
-let img_special_offre = document.getElementById("special-offre-img");
-let rating_special_offre = document.getElementById("special-offre-rating");
-let count_rating = document.getElementById("rating-count");
-let offer_text = document.getElementById("offer-text");
-let current_offer_price = document.getElementById("current-offer-price");
-let old_offer_price = document.getElementById("old-offer-price");
-let discount_offer = document.getElementById("discount-offer");
-let offer_qty = document.getElementById("offer-qty");
-let offer_qty_sold = document.getElementById("offer-qty-sold");
-let offer_bar = document.getElementById("offer-bar");
 
-img_special_offre.src="../../assets/products/apparel3.jpg"
-rating_special_offre.style.width="40px";
-count_rating.innerHTML=`(${50})`;
-offer_text.textContent="Happy Sailed Womens Summer Boho Florals";
-current_offer_price.textContent="$129.99";
-old_offer_price.textContent="$189.98";
-discount_offer.textContent="31%";
-offer_qty.textContent="3000";
-offer_qty_sold.textContent="3522";
-offer_bar.style.width="30%"
 
-//trendig 8 product
-let first_offer_row = document.getElementById("offer-first-row");
-let second_offer_row = document.getElementById("offer-second-row");
-
-let offer_products_first="";
-let offer_products_second="";
-let product_offer_content
-for (let i = 0; i < 8; i++) {
-    if(i<4){
-        offer_products_first+=`
-        <div class="item">
-            <div class="media">
-                <div class="thumbnail object-cover">
-                    <a href="#">
-                        <img src="assets/products/apparel3.jpg" alt="">
-                    </a>
-                </div>
-                <div class="hoverable">
-                    <ul>
-                        <li class="active"><a onclick="btn_wishlist(this)" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-                        <li><a   ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
-                    </ul>
-                </div>
-                <div class="discount circle flexcenter"><span>32%</span></div>
-            </div>
-            <div class="content">
-                <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
-                
-                <div class="rating">
-                    <div class="stars"></div>
-                    <span class="mini-text">(2,548)</span>
-                </div>
-                <div class="price">
-                    <span class="current">$129.99</span>
-                    <span class="normal mini-text">$189.98</span>
-                </div>
-                <div class="mini-text">
-                    <p>2975 sold</p>
-                    <p>Free Shipping</p>
-                </div>
-            </div>
-        </div>
-        `
-    }else{
-        offer_products_second+=`
-        <div class="item">
-            <div class="media">
-                <div class="thumbnail object-cover">
-                    <a href="#">
-                        <img src="assets/products/apparel3.jpg" alt="">
-                    </a>
-                </div>
-                <div class="hoverable">
-                    <ul>
-                        <li class="active"><a onclick="btn_wishlist(this)" id="add-wishlist-btn"><i class="ri-heart-line"></i></a></li>
-                        <li><a ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
-                    </ul>
-                </div>
-                <div class="discount circle flexcenter"><span>32%</span></div>
-            </div>
-            <div class="content">
-                <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
-                
-                <div class="rating">
-                    <div class="stars"></div>
-                    <span class="mini-text">(2,548)</span>
-                </div>
-                <div class="price">
-                    <span class="current">$129.99</span>
-                    <span class="normal mini-text">$189.98</span>
-                </div>
-                <div class="mini-text">
-                    <p>2975 sold</p>
-                    <p>Free Shipping</p>
-                </div>
-            </div>
-        </div>
-        `
-    }
-}
-first_offer_row.innerHTML=offer_products_first;
-second_offer_row.innerHTML=offer_products_second;
 
 
 
@@ -882,29 +941,7 @@ conutton = document.querySelector(".dpt-cat .dpt-trigger"),
 // });
 
 //product image slider
-var productThumb = new Swiper(".small-image", {
-	loop: true,
-	spaceBetween: 10,
-	slidesPerView: 3,
-	freeMode: true,
-	watchSlidesProgress: true,
-	breakpoints: {
-		481: {
-			spaceBetween: 32,
-		},
-	},
-});
-var productBig = new Swiper(".big-image", {
-	loop: true,
-	autoHeight: true,
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
-	thumbs: {
-		swiper: productThumb,
-	},
-});
+
 
 //stock products bar width percentage
 var stocks = document.querySelectorAll(".products .stock");
@@ -1061,38 +1098,8 @@ function reee(){
 }
 let btnPreviews = document.getAnimations('swipe-left');
 
-var swipe3 = new Swiper(".mySwiper3", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  allowTouchMove:false,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  loop: true,
-  speed:600,
-  navigation: {
-    nextEl: ".button",
-    prevEl: ".button-previews",
-  },
-});
-var swiper2 = new Swiper(".mySwiper2", {
-  
-  centeredSlides: true,
-  autoplay:{
-    delay:3000,
-    disableOnInteraction: false,
-  },
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  speed:600,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+
 
 setInterval(reee, 4000);
+
+

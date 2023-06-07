@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product details</title>
     <link rel="stylesheet" href="../css/cart.css">
+      <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
 <body>
+    <div class="waiting-dialog">
+        <i class="fas fa-spinner spinner"></i>
+        <p class="message">Waiting...</p>
+      </div>
     <div id="page" class="site page-single">
         <aside class="site-off desktop-hide">
             <div class="off-canvas">
                 <div class="canvas-head flexitem">
-                    <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <div class="logo"><a href="/home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                     <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
                 </div>
                 <div class="departments"></div>
@@ -54,7 +61,7 @@
                     <div class="wrapper flexitem">
                         <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                         <div class="left flexitem">
-                            <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <div class="logo"><a href="./home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                             <nav class="mobile-hide">
                                 <ul class="flexitem second-links">
                                     <li><a href="./home.html">Home</a></li>
@@ -136,10 +143,10 @@
                     <div class="order-summery-section">
                         <div class="card-details">
                             <h2>Order Summary</h2>
-                            <form action="" method="get" class="form-coupoun">
-                                <input type="text" placeholder="Coupon Code">
-                                <button type="submit">Apply</button>
-                            </form>
+                            <div class="form-coupoun">
+                                <input id="coupoun-text" type="text" placeholder="Coupon Code">
+                                <button id="apply-coupoun-btn">Apply</button>
+                            </div>
                             <div class="subtotal">
                                 <div id="subtotal-items" class="text">Subtotal</div>
                                 <div id="subtotal-price" class="price">0</div>
@@ -257,7 +264,7 @@
                     <div class="wrapper">
                         <div class="flexcol">
                             <div class="logo">
-                                <a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                                <a href="./home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
                             </div>
                             <div class="socials">
                                 <ul class="flexitem">

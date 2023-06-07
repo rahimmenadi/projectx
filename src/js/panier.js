@@ -408,9 +408,9 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
                                     <div class="change-qts">
                                         <div class="text">Quantity</div>
                                         <div class="wrapper">
-                                            <button class="minus">-</button>
-                                            <div class="num">${product_item.quantity}</div>
-                                            <button class="plus">+</button>
+                                            <button onclick="changeQuantityminus(${i})" id="minus${i}" class="minus">-</button>
+                                            <div id="num${i}" class="num">${cartItemsis[i].quantity}</div>
+                                            <button onclick="changeQuantityplus(${i})" id="plus${i}" class="plus">+</button>
                                         </div>
                                     </div>
                                     <div class="centered">
@@ -424,27 +424,7 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
         `
 
         panierall.innerHTML=panier_items;
-        const plus = document.querySelector(".plus"),
-        minus = document.querySelector(".minus"),
-        num = document.querySelector(".num");
-  
-  let a = 1;
-  
-  plus.addEventListener("click",()=>{
-      a++;
-      num.innerHTML=a;
-      minus.disabled=false;
-  });
-  minus.addEventListener("click",()=>{
-      if(a<=2){
-          minus.disabled=true;
-      }else{
-          minus.disabled=false;
-      }
-      a--;
-      num.innerHTML=a;
-  });
-
+        
       })
       .catch(error => {
         console.error('Error adding product:', error);
@@ -460,6 +440,105 @@ axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
   console.error('Error adding product:', error);
 });
 
+const waitingDialog = document.querySelector('.waiting-dialog');
+let plus,minus,num;
+//-------------------------CHANGE QUANITYT-------------------------------------------
+function changeQuantityminus(r){
+    // Show the waiting dialog
+    waitingDialog.style.display = 'flex';
+
+        minus=document.getElementById("minus"+r);
+        num = document.getElementById("num"+r);
+  
+
+
+  let a = cartItemsis[r].quantity;
+  console.log(a)
+  
+  if(a<=2){
+    minus.disabled = true;
+  }
+
+  a--;
+  num.innerHTML=a;
+
+
+    const axiosInstance = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}` // Include the authentication token in the headers
+        }
+      });
+      
+      // Make the request to update the product quantity
+      axiosInstance.put(`https://buy-it-sigma.herokuapp.com/api/v1/cart/${cartItemsis[r]._id}`, { quantity: a })
+        .then(response => {
+          console.log('Product quantity updated successfully', response.data.data.cartItems);
+          cartItemsis = response.data.data.cartItems
+          // Handle the response or perform additional actions
+          subtotal_items_price.textContent=response.data.data.totalCartPrice;
+          coupoun_discount.textContent="0";
+          shipping_price.textContent="Not Free";
+          total_price_summary.textContent=response.data.data.totalCartPrice;
+      
+          // document.getElementById("wishlist-number").textContent= response.data.data.length + "";
+          
+          updateCartNumber(response.data.data.cartItems.length,response.data.data.totalCartPrice);
+              
+          waitingDialog.style.display = 'none';
+        })
+        .catch(error => {
+          console.error('Error updating product quantity', error);
+          // Handle the error or display an error message
+        });
+}
+function changeQuantityplus(r){
+    // Show the waiting dialog
+    waitingDialog.style.display = 'flex';
+
+    minus=document.getElementById("minus"+r);
+
+        num = document.getElementById("num"+r);
+  
+  let a = cartItemsis[r].quantity;
+  console.log(a)
+
+  if(a<=4){
+    minus.disabled=false;
+  }
+
+  a++;
+  num.innerHTML=a;
+
+
+
+    const axiosInstance = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}` // Include the authentication token in the headers
+        }
+      });
+      
+      // Make the request to update the product quantity
+      axiosInstance.put(`https://buy-it-sigma.herokuapp.com/api/v1/cart/${cartItemsis[r]._id}`, { quantity: a })
+        .then(response => {
+          console.log('Product quantity updated successfully', response.data.data.cartItems);
+          cartItemsis = response.data.data.cartItems
+          // Handle the response or perform additional actions
+          subtotal_items_price.textContent=response.data.data.totalCartPrice;
+          coupoun_discount.textContent="0";
+          shipping_price.textContent="Not Free";
+          total_price_summary.textContent=response.data.data.totalCartPrice;
+      
+          // document.getElementById("wishlist-number").textContent= response.data.data.length + "";
+          
+          updateCartNumber(response.data.data.cartItems.length,response.data.data.totalCartPrice);
+              
+          waitingDialog.style.display = 'none';
+        })
+        .catch(error => {
+          console.error('Error updating product quantity', error);
+          // Handle the error or display an error message
+        });
+}
 
 //remove product from panier
 function removeFromCart(i) {
@@ -508,3 +587,33 @@ function sendProductId(k){
 }
 
 copyMenu();
+
+
+//=====================================COUPOUN CODE ===============================================
+let btn_apply_coupoun = document.getElementById("apply-coupoun-btn");
+let coupoun_text = document.getElementById("coupoun-text")
+
+btn_apply_coupoun.addEventListener("click" , ()=>{
+  console.log(coupoun_text.value);
+
+
+  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart/applyCoupon', { coupon: coupoun_text.value }, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then(response => {
+      const newTotalPrice = response.data.totalPriceAfterDiscount;
+      console.log('New Total Price:', newTotalPrice);
+      subtotal_items_price.textContent=newTotalPrice;
+      coupoun_discount.textContent="0";
+      shipping_price.textContent="Not Free";
+      total_price_summary.textContent=newTotalPrice;
+  
+
+    })
+    .catch(error => {
+      console.error('Error applying coupon:', error);
+    });
+
+})

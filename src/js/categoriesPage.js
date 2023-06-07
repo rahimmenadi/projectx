@@ -139,7 +139,21 @@ let addtocart=document.getElementById('add-to-cart')
 // })
 
 //search code
-const searchvalue = localStorage.getItem("searchValue");
+const searchvalue = localStorage.getItem("subcatId");
+console.log(searchvalue)
+
+    // displaySearchProduct();
+    axios.get(`https://buy-it-sigma.herokuapp.com/api/v1/subcategories/${searchvalue}/products`)
+  .then(response => {
+    SearchProductList = response.data.data;
+    console.log(SearchProductList)
+    displaySearchProduct();
+
+  })
+  .catch(error => {
+    console.log(error)
+  });
+
 
 let searchis = document.getElementById("searchis");
 
@@ -214,31 +228,7 @@ console.log("searchbtnclicked")
 
 
 let SearchProductList = [];
-axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products?keyword='+searchvalue)
-  .then(response => {
-    SearchProductList = response.data.data;
-    
-    displaySearchProduct();
-    // axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
-    //     headers: {
-    //         Authorization: `Bearer ${token}`
-    //       }
-    //   })
-    //   .then(response => {
-    //     for (let i = 0; i  <response.data.data.length; i++) {
-    //     document.getElementById("click-me" + response.data.data[i]._id +"a").click();
-        
-    //     }
-    //     document.getElementById("wishlist-number").textContent=response.data.data.length+"";
-    //     console.log('Product added:', response.data.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error get product:', error);
-    //   });
-  })
-  .catch(error => {
-    console.log(error)
-  });
+
 
 
 
@@ -591,7 +581,6 @@ for (let i = 0; i < categories.length; i++) {
             ` + all_categories_items + `
             </ul>`;
 
-            console.log(categories_contain.innerHTML);
             
             // dptButton.addEventListener("click", function () {
             //     dptClass.classList.toggle("showdpt");

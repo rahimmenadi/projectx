@@ -14,7 +14,7 @@
         <aside class="site-off desktop-hide">
             <div class="off-canvas">
                 <div class="canvas-head flexitem">
-                    <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <div class="logo"><a href="./home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                     <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
                 </div>
                 <div class="departments"></div>
@@ -54,7 +54,7 @@
                     <div class="wrapper flexitem">
                         <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                         <div class="left flexitem">
-                            <div class="logo"><a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <div class="logo"><a href="./home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
                             <nav class="mobile-hide">
                                 <ul class="flexitem second-links">
                                     <li><a href="./home.html">Home</a></li>
@@ -131,7 +131,122 @@
                                         <div class="sectop flexitem">
                                             <h2><span class="circle"></span><span>Search Result</span></h2>
                                             <div class="second-links">
-                                                <a href="#" class="view-all">Filter</a>
+                                                <a href="#" class="view-all"></a>
+                                                <div class="filter-container-class">
+                                                    <div class="filter-container">
+                                                        <button id="filter-button" onclick="toggleFilterOptions()">Filter</button>
+
+                                                      <div id="filter-options" class="filter-options">
+                                                        <h2>Filter Options</h2>
+                                                        <button id="apply-filter-btn">Apply-Filter</button>
+                                                        <div class="filter-section">
+                                                          <form id="filter-form">
+                                                              <label>
+                                                                <input type="checkbox" name="filter-choice" value="price-filter-choice">
+                                                                <span class="custom-checkbox"></span>
+                                                                filter by price
+                                                                <div class="filter-section">
+                                                                  <div class="wrapper">
+                                                                      <header>
+                                                                        <h2>Price Range</h2>
+                                                                      </header>
+                                                                      <div class="price-input">
+                                                                        <div class="field">
+                                                                          <span>Min</span>
+                                                                          <input type="number" class="input-min" value="0">
+                                                                        </div>
+                                                                        <div class="separator">-</div>
+                                                                        <div class="field">
+                                                                          <span>Max</span>
+                                                                          <input  type="number" class="input-max" value="10000">
+                                                                        </div>
+                                                                      </div>
+                                                                      <div class="slider">
+                                                                        <div class="progress"></div>
+                                                                      </div>
+                                                                      <div class="range-input">
+                                                                        <input type="range" class="range-min" min="0" max="10000" value="0" step="100">
+                                                                        <input type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+                                                                      </div>
+                                                                    </div>
+                                                                </div>
+                                                              </label>
+                                                              <label>
+                                                                <input type="checkbox" name="filter-choice" value="quantity-filter-choice">
+                                                                <span class="custom-checkbox"></span>
+                                                                filter by quantity
+                                                                <div class="filter-section">
+                                                                  <div class="wrapper">
+                                                                      <header>
+                                                                        <h2>Quantity Range</h2>
+                                                                      </header>
+                                                                      <div class="priceq-input">
+                                                                        <div class="field">
+                                                                          <span>Min</span>
+                                                                          <input type="number" class="inputq-in" value="0">
+                                                                        </div>
+                                                                        <div class="separator">-</div>
+                                                                        <div class="field">
+                                                                          <span>Max</span>
+                                                                          <input type="number" class="input-max" value="50">
+                                                                        </div>
+                                                                      </div>
+                                                                      <div class="slider">
+                                                                        <div class="progressq"></div>
+                                                                      </div>
+                                                                      <div class="rangeq-input">
+                                                                        <input type="range" class="rangeq-min" min="0" max="50" value="0" step="1">
+                                                                        <input type="range" class="rangeq-max" min="0" max="50" value="50" step="1">
+                                                                      </div>
+                                                                    </div>
+                                                                
+                                                              </div>
+                                                              </label>
+                                                              <label>
+                                                                <input type="checkbox" name="filter-choice" value="review-filter-choice">
+                                                                <span class="custom-checkbox"></span>
+                                                                filter by review
+                                                                <div class="filter-section">
+                                                                  <div class="wrapper">
+                                                                      <header>
+                                                                        <h2>Select Review</h2>
+                                                                      </header>
+                                                                          <!-- here -->
+                                                                              <div id="review-container-filter" class="flex-review">
+                                                                              <label class="review-lable">
+                                                                                <input type="radio" name="selected-review" value="five-star">
+                                                                              
+                                                                                <img src="../../images/five-star.jpg" alt="">
+                                                                              </label>
+                                                                              <label class="review-lable">
+                                                                                <input type="radio" name="selected-review" value="four-star">
+                                                                                <img src="../../images/four-star.jpg" alt="">
+                                                                              </label>
+                                                                              <label class="review-lable">
+                                                                                <input type="radio" name="selected-review" value="three-star">
+                                                                                <img src="../../images/three-star.jpg" alt="">
+                                                                              </label>
+                                                                              <label class="review-lable">
+                                                                                <input type="radio" name="selected-review" value="two-star">
+                                                                                <img src="../../images/two-star.jpg" alt="">
+                                                                              </label>
+                                                                              <label class="review-lable">
+                                                                                <input type="radio" name="selected-review" value="one-star">
+                                                                                <img src="../../images/one-star.jpg" alt="">
+                                                                              </label>
+                                                                              
+                                                                          </div>
+                                                                    </div>
+                                                                </div>
+                                                              </label>
+                                                            </form>
+                                                            
+                                                        </div>
+                                                        
+                                                      </div>
+                                                      
+                                                    </div>
+                                                  </div>
                                             </div>
                                         </div>
                                         <div id="search-product-js" class="products main flexwrap">
@@ -241,7 +356,7 @@
                     <div class="wrapper">
                         <div class="flexcol">
                             <div class="logo">
-                                <a href="./home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                                <a href="./home.html"><img src="../../assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
                             </div>
                             <div class="socials">
                                 <ul class="flexitem">

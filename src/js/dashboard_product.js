@@ -1,5 +1,5 @@
 
-const token = sessionStorage.getItem("token")
+const token = localStorage.getItem("sellertoken")
 console.log(token);
 
 let productList = [];

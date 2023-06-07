@@ -171,7 +171,14 @@ h4 {
 	flex-direction: column;
 	gap: 1em;
 }
+.main-links a{
+	width: 220px;
+	display: flex;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 
+}
 .main-links a:hover {
 	color: var(--secondary-color);
 }
@@ -1336,7 +1343,7 @@ i change the item before to display none
 
 .products.big .item {
 	flex-direction: column;
-	padding: 2.5em;
+	padding: 2em;
 	border: 2px solid var(--secondary-dark-color);
 	border-radius: 7px;
 	max-width: 460px;
@@ -3123,7 +3130,7 @@ input[type="range"]::-webkit-slider-thumb {
 	
 
 	.products.big .media {
-		max-height: 373px;
+		max-height: 460px;
 	}
 
 	.products.main .item,
@@ -3808,3 +3815,8 @@ input[type="range"]::-webkit-slider-thumb {
 	}
   }
 
+#special-offre-img {
+	height: 700px;
+	object-fit: cover;
+	border-radius: 7px;
+}
