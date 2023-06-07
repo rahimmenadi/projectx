@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="../css/add-cat.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link
     href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
@@ -10,6 +11,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        a{
+            text-decoration: none;
+        }
+        a:visited{ 
+            color: black; 
+        }
+
+         .tali { 
+            font-size: 18px; 
+            position: relative;
+             right: 35px;
+              top: -25px; 
+            }
         body{
             background: linear-gradient(to right, #ff6701, #ff2600);
         }
@@ -63,6 +77,7 @@
         <div class="main main--w680">
             <div class="card card-4">
                 <div class="card-body">
+                    <a href="../../admin-home.html" class="tali" onclick="history.back();"> <i class="fas fa-arrow-left"></i> Retour </a>
                     <h2 id="h2">Add Category</h2>
                     <form id="categoryForm">
                         <div class="form-group">
@@ -76,7 +91,7 @@
 
                             <img id="previewImage" src="#" alt="" />
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="categoryImage2" id="walid2">Choose Image 2:</label>
                             <input type="file" id="categoryImage2" style="visibility: hidden;" accept="image/*" />
                             <img id="previewImage2" src="#" alt="" />
@@ -86,7 +101,7 @@
                             <label for="categoryImage3" id="walid3">Choose Image 3:</label>
                             <input type="file" id="categoryImage3" style="visibility: hidden;" accept="image/*" />
                             <img id="previewImage3" src="#" alt="" />
-                        </div>
+                        </div> -->
                         
                       
                         <button type="submit">Submit</button>
@@ -109,27 +124,27 @@
             reader.readAsDataURL(file);
         });
 
-        document.getElementById("categoryImage2").addEventListener("change", function (e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
+//         document.getElementById("categoryImage2").addEventListener("change", function (e) {
+//     var file = e.target.files[0];
+//     var reader = new FileReader();
 
-    reader.onload = function (e) {
-        document.getElementById("previewImage2").setAttribute("src", e.target.result);
-    };
+//     reader.onload = function (e) {
+//         document.getElementById("previewImage2").setAttribute("src", e.target.result);
+//     };
 
-    reader.readAsDataURL(file);
-});
+//     reader.readAsDataURL(file);
+// });
 
-document.getElementById("categoryImage3").addEventListener("change", function (e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
+// document.getElementById("categoryImage3").addEventListener("change", function (e) {
+//     var file = e.target.files[0];
+//     var reader = new FileReader();
 
-    reader.onload = function (e) {
-        document.getElementById("previewImage3").setAttribute("src", e.target.result);
-    };
+//     reader.onload = function (e) {
+//         document.getElementById("previewImage3").setAttribute("src", e.target.result);
+//     };
 
-    reader.readAsDataURL(file);
-});
+//     reader.readAsDataURL(file);
+// });
 
 
 
