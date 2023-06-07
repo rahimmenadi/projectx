@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="../css/globpr.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/prodect.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<style>
+  #mainImage {
+    max-width: 300px;
+    max-height: 320px;
+    /* Ajoutez cette ligne pour limiter la hauteur */
+  }
+
+  .thumbnails img {
+    max-width: 70px;
+    max-height: 80px;
+    /* Ajoutez d'autres styles supplémentaires pour les miniatures si nécessaire */
+  }
+
+  .star {
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+    font-size: 17px;
+  }
+
+  .star-rating {
+    display: inline-block;
+    font-size: 16px;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
+
+  .star-rating .star {
+    display: inline-block;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
+</style>
+
+<body>
+  <header>
+    <div class="E1">
+      <button class="bar">
+        <span class="fa-solid fa-bars"></span>
+      </button>
+      <button class="brand">
+        <span class="fa-solid fa-tag"></span>
+        <h1>Buy-it</h1>
+      </button>
+      <div class="navbar">
+        <div class="searchBox">
+          <input type="text" placeholder="what are you looking for?">
+          <button class="search">
+            <span id="loupe" class="fa-solid fa-magnifying-glass"></span>
+            <span class="text">Search</span>
+          </button>
+        </div>
+      </div>
+      <div class="navbar1">
+        <div class="searchBox1">
+          <input class="inpbo1" type="text" placeholder="Min Price">
+        </div>
+      </div>
+      <div class="navbar2">
+        <div class="searchBox2">
+          <input class="inpbo1" type="text" placeholder="Max Price">
+        </div>
+      </div>
+      <div class="navbar3">
+        <div class="searchBox3">
+          <input class="inpbo2" type="text" placeholder="Min Quantity">
+        </div>
+      </div>
+      <div class="navbar4">
+        <div class="searchBox4">
+          <input class="inpbo2" type="text" placeholder="Max Quantity">
+        </div>
+      </div>
+    </div>
+    <div class="E2">
+      <div class="navbar5">
+        <div class="searchBox5">
+          <input type="text" class="text1">
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="product">
+    <div class="frame-promoted-parent">
+      <button class="frame-promoted">
+        <div class="frame-promoted-child"></div>
+        <div class="promoted">
+          <p class="promoted1">Promoted</p>
+          <p class="blank-line">&nbsp;</p>
+        </div>
+      </button>
+      <div class="options-disponible-parent">
+        <div class="options-disponible">
+          <p class="options-disponible1">Options disponible</p>
+        </div>
+        <table id="optionsTable">
+
+          <tr id="optionsRow">
+            <!-- Les cellules d'options seront ajoutées ici -->
+          </tr>
+        </table>
+        <!-- <button class="eu-37">
+          <div class="opt-1">opt 1</div>
+        <button class="eu-38">
+          <div class="opt-2">opt 2</div>
+        </button>
+        <button class="eu-40">
+          <div class="opt-3">opt 3</div>
+        </button> -->
+      </div>
+      <button style="display:none;" class="frame-edit">
+        <a href="#">
+          <img class="edit-2-icon" alt="" src="../../public/edit-2@2x.png" />
+        </a>
+      </button>
+      <div id="confirmationPopup">
+        <div class="popupContent">
+          <p>Are you sure you want to delete this product?</p>
+          <button id="confirmYes">Yes</button>
+          <button id="confirmNo">No</button>
+        </div>
+      </div>
+      <button class="frame-delet" id="delet">
+        <img class="edit-2-icon" alt="" src="../../public/bin1@3x.png" />
+      </button>
+      <!-- <button class="frame-promotion">
+        <a href="#">
+          <img class="edit-3-icon" alt="" src="../../public/promotion1@3x.png" />
+        </a>
+      </button> -->
+      <div class="nb-avis" id="nbavis">(nb-avis)</div>
+      <div class="cont-img">
+        <div class="carousel">
+          <div class="main-image">
+            <img id="mainImage" src="" alt="Main Image">
+          </div>
+          <div class="thumbnail-container">
+            <div class="thumbnails" id="thumbnailContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <img class="frame-image-principale" alt="" src="../../public/frame-image-principale@2x.png" />
+
+      <img class="frame-img3-icon" alt="" src="../../public/mask-group@2x.png" />
+
+      <img class="frame-img4-icon" alt="" src="../../public/frame-img4@2x.png" />
+
+      <img class="frame-img2-icon" alt="" src="../../public/mask-group1@2x.png" />
+
+      <img class="frame-img1-icon" alt="" src="../../public/mask-group2@2x.png" /> -->
+
+      <div class="product-namew" id="titre">Product-name</div>
+      <!-- <div class="product-name" id="titrew">Product-name</div> -->
+      <!-- <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div> -->
+      <b class="price-da" id="price">Price DA</b>
+      <div class="share-this-product">Share this product</div>
+      <div class="color-disponible">Color disponible
+        <table id="couleursTable1" class="color1">
+          <tr>
+            <th class="c">Couleur 1</th>
+          </tr>
+          <tr id="couleursRow1">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable2" class="color2">
+          <tr>
+            <th class="c">Couleur 2</th>
+          </tr>
+          <tr id="couleursRow2">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable3" class="color3">
+          <tr>
+            <th class="c">Couleur 3</th>
+          </tr>
+          <tr id="couleursRow3">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+
+          <table id="couleursTable4" class="color4">
+            <tr>
+              <th class="c">Couleur 4</th>
+            </tr>
+            <tr id="couleursRow4">
+              <!-- Les cellules de couleur seront ajoutées ici -->
+            </tr>
+
+            <table id="couleursTable5" class="color5">
+              <tr>
+                <th class="c">Couleur 5</th>
+              </tr>
+              <tr id="couleursRow5">
+                <!-- Les cellules de couleur seront ajoutées ici -->
+              </tr>
+            </table>
+      </div>
+
+      <!-- <div class="color1">color1</div>
+      <div class="color2">color2</div>
+      <div class="color3">color3</div> -->
+      <div class="nb-articles-dispo"> <span id="prod-dispo">x</span> pièces disponibles</div>
+      <div class="ancien-da"><span id="ancien">ancien</span></div>
+      <!-- <img class="stars-icon" alt="" src="../../public/stars.svg" /> -->
+
+      <div class="frame-item"></div>
+      <div class="frame-inner"></div>
+      <div class="line-div"></div>
+      <div class="frame-child1"></div>
+      <div class="frame-twitter">
+        <button class="twitter-1">
+          <a>
+            <img src="../../public/twitter1@3x.png" id="shareButton" class="twitter-1">
+          </a>
+        </button>
+      </div>
+      <div class="frame-fcb">
+        <button class="facebook-1">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com">
+            <img src="../../public/facebook1@3x.png" class="facebook-1">
+          </a>
+        </button>
+      </div>
+      <div class="frame-insta">
+        <button class="instagram-1">
+          <a>
+            <img src="../../public/instagram1@3x.png" id="shareButton1" class="instagram-1">
+          </a>
+        </button>
+      </div>
+      <div class="frame-copy-link">
+        <div class="group-copy-link">
+          <input class="group-copy-link-child" id="linkInput" readonly></input>
+          <button class="group-copy-link-item" id="copyButton"></button>
+          <label class="copy-link" for="copyButton">Copy link</label>
+        </div>
+      </div>
+      <div class="frame-worning">
+        <img class="exclamation-mark-1-icon" alt="" src="../../public/exclamationmark-1@2x.png" />
+      </div>
+      <!-- <button class="rectangle-button"></button>
+      <button class="frame-child2"></button>
+      <button class="frame-child3"></button>
+      <button class="frame-child4"></button>
+      <button class="frame-child5"></button>
+      <button class="frame-child6"></button>
+      <button class="frame-child7"></button> -->
+      <div class="frame-discount">
+        <!-- <img class="frame-discount-child" alt="" src="../../public/rectangle-57@2x.png" /> -->
+
+        <div class="div" style="text-align: center;">-<span id="reduction">x</span>%</div>
+      </div>
+
+
+    </div>
+    <div class="line-parent">
+      <div class="frame-child8"></div>
+      <div class="frame-child9"></div>
+      <div class="frame-child10"></div>
+      <div class="quantity">Quantity</div>
+      <div class="livraison">Livraison</div>
+      <div class="in-stock">In stock : <span id="nb-stock">nb-stock</span></div>
+      <div class="agence-a-name">-Type : <span id="typeliv"> T-name</span></div>
+      <!-- <div class="type-type">-Type : <span id="typeliv">Type x</span> </div> -->
+      <!-- <div class="retour-nb-retour">Retour : <span id="nb-retour">nb-retour</span></div> -->
+      <div class="classement"># <span id="classement">classement</span> </div>
+      <div class="in-process">In process : <span id="nb-in-process">nb-in-process</span></div>
+      <div class="sales-nb-sales">Sales : <span id="nb-sales">nb-sales</span></div>
+      <img class="ellipse-icon" alt="" src="../../public/ellipse-105.svg" />
+
+      <img class="frame-child11" alt="" src="../../public/ellipse-105.svg" />
+
+      <img class="frame-child12" alt="" src="../../public/ellipse-105.svg" />
+
+      <!-- <img class="frame-child13" alt="" src="../../public/ellipse-105.svg" /> -->
+    </div>
+    <div class="wrapper">
+      <div class="div1">
+        <div class="child"></div>
+        <div class="item"></div>
+        <a href="#frame-fiche-tech1">
+          <div class="frame-fiche-tech">
+            <button class="fiche-technique">Fiche technique</button>
+            <div class="frame-fiche-tech-icon">
+              <button class="menu-1-1"></button>
+            </div>
+          </div>
+        </a>
+        <a href="#container">
+          <div class="frame-descreption">
+            <button class="description">Description</button>
+            <button class="list-1"></button>
+            <div class="frame-describ-icon">
+              <button class="list-2"></button>
+            </div>
+          </div>
+        </a>
+        <a href="#frame-reviews1">
+          <div class="frame-reviews">
+            <div class="frame-reviews-icon">
+              <button class="positive-review-1"></button>
+            </div>
+            <button class="reviews">Reviews</button>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="container" id="container">
+      <div class="div2">
+        <div class="inner" id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod odio
+          ipsam nostrum, labore eaque nam blanditiis earum amet eum inventore animi quibusdam cumque assumenda quaerat
+          placeat nemo tempora molestias.</div>
+        <div class="description1">Description</div>
+      </div>
+    </div>
+    <div class="frame-fiche-tech1" id="frame-fiche-tech1">
+      <div class="frame-fiche-tech-child"></div>
+      <div class="fiche-technique1">Fiche technique</div>
+      <table class="tableau">
+        <tr>
+          <td>type de produit</td>
+          <td id="typepr">Montre</td>
+        </tr>
+        <tr>
+          <td>Genre</td>
+          <td id="typegr">Femme</td>
+        </tr>
+        <tr>
+          <td>code barrre</td>
+          <td id="barre">838301381</td>
+        </tr>
+        <tr>
+          <td>Poids</td>
+          <td id="poids">5kg</td>
+        </tr>
+      </table>
+    </div>
+    <div class="frame-reviews1" - id="frame-reviews1">
+
+      <div class="frame-reviews-child"></div>
+      <div class="reviews1">Reviews</div>
+      <div class="checked-reviews-12">Moayen reviews </div>
+      <div class="comments-nb-comments">Comments <span id="nb-comment">(nb-comments)</span>
+        <div class="frame-comment">
+          <div id="commentsContainer"></div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="div13">
+          <b id="moyrev">3.6</b>
+          <span class="span">/5</span>
+        </div>
+        <!-- <img class="stars-icon4" alt="" src="../../public/stars3.svg" /> -->
+        <div class="stars-icon4" id="reviewContainer"></div>
+        <div class="reviews2"><span id="nb-reviews">12</span> Reviews</div>
+      </div>
+      <!-- <div class="frame-show-more">
+        <div class="show-more">
+          <a href="../html/guest.html" id="show-more">
+            <button class="show-more1">show-more
+            </button>
+          </a>
+          <img class="show-more-child" alt="" src="../../public/line-36.svg" />
+          <img class="show-more-item" alt="" src="../../public/line-37.svg" />
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <br><br><br>
+  <br><br>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    var ab = localStorage.getItem('token')
+
+    console.log(localStorage.getItem("productIdSeller"));
+
+    console.log(ab)
+  </script>
+  <script>
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products', {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }).then((response) => {
+      console.log(response.data.data)
+    })
+      .catch((error) => {
+        console.error('Erreur lors de la suppression du produit:', error);
+      });
+
+
+    // copy link
+    var copyButton = document.getElementById('copyButton');
+    var linkInput = document.getElementById('linkInput');
+
+    copyButton.addEventListener('click', function () {
+      // Get the URL of the current page
+      var currentUrl = window.location.href;
+
+      // Copy the URL to the clipboard
+      navigator.clipboard.writeText(currentUrl).then(function () {
+        // Write the URL to the input field
+        linkInput.value = currentUrl;
+        alert('Link copied!');
+      }).catch(function (err) {
+        console.error('Failed to copy link: ', err);
+      });
+    });
+
+
+    // pop up
+    var delet = document.getElementById('delet');
+    var confirmationPopup = document.getElementById('confirmationPopup');
+    var confirmYes = document.getElementById('confirmYes');
+    var confirmNo = document.getElementById('confirmNo');
+
+    delet.addEventListener('click', function () {
+      confirmationPopup.style.display = 'block';
+    });
+
+    confirmYes.addEventListener('click', function () {
+      // Code to execute when "Yes" is clicked
+      confirmationPopup.style.display = 'produit suprimé';
+      deleteProduct(productid);
+    });
+
+    confirmNo.addEventListener('click', function () {
+      // Code to execute when "No" is clicked
+      confirmationPopup.style.display = 'none';
+    });
+
+    // variables
+
+
+    let titre = document.getElementById('titre');
+    let nbavis = document.getElementById('nbavis');
+    let price = document.getElementById('price');
+    let mark = document.getElementById('mark');
+    let reduction = document.getElementById('reduction');
+    let ancien = document.getElementById('ancien');
+    let proddispo = document.getElementById('prod-dispo');
+    let nbstock = document.getElementById('nb-stock');
+    let nbsales = document.getElementById('nb-sales');
+    let nbprocess = document.getElementById('nb-in-process');
+    // let nbretour = document.getElementById('nb-retour');
+    let classement = document.getElementById('classement');
+    let agence = document.getElementById('agence-a-name');
+    let typeliv = document.getElementById('typeliv');
+    let description = document.getElementById('description');
+    let typegr = document.getElementById('typegr');
+    let typepr = document.getElementById('typepr');
+    let poids = document.getElementById('poids');
+    let barre = document.getElementById('barre');
+    let moyrev = document.getElementById('moyrev');
+    let nbreviews = document.getElementById('nb-reviews');
+    let nbcomment = document.getElementById('nb-comment');
+    // let mainImage = document.getElementById('mainImage');
+
+
+
+
+    //essaie
+
+    var newTitle = "";
+    titre.textContent = newTitle;
+
+
+    //color
+    // Tableaux des couleurs HTML
+
+    //options 
+
+
+    //share tweet 
+    // Fonction pour récupérer le lien de la page
+    function getLink() {
+      return window.location.href;
+    }
+
+    // Fonction pour gérer le clic sur le bouton
+    function shareOnTwitter() {
+      // Récupérer le lien de la page
+      var link = getLink();
+
+      // Créer l'URL de la page de publication de Twitter avec le lien en tant que texte du tweet
+      var tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(link);
+
+      // Rediriger l'utilisateur vers la page de publication de Twitter
+      window.location.href = tweetUrl;
+    }
+
+    // Attacher l'événement de clic au bouton
+    var shareButton = document.getElementById("shareButton");
+    shareButton.addEventListener("click", shareOnTwitter);
+
+    //share insta 
+    <!-- Bouton dans votre site web -->
+
+    // Fonction pour récupérer le lien de la page
+    function getLink() {
+      return window.location.href;
+    }
+
+    // Fonction pour gérer le clic sur le bouton
+    function shareOnInstagram() {
+      // Récupérer le lien de la page
+      var link = getLink();
+
+      // Créer le texte de la légende pour la publication Instagram
+      var captionText = "Vérifiez ce lien : " + link;
+
+      // Pré-remplir la légende dans Instagram
+      var instagramUrl = "https://www.instagram.com/?url=" + encodeURIComponent(captionText);
+
+      // Rediriger l'utilisateur vers Instagram
+      window.location.href = instagramUrl;
+    }
+
+    // Attacher l'événement de clic au bouton
+    var shareButton = document.getElementById("shareButton1");
+    shareButton.addEventListener("click", shareOnInstagram);
+
+    var token = localStorage.getItem('token')
+    //id
+    // let productid = "647a34d9d1deece3c633b352"
+    let productid = localStorage.getItem('productIdSeller')
+
+
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    })
+      .then(function (response) {
+
+        var a = response.data.data;
+        console.log(a)
+        // var a = response.data;
+        titre.textContent = a.title
+        price.textContent = a.priceAfterDiscount + " $"
+        ancien.textContent = a.price + " $"
+        proddispo.textContent = a.quantity
+        description.textContent = a.description
+        nbstock.textContent = a.quantity
+        typepr.textContent = a.category.name
+        typeliv.textContent = a.delivery.name
+        // mark.textContent = a.category
+        reduction.textContent = (((a.price - a.priceAfterDiscount) * 100) / a.price).toFixed(2)
+
+        //options 
+        // Récupérer la ligne des options
+        //review
+
+        //reviewnb
+
+        //nb-review
+        nbreviews.textContent = a.totalRating
+        nbavis.textContent = a.totalRating + " avis"
+        moyrev.textContent = a.ratingAverage
+        var nbReview = a.ratingAverage;
+
+        var reviewContainer = document.getElementById('reviewContainer');
+
+        function generateStarRating(ratingAverage) {
+          var starRatingElement = document.createElement('div');
+          starRatingElement.className = 'star-rating';
+
+          for (var i = 1; i <= 5; i++) {
+            var starSpan = document.createElement('span');
+            starSpan.className = 'star';
+
+            if (i <= ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+            } else if (i - 0.5 === ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+              starSpan.style.setProperty('clip-path', 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'); // Clip le contenu pour afficher la moitié de l'étoile
+            } else {
+              starSpan.style.visibility = 'hidden'; // Étoile vide (masquée)
+            }
+
+            starRatingElement.appendChild(starSpan);
+          }
+
+          return starRatingElement.innerHTML;
+        }
+
+        var reviewElement = document.createElement('div');
+        reviewElement.className = 'review';
+
+        var ratingElement = document.createElement('div');
+        ratingElement.className = 'rating';
+        ratingElement.innerHTML = generateStarRating(nbReview);
+
+        reviewElement.appendChild(ratingElement);
+        reviewContainer.appendChild(reviewElement);
+
+
+        var options = [];
+        var optionsRow = document.getElementById("optionsRow");
+
+        // Boucle pour parcourir le tableau color
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+
+          // Boucle pour parcourir le tableau size
+          for (var j = 0; j < color.size.length; j++) {
+            var taille = color.size[j].taille;
+
+            // Vérifier si la taille n'est pas déjà présente dans les options
+            if (!options.includes(taille)) {
+              // Créer une cellule pour l'option
+              var optionCell = document.createElement("td");
+              optionCell.classList.add("option-cell");
+              optionCell.innerHTML = taille;
+
+              // Ajouter la cellule d'option à la ligne
+              optionsRow.appendChild(optionCell);
+
+              // Ajouter la taille à la liste des options pour éviter les doublons
+              options.push(taille);
+            }
+          }
+        }
+        // a.imageCover,
+        //  a.images[0],
+        //  a.images[0],
+        //  a.images[0],
+        //  a.images[0],
+        //color 
+        // Récupérer les lignes des couleurs pour chaque tableau
+        var couleursRow1 = document.getElementById("couleursRow1");
+        var couleursRow2 = document.getElementById("couleursRow2");
+        var couleursRow3 = document.getElementById("couleursRow3");
+        var couleursRow4 = document.getElementById("couleursRow4");
+        var couleursRow5 = document.getElementById("couleursRow5");
+
+        // Fonction pour ajouter les couleurs à une ligne donnée
+        function ajouterCouleurs(couleurs, row) {
+          // Boucle pour ajouter chaque couleur dans la ligne
+          for (var i = 0; i < 5; i++) {
+            if (i >= couleurs.length) {
+              break; // Sortir de la boucle si on atteint la fin du tableau
+            }
+            var couleur = couleurs[i].hexaColor;
+
+            // Créer une cellule pour la couleur
+            var couleurCell = document.createElement("td");
+            couleurCell.classList.add("couleur-cell");
+            couleurCell.style.backgroundColor = couleur;
+
+            // Ajouter la cellule de couleur à la ligne
+            row.appendChild(couleurCell);
+          }
+        }
+
+        // Parcourir le tableau color dans le backend
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+          var couleurs = color.colors;
+
+          // Ajouter les couleurs à chaque ligne de tableau
+          if (i === 0) {
+            ajouterCouleurs(couleurs, couleursRow1);
+          } else if (i === 1) {
+            ajouterCouleurs(couleurs, couleursRow2);
+          } else if (i === 2) {
+            ajouterCouleurs(couleurs, couleursRow3);
+          } else if (i === 3) {
+            ajouterCouleurs(couleurs, couleursRow4);
+          } else if (i === 4) {
+            ajouterCouleurs(couleurs, couleursRow5);
+          }
+        }
+        //photos 
+        // image scrool
+        var mainImage = document.getElementById('mainImage');
+        var thumbnailContainer = document.getElementById('thumbnailContainer');
+
+        // Afficher l'image principale
+        mainImage.setAttribute('src', a.imageCover);
+        mainImage.classList.add('main-image');
+        // Générer les miniatures des images
+        for (var i = 0; i < a.images.length && i <= 5; i++) {
+          var thumbnail = document.createElement('img');
+          thumbnail.setAttribute('src', a.images[i]);
+          thumbnail.setAttribute('alt', 'Thumbnail ' + i + 1);
+
+          // Ajouter la classe CSS pour le style des miniatures
+          thumbnail.classList.add('thumbnails-img');
+
+          // Gérer le clic sur la miniature
+          thumbnail.addEventListener('click', function () {
+            var currentImageSrc = mainImage.getAttribute('src');
+            var clickedImageSrc = this.getAttribute('src');
+            mainImage.setAttribute('src', clickedImageSrc);
+            this.setAttribute('src', currentImageSrc);
+          });
+
+          thumbnailContainer.appendChild(thumbnail);
+        }
+
+        console.log(a)
+      })
+      .catch(function (error) {
+        console.error('Error fetching categories:', error);
+      });
+
+    // Fetch review data from the backend using Axios (replace with your actual endpoint)
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid + '/reviews')
+      .then(function (response) {
+        let commentsData = response.data.data
+        console.log(commentsData)
+
+
+
+        var commentsContainer = document.getElementById('commentsContainer');
+
+        function generateStarRating(ratingAverage) {
+          var starRatingElement = document.createElement('div');
+          starRatingElement.className = 'star-rating';
+
+          for (var i = 1; i <= 5; i++) {
+            var starSpan = document.createElement('span');
+            starSpan.className = 'star';
+
+            if (i <= ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+            } else if (i - 0.5 === ratingAverage) {
+              starSpan.textContent = '★'; // Étoile pleine (caractère Unicode)
+              starSpan.style.setProperty('clip-path', 'polygon(0 0, 50% 0, 50% 100%, 0 100%)'); // Clip le contenu pour afficher la moitié de l'étoile
+            } else {
+              starSpan.style.visibility = 'hidden'; // Étoile vide (masquée)
+            }
+
+            starRatingElement.appendChild(starSpan);
+          }
+
+          return starRatingElement.innerHTML;
+        }
+
+        // Génération et remplissage des commentaires
+        for (var i = 0; i < commentsData.length; i++) {
+          var comment = commentsData[i];
+
+          var commentElement = document.createElement('div');
+          commentElement.className = 'comment';
+
+          var authorElement = document.createElement('div');
+          authorElement.className = 'author';
+          authorElement.textContent = comment.users.name;
+
+          var contentElement = document.createElement('div');
+          contentElement.className = 'content';
+          contentElement.textContent = comment.description;
+
+          var ratingElement = document.createElement('div');
+          ratingElement.className = 'rating';
+          ratingElement.innerHTML = generateStarRating(comment.rating);
+
+          var dateElement = document.createElement('div');
+          dateElement.className = 'date';
+          dateElement.textContent = 'Date : ' + comment.createdAt;
+
+          commentElement.appendChild(authorElement);
+          commentElement.appendChild(contentElement);
+          commentElement.appendChild(ratingElement);
+          // commentElement.appendChild(dateElement);
+          commentsContainer.appendChild(commentElement);
+        }
+
+        nbcomment.textContent = commentsData.length;
+
+
+        // Call a function to populate the reviews with the retrieved data
+      })
+      .catch(function (error) {
+        console.error('Failed to fetch reviews: ', error);
+      });
+
+    function deleteProduct(productid) {
+      axios
+        .delete(`https://buy-it-sigma.herokuapp.com/api/v1/products/${productid}`, {
+          headers: {
+            Authorization: 'Bearer ' + ab,
+          },
+        })
+        .then((response) => {
+          // Produit supprimé avec succès, afficher le message et rediriger
+          alert('Produit supprimé');
+          window.location.href = './dash_product.html'; // Redirection vers la page guest.html
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression du produit:', error);
+        });
+    }
+
+
+
+  </script>
+</body>
+
+</html>

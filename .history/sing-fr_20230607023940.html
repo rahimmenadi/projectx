@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignIn&SignUp</title>
+    <link rel="stylesheet" type="text/css" href="./sing-fr.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  
+  </head>
+  <body>
+    <div class="container">
+      
+      
+      
+      <div class="forms-container">
+        <div class="signin-signup">
+          
+          
+          <form action="" class="sign-in-form" id="form">
+            <h2 class="title">Welcome</h2>
+          
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email"required />
+              <div class="error"></div>
+            </div>
+            <div class="input-field">
+
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Password" required />
+              <div class="error"></div>
+            </div>
+            <input type="button" id="btn-login" value="Login" class="btn solid" >
+            
+           
+         
+              <a class="i-agree-to-container1" target="_blank">
+                <div class="i-agree-to-the-buy-it-terms-of-wrapper">
+                  <input
+                class="checkboxdefault-checkbox-and"
+                type="checkbox"
+                required>
+                <span class="i-agree-to1"> I agree to the Buy-it </span>
+                <span class="terms-of-service2">Terms of service</span>
+                <span class="i-agree-to1"> and </span>
+                <span class="terms-of-service2">Privacy Policy.</span>
+              </a>
+         
+            </div>
+
+           
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              
+            </div>
+          </form>
+
+
+          
+            
+              </a>
+            </div>
+            <p id="error-message" class="error-message"></p>
+    <p id="success-message" class="success-message"></p>
+          </form>
+        </div>
+      </div>>
+      <div class="panels-container">
+
+        <div class="panel left-panel">
+            <div class="content">
+              
+            <button class="buy-it2">
+              <img src="./public/shoppingbag-1@2x.png" alt="">Buy-it
+              
+            </button>
+            
+                <h3>New here?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est.</p>
+                
+                <button class="btn transparent" id="sign-up-btn">become saller</button>
+            
+            </div>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_aa0wy04q.json"  background="transparent"  speed="1"  style="width: 470px; height: 470px;"  loop  autoplay></lottie-player>
+
+        </div>
+
+        
+    </div>
+<script>
+  let regester=document.getElementById('sign-up-btn'); 
+  regester.addEventListener('click',function(e){
+    e.preventDefault();
+    window.location.assign('./sallerinfos.html')
+    
+  })
+</script>
+    
+    <script>
+      
+      const errorMessage = document.getElementById('error-message');
+      if(sessionStorage.getItem('token')){
+          console.log(sessionStorage.getItem('token'))
+
+      }
+
+
+    var button=document.getElementById("btn-login");
+      
+    
+     
+    
+  
+
+      button.addEventListener("click",function(e){
+        validateInputs()
+          console.log("hiii");
+          e.preventDefault(); 
+          
+          let email=document.getElementById("email").value;
+
+          
+          let password=document.getElementById("password").value
+          
+          axios.post('https://buy-it-sigma.herokuapp.com/api/v1/auth/login',{email,password}).then((response)=>{console.log(response.data)
+           
+            if(response.data.data.role=='seller'){
+              Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'welcome !',
+                  showConfirmButton: false,
+                  timer: 2000
+                })
+                console.log(response.data.data.role)
+              
+              const timer = setTimeout(function() {
+                  // Redirect to another page
+                  window.location.replace('./src/html/dash-1.html');
+                },3000);
+        
+                let token=localStorage.setItem('sellertoken',response.data.token)
+                console.log(token)
+             }
+             else{
+
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Your are not seller!',
+                
+                })
+             }
+       
+}).catch((error)=>{console.log(error.response.data)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong check Your Inputs!',
+            
+            }) ;}
+          )})
+          
+
+  </script>
+  <script>
+    const form = document.getElementById('form');
+   
+  const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+form.addEventListener('submit', e => {
+  ValidityState();
+  validateInputs();
+    e.preventDefault();
+
+    validateInputs();
+});
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const validateInputs = () => {
+  
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    
+
+ 
+
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
+    }
+
+    if(passwordValue === '') {
+        setError(password, 'Password is required');
+      button.disable=true;
+    } else if (passwordValue.length < 8 ) {
+        setError(password, 'Password must be at least 8 character.')
+    } else {
+        setSuccess(password);
+    }
+
+};
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+ 
+  </body>
+</html>

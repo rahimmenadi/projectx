@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product details</title>
+    <link rel="stylesheet" href="../css/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+<body>
+    <div id="page" class="site page-single">
+        <aside class="site-off desktop-hide">
+            <div class="off-canvas">
+                <div class="canvas-head flexitem">
+                    <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                    <a href="/home.html" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="departments"></div>
+                <nav></nav>
+                <div class="thetop-nav"></div>
+            </div>
+        </aside>
+        <header>
+            <div class="header-top mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <ul class="flexitem main-links">
+                                
+                                <li><a href="#">Featured Products</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem main-links">
+                                <li id="sign-up-home"><a href="#">Sign Up</a></li>
+                                <li id="my-account-home"><a href="/home.html">My Account</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                              
+                                </li>
+                               
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-top -->
+            <div class="header-nav">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                        <div class="left flexitem">
+                            <div class="logo"><a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a></div>
+                            <nav class="mobile-hide">
+                                <ul class="flexitem second-links">
+                                    <li><a href="/home.html">Home</a></li>
+                                    <li><a href="#">Shop</a></li>
+                                    
+                                    <li><a href="#">Men</a></li>
+                                    <li>
+                                        <a href="#">Sports
+                                            <div class="fly-item"><span>New!</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem second-links">
+                                <li id="wish-list-icon-home" class="mobile-hide"><a href="/src/html/wishlist.html">
+                                        <div class="icon-large"><i class="ri-heart-line"></i></div>
+                                        <div class="fly-item"><span id="wishlistnumber" class="item-number">0</span></div>
+                                    </a></li>
+                                <li><a  href="/src/html/cart.html" class="iscart">
+
+                                        <div class="icon-large">
+                                            <i class="ri-shopping-cart-line"></i>
+                                            <div class="fly-item"><span id="cartnumber" class="item-number">0</span></div>
+                                        </div>
+
+                                        <div id="total-is-js" class="icon-text">
+                                            
+                                            <div class="mini-text">Total</div>
+                                            <div id="total-cart-home" class="cart-total">$0.00</div>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-nav -->
+
+            <div class="header-main mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <div id="categories-container" class="dpt-cat">
+                                
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="search-box">
+                                <form action="" id="myform" class="search">
+                                    <span class="icon-large"><i class="ri-search-line"></i></span>
+                                    <input id="searchis" type="search" placeholder="Search">
+                                    <button id="search-btn" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-main -->
+
+        </header>
+        <!-- Header -->
+        <main>
+            <div class="panier-main">
+                <div class="container">
+                    <div class="section-all">
+                        <div class="product-section">
+                            <div class="main-text">Orders And Shipping</div>
+                        </header>
+                        <div class="product-vertical">
+                          <div class="container">
+                            
+            
+                          
+                          </div>
+                        </div>
+                            <div class="container" id="select-choice">
+                                <div id="choice-1">
+                                    
+                                    <table class="product-table">
+                                        <thead id="table-head-content">
+                                            
+                                        </thead>
+                                        <tbody id="table-content-js">
+                                            
+            
+                                            
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div id="choice-2">
+                                <div class="section2">
+                                    
+                                    <div class="container" id="product-container-dash">
+                                        
+                                        
+                                        
+                                                            </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                  
+                </div>
+            </div>
+        </main>
+        <!-- Main -->
+
+        <footer>
+            <div class="newsletter">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="box">
+                            <div class="content">
+                                <h3>Join Now</h3>
+                                <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                            </div>
+                            <form action="" class="search">
+                                <span class="icon-large"><i class="ri-mail-line"></i></span>
+                                <input type="mail" placeholder="Your email address" required>
+                                <button type="submit">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- newsletter -->
+
+            <div class="widgets">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexwrap">
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Help & Contact</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Your Account</a></li>
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping Rates</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Assistant</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Product Categories</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Beauty</a></li>
+                                        <li><a href="#">Electronic</a></li>
+                                        <li><a href="#">Women's Fashion</a></li>
+                                        <li><a href="#">Men's Fashion</a></li>
+                                        <li><a href="#">Girl's Fashion</a></li>
+                                        <li><a href="#">Boy's Fashion</a></li>
+                                        <li><a href="#">Health & Household</a></li>
+                                        <li><a href="#">Home & Kitchen</a></li>
+                                        <li><a href="#">Pet Supplies</a></li>
+                                        <li><a href="#">Sports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Payment Info</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Bussiness Card</a></li>
+                                        <li><a href="#">Shop with Points</a></li>
+                                        <li><a href="#">Reload Your Balance</a></li>
+                                        <li><a href="#">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>About Us</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="">Company Info</a></li>
+                                        <li><a href="">News</a></li>
+                                        <li><a href="">Investors</a></li>
+                                        <li><a href="">Careers</a></li>
+                                        <li><a href="">Policies</a></li>
+                                        <li><a href="">Customer reviews</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- widgets-->
+
+            <div class="footer-info">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexcol">
+                            <div class="logo">
+                                <a href="/home.html"><img src="./assets/banner/logo54 1.png" alt=""></span>Buy-it</a>
+                            </div>
+                            <div class="socials">
+                                <ul class="flexitem">
+                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-youtube-line"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mini-text">Copyright 2022 © .Store. All right reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Trending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <i class="ri-shopping-cart-line"></i>
+                                    <span>Cart</span>
+                                    <div class="fly-item">
+                                        <span class="item-number" id="cart-number-one">0</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- menu bottom -->
+
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <form id="myformone" class="search">
+                        <a href="#" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+
+                            <span class="icon-large"><i class="ri-search-line"></i></span>
+                            <input id="searchisis" type="search" placeholder="Search for products">
+                            <button onclick="searchclick()"  id="searchis-btn" type="submit">Search</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- search bottom -->
+
+        <div class="overlay"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+    
+console.log(token);
+var token = localStorage.getItem('token')
+console.log(token)
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/wishlist', {
+    headers: {
+       Authorization: 'Bearer ' + token
+      }
+  })
+  .then(response => {
+            console.log("wishhhlist")
+            console.log(response.data.data.length)
+   $('#wishlistnumber').text(response.data.data.length)
+   
+   console.log("wishhhlist")
+
+
+  })
+  .catch(error => {
+    console.error('Error adding product:', error);
+  });
+
+axios.get('https://buy-it-sigma.herokuapp.com/api/v1/cart', {
+    headers: {
+        Authorization: 'Bearer ' + token
+      }
+  })
+  .then(response => {
+    $("#cartnumber").text(response.data.data.cartItems.length)
+    $(".cart-total").text(response.data.data.totalCartPrice+' $');
+    console.log(response.data)
+ 
+              
+   
+  })
+  .catch(error => {
+   
+  });
+
+let productList = [];
+function sendProductId(k){
+    localStorage.setItem('orderIdUser',orderslist[k]._id);
+    
+    window.location.assign('..//html/userdelivreytrack.html');
+}
+//display product
+function displayorders(ordering){
+    if(ordering=="asc"){
+        console.log("shit")
+        let table='';
+        for (let i=0 ; i < orderslist.length; i++) {
+            table = table +`
+            <div onclick="sendProductId(${i})" class="items">
+                <div class="img img1">
+                    <img
+                        src="${orderslist[i].cartItems[0].product.imageCover}"
+                        alt=""
+                    />
+                </div>
+                <div class="name">${orderslist[i].cartItems[0].product.title}</div>
+                <div class="info">
+                ${orderslist[i].createdAt} 
+                </div>
+                <div class="foot-items">
+                    <div class="prices">
+                        <div class="price">${orderslist[i].totalOrderPrice}.99 USD</div>
+                        <div class="price">City: ${orderslist[i].shippingAddress.city}</div>
+                     <div class="price">Phone: ${orderslist[i].shippingAddress.phone}</div>
+                     <div class="price">Seller: ${orderslist[i].seller.name}</div>
+
+
+                        
+                       
+                    </div>
+                   
+                </div>
+                
+            </div>
+            `;
+        
+        document.getElementById('product-container-dash').innerHTML = table;
+       
+        }
+        
+        
+        
+    }else if(ordering=="des"){
+        console.log("hi in tow")
+        let table='';
+        for (let i=0 ; i < orderslist.length; i++) {
+            table = `
+            <div class="items">
+                <div class="img img1">
+                    <img
+                        src="${orderslist[i].cartItems[0].product.imageCover}"
+                        alt=""
+                    />
+                </div>
+                <div class="name">${orderslist[i].title}</div>
+                <div class="info">
+                ${orderslist[i].description} lkdfsjlfddsafsdfadfasdfasdsdfsd
+                </div>
+                <div class="foot-items">
+                    <div class="prices">
+                        <div class="price">${orderslist[i].priceAfterDiscount}.99 USD</div>
+                        <div class="old-price">${orderslist[i].totalOrderPrice} USD</div>
+                    </div>
+                    <div class="review">
+                        <div class="review-is">${orderslist[i].ratingAverage}</div>
+                        <img class="start-img" src="/star.png" alt="">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            ` + table;
+        
+        document.getElementById('product-container-dash').innerHTML = table;
+       
+        }
+        
+        
+        
+    }
+
+    
+}
+
+//topper
+
+
+
+// Define the Product class
+// class Product {
+//     constructor(name, category, review, link, img, description, quantity, price, oldPrice) {
+//       this.name = name;
+//       this.category = category;
+//       this.review = review;
+//       this.link = link;
+//       this.img = img;
+//       this.description = description;
+//       this.quantity = quantity;
+//       this.price = price;
+//       this.oldPrice = oldPrice;
+//     }
+//   }
+
+
+
+  axios.get('https://buy-it-sigma.herokuapp.com/api/v1/orders', {
+    headers: {
+        Authorization: `Bearer ${token}`
+      }})
+  .then(response => {
+    orderslist = response.data.data;
+    
+console.log(response.data.data)
+    displayorders("asc");
+  })
+  .catch(error => {
+    console.log(error)
+  });
+
+
+// console.log(productList)
+
+{/* <div class="items">
+                                <div class="img img1">
+                                    <img
+                                        src="https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="name">SHOES</div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur.sdfsdfasd sadf adsf ads fa dsf asd dasfk;k; ;ok;lk;jljlhkjh kjhk hk hk jh kjh kjhk jh
+                                </div>
+                                <div class="price">48 USD</div>
+                                <div class="old-price">55 USD</div>
+                                <div class="review">
+                                    <div class="review-is">4.8</div>
+                                    <img class="start-img" src="star.png" alt="">
+                                    
+                                </div>
+                                
+                            </div> */}
+
+</script>
+</html>
