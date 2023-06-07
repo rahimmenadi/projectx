@@ -4233,7 +4233,6 @@ input[type="range"]::-webkit-slider-thumb {
   }
     
 
-<<<<<<< HEAD
 .filter-container-class .wrapper {
   width: 300px;
   margin-top: 10px;
@@ -4563,7 +4562,6 @@ input[type="range"]::-webkit-slider-thumb {
 		0% { transform: rotate(0deg); }
 		100% { transform: rotate(360deg); }
 	  }
-=======
 
 .section2 .container .items .info {
     padding-left:10px;
@@ -4604,4 +4602,3 @@ input[type="range"]::-webkit-slider-thumb {
    
 }
 
->>>>>>> 199d054e8ceeffd4334f698a80168f909a9ed41f
