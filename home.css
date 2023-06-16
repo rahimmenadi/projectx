@@ -47,6 +47,8 @@ Fonts:
 	box-sizing: border-box;
 }
 
+
+
 body {
 	font-family: "Rubik", sans-serif;
 	font-size: 16px;
@@ -3913,4 +3915,19 @@ input[type="range"]::-webkit-slider-thumb {
 	height: 700px;
 	object-fit: cover;
 	border-radius: 7px;
+}
+
+.main-links a {
+    width: auto;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.main-linksis a {
+    width: 220px;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

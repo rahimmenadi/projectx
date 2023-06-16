@@ -599,23 +599,26 @@ btn_apply_coupoun.addEventListener("click" , ()=>{
   console.log(coupoun_text.value);
 
 
-  axios.post('https://buy-it-sigma.herokuapp.com/api/v1/cart/applyCoupon', { coupon: coupoun_text.value }, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then(response => {
-      const newTotalPrice = response.data.totalPriceAfterDiscount;
-      console.log('New Total Price:', newTotalPrice);
-      subtotal_items_price.textContent=newTotalPrice;
-      coupoun_discount.textContent="0";
-      shipping_price.textContent="Not Free";
-      total_price_summary.textContent=newTotalPrice;
-  
+  // Assuming you have the coupon code stored in a variable called "couponCode"
 
-    })
-    .catch(error => {
-      console.error('Error applying coupon:', error);
-    });
+axios.patch('https://buy-it-sigma.herokuapp.com/api/v1/cart/applyCoupon', { coupon: coupoun_text.value }, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  }
+})
+.then(response => {
+  // const newTotalPrice = response.data.totalPriceAfterDiscount;
+  // console.log('New Total Price:', newTotalPrice);
+  // subtotal_items_price.textContent=newTotalPrice;
+  // coupoun_discount.textContent="0";
+  // shipping_price.textContent="Not Free";
+  // total_price_summary.textContent=newTotalPrice;
+  console.log("jih")
+
+})
+.catch(error => {
+  console.error('Error applying coupon:', error);
+});
+
 
 })

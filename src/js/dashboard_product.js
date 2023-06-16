@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 199d054e8ceeffd4334f698a80168f909a9ed41f
 const token = localStorage.getItem("sellertoken")
 console.log(token);
 
@@ -14,7 +11,6 @@ function sendProductId(k){
 //display product
 function displayProduct(ordering){
     if(ordering=="asc"){
-        console.log("shit")
         let table='';
         for (let i=0 ; i < productList.length; i++) {
             table = table +`

@@ -1,18 +1,14 @@
-const express =require("express");
+const express = require("express");
 const path = require("path");
-const publicPath = path.join(__dirname, "/views");
 const app = express();
+app.use(express.static(path.join(__dirname + "/../projectx")))
+var cors = require('cors')
 
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
-
-app.get("/ ", (req, res) => {
-    res.render("sing-up-client.html");
+app.use(cors())
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
   });
-  
-  app.listen(3000, () => {
-    console.log("Server in port 3000 is up");
-  });
-  
-  
+app.listen(6000 , () => {
+    console.log("app is aploard seccussfully")
+})

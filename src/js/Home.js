@@ -691,7 +691,7 @@ function displayProduct(){
                     <li><a  onclick="sendProductIdCard(${i})"  ><span class="iconify" data-icon="iconoir:shopping-bag-add"></span></a></li>
                 </ul>
             </div>
-            <div class="discount circle flexcenter"><span>${AllProductList[i].price/AllProductList[i].priceAfterDiscount*100}%</span></div>
+            <div class="discount circle flexcenter"><span>${(AllProductList[i].price/AllProductList[i].priceAfterDiscount*100).toFixed(1)}%</span></div>
         </div>
         <div class="content">
         
@@ -739,10 +739,10 @@ for (let i = 1; i < 9; i++) {
                         <img src="${BestProductList[i].imageCover}" alt="">
                     </a>
                 </div>
-                <div class="discount circle flexcenter"><span>${BestProductList[i].price/BestProductList[i].priceAfterDiscount}%</span></div>
+                <div class="discount circle flexcenter"><span>${(BestProductList[i].price/BestProductList[i].priceAfterDiscount).toFixed(1)}%</span></div>
             </div>
             <div class="content">
-                <h3 class="main-links"><a href="#">${BestProductList[i].description}</a></h3>
+                <h3 class="main-linksis"><a href="#">${BestProductList[i].description}</a></h3>
                 
                 <div class="rating">
                 <div style="width:${BestProductList[i].ratingAverage/5*80}px" class="stars"></div>
@@ -769,7 +769,7 @@ for (let i = 1; i < 9; i++) {
                         <img src="${BestProductList[i].imageCover}" alt="">
                     </a>
                 </div>
-                <div class="discount circle flexcenter"><span>${BestProductList[i].price/BestProductList[i].priceAfterDiscount}%</span></div>
+                <div class="discount circle flexcenter"><span>${(BestProductList[i].price/BestProductList[i].priceAfterDiscount).toFixed(2)}%</span></div>
             </div>
             <div class="content">
                 <h3 class="main-links"><a href="#">${BestProductList[i].title}</a></h3>
